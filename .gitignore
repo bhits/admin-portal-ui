@@ -1,0 +1,40 @@
+# Generated AngularJS configuration module #
+client/app/config/
+
+# Bower dependencies #
+vendor/
+
+# Dependency directory #
+# https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git-
+node_modules/
+node/
+
+# Debug log from npm #
+npm-debug.log
+
+# Generated Artifacts #
+target
+bin
+*.class
+.sass-cache
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# IDEA files/directories #
+.idea/
+.idea_modules/
+*.ipr
+*.iws
+*.iml
+
+# IntelliJ #
+out/
+
+# Others #
+*.roo
+*.tmp
+*.zip
+*.DS_Store
