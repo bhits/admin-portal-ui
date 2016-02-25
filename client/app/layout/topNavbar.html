@@ -1,0 +1,35 @@
+
+<nav class="navbar navbar-fixed-top height-55 gray-bg border-bottom" role="navigation" style="margin-bottom: 0;" ng-class="{'margin-left-220': AppVm.togglebar}">
+    <div class="container-fluid">
+        <div class="row ">
+            <div class="col-sm-12">
+                <div class="navbar-header">
+                    <span pp-minimaliza-sidebar togglesidebar="AppVm.toggleSideBar()"></span>
+                </div>
+                <div class="pull-right">
+                    <div class="navbar-brand top-padding10">
+                        <img src="assets/img/mhc_grey.png" alt="mhc logo grey" height="40px">
+                    </div>
+                </div>
+                <ul class="nav navbar-top-links modified navbar-right">
+                    <li>
+                    <span class="m-r-sm welcome-message">
+                        Welcome
+                    </span>
+                    </li>
+                    <li>
+                        <oauth
+                        site="{{AppVm.oauth.site}}"
+                        client-id="{{AppVm.oauth.clientId}}"
+                        redirect-uri="{{AppVm.oauth.redirectUri}}"
+                        profile-uri="{{AppVm.oauth.profileUri}}"
+                        scope="{{AppVm.oauth.scope}}"
+                        template="{{AppVm.oauth.template}}"
+                        state="{{AppVm.oauth.state}}">
+                        </oauth>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>

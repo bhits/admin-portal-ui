@@ -1,0 +1,32 @@
+{
+  "name": "testbed",
+  "version": "0.8.0",
+  "description": "Proof of concept",
+  "license": "Copyright @FEi Systems",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.4.8",
+    "angular-resource": "1.4.8",
+    "angular-sanitize": "1.4.8",
+    "angular-aria": "1.4.8",
+    "angular-loading-bar": "0.8.x",
+    "angular-bootstrap": "0.14.x",
+    "angular-ui-router": "0.2.x",
+    "checklist-model": "0.8.x",
+    "oauth-ng": "0.4.x",
+    "x2js":"1.2.x"
+  },
+  "devDependencies": {
+    "angular-mocks": "1.4.8"
+  },
+  "resolutions": {
+    "angular": "~1.4.8"
+  }
+}

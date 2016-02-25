@@ -1,0 +1,9 @@
+# application.yml template
+server:
+  contextPath: /admin-ui
+  port: 8451
+  ssl:
+    key-store: C:/ssl_keystore.keystore
+    key-store-password: changeit
+logging:
+  file: C:/java/MHC_LOGS/admin-ui/admin-ui.log

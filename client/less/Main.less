@@ -1,0 +1,645 @@
+.healthInfo {
+  table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 10px;
+  }
+  table > thead > tr > th,
+  table > tbody > tr > th,
+  table > tfoot > tr > th,
+  table > thead > tr > td,
+  table > tbody > tr > td,
+  table > tfoot > tr > td {
+    border-top: 1px solid #e7eaec;
+    line-height: 1.42857;
+    padding: 8px;
+    vertical-align: top;
+  }
+}
+
+/* Bootstrap Breakpoint Sizes */
+@bs-xs-max: 767px;
+@bs-sm-min: 768px;
+
+@bs-sm-max: 991px;
+@bs-md-min: 992px;
+
+@bs-md-max: 1199px;
+@bs-lg-min: 1200px;
+/* End Bootstrap Breakpoint Sizes */
+
+/* Sizing Variables */
+@padding-base-vertical: 6px;
+@padding-base-horizontal: 12px;
+
+@padding-large-vertical: 10px;
+@padding-large-horizontal: 16px;
+
+@padding-small-vertical: 5px;
+@padding-small-horizontal: 10px;
+
+@padding-xs-vertical: 1px;
+@padding-xs-horizontal: 5px;
+
+@line-height-base: 1.428571429; // 20/14
+@line-height-large: 1.33;
+@line-height-small: 1.5;
+
+@border-radius-base: 4px;
+@border-radius-large: 6px;
+@border-radius-small: 3px;
+
+@font-size-base: 14px;
+@font-size-large: 18px;
+@font-size-small: 12px;
+
+@footer-margin: auto;
+/* End of Sizing Variables */
+
+/* Color Variables */
+@pp-gray: #cccccc;
+@pp-medium-gray: #b3b3b3;
+@pp-dark-gray: #333333;
+@pp-dark-green: #256357;
+@pp-teal: #31A578;
+@pp-light-blue: #aed8ff;
+@pp-navy-blue: #005d98;
+@pp-dark-blue: #50687F;
+@pp-navbar-blue: #495969;
+@pp-navbar-dark-blue: #293846;
+@pp-navbar-blueGray: #607386;
+@pp-strong-blue: #0088CC;
+@pp-dark-red: #ac1d2c;
+/* End of Color Variables */
+
+/* Mixins */
+.highlight-component-border(){
+  border-color: @pp-strong-blue;
+  border-width: 2px;
+}
+
+.highlight-component-foreground(){
+  color: @pp-strong-blue;
+}
+
+/* End Mixins */
+
+/* Color Schemes */
+.pp-gray-white {
+  background-color: @pp-gray;
+  color: white;
+}
+/* End of Color Schemes */
+
+/* Components */
+.pp-block-text-bar {
+  display: block;
+  width: 100%;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  font-size: @font-size-base;
+  padding: @padding-base-vertical @padding-base-horizontal;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: transparent;
+  border-radius: @border-radius-base;
+  line-height: @line-height-base;
+  background-image: none;
+  margin-bottom: 5px;
+}
+
+.pp-block-text-bar_sm {
+  border-radius: @border-radius-small;
+  padding: @padding-small-vertical @padding-small-horizontal;
+  font-size: @font-size-small;
+  line-height: @line-height-small;
+}
+
+.pp-block-text-bar_default {
+  .pp-gray-white();
+  border-color: @pp-gray;
+}
+
+/* End of Components */
+
+/* consent */
+.border-bottom-red {
+  border-bottom: @pp-dark-red 3px solid;
+  padding-bottom: 5px;
+}
+
+.border-bottom-blue {
+  border-bottom: royalblue 3px solid;
+  padding-bottom: 5px;
+}
+
+/* Bug #7321:Create Consent :: Accordion (Chevrons) Not Appearing
+This implementation must be improved to prevent similar issues.
+.ibox .fa.fa-chevron-up {
+  color: white;
+}
+.ibox .fa.fa-chevron-down {
+  color: white;
+}
+*/
+
+.white .ibox-tools .fa.fa-chevron-up, .white .ibox-tools .fa.fa-chevron-down  {color: white;}
+
+.chevron_absolute {
+  position: absolute;
+  right: 30px;
+  z-index: 100;
+}
+
+.statusIcon_saved {
+  &:before {
+    font-family: FontAwesome;
+    content: '\f044';
+    font-size: 20px;
+    color: black;
+    position: absolute;
+    margin: -3px 0 0 -25px;
+  }
+}
+
+.statusIcon_signed {
+  &:before {
+    font-family: FontAwesome;
+    content: '\f05d';
+    font-size: 20px;
+    color: @pp-dark-green ;
+    position: absolute;
+    margin: -3px 0 0 -25px;
+  }
+}
+
+.statusIcon_revoked {
+  &:before {
+    font-family: FontAwesome;
+    content: '\f00d';
+    font-size: 20px;
+    color: black;
+    position: absolute;
+    margin: -3px 0 0 -25px;
+  }
+}
+
+
+/*modifications*/
+.ibox-title.modified {
+  border-style: none;
+  border-width: 0;
+  padding-top: 10px;
+}
+
+
+
+.ibox-content.modified {
+    border-style: none;
+    border-width: 0;
+    background-color: transparent;
+
+    p {
+      margin-bottom: 7px;
+    }
+}
+
+ .panel-heading.item-heading {
+   padding: 5px 15px;
+   border-radius: 4px;
+ }
+
+.navbar-top-links.modified li:last-child {
+    @media (max-width: @bs-xs-max) {
+        margin-right: 0;
+
+    }
+}
+
+.custom-header.modified {
+    height: auto;
+}
+
+.custom-login-column.modified {
+  height: 550px;
+}
+
+
+
+// WCAG 2.0 AA Compliance Modifications
+.dark-green {
+    background-color: @pp-dark-green;
+    border-color: @pp-dark-green;
+    color:white;
+  &[disabled]{
+    color: @pp-dark-gray;
+    background-color: rgba(221,221,221,1); //same color as @pp-gray
+    border-color: @pp-gray;
+  }
+}
+
+.navbar-blue {
+  background-color: @pp-navbar-blue;
+  border-color: @pp-navbar-blue;
+  color: white;
+}
+
+.navbar-dark-blue {
+  background-color: @pp-navbar-dark-blue;
+  border-color: @pp-navbar-dark-blue;
+  color: white;
+}
+
+.navbar-blueGray {
+  background-color: @pp-navbar-blueGray;
+  border-color: @pp-navbar-blueGray;
+  color: white;
+}
+
+.navy-blue {
+  background-color: @pp-navy-blue;
+  border-color: @pp-navy-blue;
+  color: white;
+}
+
+
+body.ng-scope.pace-done.grey{
+color:#262727;
+}
+
+
+.green-white
+{
+  background-color: white;
+  color: @pp-dark-green;
+}
+
+
+//home page
+
+.nav-header .light-blue {
+  color: @pp-light-blue;
+}
+
+
+.nav.navbar-right .dark-grey{
+  color: @pp-dark-gray;
+}
+
+//End of WCAG 2.0 AA Compliance Modifications
+
+
+  /*mixins*/
+  .side-padding(@paddingAmount) {
+    padding-left: @paddingAmount;
+    padding-right: @paddingAmount;
+  }
+  .left-padding(@paddingAmount) {
+    padding-left: @paddingAmount;
+  }
+
+  .right-padding(@paddingAmount) {
+    padding-right: @paddingAmount;
+  }
+
+  /*end mixins*/
+
+/* Positioning */
+.relative {
+  position: relative;
+}
+.fixed {
+  position: fixed;
+}
+.absolute {
+  position: absolute;
+}
+.static {
+  position: static;
+}
+
+/*Text-Font Classes */
+.bold {
+  font-weight: bold;
+}
+.italic {
+  font-style: italic;
+}
+.center {
+  text-align: center;
+}
+
+/*PALETTE*/
+
+.bg-white-page {
+  background-color: white;
+}
+/*.darkblue-panel {
+    background-color: #4D565E;
+    border-color: #4D565E;
+  color: #000;
+}*/
+
+.white {
+  color: white;
+}
+
+.info-blue {
+  color: @pp-navy-blue;
+}
+
+.light-grey {
+  color: @pp-gray;
+}
+
+.panel-navbar-blue {
+  border-color: @pp-navbar-blue;
+
+  & > .panel-heading {
+    background-color: @pp-navbar-blue;
+    border-color: @pp-navbar-blue;
+    color: white;
+  }
+}
+.panel-navbar-blueGray {
+  border-color: @pp-navbar-blueGray;
+
+  & > .panel-heading {
+    background-color: @pp-navbar-blueGray;
+    border-color: @pp-navbar-blueGray;
+    color: white;
+    &:hover {
+      background-color: @pp-teal;
+    }
+  }
+}
+
+.panel-darkblue {
+  border-color: @pp-dark-blue;
+
+    & > .panel-heading {
+    background-color: @pp-dark-blue;
+    border-color: @pp-dark-blue;
+    color: white;
+  }
+}
+
+.page-bg-white {
+  position: absolute;
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+}
+
+.mediumgray-bg {
+  background-color: @pp-medium-gray;
+}
+
+
+/* HEADER */
+
+
+.custom-header {
+  width: 100%;
+  height: 80px;
+  padding: 2px 2px 2px 10px;
+}
+
+/* TOP NAV BAR */
+
+
+.margin-left-220 {
+  margin-left: 220px;
+}
+//
+//.margin-left-70 {
+//  margin-ft: 70px;
+//}
+
+.margin-left-0 {
+  margin-left: 0;
+}
+
+.height-60 {
+  height: 60px;
+}
+.navbar-fixed-top.height-60 {
+  height: 60px;
+}
+
+/* SIDE BAR */
+
+.fix-sidebar {
+  position: fixed;
+  height: 100%;
+  overflow-y: auto;
+  top: 0;
+  bottom: 0;
+}
+
+/* CONTENT */
+
+.padding-top-60 {
+  padding-top: 60px;
+}
+
+.ibox-title h5 {
+    margin-top: 2px;
+}
+
+.badge-icon {
+    margin-left: 5px;
+}
+
+.custom-login-column {
+  height: 500px;
+  padding-top: 20px;
+  max-width: 900px;
+}
+
+.no-padding-right {
+    padding-right: 0;
+}
+
+.login-logo {
+  padding: 10px 0 0 30px;
+}
+
+.info-link {
+  padding: 10px 30px 0 0;
+}
+
+.left-right-padding-0 {
+    padding-left: 0;
+    padding-right: 0;
+}
+// Will be revisit for stickyheader
+//.fixed-header {
+//    position: fixed;
+//    top:55px;
+//    left:220px;
+//    min-width: 90%;
+//    background: white;
+//    z-index: 1000;
+//}
+
+/* FOOTER */
+
+.footer-container {
+  padding: 40px;
+  margin-right: @footer-margin;
+  margin-left: @footer-margin;
+  background-color: white;
+}
+
+/* FORMS */
+
+
+/* GENERAL*/
+
+.side-padding10 {
+    .side-padding(10px);
+}
+
+.left-padding25 {
+  padding-left:(25px);
+}
+
+.left-padding40 {
+  padding-left:(40px);
+}
+
+.left-padding55 {
+  padding-left:(55px);
+}
+
+.right-padding30 {
+  padding-right:(30px);
+}
+
+.top-padding10 {
+  padding-top: 10px;
+}
+
+.row-padding-10 {
+    padding: 10px;
+}
+
+/* LOGIN CONTENT */
+
+.custom-margin-top{
+padding-top: 10px;
+}
+
+
+.login-content-align {
+  background-color: white;
+  align: left;
+  justify-content: space-around;
+}
+
+.set-margin-bottom(@value) {
+  margin-bottom: @value;
+}
+
+
+.set-padding-bottom(@value) {
+  padding-bottom: @value;
+}
+
+.margin-bottom-10{
+  .set-margin-bottom(10px)
+}
+
+
+.padding-bottom-15{
+  .set-padding-bottom(15px)
+}
+
+
+.feed-element a{
+  font-weight: bold;
+}
+
+.feed-element i{
+  margin-left: 5px;
+}
+
+.alert-margin-top
+{
+  margin-top: 15px;
+  margin-left: 15px;
+}
+
+.ibox-rounded{
+  border-radius: 4px;
+}
+
+.custom-no-margin-top{
+      margin-top: 0;
+}
+
+.icon-border{
+  padding: 8px 5px 4px 5px;
+  width: 60px;
+  height: 60px;
+  display: inline-block;
+  border-radius: 50%;
+  border: 1px solid;
+}
+
+.ibox-title h3{
+  display: inline-block;
+  margin: 0 0 7px;
+  padding: 0;
+  text-overflow: ellipsis;
+  float: left;
+  font-size: 18px;
+}
+//
+//health information page
+
+.ibox-title h2{
+  display: inline-block;
+  margin: 0 0 7px;
+  padding: 0;
+  text-overflow: ellipsis;
+  float: left;
+}
+
+.label-top-margin{
+  margin-top: 5px;
+}
+
+/*provider-list-page*/
+.btn-red{
+  background-color:@pp-dark-red;
+  color: white;
+}
+
+.btn-grey{
+  background-color: @pp-gray;
+  color: black;
+}
+
+.text-alert{
+  color: @pp-dark-red;
+  font-style: italic;
+}
+/* end of provider-list-page*/
+
+/*provider-lookup search page*/
+.bg-color-blue {
+  background-color: @pp-navy-blue ;
+  color: white;
+}
+/* end of provider-lookup search page */
+
+
+
+/* State Modifiers */
+
+
+/* End of State Modifiers */
