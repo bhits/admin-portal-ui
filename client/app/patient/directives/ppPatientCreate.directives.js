@@ -19,9 +19,22 @@
         return directive;
 
         /* @ngInject */
-        function PatientCreateController ($scope, utilityService) {
+        function PatientCreateController(patientService) {
             var vm = this;
 
+            vm.save = save;
+
+            function success(response){
+                console.log("Success");
+            }
+
+            function error(response){
+                console.log("Error");
+            }
+
+            function save(){
+                patientService.createPatient(vm.patient, success, error);
+            }
         }
     }
 })();
