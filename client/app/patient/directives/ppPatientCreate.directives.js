@@ -19,17 +19,17 @@
         return directive;
 
         /* @ngInject */
-        function PatientCreateController(patientService) {
+        function PatientCreateController(patientService, $state, notificationService) {
             var vm = this;
 
             vm.save = save;
 
             function success(response){
-                console.log("Success");
+                $state.go('fe.patient.success');
             }
 
             function error(response){
-                console.log("Error");
+                notificationService.error("Error in creating patient.");
             }
 
             function save(){
