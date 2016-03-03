@@ -87,19 +87,6 @@ xdescribe('app.servicesModule ', function() {
         expect(utilityService.isDefinedAndNotNull(test2)).toBeTruthy();
     });
 
-    it('should have setShowHealthInformationMenu function', function () {
-        expect(angular.isFunction(utilityService.setShowHealthInformationMenu)).toBeTruthy();
-    });
-
-    it('should setShowHealthInformationMenu value', function () {
-        utilityService.setShowHealthInformationMenu(true);
-        expect(utilityService.getShowHealthInformationMenu()).toBeTruthy();
-    });
-
-    it('should have getShowHealthInformationMenu function', function () {
-        expect(angular.isFunction(utilityService.getShowHealthInformationMenu)).toBeTruthy();
-    });
-
     it('should scroll to a position in a page', function () {
         utilityService.scrollTo("#home");
         expect(location.hash()).toEqual("#home");

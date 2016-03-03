@@ -10,15 +10,13 @@
 
             /* @ngInject */
             function utilityService($location, $anchorScroll, $window) {
-                var showHealthInformationMenu = false;
+                //var showHealthInformationMenu = false;
                 var service = {};
 
                 service.getYear = getYear;
                 service.redirectTo = redirectTo;
                 service.isUnDefinedOrNull = isUnDefinedOrNull;
                 service.isDefinedAndNotNull = isDefinedAndNotNull;
-                service.setShowHealthInformationMenu = setShowHealthInformationMenu;
-                service.getShowHealthInformationMenu = getShowHealthInformationMenu;
                 service.scrollTo = goTo;
                 service.hasString = hasString;
                 service.startsWith = startsWith;
@@ -48,12 +46,6 @@
                 }
                 function isDefinedAndNotNull(value) {
                     return (angular.isDefined(value) && value !== null );
-                }
-                function setShowHealthInformationMenu(show) {
-                    showHealthInformationMenu = show;
-                }
-                function getShowHealthInformationMenu() {
-                    return showHealthInformationMenu;
                 }
                 function goTo(position) {
                     $location.hash(position);

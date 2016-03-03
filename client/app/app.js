@@ -86,10 +86,7 @@
                  */
                 $rootScope.$on('Keepalive', keepalive);
 
-                appVm.healthInformationMenu = false;
-                appVm.showHealthInformationMenu = showHealthInformationMenu;
                 appVm.scrollToAndExpand = scrollToAndExpand;
-                appVm.routeToHealthInformation = routeToHealthInformation;
                 appVm.togglebar = true;
                 appVm.toggleSideBar = toggleSideBar;
 
@@ -119,10 +116,6 @@
                 function handleLoggedOutAndExpiredSession(event) {
                     Idle.unwatch();
                     $state.go('fe.login');
-
-                    var toggle = false; // hide the health information menu
-                    utilityService.setShowHealthInformationMenu(toggle);
-                    appVm.healthInformationMenu = toggle;
                 }
 
                 function closeModals() {
@@ -147,7 +140,6 @@
                     console.log("IdleTimeout...");
                     console.log("-------> Session expired at: " + new Date());
                     appVm.closeModals();
-                    $rootScope.$broadcast('oauth:expired');
                 }
 
                 function idleEnd() {
@@ -186,20 +178,9 @@
                     }
                 }
 
-                function showHealthInformationMenu() {
-                    appVm.healthInformationMenu = true;
-                    utilityService.setShowHealthInformationMenu(true);
-                }
 
                 function scrollToAndExpand(target, expand) {
                     $rootScope.$broadcast('ScrollTo', {to: target});
-                    $rootScope.$broadcast('ExpandAccordion', {expand: expand});
-                }
-
-                function routeToHealthInformation () {
-                    if ($state.current.name !== "fe.patient.healthinformation") {
-                        $state.go('fe.patient.healthinformation', {scrollTo: 'none', expand: 'none'});
-                    }
                 }
 
                 function toggleSideBar() {

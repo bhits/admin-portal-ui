@@ -91,7 +91,7 @@ xdescribe("app AppController ", function() {
         authenticationService = _authenticationService_;
         Idle = _Idle_;
 
-        spyOn(utilityService, 'setShowHealthInformationMenu').andCallThrough();
+        //spyOn(utilityService, 'setShowHealthInformationMenu').andCallThrough();
 
         spyOn(rootScope, "$broadcast");
 
@@ -122,7 +122,6 @@ xdescribe("app AppController ", function() {
         var arg2 = {expand: false};
         controller.scrollToAndExpand("a", false);
         expect(scope.$broadcast).toHaveBeenCalledWith("ScrollTo", arg1);
-        expect(scope.$broadcast).toHaveBeenCalledWith("ExpandAccordion", arg2);
     });
 
     xit('should route to Health Information .', function(){

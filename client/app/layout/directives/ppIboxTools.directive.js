@@ -33,9 +33,6 @@
                 var content = ibox.find('div.ibox-content');
                 iboxToolVm.toggleCollapsed = toggleCollapsed;
 
-                $scope.$on('ExpandAccordions', ExpandAccordionsEventHandler);
-                $scope.$on('CollapseAccordions', CollapseAccordionsEventHandler);
-
                 $scope.$watch('iboxToolVm.ppCollapsed',collapseWatchHandler);
 
                 activate();
@@ -52,33 +49,6 @@
                     }
                 }
 
-                function ExpandAccordionsEventHandler(event, args) {
-
-                    if (args.expand) {
-                        //Accordion down
-                        content.slideDown(200);
-
-                        if (icon.hasClass('fa-chevron-down')) {
-                            icon.toggleClass('fa-chevron-up').toggleClass('fa-chevron-down');
-                        }
-                        ibox.toggleClass('');
-                        resize();
-                    }
-                }
-
-                function CollapseAccordionsEventHandler(event, args) {
-
-                    if (args.collapse) {
-                        //Accordion down
-                        content.slideUp(200);
-
-                        if (icon.hasClass('fa-chevron-up')) {
-                            icon.toggleClass('fa-chevron-down').toggleClass('fa-chevron-up');
-                        }
-                        ibox.toggleClass('');
-                        resize();
-                    }
-                }
 
                 function collapseWatchHandler (newValue, oldValue) {
                     if (newValue !== oldValue) {
