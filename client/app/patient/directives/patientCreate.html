@@ -1,29 +1,29 @@
-<form method="get" class="form-horizontal" name="createPatientForm">
+<form class="form-horizontal" name="createPatientForm" novalidate>
     <div class="form-group">
         <label class="col-sm-2 control-label">First Name</label>
         <div class="col-sm-3">
-            <input type="text" class="form-control" ng-model="patientCreateVm.patient.firstName">
+            <input type="text" class="form-control" ng-model="patientCreateVm.patient.firstName"  ng-minlength="2" ng-maxlength="30" >
         </div>
     </div>
 
     <div class="form-group">
         <label class="col-sm-2 control-label">Last Name</label>
         <div class="col-sm-3">
-            <input type="text" class="form-control" ng-model="patientCreateVm.patient.lastName">
+            <input type="text" class="form-control" ng-model="patientCreateVm.patient.lastName" ng-minlength="2" ng-maxlength="30" >
         </div>
     </div>
 
     <div class="form-group">
         <label class="col-sm-2 control-label">User Name</label>
         <div class="col-sm-3">
-            <input type="text" class="form-control" ng-model="patientCreateVm.patient.username">
+            <input type="text" class="form-control" ng-model="patientCreateVm.patient.username" >
         </div>
     </div>
 
     <div class="form-group">
         <label class="col-sm-2 control-label">Email</label>
         <div class="col-sm-3">
-            <input type="text" class="form-control" ng-model="patientCreateVm.patient.email">
+            <input type="text" class="form-control" ng-model="patientCreateVm.patient.email" ng-pattern="emailPattern" >
         </div>
     </div>
 

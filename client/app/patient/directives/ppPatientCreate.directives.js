@@ -22,6 +22,7 @@
         function PatientCreateController(patientService, $state, notificationService) {
             var vm = this;
 
+            vm.emailPattern = /^[\w-]+(\.[\w-]+)*@([a-z0-9-]+(\.[a-z0-9-]+)*?\.[a-z]{2,6}|(\d{1,3}\.){3}\d{1,3})(:\d{4})?$/;
             vm.save = save;
 
             function success(response){
