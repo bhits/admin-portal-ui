@@ -1,92 +1,123 @@
+<script type="text/ng-template" id="admin-messages">
+    <div ng-message="required">This field is required</div>
+    <div ng-message="minlength">This field is too short</div>
+    <div ng-message="maxlength">This field is too Long</div>
+    <div ng-message="compareTo">Password and confirm pasword must match</div>
+    <div ng-message="isValidDate">Invalid date</div>
+</script>
+
 <form class="form-horizontal" name="createPatientForm" novalidate>
     <div class="form-group">
         <label class="col-sm-2 control-label">First Name</label>
         <div class="col-sm-3">
-            <input type="text" class="form-control" ng-model="patientCreateVm.patient.firstName"  ng-minlength="2" ng-maxlength="30" >
+            <input type="text" class="form-control" placeholder="First name" ng-model="patientCreateVm.patient.firstName" required ng-minlength="2" ng-maxlength="30" name="firstName">
+            <div ng-messages="createPatientForm.firstName.$error" ng-if="createPatientForm.firstName.$dirty">
+                <div ng-messages-include="admin-messages"></div>
+            </div>
         </div>
     </div>
 
     <div class="form-group">
         <label class="col-sm-2 control-label">Last Name</label>
         <div class="col-sm-3">
-            <input type="text" class="form-control" ng-model="patientCreateVm.patient.lastName" ng-minlength="2" ng-maxlength="30" >
+            <input type="text" class="form-control" placeholder="Last name" ng-model="patientCreateVm.patient.lastName" name="lastName" required ng-minlength="2" ng-maxlength="30" >
+            <div ng-messages="createPatientForm.lastName.$error" ng-if="createPatientForm.lastName.$dirty">
+                <div ng-messages-include="admin-messages"></div>
+            </div>
         </div>
     </div>
 
     <div class="form-group">
         <label class="col-sm-2 control-label">User Name</label>
         <div class="col-sm-3">
-            <input type="text" class="form-control" ng-model="patientCreateVm.patient.username" >
+            <input type="text" class="form-control" placeholder="User name" ng-model="patientCreateVm.patient.username" name="userName" >
         </div>
     </div>
 
     <div class="form-group">
         <label class="col-sm-2 control-label">Email</label>
         <div class="col-sm-3">
-            <input type="text" class="form-control" ng-model="patientCreateVm.patient.email" ng-pattern="emailPattern" >
+            <input type="text" class="form-control" placeholder="Email" ng-model="patientCreateVm.patient.email" ng-pattern="emailPattern" name="email">
+            <div ng-messages="createPatientForm.email.$error" ng-if="createPatientForm.email.$dirty">
+                <div ng-messages-include="admin-messages"></div>
+            </div>
         </div>
     </div>
 
     <div class="form-group">
         <label class="col-sm-2 control-label">Gender</label>
         <div class="col-sm-3">
-            <input type="text" class="form-control" ng-model="patientCreateVm.patient.genderCode">
+            <div class="radio"><label> <input pp-icheck type="radio" name="gender" ng-model="patientCreateVm.patient.genderCode" value="M"> Male </label></div>
+            <div class="radio"><label> <input pp-icheck type="radio" name="gender" ng-model="patientCreateVm.patient.genderCode" value="F"> Female </label></div>
         </div>
     </div>
 
     <div class="form-group">
         <label class="col-sm-2 control-label">Date of Birth</label>
         <div class="col-sm-3">
-            <input type="text" class="form-control" ng-model="patientCreateVm.patient.birthDate">
+            <input type="text" class="form-control"  name="dateOfBirth" placeholder="Date of birth" ng-model="patientCreateVm.patient.birthDate" pp-datepicker >
+            <div ng-messages="createPatientForm.dateOfBirth.$error" ng-if="createPatientForm.dateOfBirth.$dirty">
+                <div ng-messages-include="admin-messages"></div>
+            </div>
         </div>
     </div>
 
     <div class="form-group">
         <label class="col-sm-2 control-label">Password</label>
         <div class="col-sm-3">
-            <input type="text" class="form-control" ng-model="patientCreateVm.patient.password">
+            <input type="password" class="form-control" placeholder="Password" ng-model="patientCreateVm.patient.password" name="password" requried>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Confirm Password</label>
+        <div class="col-sm-3">
+            <input type="password" class="form-control" placeholder="Password2" ng-model="patientCreateVm.patient.password2" name="password2" pp-compare-to="patientCreateVm.patient.password" requried>
+            <div ng-messages="createPatientForm.password2.$error" ng-if="createPatientForm.password2.$dirty">
+                <div ng-messages-include="admin-messages"></div>
+            </div>
         </div>
     </div>
 
     <div class="form-group">
         <label class="col-sm-2 control-label">SSN</label>
         <div class="col-sm-3">
-            <input type="text" class="form-control" ng-model="patientCreateVm.patient.ssn">
+            <input type="text" class="form-control" name="ssn" placeholder="Social security number" ng-model="patientCreateVm.patient.ssn">
         </div>
     </div>
 
     <div class="form-group">
         <label class="col-sm-2 control-label">Telephone</label>
         <div class="col-sm-3">
-            <input type="text" class="form-control" ng-model="patientCreateVm.patient.telephone">
+            <input type="text" class="form-control"  name="telephone" placeholder="Telehone" ng-model="patientCreateVm.patient.telephone">
         </div>
     </div>
 
     <div class="form-group">
         <label class="col-sm-2 control-label">Address</label>
         <div class="col-sm-3">
-            <input type="text" class="form-control" ng-model="patientCreateVm.patient.address">
+            <input type="text" class="form-control"  name="address" placeholder="Address" ng-model="patientCreateVm.patient.address">
         </div>
     </div>
 
     <div class="form-group">
         <label class="col-sm-2 control-label">City</label>
         <div class="col-sm-3">
-            <input type="text" class="form-control" ng-model="patientCreateVm.patient.city">
+            <input type="text" class="form-control"  name="city" placeholder="City" ng-model="patientCreateVm.patient.city">
         </div>
     </div>
 
     <div class="form-group">
         <label class="col-sm-2 control-label">State</label>
         <div class="col-sm-3">
-            <input type="text" class="form-control" ng-model="patientCreateVm.patient.state">
+            <input type="text" class="form-control"  name="state" placeholder="State" ng-model="patientCreateVm.patient.state">
         </div>
     </div>
 
     <div class="form-group">
         <label class="col-sm-2 control-label">Zipcode</label>
         <div class="col-sm-3">
-            <input type="text" class="form-control" ng-model="patientCreateVm.patient.zip">
+            <input type="text" class="form-control"  name="zipcode" placeholder="Zip Code" ng-model="patientCreateVm.patient.zip">
         </div>
     </div>
     <div class="form-group">
@@ -95,4 +126,5 @@
             <button class="btn btn-primary" type="submit" ng-click="patientCreateVm.save()">Create Patient</button>
         </div>
     </div>
+
 </form>

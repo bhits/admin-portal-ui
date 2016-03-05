@@ -50,7 +50,6 @@
                     } else {
                         datePickerVm.ngModel = datePickerVm.consent;
                     }
-
                     datePickerVm.showError = datePickerVm.error.length;
                 }
             }

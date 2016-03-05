@@ -34,7 +34,15 @@
             }
 
             function save(){
-                patientService.createPatient(vm.patient, success, error);
+                var user = removeConfirmPassword(vm.patient);
+                patientService.createPatient(user, success, error);
+            }
+
+            function removeConfirmPassword(patientObject){
+                var temp = {};
+                angular.copy(patientObject, temp);
+                delete temp.password2;
+                return temp;
             }
         }
     }
