@@ -4,6 +4,7 @@
     <div ng-message="maxlength">This field is too Long</div>
     <div ng-message="compareTo">Password and confirm pasword must match</div>
     <div ng-message="isValidDate">Invalid date</div>
+    <div ng-message="email">Invalid email</div>
 </script>
 
 <form class="form-horizontal" name="createPatientForm" novalidate>
@@ -37,7 +38,7 @@
     <div class="form-group">
         <label class="col-sm-2 control-label">Email</label>
         <div class="col-sm-3">
-            <input type="text" class="form-control" placeholder="Email" ng-model="patientCreateVm.patient.email" ng-pattern="emailPattern" name="email">
+            <input type="email" class="form-control" placeholder="Email" required ng-model="patientCreateVm.patient.email" pp-validate-email name="email">
             <div ng-messages="createPatientForm.email.$error" ng-if="createPatientForm.email.$dirty">
                 <div ng-messages-include="admin-messages"></div>
             </div>
@@ -47,8 +48,8 @@
     <div class="form-group">
         <label class="col-sm-2 control-label">Gender</label>
         <div class="col-sm-3">
-            <div class="radio"><label> <input pp-icheck type="radio" name="gender" ng-model="patientCreateVm.patient.genderCode" value="M"> Male </label></div>
-            <div class="radio"><label> <input pp-icheck type="radio" name="gender" ng-model="patientCreateVm.patient.genderCode" value="F"> Female </label></div>
+            <div class="radio"><label> <input pp-icheck type="radio" name="gender" ng-model="patientCreateVm.patient.genderCode" value="M" required> Male </label></div>
+            <div class="radio"><label> <input pp-icheck type="radio" name="gender" ng-model="patientCreateVm.patient.genderCode" value="F" required> Female </label></div>
         </div>
     </div>
 
@@ -82,7 +83,7 @@
     <div class="form-group">
         <label class="col-sm-2 control-label">SSN</label>
         <div class="col-sm-3">
-            <input type="text" class="form-control" name="ssn" placeholder="Social security number" ng-model="patientCreateVm.patient.ssn">
+            <input type="text" class="form-control" name="ssn" placeholder="Social security number" ng-model="patientCreateVm.patient.ssn" >
         </div>
     </div>
 
