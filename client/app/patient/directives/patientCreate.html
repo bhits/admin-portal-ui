@@ -72,7 +72,7 @@
     <div class="form-group">
         <label class="col-sm-2 control-label">Confirm Password</label>
         <div class="col-sm-3">
-            <input type="password" class="form-control" placeholder="Password2" ng-model="patientCreateVm.patient.password2" name="password2" pp-compare-to="patientCreateVm.patient.password" requried>
+            <input type="password" class="form-control" placeholder="Confirm password" ng-model="patientCreateVm.patient.password2" name="password2" pp-compare-to="patientCreateVm.patient.password" requried>
             <div ng-messages="createPatientForm.password2.$error" ng-if="createPatientForm.password2.$dirty">
                 <div ng-messages-include="admin-messages"></div>
             </div>
@@ -123,8 +123,8 @@
     <div class="form-group">
         <div class="col-sm-4 col-sm-offset-2">
             <button class="btn btn-white" type="submit">Cancel</button>
-            <button class="btn btn-primary" type="submit" ng-click="patientCreateVm.save()">Create Patient</button>
+            <button class="btn btn-primary dark-green" type="submit" ng-click="patientCreateVm.save()" ng-disabled="!patientCreateVm.canCreate(createPatientForm)">Create Patient</button>
         </div>
     </div>
-
+    <pre> {{createPatientForm|json}}</pre>
 </form>

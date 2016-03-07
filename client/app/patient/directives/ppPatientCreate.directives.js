@@ -24,6 +24,7 @@
 
             vm.emailPattern = /^[\w-]+(\.[\w-]+)*@([a-z0-9-]+(\.[a-z0-9-]+)*?\.[a-z]{2,6}|(\d{1,3}\.){3}\d{1,3})(:\d{4})?$/;
             vm.save = save;
+            vm.canCreate = canCreate;
 
             function success(response){
                 $state.go('fe.patient.success');
@@ -43,6 +44,10 @@
                 angular.copy(patientObject, temp);
                 delete temp.password2;
                 return temp;
+            }
+
+            function canCreate(createPatientForm){
+                return (createPatientForm.$dirty && createPatientForm.$valid);
             }
         }
     }
