@@ -5,10 +5,13 @@
 
     angular
         .module('app.core')
-            .directive('ppDatepicker', ppDatePickerRange);
+            .directive('ppValidateZipcode', ppValidateZipcode);
 
             /* @ngInject */
-            function ppDatePickerRange(utilityService) {
+            function ppValidateZipcode() {
+
+                var ZIPCODE_REGEXP = /^\d{5}(?:[-\s]\d{4})?$/;
+
                 var directive =  {
                     require: 'ngModel',
                     restrict: 'A',
@@ -18,16 +21,14 @@
                 return directive;
 
                 /* @ngInject */
-                function linkFunc(scope, element, attr, ngModel) {
-                    element.datepicker({todayBtn: "linked", autoclose: true});
-
-                    ngModel.$validators.isValidDate = function(modelValue) {
+                function linkFunc(scope, elm, attrs, ctrl) {
+                   ctrl.$validators.isValidZipcode = function(modelValue) {
                         if(angular.isDefined(modelValue)){
-                            return utilityService.isValidDate(modelValue);
+                            return ctrl.$isEmpty(modelValue) || ZIPCODE_REGEXP.test(modelValue);
                         }else{
                             return true;
                         }
-                    };
+                   };
                 }
             }
 })();

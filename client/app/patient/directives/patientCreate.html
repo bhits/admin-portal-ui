@@ -1,10 +1,13 @@
 <script type="text/ng-template" id="admin-messages">
-    <div ng-message="required">This field is required</div>
-    <div ng-message="minlength">This field is too short</div>
-    <div ng-message="maxlength">This field is too Long</div>
-    <div ng-message="compareTo">Password and confirm pasword must match</div>
-    <div ng-message="isValidDate">Invalid date</div>
-    <div ng-message="email">Invalid email</div>
+    <div ng-message="required">This field is required.</div>
+    <div ng-message="minlength">This field is too short.</div>
+    <div ng-message="maxlength">This field is too Long.</div>
+    <div ng-message="compareTo">Password and confirm pasword must match.</div>
+    <div ng-message="isValidDate">Invalid date.</div>
+    <div ng-message="email">Invalid email.</div>
+    <div ng-message="isValidSSN">Invalid social security number.</div>
+    <div ng-message="isValidPhoneNumber">Invalid telephone number.</div>
+    <div ng-message="isValidZipcode">Invalid zip code.</div>
 </script>
 
 <form class="form-horizontal" name="createPatientForm" novalidate>
@@ -56,7 +59,7 @@
     <div class="form-group">
         <label class="col-sm-2 control-label">Date of Birth</label>
         <div class="col-sm-3">
-            <input type="text" class="form-control"  name="dateOfBirth" placeholder="Date of birth" ng-model="patientCreateVm.patient.birthDate" pp-datepicker >
+            <input type="text" class="form-control"  name="dateOfBirth" placeholder="Date of birth" required ng-model="patientCreateVm.patient.birthDate" required pp-datepicker >
             <div ng-messages="createPatientForm.dateOfBirth.$error" ng-if="createPatientForm.dateOfBirth.$dirty">
                 <div ng-messages-include="admin-messages"></div>
             </div>
@@ -67,6 +70,9 @@
         <label class="col-sm-2 control-label">Password</label>
         <div class="col-sm-3">
             <input type="password" class="form-control" placeholder="Password" ng-model="patientCreateVm.patient.password" name="password" requried>
+            <div ng-messages="createPatientForm.password.$error" ng-if="createPatientForm.password.$dirty">
+                <div ng-messages-include="admin-messages"></div>
+            </div>
         </div>
     </div>
 
@@ -83,14 +89,20 @@
     <div class="form-group">
         <label class="col-sm-2 control-label">SSN</label>
         <div class="col-sm-3">
-            <input type="text" class="form-control" name="ssn" placeholder="Social security number" ng-model="patientCreateVm.patient.ssn" >
+            <input type="text" class="form-control" name="ssn" placeholder="Social security number" pp-validate-ssn ng-model="patientCreateVm.patient.ssn" >
+            <div ng-messages="createPatientForm.ssn.$error" ng-if="createPatientForm.ssn.$dirty">
+                <div ng-messages-include="admin-messages"></div>
+            </div>
         </div>
     </div>
 
     <div class="form-group">
         <label class="col-sm-2 control-label">Telephone</label>
         <div class="col-sm-3">
-            <input type="text" class="form-control"  name="telephone" placeholder="Telehone" ng-model="patientCreateVm.patient.telephone">
+            <input type="text" class="form-control"  name="telephone" placeholder="Telehone" pp-validate-phone-number ng-model="patientCreateVm.patient.telephone">
+            <div ng-messages="createPatientForm.telephone.$error" ng-if="createPatientForm.telephone.$dirty">
+                <div ng-messages-include="admin-messages"></div>
+            </div>
         </div>
     </div>
 
@@ -118,7 +130,10 @@
     <div class="form-group">
         <label class="col-sm-2 control-label">Zipcode</label>
         <div class="col-sm-3">
-            <input type="text" class="form-control"  name="zipcode" placeholder="Zip Code" ng-model="patientCreateVm.patient.zip">
+            <input type="text" class="form-control"  name="zipcode" pp-validate-zipcode placeholder="Zip Code" ng-model="patientCreateVm.patient.zip">
+            <div ng-messages="createPatientForm.zipcode.$error" ng-if="createPatientForm.zipcode.$dirty">
+                <div ng-messages-include="admin-messages"></div>
+            </div>
         </div>
     </div>
     <div class="form-group">
@@ -127,5 +142,5 @@
             <button class="btn btn-primary dark-green" type="submit" ng-click="patientCreateVm.save()" ng-disabled="!patientCreateVm.canCreate(createPatientForm)">Create Patient</button>
         </div>
     </div>
-    <pre> {{createPatientForm|json}}</pre>
+    <!--<pre>{{createPatientForm|json}}</pre>-->
 </form>

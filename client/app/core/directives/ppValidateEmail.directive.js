@@ -10,25 +10,26 @@
             /* @ngInject */
             function ppValidateEmail(utilityService) {
 
-                var EMAIL_REGEXP = /^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/;
+                var EMAIL_REGEXP = /^[\w-]+(\.[\w-]+)*@([a-z0-9-]+(\.[a-z0-9-]+)*?\.[a-z]{2,6}|(\d{1,3}\.){3}\d{1,3})(:\d{4})?$/;
 
                 var directive =  {
                     require: 'ngModel',
-                    restrict: '',
+                    restrict: 'A',
+                    scope: {},
                     link: linkFunc
                 };
                 return directive;
 
                 /* @ngInject */
                 function linkFunc(scope, elm, attrs, ctrl) {
-                    // only apply the validator if ngModel is present and Angular has added the email validator
-                    if (ctrl && ctrl.$validators.email) {
-
-                        // this will overwrite the default Angular email validator
-                        ctrl.$validators.email = function(modelValue) {
+                    // this will overwrite the default Angular email validator
+                    ctrl.$validators.email = function(modelValue) {
+                        if(angular.isDefined(modelValue)) {
                             return ctrl.$isEmpty(modelValue) || EMAIL_REGEXP.test(modelValue);
-                        };
-                    }
+                        }else{
+                            return true;
+                        }
+                    };
                 }
             }
 })();

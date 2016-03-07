@@ -5,10 +5,13 @@
 
     angular
         .module('app.core')
-            .directive('ppDatepicker', ppDatePickerRange);
+            .directive('ppValidateSsn', ppValidateSsn);
 
             /* @ngInject */
-            function ppDatePickerRange(utilityService) {
+            function ppValidateSsn() {
+
+                var SSN_REGEXP = /^(\d{3}-?\d{2}-?\d{4}|XXX-XX-XXXX)$/;
+
                 var directive =  {
                     require: 'ngModel',
                     restrict: 'A',
@@ -18,16 +21,14 @@
                 return directive;
 
                 /* @ngInject */
-                function linkFunc(scope, element, attr, ngModel) {
-                    element.datepicker({todayBtn: "linked", autoclose: true});
-
-                    ngModel.$validators.isValidDate = function(modelValue) {
+                function linkFunc(scope, elm, attrs, ctrl) {
+                   ctrl.$validators.isValidSSN = function(modelValue) {
                         if(angular.isDefined(modelValue)){
-                            return utilityService.isValidDate(modelValue);
+                            return ctrl.$isEmpty(modelValue) || SSN_REGEXP.test(modelValue);
                         }else{
                             return true;
                         }
-                    };
+                   };
                 }
             }
 })();
