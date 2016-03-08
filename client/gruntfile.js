@@ -355,7 +355,7 @@ module.exports = function (grunt) {
                 singleRun: false,
                 autoWatch: true,
                 background: false,
-                browsers: ['Chrome']
+                browsers: ['PhantomJS_custom']
 
             }
         },

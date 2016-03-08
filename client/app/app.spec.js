@@ -1,6 +1,6 @@
 'use strict';
 
-xdescribe('app module', function(){
+describe('app module', function(){
     var module;
 
     beforeEach(function() {
@@ -43,21 +43,10 @@ xdescribe('app module', function(){
             expect(hasModule('app.home')).toEqual(true);
         });
 
-        it("should have app.healthInformation as a dependency", function() {
-            expect(hasModule('app.healthInformation')).toEqual(true);
-        });
-
-        it("should have app.provider as a dependency", function() {
-            expect(hasModule('app.provider')).toEqual(true);
-        });
-
         it("should have app.layout as a dependency", function() {
             expect(hasModule('app.layout')).toEqual(true);
         });
 
-        it("should have app.medicalDocument as a dependency", function() {
-            expect(hasModule('app.medicalDocument')).toEqual(true);
-        });
     });
 });
 

@@ -26,7 +26,7 @@ module.exports = function (karma) {
             'assets/js/angular/angular-messages.min.js',
             <% scripts.forEach( function ( file ) { %>'<%= file %>',
                 <% }); %>
-            'app/**/*module*.js','app/**/*config*.js',
+            'app/**/*module*.js','app/**/*config*.js','app/**/*run*.js',
             'app/**/*.js'
         ],
 
@@ -54,7 +54,7 @@ module.exports = function (karma) {
         * open and the tests will automatically occur there during the build. This has
         * the aesthetic advantage of not launching a browser every time you save.
         */
-        browsers: ['Chrome'],
+        browsers: ['PhantomJS'],
 
         /**
         * How to report, by default.
