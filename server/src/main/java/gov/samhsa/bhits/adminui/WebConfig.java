@@ -4,6 +4,7 @@ import org.apache.catalina.Context;
 import org.apache.catalina.connector.Connector;
 import org.apache.tomcat.util.descriptor.web.SecurityCollection;
 import org.apache.tomcat.util.descriptor.web.SecurityConstraint;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.embedded.EmbeddedServletContainerFactory;
 import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainerFactory;
 import org.springframework.context.annotation.Bean;
@@ -14,6 +15,9 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 public class WebConfig {
+
+    @Value("${server.port}")
+    public int redirectPort;
 
     @Bean
     public EmbeddedServletContainerFactory servletContainer() {
@@ -37,7 +41,7 @@ public class WebConfig {
         connector.setScheme("http");
         connector.setPort(8088);
         connector.setSecure(false);
-        connector.setRedirectPort(8451);
+        connector.setRedirectPort(redirectPort);
 
         return connector;
     }
