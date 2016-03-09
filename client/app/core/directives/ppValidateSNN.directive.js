@@ -8,9 +8,9 @@
             .directive('ppValidateSsn', ppValidateSsn);
 
             /* @ngInject */
-            function ppValidateSsn() {
+            function ppValidateSsn(constants) {
 
-                var SSN_REGEXP = /^(\d{3}-?\d{2}-?\d{4}|XXX-XX-XXXX)$/;
+                var SSN_REGEXP = constants.SSN_REGEXP;
 
                 var directive =  {
                     require: 'ngModel',

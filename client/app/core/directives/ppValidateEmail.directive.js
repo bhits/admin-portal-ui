@@ -8,9 +8,9 @@
             .directive('ppValidateEmail', ppValidateEmail);
 
             /* @ngInject */
-            function ppValidateEmail(utilityService) {
+            function ppValidateEmail(constants) {
 
-                var EMAIL_REGEXP = /^[\w-]+(\.[\w-]+)*@([a-z0-9-]+(\.[a-z0-9-]+)*?\.[a-z]{2,6}|(\d{1,3}\.){3}\d{1,3})(:\d{4})?$/;
+                var EMAIL_REGEXP = constants.EMAIL_REGEXP;
 
                 var directive =  {
                     require: 'ngModel',

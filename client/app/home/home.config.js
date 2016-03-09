@@ -14,7 +14,7 @@
                 $stateProvider
                     .state('fe', {
                         abstract: true,
-                        data: { pageTitle: 'Patient Portal' },
+                        data: { pageTitle: 'MHC Portal' },
                         url: '/fe',
                         templateUrl: ''
                     })

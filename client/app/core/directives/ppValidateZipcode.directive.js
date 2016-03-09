@@ -8,9 +8,9 @@
             .directive('ppValidateZipcode', ppValidateZipcode);
 
             /* @ngInject */
-            function ppValidateZipcode() {
+            function ppValidateZipcode(constants) {
 
-                var ZIPCODE_REGEXP = /^\d{5}(?:[-\s]\d{4})?$/;
+                var ZIPCODE_REGEXP = constants.ZIPCODE_REGEXP;
 
                 var directive =  {
                     require: 'ngModel',

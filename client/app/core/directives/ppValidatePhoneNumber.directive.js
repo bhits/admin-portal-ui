@@ -8,9 +8,9 @@
             .directive('ppValidatePhoneNumber', ppValidatePhoneNumber);
 
             /* @ngInject */
-            function ppValidatePhoneNumber() {
+            function ppValidatePhoneNumber(constants) {
                 //NANP
-                var PHONE_NUMBER_REGEXP = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+                var PHONE_NUMBER_REGEXP = constants.PHONE_NUMBER_REGEXP;
 
                 var directive =  {
                     require: 'ngModel',

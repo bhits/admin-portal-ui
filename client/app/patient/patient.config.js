@@ -22,11 +22,6 @@
                         url: '/create',
                         templateUrl: 'app/patient/controllers/patientCreate.html',
                         data: { pageTitle: 'Patient Create' }
-                    })
-                    .state('fe.patient.success', {
-                        url: '/success',
-                        templateUrl: 'app/patient/controllers/patientCreateSuccess.html',
-                        data: { pageTitle: 'Patient Create Sucess' }
                     });
             }
 })();
