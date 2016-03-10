@@ -23,6 +23,7 @@
             var vm = this;
             vm.save = save;
             vm.canCreate = canCreate;
+            vm.removeConfirmPassword = removeConfirmPassword;
 
             function success(response){
                 notificationService.success("Success in creating patient.");
@@ -34,7 +35,7 @@
             }
 
             function save(){
-                var user = removeConfirmPassword(vm.patient);
+                var user = vm.removeConfirmPassword(vm.patient);
                 patientService.createPatient(user, success, error);
             }
 

@@ -11,7 +11,7 @@ describe('app.patient: ', function(){
         expect(module).not.toEqual(null);
     });
 
-    describe("Dependencies:", function() {
+    describe("dependencies:", function() {
 
         var dependencies;
 
