@@ -5,12 +5,12 @@
 
     angular
         .module('app.core')
-            .directive('ppValidateEmail', ppValidateEmail);
+            .directive('mhcValidatePhoneNumber', mhcValidatePhoneNumber);
 
             /* @ngInject */
-            function ppValidateEmail(constants) {
-
-                var EMAIL_REGEXP = constants.EMAIL_REGEXP;
+            function mhcValidatePhoneNumber(constants) {
+                //NANP
+                var PHONE_NUMBER_REGEXP = constants.PHONE_NUMBER_REGEXP;
 
                 var directive =  {
                     require: 'ngModel',
@@ -22,14 +22,13 @@
 
                 /* @ngInject */
                 function linkFunc(scope, elm, attrs, ctrl) {
-                    // this will overwrite the default Angular email validator
-                    ctrl.$validators.email = function(modelValue) {
-                        if(angular.isDefined(modelValue)) {
-                            return ctrl.$isEmpty(modelValue) || EMAIL_REGEXP.test(modelValue);
+                   ctrl.$validators.isValidPhoneNumber = function(modelValue) {
+                        if(angular.isDefined(modelValue)){
+                            return ctrl.$isEmpty(modelValue) || PHONE_NUMBER_REGEXP.test(modelValue);
                         }else{
                             return true;
                         }
-                    };
+                   };
                 }
             }
 })();
