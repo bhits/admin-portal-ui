@@ -5,12 +5,12 @@
 
     angular
         .module('app.core')
-            .directive('ppValidateZipcode', ppValidateZipcode);
+            .directive('mhcValidateSsn', mhcValidateSsn);
 
             /* @ngInject */
-            function ppValidateZipcode(constants) {
+            function mhcValidateSsn(constants) {
 
-                var ZIPCODE_REGEXP = constants.ZIPCODE_REGEXP;
+                var SSN_REGEXP = constants.SSN_REGEXP;
 
                 var directive =  {
                     require: 'ngModel',
@@ -22,9 +22,9 @@
 
                 /* @ngInject */
                 function linkFunc(scope, elm, attrs, ctrl) {
-                   ctrl.$validators.isValidZipcode = function(modelValue) {
+                   ctrl.$validators.isValidSSN = function(modelValue) {
                         if(angular.isDefined(modelValue)){
-                            return ctrl.$isEmpty(modelValue) || ZIPCODE_REGEXP.test(modelValue);
+                            return ctrl.$isEmpty(modelValue) || SSN_REGEXP.test(modelValue);
                         }else{
                             return true;
                         }

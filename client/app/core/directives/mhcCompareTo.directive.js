@@ -5,14 +5,14 @@
 
     angular
         .module('app.core')
-            .directive('ppCompareTo', ppCompareTo);
+            .directive('mhcCompareTo', mhcCompareTo);
 
             /* @ngInject */
-            function ppCompareTo() {
+            function mhcCompareTo() {
                 var directive =  {
                     require: "ngModel",
                     scope: {
-                        otherModelValue: "=ppCompareTo"
+                        otherModelValue: "=mhcCompareTo"
                     },
                     link: linkFunc
                 };

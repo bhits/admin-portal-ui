@@ -8,7 +8,7 @@
         .factory('patientService', patientService);
 
     /* @ngInject */
-    function patientService($resource, envService, notificationService) {
+    function patientService($resource, envService) {
         var registrationResource = $resource(envService.securedApis.registrationApiBaseUrl + "/signup");
 
         var service = {};

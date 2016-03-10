@@ -5,13 +5,10 @@
 
     angular
         .module('app.core')
-            .directive('ppValidatePhoneNumber', ppValidatePhoneNumber);
+            .directive('mhcDatepicker', mhcDatepickerRange);
 
             /* @ngInject */
-            function ppValidatePhoneNumber(constants) {
-                //NANP
-                var PHONE_NUMBER_REGEXP = constants.PHONE_NUMBER_REGEXP;
-
+            function mhcDatepickerRange(utilityService) {
                 var directive =  {
                     require: 'ngModel',
                     restrict: 'A',
@@ -21,14 +18,16 @@
                 return directive;
 
                 /* @ngInject */
-                function linkFunc(scope, elm, attrs, ctrl) {
-                   ctrl.$validators.isValidPhoneNumber = function(modelValue) {
+                function linkFunc(scope, element, attr, ngModel) {
+                    element.datepicker({todayBtn: "linked", autoclose: true});
+
+                    ngModel.$validators.isValidDate = function(modelValue) {
                         if(angular.isDefined(modelValue)){
-                            return ctrl.$isEmpty(modelValue) || PHONE_NUMBER_REGEXP.test(modelValue);
+                            return utilityService.isValidDate(modelValue);
                         }else{
                             return true;
                         }
-                   };
+                    };
                 }
             }
 })();
