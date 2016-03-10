@@ -292,8 +292,8 @@ color:#262727;
 
   /*mixins*/
   .side-padding(@paddingAmount) {
-    padding-left: @paddingAmount;
-    padding-right: @paddingAmount;
+    padding-left: @paddingAmount !important;
+    padding-right: @paddingAmount !important;
   }
   .left-padding(@paddingAmount) {
     padding-left: @paddingAmount;
@@ -499,8 +499,20 @@ color:#262727;
 
 /* GENERAL*/
 
+.side-padding0 {
+  .side-padding(0px) !important;
+}
+
 .side-padding10 {
     .side-padding(10px);
+}
+
+.right-padding0 {
+  padding-right: 0;
+}
+
+.left-padding0 {
+  padding-left: 0;
 }
 
 .left-padding25 {
