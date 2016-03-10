@@ -1,7 +1,7 @@
 <script type="text/ng-template" id="admin-messages">
     <div ng-message="required">This field is required.</div>
-    <div ng-message="minlength">This field is too short.</div>
-    <div ng-message="maxlength">This field is too Long.</div>
+    <div ng-message="minlength">Please provide a name that is greater than 2 characters long.</div>
+    <div ng-message="maxlength">Please provide a name that is no greater than 30 characters long.</div>
     <div ng-message="compareTo">Password and confirm password must match.</div>
     <div ng-message="isValidDate">Invalid date.</div>
     <div ng-message="email">Invalid email.</div>
@@ -61,7 +61,7 @@
         <div class="col-sm-7 col-md-6">
             <div class="radio"><label class="side-padding0"> <input pp-icheck type="radio" name="gender" ng-model="patientCreateVm.patient.genderCode" value="M" required> Male </label></div>
             <div class="radio"><label class="side-padding0"> <input pp-icheck type="radio" name="gender" ng-model="patientCreateVm.patient.genderCode" value="F" required> Female </label></div>
-            <div class="radio"><label class="side-padding0"> <input pp-icheck type="radio" name="gender" ng-model="patientCreateVm.patient.genderCode" value="N" required> Not Specified </label></div>
+            <!--<div class="radio"><label class="side-padding0"> <input pp-icheck type="radio" name="gender" ng-model="patientCreateVm.patient.genderCode" value="N" required> Not Specified </label></div>-->
         </div>
     </div>
 
@@ -75,89 +75,89 @@
         </div>
     </div>
 
-    <div class="form-group">
-        <label class="col-sm-3 col-md-2 control-label">Date of Birth <span class="text-alert">*</span></label>
+    <!--<div class="form-group">-->
+        <!--<label class="col-sm-3 col-md-2 control-label">Date of Birth <span class="text-alert">*</span></label>-->
 
-        <div class="col-sm-7 col-md-6">
-            <div class="row">
+        <!--<div class="col-sm-7 col-md-6">-->
+            <!--<div class="row">-->
 
-                <div class="col-xs-6">
-                    <label for="month" class="sr-only">Month</label>
-                    <!--<input type="text" class="form-control" placeholder="Month">-->
-                    <select id="month" class="form-control">
-                        <option selected="selected" value="  ">Month</option>
-                        <option value="01">January</option>
-                        <option value="02">February</option>
-                        <option value="03">March</option>
-                        <option value="04">April</option>
-                        <option value="05">May</option>
-                        <option value="06">June</option>
-                        <option value="07">July</option>
-                        <option value="08">August</option>
-                        <option value="09">September</option>
-                        <option value="10">October</option>
-                        <option value="11">November</option>
-                        <option value="12">December</option>
-                    </select>
-                </div>
-
-
-                <div class="col-xs-2 side-padding0">
-                    <label for="day" class="sr-only">Day</label>
-                    <!--<input type="text" class="form-control"  id="day" placeholder="Day">-->
-                    <select id="day" class="form-control">
-                        <option selected="selected" value="  ">Day</option>
-                        <option value="01">01</option>
-                        <option value="02">02</option>
-                        <option value="03">03</option>
-                        <option value="04">04</option>
-                        <option value="05">05</option>
-                        <option value="06">06</option>
-                        <option value="07">07</option>
-                        <option value="08">08</option>
-                        <option value="09">09</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                        <option value="21">21</option>
-                        <option value="22">22</option>
-                        <option value="23">23</option>
-                        <option value="24">24</option>
-                        <option value="25">25</option>
-                        <option value="26">26</option>
-                        <option value="27">27</option>
-                        <option value="28">28</option>
-                        <option value="29">29</option>
-                        <option value="30">30</option>
-                        <option value="31">31</option>
-                    </select>
-                </div>
+                <!--<div class="col-xs-6">-->
+                    <!--<label for="month" class="sr-only">Month</label>-->
+                    <!--&lt;!&ndash;<input type="text" class="form-control" placeholder="Month">&ndash;&gt;-->
+                    <!--<select id="month" class="form-control">-->
+                        <!--<option selected="selected" value="  ">Month</option>-->
+                        <!--<option value="01">January</option>-->
+                        <!--<option value="02">February</option>-->
+                        <!--<option value="03">March</option>-->
+                        <!--<option value="04">April</option>-->
+                        <!--<option value="05">May</option>-->
+                        <!--<option value="06">June</option>-->
+                        <!--<option value="07">July</option>-->
+                        <!--<option value="08">August</option>-->
+                        <!--<option value="09">September</option>-->
+                        <!--<option value="10">October</option>-->
+                        <!--<option value="11">November</option>-->
+                        <!--<option value="12">December</option>-->
+                    <!--</select>-->
+                <!--</div>-->
 
 
-                <div class="col-xs-4">
-                    <label for="year" class="sr-only">Year</label>
-                    <!--<input type="text" class="form-control"  id="year" placeholder="Year">-->
-                    <select id="year" class="form-control">
-                        <option selected="selected" value="    ">Year</option>
-                    </select>
-                </div>
+                <!--<div class="col-xs-2 side-padding0">-->
+                    <!--<label for="day" class="sr-only">Day</label>-->
+                    <!--&lt;!&ndash;<input type="text" class="form-control"  id="day" placeholder="Day">&ndash;&gt;-->
+                    <!--<select id="day" class="form-control">-->
+                        <!--<option selected="selected" value="  ">Day</option>-->
+                        <!--<option value="01">01</option>-->
+                        <!--<option value="02">02</option>-->
+                        <!--<option value="03">03</option>-->
+                        <!--<option value="04">04</option>-->
+                        <!--<option value="05">05</option>-->
+                        <!--<option value="06">06</option>-->
+                        <!--<option value="07">07</option>-->
+                        <!--<option value="08">08</option>-->
+                        <!--<option value="09">09</option>-->
+                        <!--<option value="10">10</option>-->
+                        <!--<option value="11">11</option>-->
+                        <!--<option value="12">12</option>-->
+                        <!--<option value="13">13</option>-->
+                        <!--<option value="14">14</option>-->
+                        <!--<option value="15">15</option>-->
+                        <!--<option value="16">16</option>-->
+                        <!--<option value="17">17</option>-->
+                        <!--<option value="18">18</option>-->
+                        <!--<option value="19">19</option>-->
+                        <!--<option value="20">20</option>-->
+                        <!--<option value="21">21</option>-->
+                        <!--<option value="22">22</option>-->
+                        <!--<option value="23">23</option>-->
+                        <!--<option value="24">24</option>-->
+                        <!--<option value="25">25</option>-->
+                        <!--<option value="26">26</option>-->
+                        <!--<option value="27">27</option>-->
+                        <!--<option value="28">28</option>-->
+                        <!--<option value="29">29</option>-->
+                        <!--<option value="30">30</option>-->
+                        <!--<option value="31">31</option>-->
+                    <!--</select>-->
+                <!--</div>-->
 
-                <div class="col-xs-12 m-t-sm">
-                    <div ng-messages="createPatientForm.dateOfBirth.$error" ng-if="createPatientForm.dateOfBirth.$dirty" class="text-alert">
-                        <div ng-messages-include="admin-messages"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
+                <!--<div class="col-xs-4">-->
+                    <!--<label for="year" class="sr-only">Year</label>-->
+                    <!--&lt;!&ndash;<input type="text" class="form-control"  id="year" placeholder="Year">&ndash;&gt;-->
+                    <!--<select id="year" class="form-control">-->
+                        <!--<option selected="selected" value="    ">Year</option>-->
+                    <!--</select>-->
+                <!--</div>-->
+
+                <!--<div class="col-xs-12 m-t-sm">-->
+                    <!--<div ng-messages="createPatientForm.dateOfBirth.$error" ng-if="createPatientForm.dateOfBirth.$dirty" class="text-alert">-->
+                        <!--<div ng-messages-include="admin-messages"></div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
 
     <div class="form-group">
         <label class="col-sm-3 col-md-2 control-label">Password <span class="text-alert">*</span></label>
@@ -199,37 +199,37 @@
         </div>
     </div>
 
-    <div class="form-group">
-        <label class="col-sm-3 col-md-2 control-label">Telephone</label>
-        <div class="col-sm-7 col-md-6">
-            <div class="row">
+    <!--<div class="form-group">-->
+        <!--<label class="col-sm-3 col-md-2 control-label">Telephone</label>-->
+        <!--<div class="col-sm-7 col-md-6">-->
+            <!--<div class="row">-->
 
-                <div class="col-xs-3 col-md-2 right-padding0">
-                    <label for="areaCode" class="sr-only">Area Code</label>
-                    <input type="text" class="form-control"  id="areaCode" placeholder="">
-                </div>
-
-
-                <div class="col-xs-3 col-md-2 right-padding0">
-                    <label for="prefix" class="sr-only">Prefix</label>
-                    <input type="text" class="form-control"  id="prefix" placeholder="">
-                </div>
+                <!--<div class="col-xs-3 col-md-2 right-padding0">-->
+                    <!--<label for="areaCode" class="sr-only">Area Code</label>-->
+                    <!--<input type="text" class="form-control"  id="areaCode" placeholder="">-->
+                <!--</div>-->
 
 
-                <div class="col-xs-5 col-md-3">
-                    <label for="fourDigits" class="sr-only">Month</label>
-                    <input type="text" class="form-control"  id="fourDigits" placeholder="">
-                </div>
+                <!--<div class="col-xs-3 col-md-2 right-padding0">-->
+                    <!--<label for="prefix" class="sr-only">Prefix</label>-->
+                    <!--<input type="text" class="form-control"  id="prefix" placeholder="">-->
+                <!--</div>-->
 
-                <div class="col-xs-12 m-t-sm">
-                    <div ng-messages="createPatientForm.telephone.$error" ng-if="createPatientForm.telephone.$dirty" class="text-alert">
-                        <div ng-messages-include="admin-messages"></div>
-                    </div>
-                </div>
-            </div>
 
-        </div>
-    </div>
+                <!--<div class="col-xs-5 col-md-3">-->
+                    <!--<label for="fourDigits" class="sr-only">Month</label>-->
+                    <!--<input type="text" class="form-control"  id="fourDigits" placeholder="">-->
+                <!--</div>-->
+
+                <!--<div class="col-xs-12 m-t-sm">-->
+                    <!--<div ng-messages="createPatientForm.telephone.$error" ng-if="createPatientForm.telephone.$dirty" class="text-alert">-->
+                        <!--<div ng-messages-include="admin-messages"></div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+
+        <!--</div>-->
+    <!--</div>-->
 
     <div class="form-group">
         <label class="col-sm-3 col-md-2 control-label">Address</label>
