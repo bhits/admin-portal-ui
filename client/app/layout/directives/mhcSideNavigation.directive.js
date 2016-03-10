@@ -3,10 +3,10 @@
 
     angular
         .module('app.layout')
-            .directive('ppSideNavigation', ppSideNavigation);
+            .directive('mhcSideNavigation', mhcSideNavigation);
 
             /* @ngInject */
-            function ppSideNavigation($timeout) {
+            function mhcSideNavigation($timeout) {
 
                 var directive = {
                     restrict: 'A',

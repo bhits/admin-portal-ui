@@ -3,10 +3,10 @@
 
     angular
         .module('app.layout')
-            .directive('ppIboxTools', ppIboxTools);
+            .directive('mhcIboxTools', mhcIboxTools);
 
             /* @ngInject */
-            function ppIboxTools() {
+            function mhcIboxTools() {
                 var directive = {
                     restrict: 'A',
                     scope: {},

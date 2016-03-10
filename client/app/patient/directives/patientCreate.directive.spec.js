@@ -26,7 +26,7 @@ describe('app.patient:', function() {
             notificationService = _notificationService_;
             $state = _$state_;
             patientCreateTemplate = $templateCache.get('app/patient/directives/patientCreate.html');
-            element = angular.element("<pp-patient-create></pp-patient-create>");
+            element = angular.element("<mhc-patient-create></mhc-patient-create>");
             $compile(element)(scope);
             rootScope.$digest();
             controller = element.isolateScope().patientCreateVm;
