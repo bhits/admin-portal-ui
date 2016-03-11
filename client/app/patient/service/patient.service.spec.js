@@ -23,7 +23,7 @@ describe('app.patient:', function() {
     });
 
     describe('patientService', function () {
-        it('should create patient ', function () {
+        xit('should create patient ', function () {
             var patient = {birthDate: "03/02/2016", email: "usr3@gmail.com", firstName: "usr1", genderCode: "M", lastName: "usr2", password: "Akacity77", username: "usr3"};
             $httpBackend.expectPOST('https://localhost:8448/registration/users/signup').respond({status: 201});
 

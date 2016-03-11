@@ -36,7 +36,7 @@
 
             function save(){
                 var user = vm.removeConfirmPassword(vm.patient);
-                patientService.createPatient(user, success, error);
+                patientService.createPatient(user,success,error);
             }
 
             function removeConfirmPassword(patientObject){

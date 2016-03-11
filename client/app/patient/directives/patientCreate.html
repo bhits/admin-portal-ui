@@ -3,11 +3,12 @@
     <div ng-message="minlength">Please provide a name that is greater than 2 characters long.</div>
     <div ng-message="maxlength">Please provide a name that is no greater than 30 characters long.</div>
     <div ng-message="compareTo">Password and confirm password must match.</div>
-    <div ng-message="isValidDate">Invalid date.</div>
+    <div ng-message="isValidDate">Please provide the correct date format MM/dd/yyyy.</div>
+    <div ng-message="isFutureDate">Date of birth should be in the past.</div>
     <div ng-message="email">Invalid email.</div>
-    <div ng-message="isValidSSN">Invalid social security number.</div>
-    <div ng-message="isValidPhoneNumber">Invalid telephone number.</div>
-    <div ng-message="isValidZipcode">Invalid zip code.</div>
+    <div ng-message="isValidSSN">Please provide a valid social security number.</div>
+    <div ng-message="isValidPhoneNumber">Please provide a valid telephone number.</div>
+    <div ng-message="isValidZipcode">Please provide a valid zip code.</div>
 </script>
 <!--TODO to be updated-->
 
@@ -41,13 +42,6 @@
     </div>
 
     <div class="form-group">
-        <label class="col-sm-3 col-md-2 control-label">User Name</label>
-        <div class="col-sm-7 col-md-6">
-            <input type="text" class="form-control" placeholder="User name" ng-model="patientCreateVm.patient.username" name="userName" >
-        </div>
-    </div>
-
-    <div class="form-group">
         <label class="col-sm-3 col-md-2 control-label">Email <span class="text-alert">*</span></label>
         <div class="col-sm-7 col-md-6">
             <input type="email" class="form-control" placeholder="Email" required ng-model="patientCreateVm.patient.email" mhc-validate-email name="email">
@@ -69,7 +63,7 @@
     <div class="form-group">
         <label class="col-sm-3 col-md-2 control-label">Date of Birth <span class="text-alert">*</span></label>
         <div class="col-sm-7 col-md-6">
-            <input type="text" class="form-control"  name="dateOfBirth" placeholder="Date of birth" required ng-model="patientCreateVm.patient.birthDate" required mhc-datepicker >
+            <input type="text" class="form-control"  name="dateOfBirth" placeholder="Date of birth" required ng-model="patientCreateVm.patient.birthDate" required mhc-datepicker mhc-validate-date>
             <div ng-messages="createPatientForm.dateOfBirth.$error" ng-if="createPatientForm.dateOfBirth.$dirty" class="text-alert">
                 <div ng-messages-include="admin-messages"></div>
             </div>
