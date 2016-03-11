@@ -548,7 +548,7 @@ module.exports = function (grunt) {
                             clientId:"admin-portal-ui",
                             redirectUri: "https://localhost:8451/admin-ui/fe/login",
                             profileUri: "https://localhost:8443/uaa/userinfo",
-                            scope: "openid,scim.write,scim.read,scim.create,phr.hie_write,registration.write,uaa.admin",
+                            scope: "openid,scim.write,scim.read,scim.create,phr.allPatientProfiles_read,phr.hie_write,registration.write,uaa.admin,patientUser.read,patientUser.write",
                             template: "assets/oauth2_templates/button.html"
                         }
                     }
@@ -573,7 +573,7 @@ module.exports = function (grunt) {
                             clientId:"admin-portal-ui",
                             redirectUri: "https://bhitsqaapp02:8451/admin-ui/fe/login",
                             profileUri: "https://bhitsqaapp02:8443/uaa/userinfo",
-                            scope: "openid,scim.write,scim.read,scim.create,phr.hie_write,registration.write,uaa.admin",
+                            scope: "openid,scim.write,scim.read,scim.create,phr.allPatientProfiles_read,phr.hie_write,registration.write,uaa.admin,patientUser.read,patientUser.write",
                             template: "assets/oauth2_templates/button.html"
                         }
                     }
