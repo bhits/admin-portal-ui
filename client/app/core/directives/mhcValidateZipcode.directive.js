@@ -22,13 +22,21 @@
 
                 /* @ngInject */
                 function linkFunc(scope, elm, attrs, ctrl) {
-                   ctrl.$validators.isValidZipcode = function(modelValue) {
-                        if(angular.isDefined(modelValue)){
+                   ctrl.$validators.isValidFiveDigitZipcode = function(modelValue) {
+                        if(angular.isDefined(modelValue) && modelValue.length <= 5  ){
                             return ctrl.$isEmpty(modelValue) || ZIPCODE_REGEXP.test(modelValue);
                         }else{
                             return true;
                         }
                    };
+
+                    ctrl.$validators.isValidTenDigitZipcode = function(modelValue) {
+                        if(angular.isDefined(modelValue) && modelValue.length > 5 ){
+                            return ctrl.$isEmpty(modelValue) || ZIPCODE_REGEXP.test(modelValue);
+                        }else{
+                            return true;
+                        }
+                    };
                 }
             }
 })();

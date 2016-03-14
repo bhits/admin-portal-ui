@@ -6,9 +6,10 @@
     <div ng-message="isValidDate">Dates must be in the following format: mm/dd/yyyy</div>
     <div ng-message="isFutureDate">Date of birth cannot be today's date, or a future date.</div>
     <div ng-message="email">The email address you have provided must be valid, please try again.</div>
-    <div ng-message="isValidSSN">Please provide a valid social security number containing a minium of 8 digits.</div>
+    <div ng-message="isValidSSN">Please provide a valid social security number. For example 123456789 or 123-45-6789.</div>
     <div ng-message="isValidPhoneNumber">Please provide a valid telephone number containing a minimum of 10 digits.</div>
-    <div ng-message="isValidZipcode">Please provide a valid zip code containing a minimum of 5 digits.</div>
+    <div ng-message="isValidFiveDigitZipcode">Please provide a valid zip code containing a minimum of 5 digits.</div>
+    <div ng-message="isValidTenDigitZipcode">Please provide a zip codes that is no greater than 10 characters.</div>
 </script>
 <!--TODO to be updated-->
 
@@ -251,7 +252,7 @@
     <div class="form-group">
         <label class="col-sm-3 col-md-2 control-label">Zipcode</label>
         <div class="col-sm-5 col-md-4">
-            <input type="text" class="form-control"  name="zipcode" mhc-validate-zipcode placeholder="Zip Code" ng-model="patientCreateVm.patient.zip">
+            <input type="text" class="form-control"  name="zipcode" mhc-validate-zipcode placeholder="Zip Code" ng-model="patientCreateVm.patient.zip" >
             <div ng-messages="createPatientForm.zipcode.$error" ng-if="createPatientForm.zipcode.$dirty" class="text-alert">
                 <div ng-messages-include="admin-messages"></div>
             </div>
@@ -263,6 +264,4 @@
             <button class="btn btn-primary dark-green" type="submit" ng-click="patientCreateVm.save()" ng-disabled="!patientCreateVm.canCreate(createPatientForm)">Create Patient</button>
         </div>
     </div>
-    <!--TODO Remvoe by end of sprint-->
-    <!--<pre> {{createPatientForm |json}}</pre>-->
 </form>
