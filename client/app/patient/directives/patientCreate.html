@@ -1,14 +1,14 @@
 <script type="text/ng-template" id="admin-messages">
-    <div ng-message="required">This field is required.</div>
-    <div ng-message="minlength">Please provide a name that is greater than 2 characters long.</div>
-    <div ng-message="maxlength">Please provide a name that is no greater than 30 characters long.</div>
-    <div ng-message="compareTo">Password and confirm password must match.</div>
-    <div ng-message="isValidDate">Please provide the correct date format MM/dd/yyyy.</div>
-    <div ng-message="isFutureDate">Date of birth should be in the past.</div>
-    <div ng-message="email">Invalid email.</div>
-    <div ng-message="isValidSSN">Please provide a valid social security number.</div>
-    <div ng-message="isValidPhoneNumber">Please provide a valid telephone number.</div>
-    <div ng-message="isValidZipcode">Please provide a valid zip code.</div>
+    <div ng-message="required">Please complete this required field.</div>
+    <div ng-message="minlength">The field must contain more than 2 characters, please try again.</div>
+    <div ng-message="maxlength">The field cannot contain more than 30 characters, please try again.</div>
+    <div ng-message="compareTo">Your password and confirm password must match, please try again.</div>
+    <div ng-message="isValidDate">Dates must be in the following format: mm/dd/yyyy</div>
+    <div ng-message="isFutureDate">Date of birth cannot be today's date, or a future date.</div>
+    <div ng-message="email">The email address you have provided must be valid, please try again.</div>
+    <div ng-message="isValidSSN">Please provide a valid social security number containing a minium of 8 digits.</div>
+    <div ng-message="isValidPhoneNumber">Please provide a valid telephone number containing a minimum of 10 digits.</div>
+    <div ng-message="isValidZipcode">Please provide a valid zip code containing a minimum of 5 digits.</div>
 </script>
 <!--TODO to be updated-->
 
