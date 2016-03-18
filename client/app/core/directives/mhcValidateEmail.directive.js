@@ -5,12 +5,12 @@
 
     angular
         .module('app.core')
-            .directive('ppValidateEmail', ppValidateEmail);
+            .directive('mhcValidateEmail', mhcValidateEmail);
 
             /* @ngInject */
-            function ppValidateEmail(utilityService) {
+            function mhcValidateEmail(constants) {
 
-                var EMAIL_REGEXP = /^[\w-]+(\.[\w-]+)*@([a-z0-9-]+(\.[a-z0-9-]+)*?\.[a-z]{2,6}|(\d{1,3}\.){3}\d{1,3})(:\d{4})?$/;
+                var EMAIL_REGEXP = constants.EMAIL_REGEXP;
 
                 var directive =  {
                     require: 'ngModel',

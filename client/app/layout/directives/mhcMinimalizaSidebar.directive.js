@@ -3,10 +3,10 @@
 
     angular
         .module('app.layout')
-            .directive('ppMinimalizaSidebar', ppMinimalizaSidebar);
+            .directive('mhcMinimalizaSidebar', mhcMinimalizaSidebar);
 
             /* @ngInject */
-            function ppMinimalizaSidebar() {
+            function mhcMinimalizaSidebar() {
                 var directive =  {
                     restrict: 'A',
                     scope: {

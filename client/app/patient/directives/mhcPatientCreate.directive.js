@@ -3,10 +3,10 @@
 
     angular
         .module('app.patient')
-        .directive('ppPatientCreate', ppPatientCreate);
+        .directive('mhcPatientCreate', mhcPatientCreate);
 
     /* @ngInject */
-    function ppPatientCreate() {
+    function mhcPatientCreate() {
         var directive =  {
             restrict: 'E',
             scope: {},
@@ -21,14 +21,13 @@
         /* @ngInject */
         function PatientCreateController(patientService, $state, notificationService) {
             var vm = this;
-
-            vm.emailPattern = /^[\w-]+(\.[\w-]+)*@([a-z0-9-]+(\.[a-z0-9-]+)*?\.[a-z]{2,6}|(\d{1,3}\.){3}\d{1,3})(:\d{4})?$/;
-            vm.ssnPattern = /(^\d{3}-?\d{2}-?\d{4}$|^XXX-XX-XXXX$)/;
             vm.save = save;
             vm.canCreate = canCreate;
+            vm.removeConfirmPassword = removeConfirmPassword;
 
             function success(response){
-                $state.go('fe.patient.success');
+                notificationService.success("Success in creating patient.");
+                $state.go('fe.index.home');
             }
 
             function error(response){
@@ -36,8 +35,8 @@
             }
 
             function save(){
-                var user = removeConfirmPassword(vm.patient);
-                patientService.createPatient(user, success, error);
+                var user = vm.removeConfirmPassword(vm.patient);
+                patientService.createPatient(user,success,error);
             }
 
             function removeConfirmPassword(patientObject){

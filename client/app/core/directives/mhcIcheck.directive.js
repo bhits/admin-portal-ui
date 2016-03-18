@@ -5,10 +5,10 @@
 
     angular
         .module('app.core')
-            .directive('ppIcheck', ppIcheck);
+            .directive('mhcIcheck', mhcIcheck);
 
             /* @ngInject */
-            function ppIcheck($timeout) {
+            function mhcIcheck($timeout) {
 
                 var directive = {
                     restrict: 'A',

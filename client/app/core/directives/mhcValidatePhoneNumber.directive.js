@@ -5,12 +5,12 @@
 
     angular
         .module('app.core')
-            .directive('ppValidateSsn', ppValidateSsn);
+            .directive('mhcValidatePhoneNumber', mhcValidatePhoneNumber);
 
             /* @ngInject */
-            function ppValidateSsn() {
-
-                var SSN_REGEXP = /^(\d{3}-?\d{2}-?\d{4}|XXX-XX-XXXX)$/;
+            function mhcValidatePhoneNumber(constants) {
+                //NANP
+                var PHONE_NUMBER_REGEXP = constants.PHONE_NUMBER_REGEXP;
 
                 var directive =  {
                     require: 'ngModel',
@@ -22,9 +22,9 @@
 
                 /* @ngInject */
                 function linkFunc(scope, elm, attrs, ctrl) {
-                   ctrl.$validators.isValidSSN = function(modelValue) {
+                   ctrl.$validators.isValidPhoneNumber = function(modelValue) {
                         if(angular.isDefined(modelValue)){
-                            return ctrl.$isEmpty(modelValue) || SSN_REGEXP.test(modelValue);
+                            return ctrl.$isEmpty(modelValue) || PHONE_NUMBER_REGEXP.test(modelValue);
                         }else{
                             return true;
                         }

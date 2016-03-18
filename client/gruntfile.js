@@ -355,7 +355,7 @@ module.exports = function (grunt) {
                 singleRun: false,
                 autoWatch: true,
                 background: false,
-                browsers: ['Chrome']
+                browsers: ['PhantomJS_custom']
 
             }
         },
@@ -538,8 +538,8 @@ module.exports = function (grunt) {
                         name: 'Development',
                         version:'<%= pkg.version %>',
                         securedApis: {
-                            pcmApiBaseUrl: 'https://localhost:8446/pcm/patients',
-                            registrationApiBaseUrl: 'https://localhost:8448/registration/users'
+                            registrationApiBaseUrl: 'https://localhost:8448/registration/users',
+                            phrApiBaseUrl: 'https://localhost:8448/phr/patients'
                         },
                         unsecuredApis:{
                         },
@@ -548,7 +548,7 @@ module.exports = function (grunt) {
                             clientId:"admin-portal-ui",
                             redirectUri: "https://localhost:8451/admin-ui/fe/login",
                             profileUri: "https://localhost:8443/uaa/userinfo",
-                            scope: "openid,scim.write,scim.read,scim.create,phr.hie_write,registration.write,scim.read,zones.uaa.admin",
+                            scope: "openid,scim.write,scim.read,scim.create,phr.allPatientProfiles_read,phr.hie_write,phr.patient_read,registration.write,uaa.admin,patientUser.read,patientUser.write",
                             template: "assets/oauth2_templates/button.html"
                         }
                     }
@@ -564,7 +564,8 @@ module.exports = function (grunt) {
                         name: 'QA',
                         version:'<%= pkg.version %>',
                         securedApis: {
-                            registrationApiBaseUrl: 'https://localhost:8448/registration/users'
+                            registrationApiBaseUrl: 'https://bhitsqaapp02:8448/registration/users',
+                            phrApiBaseUrl: 'https://localhost:8448/phr/patients'
                         },
                         unsecuredApis:{
                         },
@@ -573,7 +574,7 @@ module.exports = function (grunt) {
                             clientId:"admin-portal-ui",
                             redirectUri: "https://bhitsqaapp02:8451/admin-ui/fe/login",
                             profileUri: "https://bhitsqaapp02:8443/uaa/userinfo",
-                            scope: "openid,scim.write,scim.read,scim.create,phr.hie.writeDocument,registration.write,zones.uaa.admin",
+                            scope: "openid,scim.write,scim.read,scim.create,phr.allPatientProfiles_read,phr.hie_write,registration.write,uaa.admin,patientUser.read,patientUser.write",
                             template: "assets/oauth2_templates/button.html"
                         }
                     }

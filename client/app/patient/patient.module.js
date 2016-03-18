@@ -2,5 +2,8 @@
     'use strict';
 
     angular
-        .module('app.patient', ['app.core']);
+        .module('app.patient',
+            [
+                'app.core'
+            ]);
 })();
