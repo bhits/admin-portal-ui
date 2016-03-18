@@ -16,11 +16,20 @@
 <div class="row" >
     <div class="col-sm-12" >
         <div class="p-xs alert alert-warning" role="alert">
-            <strong>All fields with * are required.</strong>
+            <strong>Please Note. All fields with * are required to create a User Account. Additional Information may also be added as provided.</strong>
         </div>
     </div>
 </div>
-
+<div class="row">
+   <div class="text-strong-blue col-sm-offset-3 col-sm-7 col-md-offset-2 col-md-5 col-lg-4">
+       <h3>Required Information</h3>
+       <div class="row">
+           <div class="col-sm-12">
+               <div class="m-b border-bottom side-padding15"></div>
+           </div>
+       </div>
+   </div>
+</div>
 <form class="form-horizontal" name="createPatientForm" novalidate>
     <div class="form-group">
         <label class="col-sm-3 col-md-2 control-label">First Name <span class="text-alert">*</span></label>
@@ -55,8 +64,8 @@
     <div class="form-group">
         <label class="col-sm-3 col-md-2 control-label">Gender <span class="text-alert">*</span></label>
         <div class="col-sm-7 col-md-6">
-            <div class="radio"><label class="side-padding0"> <input mhc-icheck type="radio" name="gender" ng-model="patientCreateVm.patient.genderCode" value="M" required> Male </label></div>
-            <div class="radio"><label class="side-padding0"> <input mhc-icheck type="radio" name="gender" ng-model="patientCreateVm.patient.genderCode" value="F" required> Female </label></div>
+            <div class="radio"><label class="side-padding0"> <input type="radio" mhc-icheck name="gender" ng-model="patientCreateVm.patient.genderCode" value="M" required> Male </label></div>
+            <div class="radio"><label class="side-padding0"> <input type="radio" mhc-icheck name="gender" ng-model="patientCreateVm.patient.genderCode" value="F" required> Female </label></div>
             <!--<div class="radio"><label class="side-padding0"> <input mhc-icheck type="radio" name="gender" ng-model="patientCreateVm.patient.genderCode" value="N" required> Not Specified </label></div>-->
         </div>
     </div>
@@ -154,23 +163,36 @@
             <!--</div>-->
         <!--</div>-->
     <!--</div>-->
+<!-- Deleted From Groups -->
 
-    <div class="form-group">
-        <label class="col-sm-3 col-md-2 control-label">Password <span class="text-alert">*</span></label>
-        <div class="col-sm-7 col-md-5 col-lg-4">
-            <input type="password" class="form-control" placeholder="Password" ng-minlength="2" ng-maxlength="30" ng-model="patientCreateVm.patient.password" name="password" required>
-            <div ng-messages="createPatientForm.password.$error" ng-if="createPatientForm.password.$dirty" class="text-alert">
-                <div ng-messages-include="admin-messages"></div>
-            </div>
-        </div>
-    </div>
+    <!--<div class="form-group">-->
+        <!--<label class="col-sm-3 col-md-2 control-label">Password <span class="text-alert">*</span></label>-->
+        <!--<div class="col-sm-7 col-md-5 col-lg-4">-->
+            <!--<input type="password" class="form-control" placeholder="Password" ng-minlength="2" ng-maxlength="30" ng-model="patientCreateVm.patient.password" name="password" required>-->
+            <!--<div ng-messages="createPatientForm.password.$error" ng-if="createPatientForm.password.$dirty" class="text-alert">-->
+                <!--<div ng-messages-include="admin-messages"></div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
 
-    <div class="form-group">
-        <label class="col-sm-3 col-md-2 control-label">Confirm Password <span class="text-alert">*</span></label>
-        <div class="col-sm-7 col-md-5 col-lg-4">
-            <input type="password" class="form-control" placeholder="Confirm password" ng-minlength="2" ng-maxlength="30" ng-model="patientCreateVm.patient.password2" name="password2" mhc-compare-to="patientCreateVm.patient.password" required>
-            <div ng-messages="createPatientForm.password2.$error" ng-if="createPatientForm.password2.$dirty" class="text-alert">
-                <div ng-messages-include="admin-messages"></div>
+    <!--<div class="form-group">-->
+        <!--<label class="col-sm-3 col-md-2 control-label">Confirm Password <span class="text-alert">*</span></label>-->
+        <!--<div class="col-sm-7 col-md-5 col-lg-4">-->
+            <!--<input type="password" class="form-control" placeholder="Confirm password" ng-minlength="2" ng-maxlength="30" ng-model="patientCreateVm.patient.password2" name="password2" mhc-compare-to="patientCreateVm.patient.password" required>-->
+            <!--<div ng-messages="createPatientForm.password2.$error" ng-if="createPatientForm.password2.$dirty" class="text-alert">-->
+                <!--<div ng-messages-include="admin-messages"></div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+
+<!-- End of DELETED FORM GROUPS -->
+    <div class="row">
+        <div class="text-strong-blue col-sm-offset-3 col-sm-7 col-md-offset-2 col-md-5 col-lg-4">
+            <h3>Additional Information</h3>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="m-b border-bottom side-padding15"></div>
+                </div>
             </div>
         </div>
     </div>
