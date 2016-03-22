@@ -146,6 +146,12 @@
 /* End of Color Schemes */
 
 /* Components */
+.pp-activation-button {
+  position: absolute;
+  top: 1px;
+  right: 13px;
+}
+
 .pp-block-text-bar {
   display: block;
   width: 100%;
@@ -244,6 +250,38 @@ This implementation must be improved to prevent similar issues.
   }
 }
 
+.statusIcon_notCreated {
+  &:before {
+    font-family: FontAwesome;
+    content: '\f147';
+    font-size: 20px;
+    color: @pp-dark-red;
+    position: absolute;
+    margin: -3px 0 0 -25px;
+  }
+}
+
+.statusIcon_created {
+  &:before {
+    font-family: FontAwesome;
+    content: '\f046';
+    font-size: 20px;
+    color: @pp-dark-green;
+    position: absolute;
+    margin: -3px 0 0 -25px;
+  }
+}
+
+.statusIcon_activated {
+  &:before {
+    font-family: FontAwesome;
+    content: '\f1d9';
+    font-size: 20px;
+    color: @pp-strong-blue;
+    position: absolute;
+    margin: -3px 0 0 -25px;
+  }
+}
 
 /*modifications*/
 .ibox-title.modified {
@@ -388,6 +426,9 @@ body.ng-scope.pace-done.grey{
 }
 .center {
   text-align: center;
+}
+.nowrap {
+  white-space: nowrap;
 }
 
 /*PALETTE*/

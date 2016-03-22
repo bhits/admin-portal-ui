@@ -6,36 +6,242 @@
     <div ng-message="isValidDate">Dates must be in the following format: mm/dd/yyyy</div>
     <div ng-message="isFutureDate">Date of birth cannot be today's date, or a future date.</div>
     <div ng-message="email">The email address you have provided must be valid, please try again.</div>
-    <div ng-message="isValidSSN">Please provide a valid social security number. For example 123456789 or 123-45-6789.</div>
-    <div ng-message="isValidPhoneNumber">Please provide a valid telephone number containing a minimum of 10 digits.</div>
+    <div ng-message="isValidSSN">Please provide a valid social security number. For example 123456789 or 123-45-6789.
+    </div>
+    <div ng-message="isValidPhoneNumber">Please provide a valid telephone number containing a minimum of 10 digits.
+    </div>
     <div ng-message="isValidFiveDigitZipcode">Please provide a valid zip code containing a minimum of 5 digits.</div>
     <div ng-message="isValidTenDigitZipcode">Please provide a zip codes that is no greater than 10 characters.</div>
 </script>
 <!--TODO to be updated-->
 
-<div class="row" >
-    <div class="col-sm-12" >
+<!-- EMAIL VERIFICATION -->
+
+<div class="row">
+    <div class="col-lg-12 relative">
+        <div class="ibox panel panel-navbar-blueGray float-e-margins">
+            <div class="ibox-title modified panel-heading right-padding30"
+                 ng-click="consentCardVm.toggleCollapse()">
+                <div class="chevron_absolute">
+                    <div pp-ibox-tools pp-collapsed="consentCardVm.collapsed"
+                         pp-chevron-prevent-default="true"></div>
+                </div>
+
+                <div class="row">
+                    <div pp-ibox-tools init-collapsed="true"></div>
+
+                    <div class="col-sm-8 col-xs-12">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h2 class="m-b-xxs">Account Activation / Verification Code
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="ibox-content modified">
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <p class="m-b-xxs">Activate Account for:</p>
+                        <h3><span>---</span></h3>
+                    </div>
+                    <div class="col-md-6 m-b">
+                        <p class="m-b-xxs">Verification Code:</p>
+                        <h3><span>---</span></h3>
+                    </div>
+                    <div class="col-md-12 m-b">
+                        <p>
+                            <span class="text-dark-red"><strong>Please complete the Create User Account process.</strong></span>
+                            A User Account must first be created to enable the Account Activation features. Once
+                            created, an Account Activation
+                            email may be sent to the User. Upon sending the email, the Verification Code will be
+                            generated and displayed.</p>
+                        <p>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="row relative">
+                    <div class="col-xs-9">
+                        <div class="left-padding25 statusIcon_notCreated">
+                            <p class="inline m-b-xxs m-r-xs">Account Status:</p>
+                            <p class="inline bold nowrap">Account Not Yet Activated.</p>
+                        </div>
+                    </div>
+                    <div class="pp-activation-button">
+                        <button class="btn btn-default btn-xs dark-green disabled">
+                            Send Email
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12 relative">
+        <div class="ibox panel panel-navbar-blueGray float-e-margins">
+            <div class="ibox-title modified panel-heading right-padding30"
+                 ng-click="consentCardVm.toggleCollapse()">
+                <div class="chevron_absolute">
+                    <div pp-ibox-tools pp-collapsed="consentCardVm.collapsed"
+                         pp-chevron-prevent-default="true"></div>
+                </div>
+
+                <div class="row">
+                    <div pp-ibox-tools init-collapsed="true"></div>
+
+                    <div class="col-sm-8 col-xs-12">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h2 class="m-b-xxs">Account Activation/Verification Code
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ibox-content modified">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <p class="m-b-xxs">Activate Account for:</p>
+                        <h3><span>sallysharemhc@gmail.com</span></h3>
+                    </div>
+                    <div class="col-md-6 m-b">
+                        <p class="m-b-xxs">Verification Code:</p>
+                        <h3><span>---</span></h3>
+                    </div>
+                    <div class="col-md-12 m-b">
+                        <p>
+                            <span class="text-dark-green"><strong>Please Send Email to generate the Verification
+                                Code.</strong></span>
+                            Sending an Account Activation Email to the address listed above will generate a unique
+                            Verification Code.
+                            That Verification Code will be displayed above.</p>
+                        <p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="panel-footer">
+                <div class="row relative">
+                    <div class="col-xs-9">
+                        <div class="left-padding25 statusIcon_created">
+                            <p class="inline m-b-xxs m-r-xs">Account Status:</p>
+                            <p class="inline bold nowrap">Account Created.</p>
+                        </div>
+                    </div>
+                    <div class="pp-activation-button">
+                        <button class="btn btn-success btn-xs dark-green">
+                            Send Email
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12 relative">
+        <div class="ibox panel panel-navbar-blueGray float-e-margins">
+            <div class="ibox-title modified panel-heading right-padding30"
+                 ng-click="consentCardVm.toggleCollapse()">
+                <div class="chevron_absolute">
+                    <div pp-ibox-tools pp-collapsed="consentCardVm.collapsed"
+                         pp-chevron-prevent-default="true"></div>
+                </div>
+
+                <div class="row">
+                    <div pp-ibox-tools init-collapsed="true"></div>
+
+                    <div class="col-sm-8 col-xs-12">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h2 class="m-b-xxs">Account Activation/Verification Code
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="ibox-content modified">
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <p class="m-b-xxs">Activate Account for:</p>
+                        <h3><span>sallysharemhc@gmail.com</span></h3>
+                    </div>
+                    <div class="col-md-6 m-b">
+                        <p class="m-b-xxs">Verification Code:</p>
+                        <h3><span>02W3CF78</span></h3>
+                    </div>
+                    <div class="col-md-12 m-b">
+                        <p>
+                            <span class="text-strong-blue"><strong>Please provide the User with their unique Verification
+                                Code.</strong></span>
+                            If necessary, another email may be sent, and a new Verification Code will be generated.</p>
+                        <p>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="row relative">
+                    <div class="col-xs-9">
+                        <div class="left-padding25 statusIcon_activated">
+                            <p class="inline m-b-xxs m-r-xs">Account Status: </p>
+                            <p class="inline bold nowrap">Activation Email Sent.</p>
+                        </div>
+                    </div>
+                    <div class="pp-activation-button">
+                        <button class="btn btn-default btn-xs dark-green">
+                            Resend Email
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- END EMAIL VERIFICATION -->
+
+<div class="row">
+    <div class="col-sm-12">
         <div class="p-xs alert alert-warning" role="alert">
-            <strong>Please Note. All fields with * are required to create a User Account. Additional Information may also be added as provided.</strong>
+            <strong>Please Note. All fields with * are required to create a User Account. Additional Information may
+                also be added as provided.</strong>
         </div>
     </div>
 </div>
 <div class="row">
-   <div class="text-strong-blue col-sm-offset-3 col-sm-7 col-md-offset-2 col-md-5 col-lg-4">
-       <h3>Required Information</h3>
-       <div class="row">
-           <div class="col-sm-12">
-               <div class="m-b border-bottom side-padding15"></div>
-           </div>
-       </div>
-   </div>
+    <div class="text-strong-blue col-sm-offset-3 col-sm-7 col-md-offset-2 col-md-5 col-lg-4">
+        <h3>Required Information</h3>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="m-b border-bottom side-padding15"></div>
+            </div>
+        </div>
+    </div>
 </div>
 <form class="form-horizontal" name="createPatientForm" novalidate>
     <div class="form-group">
         <label class="col-sm-3 col-md-2 control-label">First Name <span class="text-alert">*</span></label>
         <div class="col-sm-7 col-md-5 col-lg-4">
-            <input type="text" class="form-control" placeholder="First name" ng-model="patientCreateVm.patient.firstName" required ng-minlength="2" ng-maxlength="30" name="firstName">
-            <div ng-messages="createPatientForm.firstName.$error" ng-if="createPatientForm.firstName.$dirty" class="text-alert">
+            <input type="text" class="form-control" placeholder="First name"
+                   ng-model="patientCreateVm.patient.firstName" required ng-minlength="2" ng-maxlength="30"
+                   name="firstName">
+            <div ng-messages="createPatientForm.firstName.$error" ng-if="createPatientForm.firstName.$dirty"
+                 class="text-alert">
                 <div ng-messages-include="admin-messages"></div>
             </div>
         </div>
@@ -44,8 +250,10 @@
     <div class="form-group">
         <label class="col-sm-3 col-md-2 control-label">Last Name <span class="text-alert">*</span></label>
         <div class="col-sm-7 col-md-5 col-lg-4">
-            <input type="text" class="form-control" placeholder="Last name" ng-model="patientCreateVm.patient.lastName" name="lastName" required ng-minlength="2" ng-maxlength="30" >
-            <div ng-messages="createPatientForm.lastName.$error" ng-if="createPatientForm.lastName.$dirty" class="text-alert">
+            <input type="text" class="form-control" placeholder="Last name" ng-model="patientCreateVm.patient.lastName"
+                   name="lastName" required ng-minlength="2" ng-maxlength="30">
+            <div ng-messages="createPatientForm.lastName.$error" ng-if="createPatientForm.lastName.$dirty"
+                 class="text-alert">
                 <div ng-messages-include="admin-messages"></div>
             </div>
         </div>
@@ -54,7 +262,8 @@
     <div class="form-group">
         <label class="col-sm-3 col-md-2 control-label">Email <span class="text-alert">*</span></label>
         <div class="col-sm-7 col-md-5 col-lg-4">
-            <input type="email" class="form-control" placeholder="Email" required ng-model="patientCreateVm.patient.email" mhc-validate-email name="email">
+            <input type="email" class="form-control" placeholder="Email" required
+                   ng-model="patientCreateVm.patient.email" mhc-validate-email name="email">
             <div ng-messages="createPatientForm.email.$error" ng-if="createPatientForm.email.$dirty" class="text-alert">
                 <div ng-messages-include="admin-messages"></div>
             </div>
@@ -64,8 +273,12 @@
     <div class="form-group">
         <label class="col-sm-3 col-md-2 control-label">Gender <span class="text-alert">*</span></label>
         <div class="col-sm-7 col-md-6">
-            <div class="radio"><label class="side-padding0"> <input type="radio" mhc-icheck name="gender" ng-model="patientCreateVm.patient.genderCode" value="M" required> Male </label></div>
-            <div class="radio"><label class="side-padding0"> <input type="radio" mhc-icheck name="gender" ng-model="patientCreateVm.patient.genderCode" value="F" required> Female </label></div>
+            <div class="radio"><label class="side-padding0"> <input type="radio" mhc-icheck name="gender"
+                                                                    ng-model="patientCreateVm.patient.genderCode"
+                                                                    value="M" required> Male </label></div>
+            <div class="radio"><label class="side-padding0"> <input type="radio" mhc-icheck name="gender"
+                                                                    ng-model="patientCreateVm.patient.genderCode"
+                                                                    value="F" required> Female </label></div>
             <!--<div class="radio"><label class="side-padding0"> <input mhc-icheck type="radio" name="gender" ng-model="patientCreateVm.patient.genderCode" value="N" required> Not Specified </label></div>-->
         </div>
     </div>
@@ -73,119 +286,121 @@
     <div class="form-group">
         <label class="col-xs-12 col-sm-3 col-md-2 control-label">Date of Birth <span class="text-alert">*</span></label>
         <div class="col-xs-5 col-sm-4 col-md-3 col-lg-2">
-            <input type="text" class="form-control"  name="dateOfBirth" placeholder="Date of birth" required ng-model="patientCreateVm.patient.birthDate" required mhc-datepicker mhc-validate-date>
-            <div ng-messages="createPatientForm.dateOfBirth.$error" ng-if="createPatientForm.dateOfBirth.$dirty" class="text-alert">
+            <input type="text" class="form-control" name="dateOfBirth" placeholder="Date of birth" required
+                   ng-model="patientCreateVm.patient.birthDate" required mhc-datepicker mhc-validate-date>
+            <div ng-messages="createPatientForm.dateOfBirth.$error" ng-if="createPatientForm.dateOfBirth.$dirty"
+                 class="text-alert">
                 <div ng-messages-include="admin-messages"></div>
             </div>
         </div>
     </div>
     <!--TODO do no delete-->
     <!--<div class="form-group">-->
-        <!--<label class="col-sm-3 col-md-2 control-label">Date of Birth <span class="text-alert">*</span></label>-->
+    <!--<label class="col-sm-3 col-md-2 control-label">Date of Birth <span class="text-alert">*</span></label>-->
 
-        <!--<div class="col-sm-7 col-md-6">-->
-            <!--<div class="row">-->
+    <!--<div class="col-sm-7 col-md-6">-->
+    <!--<div class="row">-->
 
-                <!--<div class="col-xs-6">-->
-                    <!--<label for="month" class="sr-only">Month</label>-->
-                    <!--&lt;!&ndash;<input type="text" class="form-control" placeholder="Month">&ndash;&gt;-->
-                    <!--<select id="month" class="form-control">-->
-                        <!--<option selected="selected" value="  ">Month</option>-->
-                        <!--<option value="01">January</option>-->
-                        <!--<option value="02">February</option>-->
-                        <!--<option value="03">March</option>-->
-                        <!--<option value="04">April</option>-->
-                        <!--<option value="05">May</option>-->
-                        <!--<option value="06">June</option>-->
-                        <!--<option value="07">July</option>-->
-                        <!--<option value="08">August</option>-->
-                        <!--<option value="09">September</option>-->
-                        <!--<option value="10">October</option>-->
-                        <!--<option value="11">November</option>-->
-                        <!--<option value="12">December</option>-->
-                    <!--</select>-->
-                <!--</div>-->
-
-
-                <!--<div class="col-xs-2 side-padding0">-->
-                    <!--<label for="day" class="sr-only">Day</label>-->
-                    <!--&lt;!&ndash;<input type="text" class="form-control"  id="day" placeholder="Day">&ndash;&gt;-->
-                    <!--<select id="day" class="form-control">-->
-                        <!--<option selected="selected" value="  ">Day</option>-->
-                        <!--<option value="01">01</option>-->
-                        <!--<option value="02">02</option>-->
-                        <!--<option value="03">03</option>-->
-                        <!--<option value="04">04</option>-->
-                        <!--<option value="05">05</option>-->
-                        <!--<option value="06">06</option>-->
-                        <!--<option value="07">07</option>-->
-                        <!--<option value="08">08</option>-->
-                        <!--<option value="09">09</option>-->
-                        <!--<option value="10">10</option>-->
-                        <!--<option value="11">11</option>-->
-                        <!--<option value="12">12</option>-->
-                        <!--<option value="13">13</option>-->
-                        <!--<option value="14">14</option>-->
-                        <!--<option value="15">15</option>-->
-                        <!--<option value="16">16</option>-->
-                        <!--<option value="17">17</option>-->
-                        <!--<option value="18">18</option>-->
-                        <!--<option value="19">19</option>-->
-                        <!--<option value="20">20</option>-->
-                        <!--<option value="21">21</option>-->
-                        <!--<option value="22">22</option>-->
-                        <!--<option value="23">23</option>-->
-                        <!--<option value="24">24</option>-->
-                        <!--<option value="25">25</option>-->
-                        <!--<option value="26">26</option>-->
-                        <!--<option value="27">27</option>-->
-                        <!--<option value="28">28</option>-->
-                        <!--<option value="29">29</option>-->
-                        <!--<option value="30">30</option>-->
-                        <!--<option value="31">31</option>-->
-                    <!--</select>-->
-                <!--</div>-->
-
-
-                <!--<div class="col-xs-4">-->
-                    <!--<label for="year" class="sr-only">Year</label>-->
-                    <!--&lt;!&ndash;<input type="text" class="form-control"  id="year" placeholder="Year">&ndash;&gt;-->
-                    <!--<select id="year" class="form-control">-->
-                        <!--<option selected="selected" value="    ">Year</option>-->
-                    <!--</select>-->
-                <!--</div>-->
-
-                <!--<div class="col-xs-12 m-t-sm">-->
-                    <!--<div ng-messages="createPatientForm.dateOfBirth.$error" ng-if="createPatientForm.dateOfBirth.$dirty" class="text-alert">-->
-                        <!--<div ng-messages-include="admin-messages"></div>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
+    <!--<div class="col-xs-6">-->
+    <!--<label for="month" class="sr-only">Month</label>-->
+    <!--&lt;!&ndash;<input type="text" class="form-control" placeholder="Month">&ndash;&gt;-->
+    <!--<select id="month" class="form-control">-->
+    <!--<option selected="selected" value="  ">Month</option>-->
+    <!--<option value="01">January</option>-->
+    <!--<option value="02">February</option>-->
+    <!--<option value="03">March</option>-->
+    <!--<option value="04">April</option>-->
+    <!--<option value="05">May</option>-->
+    <!--<option value="06">June</option>-->
+    <!--<option value="07">July</option>-->
+    <!--<option value="08">August</option>-->
+    <!--<option value="09">September</option>-->
+    <!--<option value="10">October</option>-->
+    <!--<option value="11">November</option>-->
+    <!--<option value="12">December</option>-->
+    <!--</select>-->
     <!--</div>-->
-<!-- Deleted From Groups -->
+
+
+    <!--<div class="col-xs-2 side-padding0">-->
+    <!--<label for="day" class="sr-only">Day</label>-->
+    <!--&lt;!&ndash;<input type="text" class="form-control"  id="day" placeholder="Day">&ndash;&gt;-->
+    <!--<select id="day" class="form-control">-->
+    <!--<option selected="selected" value="  ">Day</option>-->
+    <!--<option value="01">01</option>-->
+    <!--<option value="02">02</option>-->
+    <!--<option value="03">03</option>-->
+    <!--<option value="04">04</option>-->
+    <!--<option value="05">05</option>-->
+    <!--<option value="06">06</option>-->
+    <!--<option value="07">07</option>-->
+    <!--<option value="08">08</option>-->
+    <!--<option value="09">09</option>-->
+    <!--<option value="10">10</option>-->
+    <!--<option value="11">11</option>-->
+    <!--<option value="12">12</option>-->
+    <!--<option value="13">13</option>-->
+    <!--<option value="14">14</option>-->
+    <!--<option value="15">15</option>-->
+    <!--<option value="16">16</option>-->
+    <!--<option value="17">17</option>-->
+    <!--<option value="18">18</option>-->
+    <!--<option value="19">19</option>-->
+    <!--<option value="20">20</option>-->
+    <!--<option value="21">21</option>-->
+    <!--<option value="22">22</option>-->
+    <!--<option value="23">23</option>-->
+    <!--<option value="24">24</option>-->
+    <!--<option value="25">25</option>-->
+    <!--<option value="26">26</option>-->
+    <!--<option value="27">27</option>-->
+    <!--<option value="28">28</option>-->
+    <!--<option value="29">29</option>-->
+    <!--<option value="30">30</option>-->
+    <!--<option value="31">31</option>-->
+    <!--</select>-->
+    <!--</div>-->
+
+
+    <!--<div class="col-xs-4">-->
+    <!--<label for="year" class="sr-only">Year</label>-->
+    <!--&lt;!&ndash;<input type="text" class="form-control"  id="year" placeholder="Year">&ndash;&gt;-->
+    <!--<select id="year" class="form-control">-->
+    <!--<option selected="selected" value="    ">Year</option>-->
+    <!--</select>-->
+    <!--</div>-->
+
+    <!--<div class="col-xs-12 m-t-sm">-->
+    <!--<div ng-messages="createPatientForm.dateOfBirth.$error" ng-if="createPatientForm.dateOfBirth.$dirty" class="text-alert">-->
+    <!--<div ng-messages-include="admin-messages"></div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!-- Deleted From Groups -->
 
     <!--<div class="form-group">-->
-        <!--<label class="col-sm-3 col-md-2 control-label">Password <span class="text-alert">*</span></label>-->
-        <!--<div class="col-sm-7 col-md-5 col-lg-4">-->
-            <!--<input type="password" class="form-control" placeholder="Password" ng-minlength="2" ng-maxlength="30" ng-model="patientCreateVm.patient.password" name="password" required>-->
-            <!--<div ng-messages="createPatientForm.password.$error" ng-if="createPatientForm.password.$dirty" class="text-alert">-->
-                <!--<div ng-messages-include="admin-messages"></div>-->
-            <!--</div>-->
-        <!--</div>-->
+    <!--<label class="col-sm-3 col-md-2 control-label">Password <span class="text-alert">*</span></label>-->
+    <!--<div class="col-sm-7 col-md-5 col-lg-4">-->
+    <!--<input type="password" class="form-control" placeholder="Password" ng-minlength="2" ng-maxlength="30" ng-model="patientCreateVm.patient.password" name="password" required>-->
+    <!--<div ng-messages="createPatientForm.password.$error" ng-if="createPatientForm.password.$dirty" class="text-alert">-->
+    <!--<div ng-messages-include="admin-messages"></div>-->
+    <!--</div>-->
+    <!--</div>-->
     <!--</div>-->
 
     <!--<div class="form-group">-->
-        <!--<label class="col-sm-3 col-md-2 control-label">Confirm Password <span class="text-alert">*</span></label>-->
-        <!--<div class="col-sm-7 col-md-5 col-lg-4">-->
-            <!--<input type="password" class="form-control" placeholder="Confirm password" ng-minlength="2" ng-maxlength="30" ng-model="patientCreateVm.patient.password2" name="password2" mhc-compare-to="patientCreateVm.patient.password" required>-->
-            <!--<div ng-messages="createPatientForm.password2.$error" ng-if="createPatientForm.password2.$dirty" class="text-alert">-->
-                <!--<div ng-messages-include="admin-messages"></div>-->
-            <!--</div>-->
-        <!--</div>-->
+    <!--<label class="col-sm-3 col-md-2 control-label">Confirm Password <span class="text-alert">*</span></label>-->
+    <!--<div class="col-sm-7 col-md-5 col-lg-4">-->
+    <!--<input type="password" class="form-control" placeholder="Confirm password" ng-minlength="2" ng-maxlength="30" ng-model="patientCreateVm.patient.password2" name="password2" mhc-compare-to="patientCreateVm.patient.password" required>-->
+    <!--<div ng-messages="createPatientForm.password2.$error" ng-if="createPatientForm.password2.$dirty" class="text-alert">-->
+    <!--<div ng-messages-include="admin-messages"></div>-->
+    <!--</div>-->
+    <!--</div>-->
     <!--</div>-->
 
-<!-- End of DELETED FORM GROUPS -->
+    <!-- End of DELETED FORM GROUPS -->
     <div class="row">
         <div class="text-strong-blue col-sm-offset-3 col-sm-7 col-md-offset-2 col-md-5 col-lg-4">
             <h3>Additional Information</h3>
@@ -200,7 +415,8 @@
     <div class="form-group">
         <label class="col-xs-12 col-sm-3 col-md-2 control-label">SSN</label>
         <div class="col-xs-5 col-sm-4 col-md-3 col-lg-2">
-            <input type="text" class="form-control" name="ssn" placeholder="Social security number" mhc-validate-ssn ng-model="patientCreateVm.patient.ssn" >
+            <input type="text" class="form-control" name="ssn" placeholder="Social security number" mhc-validate-ssn
+                   ng-model="patientCreateVm.patient.ssn">
             <div ng-messages="createPatientForm.ssn.$error" ng-if="createPatientForm.ssn.$dirty" class="text-alert">
                 <div ng-messages-include="admin-messages"></div>
             </div>
@@ -210,8 +426,10 @@
     <div class="form-group">
         <label class="col-xs-12 col-sm-3 col-md-2 control-label">Telephone</label>
         <div class="col-xs-5 col-sm-4 col-md-3 col-lg-2">
-            <input type="text" class="form-control"  name="telephone" placeholder="Telephone" mhc-validate-phone-number ng-model="patientCreateVm.patient.telephone">
-            <div ng-messages="createPatientForm.telephone.$error" ng-if="createPatientForm.telephone.$dirty" class="text-alert">
+            <input type="text" class="form-control" name="telephone" placeholder="Telephone" mhc-validate-phone-number
+                   ng-model="patientCreateVm.patient.telephone">
+            <div ng-messages="createPatientForm.telephone.$error" ng-if="createPatientForm.telephone.$dirty"
+                 class="text-alert">
                 <div ng-messages-include="admin-messages"></div>
             </div>
         </div>
@@ -219,63 +437,68 @@
     <!--TODO do no delete-->
 
     <!--<div class="form-group">-->
-        <!--<label class="col-sm-3 col-md-2 control-label">Telephone</label>-->
-        <!--<div class="col-sm-7 col-md-6">-->
-            <!--<div class="row">-->
+    <!--<label class="col-sm-3 col-md-2 control-label">Telephone</label>-->
+    <!--<div class="col-sm-7 col-md-6">-->
+    <!--<div class="row">-->
 
-                <!--<div class="col-xs-3 col-md-2 right-padding0">-->
-                    <!--<label for="areaCode" class="sr-only">Area Code</label>-->
-                    <!--<input type="text" class="form-control"  id="areaCode" placeholder="">-->
-                <!--</div>-->
-
-
-                <!--<div class="col-xs-3 col-md-2 right-padding0">-->
-                    <!--<label for="prefix" class="sr-only">Prefix</label>-->
-                    <!--<input type="text" class="form-control"  id="prefix" placeholder="">-->
-                <!--</div>-->
+    <!--<div class="col-xs-3 col-md-2 right-padding0">-->
+    <!--<label for="areaCode" class="sr-only">Area Code</label>-->
+    <!--<input type="text" class="form-control"  id="areaCode" placeholder="">-->
+    <!--</div>-->
 
 
-                <!--<div class="col-xs-5 col-md-3">-->
-                    <!--<label for="fourDigits" class="sr-only">Month</label>-->
-                    <!--<input type="text" class="form-control"  id="fourDigits" placeholder="">-->
-                <!--</div>-->
+    <!--<div class="col-xs-3 col-md-2 right-padding0">-->
+    <!--<label for="prefix" class="sr-only">Prefix</label>-->
+    <!--<input type="text" class="form-control"  id="prefix" placeholder="">-->
+    <!--</div>-->
 
-                <!--<div class="col-xs-12 m-t-sm">-->
-                    <!--<div ng-messages="createPatientForm.telephone.$error" ng-if="createPatientForm.telephone.$dirty" class="text-alert">-->
-                        <!--<div ng-messages-include="admin-messages"></div>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
 
-        <!--</div>-->
+    <!--<div class="col-xs-5 col-md-3">-->
+    <!--<label for="fourDigits" class="sr-only">Month</label>-->
+    <!--<input type="text" class="form-control"  id="fourDigits" placeholder="">-->
+    <!--</div>-->
+
+    <!--<div class="col-xs-12 m-t-sm">-->
+    <!--<div ng-messages="createPatientForm.telephone.$error" ng-if="createPatientForm.telephone.$dirty" class="text-alert">-->
+    <!--<div ng-messages-include="admin-messages"></div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+
+    <!--</div>-->
     <!--</div>-->
 
     <div class="form-group">
         <label class="col-sm-3 col-md-2 control-label">Address</label>
         <div class="col-sm-7 col-md-5 col-lg-4">
-            <input type="text" class="form-control"  name="address" placeholder="Address" ng-model="patientCreateVm.patient.address">
+            <input type="text" class="form-control" name="address" placeholder="Address"
+                   ng-model="patientCreateVm.patient.address">
         </div>
     </div>
 
     <div class="form-group">
         <label class="col-sm-3 col-md-2 control-label">City</label>
         <div class="col-sm-7 col-md-5 col-lg-4">
-            <input type="text" class="form-control"  name="city" placeholder="City" ng-model="patientCreateVm.patient.city">
+            <input type="text" class="form-control" name="city" placeholder="City"
+                   ng-model="patientCreateVm.patient.city">
         </div>
     </div>
 
     <div class="form-group">
         <label class="col-sm-3 col-md-2 control-label">State</label>
         <div class="col-sm-7 col-md-5 col-lg-4">
-            <input type="text" class="form-control"  name="state" placeholder="State" ng-model="patientCreateVm.patient.state">
+            <input type="text" class="form-control" name="state" placeholder="State"
+                   ng-model="patientCreateVm.patient.state">
         </div>
     </div>
 
     <div class="form-group">
         <label class="col-xs-12 col-sm-3 col-md-2 control-label">Zipcode</label>
         <div class="col-xs-5 col-sm-4 col-md-3 col-lg-2">
-            <input type="text" class="form-control"  name="zipcode" mhc-validate-zipcode placeholder="Zip Code" ng-model="patientCreateVm.patient.zip" >
-            <div ng-messages="createPatientForm.zipcode.$error" ng-if="createPatientForm.zipcode.$dirty" class="text-alert">
+            <input type="text" class="form-control" name="zipcode" mhc-validate-zipcode placeholder="Zip Code"
+                   ng-model="patientCreateVm.patient.zip">
+            <div ng-messages="createPatientForm.zipcode.$error" ng-if="createPatientForm.zipcode.$dirty"
+                 class="text-alert">
                 <div ng-messages-include="admin-messages"></div>
             </div>
         </div>
@@ -283,7 +506,9 @@
     <div class="form-group">
         <div class="col-sm-7 col-sm-offset-3 col-md-offset-2">
             <button class="btn btn-white m-r" type="submit">Cancel</button>
-            <button class="btn btn-primary dark-green" type="submit" ng-click="patientCreateVm.save()" ng-disabled="!patientCreateVm.canCreate(createPatientForm)">Create Patient</button>
+            <button class="btn btn-primary dark-green" type="submit" ng-click="patientCreateVm.save()"
+                    ng-disabled="!patientCreateVm.canCreate(createPatientForm)">Create Patient
+            </button>
         </div>
     </div>
 </form>
