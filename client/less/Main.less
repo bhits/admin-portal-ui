@@ -264,7 +264,7 @@ This implementation must be improved to prevent similar issues.
 .statusIcon_created {
   &:before {
     font-family: FontAwesome;
-    content: '\f1d9';
+    content: '\f016';
     font-size: 20px;
     color: @pp-strong-blue;
     position: absolute;
@@ -275,9 +275,20 @@ This implementation must be improved to prevent similar issues.
 .statusIcon_activated {
   &:before {
     font-family: FontAwesome;
+    content: '\f1d9';
+    font-size: 20px;
+    color: @pp-strong-blue;
+    position: absolute;
+    margin: -3px 0 0 -25px;
+  }
+}
+
+.statusIcon_verified {
+  &:before {
+    font-family: FontAwesome;
     content: '\f046';
     font-size: 20px;
-    color: @pp-dark-green;
+    color: @pp-strong-blue;
     position: absolute;
     margin: -3px 0 0 -25px;
   }
@@ -607,6 +618,16 @@ body.ng-scope.pace-done.grey{
     background-color: #e7eaec;
   }
 }
+.wrap-dark-green {
+  background-color: @pp-dark-green;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  //&:hover {
+  //  background-color: #e7eaec;
+  //}
+}
+
 
 .side-padding0 {
   .side-padding(0px) !important;
