@@ -3,23 +3,23 @@
 
     angular
         .module('app.patient')
-        .directive('mhcPatientCreate', mhcPatientCreate);
+        .directive('mhcPatientCreateEdit', mhcPatientCreateEdit);
 
     /* @ngInject */
-    function mhcPatientCreate() {
+    function mhcPatientCreateEdit() {
         var directive =  {
             restrict: 'E',
             scope: {},
-            templateUrl: 'app/patient/directives/patientCreate.html',
-            controllerAs: 'patientCreateVm',
+            templateUrl: 'app/patient/directives/patientCreateEdit.html',
+            controllerAs: 'patientCreateEditVm',
             bindToController: true,
-            controller: PatientCreateController
+            controller: PatientCreateEditController
         };
 
         return directive;
 
         /* @ngInject */
-        function PatientCreateController(patientService, $state, notificationService) {
+        function PatientCreateEditController(patientService, $state, notificationService) {
             var vm = this;
             vm.save = save;
             vm.canCreate = canCreate;

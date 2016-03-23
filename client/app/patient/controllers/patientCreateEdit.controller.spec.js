@@ -13,10 +13,10 @@ describe('app:patient ', function () {
 
 
     beforeEach(inject(function ($controller) {
-        ctrl = $controller('PatientCreateController');
+        ctrl = $controller('PatientCreateEditController');
     }));
 
-    describe('PatientCreateController', function () {
+    describe('PatientCreateEditController', function () {
         it('should have been defined', function () {
             expect(ctrl).toBeDefined();
         });

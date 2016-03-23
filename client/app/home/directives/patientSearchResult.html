@@ -16,7 +16,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr ng-repeat="patient in patientSearchResultVm.patientList">
+                        <tr ng-repeat="patient in patientSearchResultVm.patientList" ui-sref="fe.patient.edit">
                             <td>
                                 <span ng-bind="patient.lastName"></span>
                                 <span ng-bind="patient.firstName"></span>

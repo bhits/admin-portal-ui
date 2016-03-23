@@ -63,6 +63,10 @@
                 vm.pagination.currentPage = response.currentPage;
                 vm.pagination.itemsPerPage = response.itemsPerPage;
             }
+            function editPatient()
+            {
+                alert("edit");
+            }
 
         }
     }

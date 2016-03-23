@@ -19,6 +19,7 @@
 
                 function ContentWrapperController(){
                     var vm = this;
+                    //vm.contenttitle=contenttitle;
                 }
             }
 

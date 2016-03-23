@@ -20,10 +20,20 @@
                     })
                     .state('fe.patient.create', {
                         url: '/create',
-                        templateUrl: 'app/patient/controllers/patientCreate.html',
+                        templateUrl: 'app/patient/controllers/patientCreateEdit.html',
                         data: { pageTitle: 'Patient Create' },
-                        Controller: 'PatientCreateController',
-                        controllerAs: 'patientCreateVm'
+                        Controller: 'PatientCreateEditController',
+                        controllerAs: 'patientCreateEditVm'
+                    })
+                    .state('fe.patient.edit', {
+                            url: '/Edit',
+                            templateUrl: 'app/patient/controllers/patientCreateEdit.html',
+                            data: { pageTitle: 'Edit Patient'},
+                            Controller: 'PatientCreateEditController',
+                            controllerAs: 'patientCreateEditVm',
+                            //resolve:{
+                            //    contenttitle: 'Edit Account'
+                            //}
                     });
             }
 })();

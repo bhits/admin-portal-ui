@@ -10,7 +10,9 @@
     /* @ngInject */
     function patientService($resource, envService) {
         var registrationResource = $resource(envService.securedApis.registrationApiBaseUrl + "/signup");
-        var patientResource = $resource(envService.securedApis.phrApiBaseUrl + "/pageNumber/:pageNumber",{pageNumber: '@pageNumber'} );
+        var basePhrURL= envService.securedApis.phrApiBaseUrl;
+        var patientListResource = $resource(basePhrURL + "/pageNumber/:pageNumber",{pageNumber: '@pageNumber'} );
+        var patientResource = $resource(basePhrURL + "/:patientId/profile",{patientId: '@patientId'} );
 
         var service = {};
 
@@ -30,7 +32,11 @@
                 }
                 (success || angular.identity)(response);
             }
-            return patientResource.get({pageNumber: page-1},adjustPageOnSuccessResponse, error);
+            return patientListResource.get({pageNumber: page-1},adjustPageOnSuccessResponse, error);
+        }
+
+        function getPatient (patientId,success, error){
+            return patientResource.get({patientId: patientId},success, error);
         }
     }
 })();

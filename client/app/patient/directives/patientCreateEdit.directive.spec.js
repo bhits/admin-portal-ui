@@ -5,9 +5,9 @@ describe('app.patient:', function() {
     beforeEach(module('app.config'));
     beforeEach(module('app.core'));
     beforeEach(module('app.patient'));
-    beforeEach(module('app/patient/directives/patientCreate.html'));
+    beforeEach(module('app/patient/directives/patientCreateEdit.html'));
 
-    describe('patientCreate directive', function() {
+    describe('patientCreateEdit directive', function() {
         var patientCreateTemplate;
         var rootScope;
         var scope;
@@ -26,7 +26,7 @@ describe('app.patient:', function() {
             notificationService = _notificationService_;
             $state = _$state_;
             patientCreateTemplate = $templateCache.get('app/patient/directives/patientCreate.html');
-            element = angular.element("<mhc-patient-create></mhc-patient-create>");
+            element = angular.element("<mhc-patient-create-edit></mhc-patient-create-edit>");
             $compile(element)(scope);
             rootScope.$digest();
             controller = element.isolateScope().patientCreateVm;
