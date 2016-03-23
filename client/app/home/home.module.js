@@ -5,5 +5,8 @@
 
     angular
         .module('app.home',
-            ['app.core']);
+            [
+                'app.core',
+                'app.data'
+            ]);
 })();

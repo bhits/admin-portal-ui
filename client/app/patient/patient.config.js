@@ -21,7 +21,9 @@
                     .state('fe.patient.create', {
                         url: '/create',
                         templateUrl: 'app/patient/controllers/patientCreate.html',
-                        data: { pageTitle: 'Patient Create' }
+                        data: { pageTitle: 'Patient Create' },
+                        Controller: 'PatientCreateController',
+                        controllerAs: 'patientCreateVm'
                     });
             }
 })();
