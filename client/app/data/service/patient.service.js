@@ -30,7 +30,7 @@
                 }
                 (success || angular.identity)(response);
             }
-            return patientResource.get({pageNumber: page-1},success, error);
+            return patientResource.get({pageNumber: page-1},adjustPageOnSuccessResponse, error);
         }
     }
 })();
