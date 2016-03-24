@@ -9,7 +9,7 @@
             .factory('utilityService',  utilityService);
 
             /* @ngInject */
-            function utilityService($location, $anchorScroll, $window) {
+            function utilityService($location, $anchorScroll, $window, envService) {
                 //var showHealthInformationMenu = false;
                 var service = {};
 
@@ -33,6 +33,7 @@
                 service.getOrganizationalProvidersNpi = getOrganizationalProvidersNpi;
                 service.downloadFile = downloadFile;
                 service.isValidDate = isValidDate;
+                service.isSecuredApi = isSecuredApi;
 
                 return service;
 
@@ -198,6 +199,17 @@
                     }
                     return true;  // date is valid
                 }
+
+                function isSecuredApi(url) {
+                    var isSecured = false;
+                    angular.forEach(envService.securedApis, function (value) {
+                        if (startsWith(url.toLowerCase(), value.toLowerCase())) {
+                            isSecured = true;
+                        }
+                    });
+                    return isSecured;
+                }
+
 
             }
 })();

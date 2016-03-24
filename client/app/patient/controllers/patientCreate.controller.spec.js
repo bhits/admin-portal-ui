@@ -16,7 +16,7 @@ describe('app:patient ', function () {
         ctrl = $controller('PatientCreateController');
     }));
 
-    describe('PatientCreateController', function () {
+    xdescribe('PatientCreateController', function () {
         it('should have been defined', function () {
             expect(ctrl).toBeDefined();
         });

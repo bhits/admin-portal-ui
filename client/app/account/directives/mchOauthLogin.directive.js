@@ -13,7 +13,7 @@
         var directive = {
             restrict: 'E',
             replace: true,
-            templateUrl: 'app/security/directives/oauthLogin.html',
+            templateUrl: 'app/account/directives/oauthLogin.html',
             scope: {},
             bindToController: {},
             controller: OauthLoginController,
@@ -23,7 +23,7 @@
         return directive;
 
         /* @ngInject */
-        function OauthLoginController(utilityService, authenticationService, oauthConfig, profileService, tokenService) {
+        function OauthLoginController(utilityService, authenticationService, $state, profileService, oauthTokenService) {
             var vm = this;
             vm.login = login;
             vm.canSubmit = canSubmit;
@@ -32,19 +32,19 @@
                 authenticationService.login(vm.user.email, vm.user.password)
                     .then(
                         function (response) {
-                            tokenService.setToken(response);
+                            oauthTokenService.setToken(response);
                             profileService.loadProfile()
                                 .then(
                                     function (data) {
                                         profileService.setProfile(data);
-                                        utilityService.redirectTo(oauthConfig.loginSuccessPath);
+                                        $state.go("fe.index.home");
                                     },
                                     function (error) {
                                         vm.profileError = true;
                                     }
                                 );
                         }, function (error) {
-                            tokenService.removeToken();
+                            oauthTokenService.removeToken();
                             vm.loginError = true;
                         }
                     );

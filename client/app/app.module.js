@@ -13,6 +13,7 @@
                  */
                 'app.home',
                 'app.layout',
-                'app.patient'
+                'app.patient',
+                'app.account'
             ]);
 })();

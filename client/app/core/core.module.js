@@ -19,9 +19,8 @@
             'ui.bootstrap',
             'ngAria',
             'angular-loading-bar',
-            'oauth',
             'checklist-model',
-            'ngStorage',    //oauth module dependency
+            'ngStorage',
             'cgNotify'
         ]);
 })();
