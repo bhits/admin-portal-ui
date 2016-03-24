@@ -579,6 +579,32 @@ module.exports = function (grunt) {
                         }
                     }
                 }
+            },
+
+            docker: {
+                options: {
+                    dest: '<%= config_dir %>/config.js'
+                },
+                constants: {
+                    envService: {
+                        name: 'docker',
+                        version:'<%= pkg.version %>',
+                        securedApis: {
+                            registrationApiBaseUrl: 'https://dockerhost:8448/registration/users',
+                            phrApiBaseUrl: 'https://dockerhost:8448/phr/patients'
+                        },
+                        unsecuredApis:{
+                        },
+                        oauth:{
+                            site: "https://dockerhost:8443/uaa",
+                            clientId:"admin-portal-ui",
+                            redirectUri: "https://dockerhost:8451/admin-ui/fe/login",
+                            profileUri: "https://dockerhost:8443/uaa/userinfo",
+                            scope: "openid,scim.write,scim.read,scim.create,phr.allPatientProfiles_read,phr.hie_write,registration.write,uaa.admin,patientUser.read,patientUser.write",
+                            template: "assets/oauth2_templates/button.html"
+                        }
+                    }
+                }
             }
         },
 
@@ -730,6 +756,10 @@ module.exports = function (grunt) {
      * Snake case build:dev
      */
     grunt.registerTask('build-qa', 'build:qa');
+    /**
+     * Snake case build:docker
+     */
+    grunt.registerTask('build-docker', 'build:docker');
 
     /**
      * Snake case build:ci
@@ -748,6 +778,7 @@ module.exports = function (grunt) {
         var targetEnum = {
             dev: 'dev',
             qa: 'qa',
+            docker: 'docker',
             debug: 'debug',
             dist: 'dist',
             ci: 'ci'
@@ -761,6 +792,8 @@ module.exports = function (grunt) {
             taskList.push('ngconstant:dev');
         }else if (target === targetEnum.qa ) {
             taskList.push('ngconstant:qa');
+        }else if (target === targetEnum.docker ) {
+            taskList.push('ngconstant:docker');
         }
 
         taskList.push('html2js', 'jshint-all', 'recess:build','concat:build_css', 'copy:build_app_assets',
@@ -772,7 +805,7 @@ module.exports = function (grunt) {
             taskList.push('karma:ci');
         }
 
-        if (target === targetEnum.dev || target === targetEnum.debug || target === targetEnum.dist || target === targetEnum.qa ||target === targetEnum.ci) {
+        if (target === targetEnum.dev || target === targetEnum.debug || target === targetEnum.dist || target === targetEnum.qa ||target === targetEnum.docker||target === targetEnum.ci) {
             taskList = taskList.concat(['compile']);
         }
 
