@@ -539,11 +539,11 @@ module.exports = function (grunt) {
                         version:'<%= pkg.version %>',
                         base64BasicKey: 'YWRtaW4tcG9ydGFsLXVpOmNoYW5nZWl0',
                         securedApis: {
-                            phrApiBaseUrl: 'https://localhost:8445/phr/patients',
-                            userInfo: 'https://localhost:8443/uaa/userinfo'
+                            phrApiBaseUrl: '/phr/patients',
+                            userInfo: '/uaa/userinfo'
                         },
                         unsecuredApis:{
-                            tokenUrl: 'https://localhost:8443/uaa/oauth/token'
+                            tokenUrl: '/uaa/oauth/token'
                         }
                     }
                 }
@@ -559,11 +559,11 @@ module.exports = function (grunt) {
                         version:'<%= pkg.version %>',
                         base64BasicKey: 'cGF0aWVudC1wb3J0YWwtdWk6QllqeVdYU2JEdmRx',
                         securedApis: {
-                            phrApiBaseUrl: 'https://localhost:8454/phr/patients',
-                            userInfo: 'https://bhitsqaapp02:8443/uaa/userinfo'
+                            phrApiBaseUrl: '/phr/patients',
+                            userInfo: '/uaa/userinfo'
                         },
                         unsecuredApis:{
-                            tokenUrl: 'https://bhitsqaapp02:8443/uaa/oauth/token'
+                            tokenUrl: '/uaa/oauth/token'
                         }
                     }
                 }
