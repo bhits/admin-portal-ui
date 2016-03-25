@@ -12,7 +12,7 @@
             scope: {},
             templateUrl: 'app/patient/directives/patientCreateEdit.html',
             controllerAs: 'patientCreateEditVm',
-            bindToController: true,
+            bindToController: {patientdata: '='},
             controller: PatientCreateEditController
         };
 
@@ -23,7 +23,7 @@
             var vm = this;
             vm.save = save;
             vm.canCreate = canCreate;
-            vm.removeConfirmPassword = removeConfirmPassword;
+            vm.patient=vm.patientdata;
 
             function success(response){
                 notificationService.success("Success in creating patient.");
@@ -35,15 +35,7 @@
             }
 
             function save(){
-                var user = vm.removeConfirmPassword(vm.patient);
-                patientService.createPatient(user,success,error);
-            }
-
-            function removeConfirmPassword(patientObject){
-                var temp = {};
-                angular.copy(patientObject, temp);
-                delete temp.password2;
-                return temp;
+                patientService.createPatient(vm.patient,success,error);
             }
 
             function canCreate(createPatientForm){

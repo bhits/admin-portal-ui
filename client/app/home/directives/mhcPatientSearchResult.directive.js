@@ -15,7 +15,6 @@
             restrict: 'E',
             scope: {},
             templateUrl: 'app/home/directives/patientSearchResult.html',
-            //bindToController: true,
             bindToController: {
                 patientsdata: '='
             },
@@ -63,11 +62,6 @@
                 vm.pagination.currentPage = response.currentPage;
                 vm.pagination.itemsPerPage = response.itemsPerPage;
             }
-            function editPatient()
-            {
-                alert("edit");
-            }
-
         }
     }
 })();

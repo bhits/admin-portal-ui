@@ -18,6 +18,7 @@
 
         service.createPatient = createPatient;
         service.getPatients = getPatients;
+        service.getPatient = getPatient;
 
         return service;
 

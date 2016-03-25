@@ -16,14 +16,14 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr ng-repeat="patient in patientSearchResultVm.patientList" ui-sref="fe.patient.edit">
-                            <td>
+                        <tr ng-repeat="patient in patientSearchResultVm.patientList"  ui-sref="fe.patient.edit({patientId: patient.id})" >
+                            <td >
                                 <span ng-bind="patient.lastName"></span>
                                 <span ng-bind="patient.firstName"></span>
                             </td>
-                            <td> <span ng-bind="patient.birthDate | date:'MM/dd/yyyy'"></span></td>
-                            <td> <span ng-bind ="patient.genderCode"></span></td>
-                            <td> <span ng-bind =""></span></td>
+                            <td > <span ng-bind="patient.birthDate | date:'MM/dd/yyyy'"></span></td>
+                            <td > <span ng-bind ="patient.genderCode"></span></td>
+                            <td > <span ng-bind =""></span></td>
                         </tr>
                         </tbody>
                     </table>

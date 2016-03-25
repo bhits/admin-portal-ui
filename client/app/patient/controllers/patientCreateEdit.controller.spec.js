@@ -3,7 +3,7 @@
  */
 'use strict';
 
-describe('app:patient ', function () {
+xdescribe('app:patient ', function () {
 
     // Define global references for injections.
     var ctrl;
@@ -16,7 +16,7 @@ describe('app:patient ', function () {
         ctrl = $controller('PatientCreateEditController');
     }));
 
-    describe('PatientCreateEditController', function () {
+    xdescribe('PatientCreateEditController', function () {
         it('should have been defined', function () {
             expect(ctrl).toBeDefined();
         });

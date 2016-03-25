@@ -2,7 +2,6 @@
     <div ng-message="required">Please complete this required field.</div>
     <div ng-message="minlength">The field should contain at least 2 characters, please try again.</div>
     <div ng-message="maxlength">The field cannot contain more than 30 characters, please try again.</div>
-    <div ng-message="compareTo">Your password and confirm password must match, please try again.</div>
     <div ng-message="isValidDate">Dates must be in the following format: mm/dd/yyyy</div>
     <div ng-message="isFutureDate">Date of birth cannot be today's date, or a future date.</div>
     <div ng-message="email">The email address you have provided must be valid, please try again.</div>
@@ -237,14 +236,14 @@
         </div>
     </div>
 </div>
-<form class="form-horizontal" name="createPatientForm" novalidate>
+<form class="form-horizontal" name="PatientForm" novalidate>
     <div class="form-group">
         <label class="col-sm-3 col-md-2 control-label">First Name <span class="text-alert">*</span></label>
         <div class="col-sm-7 col-md-5 col-lg-4">
             <input type="text" class="form-control" placeholder="First name"
-                   ng-model="patientCreateVm.patient.firstName" required ng-minlength="2" ng-maxlength="30"
+                   ng-model="patientCreateEditVm.patient.firstName" required ng-minlength="2" ng-maxlength="30"
                    name="firstName">
-            <div ng-messages="createPatientForm.firstName.$error" ng-if="createPatientForm.firstName.$dirty"
+            <div ng-messages="createPatientForm.firstName.$error" ng-if="PatientForm.firstName.$dirty"
                  class="text-alert">
                 <div ng-messages-include="admin-messages"></div>
             </div>
@@ -254,9 +253,9 @@
     <div class="form-group">
         <label class="col-sm-3 col-md-2 control-label">Last Name <span class="text-alert">*</span></label>
         <div class="col-sm-7 col-md-5 col-lg-4">
-            <input type="text" class="form-control" placeholder="Last name" ng-model="patientCreateVm.patient.lastName"
+            <input type="text" class="form-control" placeholder="Last name" ng-model="patientCreateEditVm.patient.lastName"
                    name="lastName" required ng-minlength="2" ng-maxlength="30">
-            <div ng-messages="createPatientForm.lastName.$error" ng-if="createPatientForm.lastName.$dirty"
+            <div ng-messages="PatientForm.lastName.$error" ng-if="PatientForm.lastName.$dirty"
                  class="text-alert">
                 <div ng-messages-include="admin-messages"></div>
             </div>
@@ -267,8 +266,8 @@
         <label class="col-sm-3 col-md-2 control-label">Email <span class="text-alert">*</span></label>
         <div class="col-sm-7 col-md-5 col-lg-4">
             <input type="email" class="form-control" placeholder="Email" required
-                   ng-model="patientCreateVm.patient.email" mhc-validate-email name="email">
-            <div ng-messages="createPatientForm.email.$error" ng-if="createPatientForm.email.$dirty" class="text-alert">
+                   ng-model="patientCreateEditVm.patient.email" mhc-validate-email name="email">
+            <div ng-messages="PatientForm.email.$error" ng-if="PatientForm.email.$dirty" class="text-alert">
                 <div ng-messages-include="admin-messages"></div>
             </div>
         </div>
@@ -278,10 +277,10 @@
         <label class="col-sm-3 col-md-2 control-label">Gender <span class="text-alert">*</span></label>
         <div class="col-sm-7 col-md-6">
             <div class="radio"><label class="side-padding0"> <input type="radio" mhc-icheck name="gender"
-                                                                    ng-model="patientCreateVm.patient.genderCode"
+                                                                    ng-model="patientCreateEditVm.patient.genderCode"
                                                                     value="M" required> Male </label></div>
             <div class="radio"><label class="side-padding0"> <input type="radio" mhc-icheck name="gender"
-                                                                    ng-model="patientCreateVm.patient.genderCode"
+                                                                    ng-model="patientCreateEditVm.patient.genderCode"
                                                                     value="F" required> Female </label></div>
             <!--<div class="radio"><label class="side-padding0"> <input mhc-icheck type="radio" name="gender" ng-model="patientCreateVm.patient.genderCode" value="N" required> Not Specified </label></div>-->
         </div>
@@ -291,8 +290,8 @@
         <label class="col-xs-12 col-sm-3 col-md-2 control-label">Date of Birth <span class="text-alert">*</span></label>
         <div class="col-xs-5 col-sm-4 col-md-3 col-lg-2">
             <input type="text" class="form-control" name="dateOfBirth" placeholder="Date of birth" required
-                   ng-model="patientCreateVm.patient.birthDate" required mhc-datepicker mhc-validate-date>
-            <div ng-messages="createPatientForm.dateOfBirth.$error" ng-if="createPatientForm.dateOfBirth.$dirty"
+                   ng-model="patientCreateEditVm.patient.birthDate" required mhc-datepicker mhc-validate-date>
+            <div ng-messages="PatientForm.dateOfBirth.$error" ng-if="PatientForm.dateOfBirth.$dirty"
                  class="text-alert">
                 <div ng-messages-include="admin-messages"></div>
             </div>
@@ -384,25 +383,8 @@
     <!--</div>-->
     <!-- Deleted From Groups -->
 
-    <!--<div class="form-group">-->
-    <!--<label class="col-sm-3 col-md-2 control-label">Password <span class="text-alert">*</span></label>-->
-    <!--<div class="col-sm-7 col-md-5 col-lg-4">-->
-    <!--<input type="password" class="form-control" placeholder="Password" ng-minlength="2" ng-maxlength="30" ng-model="patientCreateVm.patient.password" name="password" required>-->
-    <!--<div ng-messages="createPatientForm.password.$error" ng-if="createPatientForm.password.$dirty" class="text-alert">-->
-    <!--<div ng-messages-include="admin-messages"></div>-->
-    <!--</div>-->
-    <!--</div>-->
-    <!--</div>-->
 
-    <!--<div class="form-group">-->
-    <!--<label class="col-sm-3 col-md-2 control-label">Confirm Password <span class="text-alert">*</span></label>-->
-    <!--<div class="col-sm-7 col-md-5 col-lg-4">-->
-    <!--<input type="password" class="form-control" placeholder="Confirm password" ng-minlength="2" ng-maxlength="30" ng-model="patientCreateVm.patient.password2" name="password2" mhc-compare-to="patientCreateVm.patient.password" required>-->
-    <!--<div ng-messages="createPatientForm.password2.$error" ng-if="createPatientForm.password2.$dirty" class="text-alert">-->
-    <!--<div ng-messages-include="admin-messages"></div>-->
-    <!--</div>-->
-    <!--</div>-->
-    <!--</div>-->
+
 
     <!-- End of DELETED FORM GROUPS -->
     <div class="row">
@@ -420,8 +402,8 @@
         <label class="col-xs-12 col-sm-3 col-md-2 control-label">SSN</label>
         <div class="col-xs-5 col-sm-4 col-md-3 col-lg-2">
             <input type="text" class="form-control" name="ssn" placeholder="Social security number" mhc-validate-ssn
-                   ng-model="patientCreateVm.patient.ssn">
-            <div ng-messages="createPatientForm.ssn.$error" ng-if="createPatientForm.ssn.$dirty" class="text-alert">
+                   ng-model="patientCreateEditVm.patient.ssn">
+            <div ng-messages="PatientForm.ssn.$error" ng-if="PatientForm.ssn.$dirty" class="text-alert">
                 <div ng-messages-include="admin-messages"></div>
             </div>
         </div>
@@ -431,8 +413,8 @@
         <label class="col-xs-12 col-sm-3 col-md-2 control-label">Telephone</label>
         <div class="col-xs-5 col-sm-4 col-md-3 col-lg-2">
             <input type="text" class="form-control" name="telephone" placeholder="Telephone" mhc-validate-phone-number
-                   ng-model="patientCreateVm.patient.telephone">
-            <div ng-messages="createPatientForm.telephone.$error" ng-if="createPatientForm.telephone.$dirty"
+                   ng-model="patientCreateEditVm.patient.telephone">
+            <div ng-messages="PatientForm.telephone.$error" ng-if="PatientForm.telephone.$dirty"
                  class="text-alert">
                 <div ng-messages-include="admin-messages"></div>
             </div>
@@ -476,7 +458,7 @@
         <label class="col-sm-3 col-md-2 control-label">Address</label>
         <div class="col-sm-7 col-md-5 col-lg-4">
             <input type="text" class="form-control" name="address" placeholder="Address"
-                   ng-model="patientCreateVm.patient.address">
+                   ng-model="patientCreateEditVm.patient.address">
         </div>
     </div>
 
@@ -484,7 +466,7 @@
         <label class="col-sm-3 col-md-2 control-label">City</label>
         <div class="col-sm-7 col-md-5 col-lg-4">
             <input type="text" class="form-control" name="city" placeholder="City"
-                   ng-model="patientCreateVm.patient.city">
+                   ng-model="patientCreateEditVm.patient.city">
         </div>
     </div>
 
@@ -492,7 +474,7 @@
         <label class="col-sm-3 col-md-2 control-label">State</label>
         <div class="col-sm-7 col-md-5 col-lg-4">
             <input type="text" class="form-control" name="state" placeholder="State"
-                   ng-model="patientCreateVm.patient.state">
+                   ng-model="patientCreateEditVm.patient.state">
         </div>
     </div>
 
@@ -500,8 +482,8 @@
         <label class="col-xs-12 col-sm-3 col-md-2 control-label">Zipcode</label>
         <div class="col-xs-5 col-sm-4 col-md-3 col-lg-2">
             <input type="text" class="form-control" name="zipcode" mhc-validate-zipcode placeholder="Zip Code"
-                   ng-model="patientCreateVm.patient.zip">
-            <div ng-messages="createPatientForm.zipcode.$error" ng-if="createPatientForm.zipcode.$dirty"
+                   ng-model="patientCreateEditVm.patient.zip">
+            <div ng-messages="PatientForm.zipcode.$error" ng-if="PatientForm.zipcode.$dirty"
                  class="text-alert">
                 <div ng-messages-include="admin-messages"></div>
             </div>
@@ -510,9 +492,9 @@
     <div class="form-group">
         <div class="col-sm-7 col-sm-offset-3 col-md-offset-2">
             <button class="btn btn-white m-r" type="submit">Cancel</button>
-            <button class="btn btn-primary dark-green" type="submit" ng-click="patientCreateVm.save()"
-                    ng-disabled="!patientCreateVm.canCreate(createPatientForm)">Create Patient
-            </button>
+            <button class="btn btn-primary dark-green" type="submit" ng-click="patientCreateEditVm.save()"
+                             ng-disabled="!patientCreateEditVm.canCreate(PatientForm)">Create Patient
+        </button>
         </div>
     </div>
 </form>
