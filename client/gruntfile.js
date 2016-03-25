@@ -537,10 +537,9 @@ module.exports = function (grunt) {
                     envService: {
                         name: 'Development',
                         version:'<%= pkg.version %>',
-                        base64BasicKey: 'cGF0aWVudC1wb3J0YWwtdWk6Y2hhbmdlaXQ=',
+                        base64BasicKey: 'YWRtaW4tcG9ydGFsLXVpOmNoYW5nZWl0',
                         securedApis: {
-                            registrationApiBaseUrl: 'https://localhost:8448/registration/users',
-                            phrApiBaseUrl: 'https://localhost:8448/phr/patients',
+                            phrApiBaseUrl: 'https://localhost:8445/phr/patients',
                             userInfo: 'https://localhost:8443/uaa/userinfo'
                         },
                         unsecuredApis:{
@@ -560,8 +559,7 @@ module.exports = function (grunt) {
                         version:'<%= pkg.version %>',
                         base64BasicKey: 'cGF0aWVudC1wb3J0YWwtdWk6QllqeVdYU2JEdmRx',
                         securedApis: {
-                            registrationApiBaseUrl: 'https://bhitsqaapp02:8448/registration/users',
-                            phrApiBaseUrl: 'https://localhost:8448/phr/patients',
+                            phrApiBaseUrl: 'https://localhost:8454/phr/patients',
                             userInfo: 'https://bhitsqaapp02:8443/uaa/userinfo'
                         },
                         unsecuredApis:{
