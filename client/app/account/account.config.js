@@ -8,7 +8,7 @@
     'use strict';
 
     angular
-        .module('app.security')
+        .module('app.account')
             .config(SecurityConfig);
 
             /* @ngInject */
@@ -18,7 +18,7 @@
                     .state('fe.login', {
                         url: "/login",
                         data: {pageTitle: 'Login'},
-                        templateUrl: "app/security/securityLogin.html",
+                        templateUrl: "app/account/controllers/login.html",
                         controllerAs: "loginVm",
                         controller: 'LoginController'
                     });

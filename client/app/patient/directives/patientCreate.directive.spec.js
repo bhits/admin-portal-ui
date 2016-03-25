@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-describe('app.patient:', function() {
+xdescribe('app.patient:', function() {
 
     beforeEach(module('app.config'));
     beforeEach(module('app.core'));
