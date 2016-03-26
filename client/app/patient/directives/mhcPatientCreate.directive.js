@@ -23,8 +23,19 @@
             var vm = this;
             vm.save = save;
             vm.canCreate = canCreate;
-            vm.removeConfirmPassword = removeConfirmPassword;
 
+            activate();
+
+            function activate(){
+                patientService.getStates(
+                    function(response){
+                        vm.states = response;
+                    },
+                    function(error){
+                        notificationService.success("Error in getting states.");
+                    }
+                );
+            }
             function success(response){
                 notificationService.success("Success in creating patient.");
                 $state.go('fe.index.home');
@@ -35,15 +46,7 @@
             }
 
             function save(){
-                var user = vm.removeConfirmPassword(vm.patient);
-                patientService.createPatient(user,success,error);
-            }
-
-            function removeConfirmPassword(patientObject){
-                var temp = {};
-                angular.copy(patientObject, temp);
-                delete temp.password2;
-                return temp;
+                patientService.createPatient(vm.patient,success,error);
             }
 
             function canCreate(createPatientForm){

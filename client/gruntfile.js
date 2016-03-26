@@ -539,7 +539,7 @@ module.exports = function (grunt) {
                         version:'<%= pkg.version %>',
                         base64BasicKey: 'YWRtaW4tcG9ydGFsLXVpOmNoYW5nZWl0',
                         securedApis: {
-                            phrApiBaseUrl: 'https://localhost:8445/phr/patients',
+                            phrApiBaseUrl: 'https://localhost:8445/phr',
                             userInfo: 'https://localhost:8443/uaa/userinfo'
                         },
                         unsecuredApis:{
@@ -559,7 +559,7 @@ module.exports = function (grunt) {
                         version:'<%= pkg.version %>',
                         base64BasicKey: 'cGF0aWVudC1wb3J0YWwtdWk6QllqeVdYU2JEdmRx',
                         securedApis: {
-                            phrApiBaseUrl: 'https://localhost:8454/phr/patients',
+                            phrApiBaseUrl: 'https://localhost:8454/phr',
                             userInfo: 'https://bhitsqaapp02:8443/uaa/userinfo'
                         },
                         unsecuredApis:{

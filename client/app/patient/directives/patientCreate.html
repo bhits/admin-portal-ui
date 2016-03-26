@@ -200,8 +200,8 @@
     <div class="form-group">
         <label class="col-xs-12 col-sm-3 col-md-2 control-label">SSN</label>
         <div class="col-xs-5 col-sm-4 col-md-3 col-lg-2">
-            <input type="text" class="form-control" name="ssn" placeholder="Social security number" mhc-validate-ssn ng-model="patientCreateVm.patient.ssn" >
-            <div ng-messages="createPatientForm.ssn.$error" ng-if="createPatientForm.ssn.$dirty" class="text-alert">
+            <input type="text" class="form-control" name="socialSecurityNumber" placeholder="Social security number" mhc-validate-ssn ng-model="patientCreateVm.patient.socialSecurityNumber" >
+            <div ng-messages="createPatientForm.socialSecurityNumber.$error" ng-if="createPatientForm.socialSecurityNumber.$dirty" class="text-alert">
                 <div ng-messages-include="admin-messages"></div>
             </div>
         </div>
@@ -221,6 +221,8 @@
     <!--<div class="form-group">-->
         <!--<label class="col-sm-3 col-md-2 control-label">Telephone</label>-->
         <!--<div class="col-sm-7 col-md-6">-->
+
+            <!--<mhc-telephone ng-model="patientCreateVm.patient.telephone" name="telephone" ></mhc-telephone>-->
             <!--<div class="row">-->
 
                 <!--<div class="col-xs-3 col-md-2 right-padding0">-->
@@ -267,7 +269,11 @@
     <div class="form-group">
         <label class="col-sm-3 col-md-2 control-label">State</label>
         <div class="col-sm-7 col-md-5 col-lg-4">
-            <input type="text" class="form-control"  name="state" placeholder="State" ng-model="patientCreateVm.patient.state">
+            <select ng-model="patientCreateVm.patient.stateCode"  >
+                <option value="">-- choose state --</option>
+                <option ng-repeat="s in patientCreateVm.states" value="{{s.code}}" ng-selected="s.code == patientCreateVm.patient.stateCode" >{{s.displayName}}</option>
+            </select>
+            <!--<input type="text" class="form-control"  name="state" placeholder="State" ng-model="patientCreateVm.patient.state">-->
         </div>
     </div>
 

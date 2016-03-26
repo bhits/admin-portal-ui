@@ -48,7 +48,6 @@
             } else {
                 notificationService.error("No userId found");
             }
-
         }
 
         function getName() {
@@ -57,7 +56,6 @@
             } else {
                 notificationService.error("No user fullName found");
             }
-
         }
 
         function getProfileFromPHR(email) {
