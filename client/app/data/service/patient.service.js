@@ -13,7 +13,8 @@
         var basePhrURL= envService.securedApis.phrApiBaseUrl;
         var basePatientUserURL=envService.securedApis.patientUserApiBaseUrl;
         var patientListResource = $resource(basePhrURL + "/pageNumber/:pageNumber",{pageNumber: '@pageNumber'} );
-        var patientResource = $resource(basePhrURL + "/:patientId/profile",{patientId: '@patientId'} );
+        var patientProfileResource = $resource(basePhrURL + "/:patientId/profile",{patientId: '@patientId'} );
+        var patientProfileUpdateResource = $resource(basePhrURL + "/:patientId",{patientId: '@patientId'},{'update': { method:'PUT' } } );
         var patientUserResource=$resource(basePatientUserURL + "/creations" );
         var getUserCreationResource = $resource(patientUserResource + "?patientId=:patientId",{patientId: '@patientId'} );
 
@@ -21,6 +22,7 @@
         var service = {};
 
         service.createPatient = createPatient;
+        service.updatePatient = updatePatient;
         service.getPatients = getPatients;
         service.getPatient = getPatient;
         service.getVerifcationInfo= getVerificationInfo;
@@ -30,7 +32,9 @@
         function createPatient (patient, success, error){
             registrationResource.save(patient, success, error);
         }
-
+        function updatePatient (patient, success, error){
+            patientProfileUpdateResource.update({patientId: patient.id},patient, success, error);
+        }
 
         function getPatients (page,success, error){
             function adjustPageOnSuccessResponse(response) {
@@ -43,7 +47,7 @@
         }
 
         function getPatient (patientId,success, error){
-            return patientResource.get({patientId: patientId},success, error);
+            return patientProfileResource.get({patientId: patientId},success, error);
         }
 
         function getVerificationInfo (patientId,success, error){

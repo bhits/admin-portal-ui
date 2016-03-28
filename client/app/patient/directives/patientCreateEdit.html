@@ -288,8 +288,8 @@
     </div>
     <div class="form-group">
         <div class="col-sm-7 col-sm-offset-3 col-md-offset-2">
-            <button class="btn btn-white m-r" type="submit">Cancel</button>
-            <button class="btn btn-primary dark-green" type="submit" ng-click="patientCreateEditVm.save()">Create Patient</button>
+            <button class="btn btn-white m-r" ng-click="patientCreateEditVm.cancel()">Cancel</button>
+            <button class="btn btn-primary dark-green" type="submit" ng-click="patientCreateEditVm.save()">{{patientCreateEditVm.saveButtonText}}</button>
         </div>
     </div>
 </form>

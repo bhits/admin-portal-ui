@@ -21,7 +21,7 @@
                     .state('fe.patient.create', {
                         url: '/create',
                         templateUrl: 'app/patient/controllers/patientCreateEdit.html',
-                        data: { pageTitle: 'Patient Create' },
+                        data: { pageTitle: 'Create Patient' },
                         controller: 'PatientController',
                         controllerAs: 'patientVm',
                         resolve:{
@@ -32,7 +32,7 @@
                     .state('fe.patient.edit', {
                             url: '/Edit',
                             templateUrl: 'app/patient/controllers/patientCreateEdit.html',
-                            data: { pageTitle: 'Edit Patient'},
+                            data: { pageTitle: 'Edit Patient' },
                             controller: 'PatientController',
                             controllerAs: 'patientVm',
                             params: {
@@ -65,7 +65,7 @@
                                     return deferred.promise;
 
                                 },
-                                verificationInfo:function($q,$stateParams,patientService,notificationService)
+                                verificationInfo:function($q,$stateParams,patientService)
                                 {
                                     var deferred = $q.defer();
                                     var patientId= $stateParams.patientId;

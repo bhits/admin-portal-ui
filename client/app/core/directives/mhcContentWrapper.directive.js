@@ -10,7 +10,7 @@
                     restrict: 'E',
                     transclude: true,
                     scope:{},
-                    bindToController: {contenttitle: '@'},
+                    bindToController: {contenttitle: '='},
                     templateUrl: 'app/core/directives/contentWrapper.html',
                     controller: ContentWrapperController,
                     controllerAs: 'contentWrapperVm'
@@ -19,7 +19,7 @@
 
                 function ContentWrapperController(){
                     var vm = this;
-                    //vm.contenttitle=contenttitle;
+                    vm.contenttitle=vm.contenttitle;
                 }
             }
 
