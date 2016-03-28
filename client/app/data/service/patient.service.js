@@ -11,20 +11,26 @@
     function patientService($resource, envService) {
         var registrationResource = $resource(envService.securedApis.registrationApiBaseUrl + "/signup");
         var basePhrURL= envService.securedApis.phrApiBaseUrl;
+        var basePatientUserURL=envService.securedApis.patientUserApiBaseUrl;
         var patientListResource = $resource(basePhrURL + "/pageNumber/:pageNumber",{pageNumber: '@pageNumber'} );
         var patientResource = $resource(basePhrURL + "/:patientId/profile",{patientId: '@patientId'} );
+        var patientUserResource=$resource(basePatientUserURL + "/creations" );
+        var getUserCreationResource = $resource(patientUserResource + "?patientId=:patientId",{patientId: '@patientId'} );
+
 
         var service = {};
 
         service.createPatient = createPatient;
         service.getPatients = getPatients;
         service.getPatient = getPatient;
-
+        service.getVerifcationInfo= getVerificationInfo;
+        service.sendVerificationEmail=sendVerificationEmail;
         return service;
 
         function createPatient (patient, success, error){
             registrationResource.save(patient, success, error);
         }
+
 
         function getPatients (page,success, error){
             function adjustPageOnSuccessResponse(response) {
@@ -39,5 +45,15 @@
         function getPatient (patientId,success, error){
             return patientResource.get({patientId: patientId},success, error);
         }
+
+        function getVerificationInfo (patientId,success, error){
+            return patientUserResource.get({patientId: patientId},success, error);
+        }
+
+        function sendVerificationEmail (patientId,success, error){
+            var patient = { "patientId": patientId };
+            patientUserResource.save(patient, success, error);
+        }
+
     }
 })();

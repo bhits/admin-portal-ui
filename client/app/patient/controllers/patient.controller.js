@@ -10,8 +10,9 @@
         .controller('PatientController', PatientController);
 
     /* @ngInject */
-    function PatientController(patientData){
+    function PatientController(patientData,verificationInfo){
         var vm = this;
         vm.patientdata = patientData;
+        vm.verificationinfo = verificationInfo;
     }
 })();
