@@ -540,6 +540,7 @@ module.exports = function (grunt) {
                         base64BasicKey: 'YWRtaW4tcG9ydGFsLXVpOmNoYW5nZWl0',
                         securedApis: {
                             phrApiBaseUrl: 'https://localhost:8445/phr',
+                            registrationApiBaseUrl: 'https://localhost:8448/registration',
                             userInfo: 'https://localhost:8443/uaa/userinfo'
                         },
                         unsecuredApis:{
@@ -560,6 +561,7 @@ module.exports = function (grunt) {
                         base64BasicKey: 'cGF0aWVudC1wb3J0YWwtdWk6QllqeVdYU2JEdmRx',
                         securedApis: {
                             phrApiBaseUrl: 'https://localhost:8454/phr',
+                            registrationApiBaseUrl: 'https://bhitsqaapp02:8448/registration',
                             userInfo: 'https://bhitsqaapp02:8443/uaa/userinfo'
                         },
                         unsecuredApis:{
