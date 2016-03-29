@@ -537,19 +537,14 @@ module.exports = function (grunt) {
                     envService: {
                         name: 'Development',
                         version:'<%= pkg.version %>',
+                        base64BasicKey: 'YWRtaW4tcG9ydGFsLXVpOmNoYW5nZWl0',
                         securedApis: {
-                            registrationApiBaseUrl: 'https://localhost:8448/registration/users',
-                            phrApiBaseUrl: 'https://localhost:8448/phr/patients'
+                            phrApiBaseUrl: 'https://localhost:8445/phr',
+                            registrationApiBaseUrl: 'https://localhost:8448/registration',
+                            userInfo: 'https://localhost:8443/uaa/userinfo'
                         },
                         unsecuredApis:{
-                        },
-                        oauth:{
-                            site: "https://localhost:8443/uaa",
-                            clientId:"admin-portal-ui",
-                            redirectUri: "https://localhost:8451/admin-ui/fe/login",
-                            profileUri: "https://localhost:8443/uaa/userinfo",
-                            scope: "openid,scim.write,scim.read,scim.create,phr.allPatientProfiles_read,phr.hie_write,phr.patient_read,registration.write,uaa.admin,patientUser.read,patientUser.write",
-                            template: "assets/oauth2_templates/button.html"
+                            tokenUrl: 'https://localhost:8443/uaa/oauth/token'
                         }
                     }
                 }
@@ -563,19 +558,14 @@ module.exports = function (grunt) {
                     envService: {
                         name: 'QA',
                         version:'<%= pkg.version %>',
+                        base64BasicKey: 'cGF0aWVudC1wb3J0YWwtdWk6QllqeVdYU2JEdmRx',
                         securedApis: {
-                            registrationApiBaseUrl: 'https://bhitsqaapp02:8448/registration/users',
-                            phrApiBaseUrl: 'https://localhost:8448/phr/patients'
+                            phrApiBaseUrl: 'https://localhost:8454/phr',
+                            registrationApiBaseUrl: 'https://bhitsqaapp02:8448/registration',
+                            userInfo: 'https://bhitsqaapp02:8443/uaa/userinfo'
                         },
                         unsecuredApis:{
-                        },
-                        oauth:{
-                            site: "https://bhitsqaapp02:8443/uaa",
-                            clientId:"admin-portal-ui",
-                            redirectUri: "https://bhitsqaapp02:8451/admin-ui/fe/login",
-                            profileUri: "https://bhitsqaapp02:8443/uaa/userinfo",
-                            scope: "openid,scim.write,scim.read,scim.create,phr.allPatientProfiles_read,phr.hie_write,registration.write,uaa.admin,patientUser.read,patientUser.write",
-                            template: "assets/oauth2_templates/button.html"
+                            tokenUrl: 'https://bhitsqaapp02:8443/uaa/oauth/token'
                         }
                     }
                 }
