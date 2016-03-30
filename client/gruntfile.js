@@ -538,8 +538,8 @@ module.exports = function (grunt) {
                         name: 'Development',
                         version:'<%= pkg.version %>',
                         securedApis: {
-                            registrationApiBaseUrl: 'https://localhost:8448/registration/users',
-                            phrApiBaseUrl: 'https://localhost:8445/phr/patients',
+                            registrationApiBaseUrl: 'https://localhost:8448/registration',
+                            phrApiBaseUrl: 'https://localhost:8445/phr',
                             patientUserApiBaseUrl: 'https://localhost:8452/patientUser'
                         },
                         unsecuredApis:{
@@ -565,8 +565,8 @@ module.exports = function (grunt) {
                         name: 'QA',
                         version:'<%= pkg.version %>',
                         securedApis: {
-                            registrationApiBaseUrl: 'https://bhitsqaapp02:8448/registration/users',
-                            phrApiBaseUrl: 'https://bhitsqaapp02:8445/phr/patients',
+                            registrationApiBaseUrl: 'https://bhitsqaapp02:8448/registration',
+                            phrApiBaseUrl: 'https://bhitsqaapp02:8445/phr',
                             patientUserApiBaseUrl:'https://bhitsqaapp02:8452/patientUser'
                         },
                         unsecuredApis:{

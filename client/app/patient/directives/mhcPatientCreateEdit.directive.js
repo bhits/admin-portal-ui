@@ -28,6 +28,18 @@
             vm.isEditMode = isEditMode;
             vm.saveButtonText = isEditMode()? 'Update Patient': 'Create Patient';
 
+            /*activate();
+
+            function activate(){
+                patientService.getStates(
+                    function(response){
+                        vm.states = response;
+                    },
+                    function(error){
+                        notificationService.success("Error in getting states.");
+                    }
+                );
+            }*/
 
             function updatePatient() {
                 patientService.updatePatient(vm.patient,

@@ -53,7 +53,6 @@
                                     var deferred = $q.defer();
                                     var patientId= $stateParams.patientId;
                                     var patientPromise = patientService.getPatient(patientId,success,error).$promise;
-
                                     patientPromise.then(
                                         function (response) {
                                             deferred.resolve(response);

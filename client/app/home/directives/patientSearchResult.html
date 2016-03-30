@@ -18,8 +18,8 @@
                         <tbody>
                         <tr ng-repeat="patient in patientSearchResultVm.patientList"  ui-sref="fe.patient.edit({patientId: patient.id})" >
                             <td >
-                                <span ng-bind="patient.lastName"></span>
                                 <span ng-bind="patient.firstName"></span>
+                                <span ng-bind="patient.lastName"></span>
                             </td>
                             <td > <span ng-bind="patient.birthDate | date:'MM/dd/yyyy'"></span></td>
                             <td > <span ng-bind ="patient.genderCode"></span></td>

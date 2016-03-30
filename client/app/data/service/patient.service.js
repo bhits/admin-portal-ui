@@ -9,12 +9,16 @@
 
     /* @ngInject */
     function patientService($resource, envService) {
-        var registrationResource = $resource(envService.securedApis.registrationApiBaseUrl + "/signup");
+        var registrationResource = $resource(envService.securedApis.registrationApiBaseUrl + "/users/signup");
         var basePhrURL= envService.securedApis.phrApiBaseUrl;
+        var basePhrPatientURL =basePhrURL +"/patients";
+        var stateResource = $resource(basePhrURL + "/statecodes");
+
         var basePatientUserURL=envService.securedApis.patientUserApiBaseUrl;
-        var patientListResource = $resource(basePhrURL + "/pageNumber/:pageNumber",{pageNumber: '@pageNumber'} );
-        var patientProfileResource = $resource(basePhrURL + "/:patientId/profile",{patientId: '@patientId'} );
-        var patientProfileUpdateResource = $resource(basePhrURL + "/:patientId",{patientId: '@patientId'},{'update': { method:'PUT' } } );
+        var patientListResource = $resource(basePhrPatientURL + "/pageNumber/:pageNumber",{pageNumber: '@pageNumber'} );
+        var patientSearchResource = $resource(basePhrPatientURL + "/search/:token",{token: '@token'} );
+        var patientProfileResource = $resource(basePhrPatientURL + "/:patientId/profile",{patientId: '@patientId'} );
+        var patientProfileUpdateResource = $resource(basePhrPatientURL + "/:patientId",{patientId: '@patientId'},{'update': { method:'PUT' } } );
         var patientUserResource=$resource(basePatientUserURL + "/creations" );
         var getUserCreationResource = $resource(patientUserResource + "?patientId=:patientId",{patientId: '@patientId'} );
 
@@ -27,6 +31,9 @@
         service.getPatient = getPatient;
         service.getVerifcationInfo= getVerificationInfo;
         service.sendVerificationEmail=sendVerificationEmail;
+        service.searchPatient = searchPatient;
+        service.getStates = getStates;
+
         return service;
 
         function createPatient (patient, success, error){
@@ -59,5 +66,13 @@
             patientUserResource.save(patient, success, error);
         }
 
+        function searchPatient(searchText,success, error)
+        {
+            patientSearchResource.query ({"token": searchText},success,error);
+        }
+
+        function getStates (success, error){
+            stateResource.query(success, error);
+        }
     }
 })();

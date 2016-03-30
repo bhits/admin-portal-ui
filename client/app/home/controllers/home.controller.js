@@ -13,5 +13,6 @@
     function HomeController(loadedData){
         var vm = this;
         vm.paginationdata = loadedData;
+        vm.searchtext='';
     }
 })();
