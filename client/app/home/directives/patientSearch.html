@@ -10,7 +10,7 @@
                 <!--</div>-->
                 <div class="col-sm-8 col-md-5 col-lg-4 m-t-xs m-b-xs">
                     <input type="text" placeholder="Search Patients by first and last name" class="form-control" id="searchPatients"
-                           ng-model="patientSearchVm.searchtext" ng-change="patientSearchVm.search()">
+                           ng-model="patientSearchVm.searchtext" ng-change="patientSearchVm.searchtext&&patientSearchVm.search()">
 
                     <!--<datalist id="searchResults">-->
                         <!--<select >-->
@@ -29,7 +29,7 @@
                 <!--<button type="button" class="btn btn-primary" ng-click="patientSearchVm.search()"> Go</button>-->
             </div>
 
-             <div ng-if="patientSearchVm.searchtext.length">
+             <div ng-if="patientSearchVm.searchtext">
                     <ul class="list-group">
 
                         <li class="list-group-item" ng-repeat="patient in patientSearchVm.patients" ng-click="patientSearchVm.editPatient(patient.id)">
