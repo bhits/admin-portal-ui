@@ -539,6 +539,7 @@ module.exports = function (grunt) {
                         version:'<%= pkg.version %>',
                         base64BasicKey: 'YWRtaW4tcG9ydGFsLXVpOmNoYW5nZWl0',
                         securedApis: {
+                            patientRegistrationBaseUrl: '/patientRegistration',
                             phrApiBaseUrl: '/phr/patients',
                             userInfo: '/uaa/userinfo'
                         },
@@ -559,6 +560,7 @@ module.exports = function (grunt) {
                         version:'<%= pkg.version %>',
                         base64BasicKey: 'cGF0aWVudC1wb3J0YWwtdWk6QllqeVdYU2JEdmRx',
                         securedApis: {
+                            patientRegistrationBaseUrl: '/patientRegistration',
                             phrApiBaseUrl: '/phr/patients',
                             userInfo: '/uaa/userinfo'
                         },
