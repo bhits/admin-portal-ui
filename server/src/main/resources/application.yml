@@ -7,3 +7,9 @@ server:
     key-store-password: changeit
 logging:
   file: C:/java/MHC_LOGS/admin-ui/admin-ui.log
+
+---
+spring.profiles: docker
+server.ssl:
+  key-store: /java/keystore/mhc.keystore
+  key-store-password: changeit
