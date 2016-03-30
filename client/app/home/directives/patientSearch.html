@@ -10,30 +10,39 @@
                 <!--</div>-->
                 <div class="col-sm-8 col-md-5 col-lg-4 m-t-xs m-b-xs">
                     <input type="text" placeholder="Search Patients by first and last name" class="form-control" id="searchPatients"
-                           ng-model="patientSearchVm.searchtext" ng-change="patientSearchVm.search()" aria-autocomplete="patientSearchVm.patients" role="textbox" aria-haspopup="true">
+                           ng-model="patientSearchVm.searchtext" ng-change="patientSearchVm.search()">
 
                     <!--<datalist id="searchResults">-->
-                        <!--<option  data-ng-repeat="patient in patientSearchVm.patients" value="{{patient.firstName}}" />-->
-                    <!--</datalist> list="searchResults"-->
+                        <!--<select >-->
+                            <!--<option  data-ng-repeat="patient in patientSearchVm.patients" value="{{patient.firstName}}" ui-sref="fe.patient.edit({patientId:patient.id})"   />-->
+                        <!--</select>-->
+                    <!--</datalist>list="searchResults"-->
 
-                    <div >
-                        <ul class="list-group">
 
-                            <li class="list-group-item" ng-repeat="patient in patientSearchVm.patients" ng-click="patientSearchVm.editPatient(patient.id)">
+                </div>
+                <div class="col-sm-4 m-t-xs">
 
-                                <div>
-                                    <span ng-bind="patient.firstName"></span>
-                                    <span ng-bind="patient.lastName"></span>
-                                </div>
-
-                            </li>
-
-                        </ul>
-                    </div>
+                    <button class="btn btn-primary dark-green" type="button" ui-sref="fe.patient.create">
+                        Create Patient <i class="m-l-xs fa fa-plus"></i>
+                    </button>
                 </div>
                 <!--<button type="button" class="btn btn-primary" ng-click="patientSearchVm.search()"> Go</button>-->
+            </div>
 
-                </div>
+             <div ng-if="patientSearchVm.searchtext.length">
+                    <ul class="list-group">
+
+                        <li class="list-group-item" ng-repeat="patient in patientSearchVm.patients" ng-click="patientSearchVm.editPatient(patient.id)">
+
+                            <div>
+                                <span ng-bind="patient.firstName"></span>
+                                <span ng-bind="patient.lastName"></span>
+                            </div>
+
+                        </li>
+
+                    </ul>
+             </div>
 
 
 
