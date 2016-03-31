@@ -581,6 +581,7 @@ module.exports = function (grunt) {
                     envService: {
                         name: 'docker',
                         version:'<%= pkg.version %>',
+                        base64BasicKey: 'YWRtaW4tcG9ydGFsLXVpOmNoYW5nZWl0',
                         securedApis: {
                             registrationApiBaseUrl: 'https://dockerhost:8448/registration/users',
                             phrApiBaseUrl: 'https://dockerhost:8445/phr/patients',
