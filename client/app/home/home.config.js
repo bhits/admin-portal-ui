@@ -49,7 +49,7 @@
                                         deferred.resolve(onFulfilled);
                                     },
                                     function (onRejected) {
-                                        deferred.reject(onRejected);
+                                        deferred.resolve(onRejected);
                                     }
                                 );
 
