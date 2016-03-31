@@ -10,13 +10,15 @@
 
             /* @ngInject */
             function utilityService($location, $anchorScroll, $window, envService) {
-                //var showHealthInformationMenu = false;
+                var showHealthInformationMenu = false;
                 var service = {};
 
                 service.getYear = getYear;
                 service.redirectTo = redirectTo;
                 service.isUnDefinedOrNull = isUnDefinedOrNull;
                 service.isDefinedAndNotNull = isDefinedAndNotNull;
+                service.setShowHealthInformationMenu = setShowHealthInformationMenu;
+                service.getShowHealthInformationMenu = getShowHealthInformationMenu;
                 service.scrollTo = goTo;
                 service.hasString = hasString;
                 service.startsWith = startsWith;
@@ -34,6 +36,9 @@
                 service.downloadFile = downloadFile;
                 service.isValidDate = isValidDate;
                 service.isSecuredApi = isSecuredApi;
+                service.digitFormat = digitFormat;
+                service.isValidDate = isValidDate;
+
 
                 return service;
 
@@ -49,6 +54,15 @@
                 function isDefinedAndNotNull(value) {
                     return (angular.isDefined(value) && value !== null );
                 }
+
+                function setShowHealthInformationMenu(show) {
+                    showHealthInformationMenu = show;
+                }
+
+                function getShowHealthInformationMenu() {
+                    return showHealthInformationMenu;
+                }
+
                 function goTo(position) {
                     $location.hash(position);
                     $anchorScroll();
@@ -198,6 +212,14 @@
                         }
                     }
                     return true;  // date is valid
+                }
+
+                function digitFormat(number, digitLength) {
+                    var output = number + '';
+                    while (output.length < digitLength) {
+                        output = '0' + output;
+                    }
+                    return output;
                 }
 
                 function isSecuredApi(url) {
