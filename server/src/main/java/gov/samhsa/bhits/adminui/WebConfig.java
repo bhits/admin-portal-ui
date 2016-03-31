@@ -9,11 +9,10 @@ import org.springframework.boot.context.embedded.EmbeddedServletContainerFactory
 import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 
-/**
- * Created by sagar.gandhi on 3/3/2016.
- */
 @Configuration
+@Profile("ssl")
 public class WebConfig {
 
     @Value("${server.port}")
