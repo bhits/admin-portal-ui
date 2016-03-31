@@ -3,10 +3,10 @@
 
     angular
         .module('app.layout')
-        .directive('ppProfileMenu', ppProfileMenu);
+        .directive('mhcProfileMenu', mhcProfileMenu);
 
     /* @ngInject */
-    function ppProfileMenu() {
+    function mhcProfileMenu() {
         var directive = {
             restrict: 'E',
             scope: {},
