@@ -1,7 +1,7 @@
 ﻿
 'use strict';
 
-describe('app.patient:', function() {
+xdescribe('app.data:', function() {
     // Define global references for injections.
     var patientService;
     var envService;

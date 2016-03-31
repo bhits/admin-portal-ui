@@ -541,7 +541,8 @@ module.exports = function (grunt) {
                         securedApis: {
                             phrApiBaseUrl: 'https://localhost:8445/phr',
                             registrationApiBaseUrl: 'https://localhost:8448/registration',
-                            userInfo: 'https://localhost:8443/uaa/userinfo'
+                            userInfo: 'https://localhost:8443/uaa/userinfo',
+                            patientUserApiBaseUrl: 'https://localhost:8452/patientUser'
                         },
                         unsecuredApis:{
                             tokenUrl: 'https://localhost:8443/uaa/oauth/token'
@@ -560,9 +561,10 @@ module.exports = function (grunt) {
                         version:'<%= pkg.version %>',
                         base64BasicKey: 'cGF0aWVudC1wb3J0YWwtdWk6QllqeVdYU2JEdmRx',
                         securedApis: {
-                            phrApiBaseUrl: 'https://localhost:8454/phr',
+                            phrApiBaseUrl: 'https://bhitsqaapp02:8445/phr',
                             registrationApiBaseUrl: 'https://bhitsqaapp02:8448/registration',
-                            userInfo: 'https://bhitsqaapp02:8443/uaa/userinfo'
+                            userInfo: 'https://bhitsqaapp02:8443/uaa/userinfo',
+                            patientUserApiBaseUrl:'https://bhitsqaapp02:8452/patientUser'
                         },
                         unsecuredApis:{
                             tokenUrl: 'https://bhitsqaapp02:8443/uaa/oauth/token'
@@ -581,17 +583,12 @@ module.exports = function (grunt) {
                         version:'<%= pkg.version %>',
                         securedApis: {
                             registrationApiBaseUrl: 'https://dockerhost:8448/registration/users',
-                            phrApiBaseUrl: 'https://dockerhost:8448/phr/patients'
+                            phrApiBaseUrl: 'https://dockerhost:8445/phr/patients',
+                            userInfo: 'https://dockerhost:8443/uaa/userinfo',
+                            patientUserApiBaseUrl:'https://dockerhost:8452/patientUser'
                         },
                         unsecuredApis:{
-                        },
-                        oauth:{
-                            site: "https://dockerhost:8443/uaa",
-                            clientId:"admin-portal-ui",
-                            redirectUri: "https://dockerhost:8451/admin-ui/fe/login",
-                            profileUri: "https://dockerhost:8443/uaa/userinfo",
-                            scope: "openid,scim.write,scim.read,scim.create,phr.allPatientProfiles_read,phr.hie_write,registration.write,uaa.admin,patientUser.read,patientUser.write",
-                            template: "assets/oauth2_templates/button.html"
+                            tokenUrl: 'https://dockerhost:8443/uaa/oauth/token'
                         }
                     }
                 }

@@ -4,6 +4,7 @@
     angular
         .module('app.patient',
             [
-                'app.core'
+                'app.core',
+                'app.data'
             ]);
 })();

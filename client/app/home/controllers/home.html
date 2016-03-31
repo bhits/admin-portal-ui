@@ -1,0 +1,51 @@
+﻿<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-10">
+        <h1>Home</h1>
+    </div>
+    <div class="col-sm-2">
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="alert alert-success alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <strong>Welcome to My Health Compass admin! You are now ready to manage your users.</strong>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="form-group wrap">
+                <!--
+                <label class="sr-only" for="searchPatients">Search</label>
+                <div class="row">
+                    <!--<div class="col-sm-8 col-md-5 col-lg-4 m-t-xs m-b-xs">-->
+                        <!--<div class="input-group">-->
+                            <!--<input type="search" placeholder="Search Patients" class="form-control" id="searchPatients">-->
+                        <!--<span class="input-group-btn"><button type="button" class="btn btn-primary">Go-->
+                        <!--</button></span>-->
+                        <!--</div>-->
+                    <!--</div>---
+                    <div class="col-sm-8 col-md-5 col-lg-4 m-t-xs m-b-xs">
+                        <input type="search" placeholder="Search Patients by first and last name" class="form-control" id="searchPatients">
+                    </div>
+                -->
+                <div>
+                    <mhc-patient-search searchtext="homeVm.searchtext"/>
+                </div>
+
+
+                </div>
+
+               <div>
+                  <!--<mhc-patient-search patientsdata="homeVm.paginationdata"></mhc-patient-search>-->
+                  <mhc-patient-search-result patientsdata="homeVm.paginationdata"/>
+               </div>
+        </div>
+    </div>
+
+</div>
