@@ -53,14 +53,16 @@
                                     var deferred = $q.defer();
                                     var patientId= $stateParams.patientId;
                                     var patientPromise = patientService.getPatient(patientId,success,error).$promise;
-                                    patientPromise.then(
-                                        function (response) {
-                                            deferred.resolve(response);
-                                        },
-                                        function (response) {
-                                            deferred.reject(response);
-                                        }
-                                    );
+
+                                    var statesPromise = patientService.getStates(success,
+                                            function(error){
+                                                notificationService.success("Error in getting states.");
+                                            }
+                                    ).$promise;
+
+                                    $q.all( [patientPromise, statesPromise] ).then(function(response) {
+                                        deferred.resolve(response);
+                                    });
                                     return deferred.promise;
 
                                 },

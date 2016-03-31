@@ -12,7 +12,10 @@
             scope: {},
             templateUrl: 'app/patient/directives/patientCreateEdit.html',
             controllerAs: 'patientCreateEditVm',
-            bindToController: {patientdata: '='},
+            bindToController: {
+                patientdata: '=',
+                usstates: '='
+            },
             controller: PatientCreateEditController
         };
 
@@ -25,21 +28,21 @@
             vm.cancel=cancel;
             vm.canCreate = canCreate;
             vm.patient = vm.patientdata;
+            vm.states = vm.usstates;
             vm.isEditMode = isEditMode;
             vm.saveButtonText = isEditMode()? 'Update Patient': 'Create Patient';
+            //activate();
 
-            /*activate();
-
-            function activate(){
-                patientService.getStates(
-                    function(response){
-                        vm.states = response;
-                    },
-                    function(error){
-                        notificationService.success("Error in getting states.");
-                    }
-                );
-            }*/
+            //function activate(){
+            //    patientService.getStates(
+            //        function(response){
+            //            vm.states = response;
+            //        },
+            //        function(error){
+            //            notificationService.success("Error in getting states.");
+            //        }
+            //    );
+            //}
 
             function updatePatient() {
                 patientService.updatePatient(vm.patient,

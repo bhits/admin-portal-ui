@@ -72,7 +72,7 @@
         }
 
         function getStates (success, error){
-            stateResource.query(success, error);
+           return stateResource.query(success, error);
         }
     }
 })();

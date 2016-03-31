@@ -12,7 +12,8 @@
     /* @ngInject */
     function PatientController(patientData,verificationInfo,$state){
         var vm = this;
-        vm.patientdata = patientData;
+        vm.patientdata = patientData[0];
+        vm.states = patientData[1];
         vm.verificationinfo = verificationInfo;
         vm.title = $state.current.data.pageTitle;
     }
