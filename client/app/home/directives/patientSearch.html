@@ -1,50 +1,28 @@
 
-            <label class="sr-only" for="searchPatients">Search</label>
-            <!--<div class="row">-->
-                <!--&lt;!&ndash;<div class="col-sm-8 col-md-5 col-lg-4 m-t-xs m-b-xs">&ndash;&gt;-->
-                <!--&lt;!&ndash;<div class="input-group">&ndash;&gt;-->
-                <!--&lt;!&ndash;<input type="search" placeholder="Search Patients" class="form-control" id="searchPatients">&ndash;&gt;-->
-                <!--&lt;!&ndash;<span class="input-group-btn"><button type="button" class="btn btn-primary">Go&ndash;&gt;-->
-                <!--&lt;!&ndash;</button></span>&ndash;&gt;-->
-                <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                <!--<div class="col-sm-8 col-md-7 col-lg-6 m-t-xs m-b-xs">-->
-                    <!--<input type="text" placeholder="Search Patients by first and last name" class="form-control" id="searchPatients"-->
-                           <!--ng-model="patientSearchVm.searchtext" ng-change="patientSearchVm.searchtext&&patientSearchVm.search()">-->
-                    <!---->
-                    <!--&lt;!&ndash;<datalist id="searchResults">&ndash;&gt;-->
-                        <!--&lt;!&ndash;<select >&ndash;&gt;-->
-                            <!--&lt;!&ndash;<option  data-ng-repeat="patient in patientSearchVm.patients" value="{{patient.firstName}}" ui-sref="fe.patient.edit({patientId:patient.id})"   />&ndash;&gt;-->
-                        <!--&lt;!&ndash;</select>&ndash;&gt;-->
-                    <!--&lt;!&ndash;</datalist>list="searchResults"&ndash;&gt;-->
-                    <!---->
-                <!--</div>-->
-            <!--</div>-->
+            <label class="sr-only" for="searchPatient">Search</label>
             <div class="row">
                 <div class="col-sm-8 col-md-7 col-lg-6 m-t-xs m-b-xs">
                     <div class="input-group">
                         <span class="input-group-btn">
-                            <button class="btn btn-primary dark-green" type="button" ng-click="patientSearchVm.editPatient(patient.id)">Go!</button>
+                            <button class="btn btn-primary dark-green" type="button" ng-click="patientSearchVm.editPatient()">Go!</button>
                         </span>
-                        <input type="text" placeholder="Search Patients by first and last name" class="form-control" id="searchPatients"
+                        <input type="text" placeholder="Search Patients by first and last name" class="form-control" id="searchPatient"
                                ng-model="patientSearchVm.searchtext" ng-change="patientSearchVm.searchtext&&patientSearchVm.search()" list="searchList" >
                         <datalist id="searchList">
-                            <option  ng-repeat="patient in patientSearchVm.patients" value="{{patient.firstName}}"></option>
+                            <option  ng-model="patient.id" ng-repeat="patient in patientSearchVm.patients" value="{{patient.firstName}} {{patient.lastName}}"></option>
                         </datalist>
                     </div>
                 </div>
 
                 <div class="col-sm-4 m-t-xs">
-
                     <button class="btn btn-primary dark-green" type="button" ui-sref="fe.patient.create">
                         Create Patient <i class="m-l-xs fa fa-plus"></i>
                     </button>
                 </div>
-                <!--<button type="button" class="btn btn-primary" ng-click="patientSearchVm.search()"> Go</button>-->
             </div>
 
 
-             <!--<div ng-if="patientSearchVm.searchtext">-->
+             <!--<div ng-if="patientSearchVm.searchtext" style="z-index: 2;position: fixed;top: 0; background-color: rgba(0,0,0,0.5);">-->
                     <!--<ul class="list-group">-->
 
                         <!--<li class="list-group-item" ng-repeat="patient in patientSearchVm.patients" ng-click="patientSearchVm.editPatient(patient.id)">-->
@@ -58,9 +36,3 @@
 
                     <!--</ul>-->
              <!--</div>-->
-
-
-
-<!--<div>-->
-    <!--<mhc-patient-search-result patientsdata="patientSearchVm.patientsdata"></mhc-patient-search-result>-->
-<!--</div>-->

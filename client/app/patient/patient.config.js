@@ -50,42 +50,45 @@
                                         notificationService.error('Failed to get the patient, please try again later...');
                                         return response;
                                     }
-                                    var deferred = $q.defer();
                                     var patientId= $stateParams.patientId;
-                                    var patientPromise = patientService.getPatient(patientId,success,error).$promise;
-                                    patientPromise.then(
-                                        function (response) {
-                                            deferred.resolve(response);
-                                        },
-                                        function (response) {
-                                            deferred.reject(response);
-                                        }
-                                    );
-                                    return deferred.promise;
+                                    if (angular.isDefined(patientId) && patientId!=="") {
+                                        var deferred = $q.defer();
+                                        var patientPromise = patientService.getPatient(patientId, success, error).$promise;
+                                        patientPromise.then(
+                                            function (response) {
+                                                deferred.resolve(response);
+                                            },
+                                            function (response) {
+                                                deferred.reject(response);
+                                            }
+                                        );
+                                        return deferred.promise;
+                                    }
 
                                 },
                                 verificationInfo:function($q,$stateParams,patientService)
                                 {
                                     var deferred = $q.defer();
                                     var patientId= $stateParams.patientId;
+                                    if (angular.isDefined(patientId) && patientId!=='') {
+                                        var vpromise = patientService.getVerifcationInfo(patientId,
+                                            function (response) {
+                                                return response;
+                                            },
+                                            function (response) {
+                                                return response;
+                                            }).$promise;
 
-                                    var vpromise= patientService.getVerifcationInfo(patientId,
-                                        function (response) {
-                                            return response;
-                                        },
-                                        function (response) {
-                                            return response;
-                                        }).$promise;
-
-                                    vpromise.then(
-                                        function (response) {
-                                             deferred.resolve(response);
-                                        },
-                                        function (response) {
-                                            deferred.resolve(response);
-                                        }
-                                    );
-                                    return deferred.promise;
+                                        vpromise.then(
+                                            function (response) {
+                                                deferred.resolve(response);
+                                            },
+                                            function (response) {
+                                                deferred.resolve(response);
+                                            }
+                                        );
+                                        return deferred.promise;
+                                    }
                                 }
                             }
                     });
