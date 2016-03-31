@@ -539,13 +539,13 @@ module.exports = function (grunt) {
                         version:'<%= pkg.version %>',
                         base64BasicKey: 'YWRtaW4tcG9ydGFsLXVpOmNoYW5nZWl0',
                         securedApis: {
-                            phrApiBaseUrl: 'https://localhost:8445/phr',
-                            registrationApiBaseUrl: 'https://localhost:8448/registration',
-                            userInfo: 'https://localhost:8443/uaa/userinfo',
-                            patientUserApiBaseUrl: 'https://localhost:8452/patientUser'
+                            phrApiBaseUrl: '/phr',
+                            registrationApiBaseUrl: '/patientRegistration',
+                            userInfo: '/uaa/userinfo',
+                            patientUserApiBaseUrl: '/patientUser'
                         },
                         unsecuredApis:{
-                            tokenUrl: 'https://localhost:8443/uaa/oauth/token'
+                            tokenUrl: '/uaa/oauth/token'
                         }
                     }
                 }
@@ -561,13 +561,13 @@ module.exports = function (grunt) {
                         version:'<%= pkg.version %>',
                         base64BasicKey: 'cGF0aWVudC1wb3J0YWwtdWk6QllqeVdYU2JEdmRx',
                         securedApis: {
-                            phrApiBaseUrl: 'https://bhitsqaapp02:8445/phr',
-                            registrationApiBaseUrl: 'https://bhitsqaapp02:8448/registration',
-                            userInfo: 'https://bhitsqaapp02:8443/uaa/userinfo',
-                            patientUserApiBaseUrl:'https://bhitsqaapp02:8452/patientUser'
+                            phrApiBaseUrl: '/phr',
+                            registrationApiBaseUrl: '/patientRegistration',
+                            userInfo: '/uaa/userinfo',
+                            patientUserApiBaseUrl:'/patientUser'
                         },
                         unsecuredApis:{
-                            tokenUrl: 'https://bhitsqaapp02:8443/uaa/oauth/token'
+                            tokenUrl: '/uaa/oauth/token'
                         }
                     }
                 }
@@ -581,14 +581,15 @@ module.exports = function (grunt) {
                     envService: {
                         name: 'docker',
                         version:'<%= pkg.version %>',
+                        base64BasicKey: 'YWRtaW4tcG9ydGFsLXVpOmNoYW5nZWl0',
                         securedApis: {
-                            registrationApiBaseUrl: 'https://dockerhost:8448/registration/users',
-                            phrApiBaseUrl: 'https://dockerhost:8445/phr/patients',
-                            userInfo: 'https://dockerhost:8443/uaa/userinfo',
-                            patientUserApiBaseUrl:'https://dockerhost:8452/patientUser'
+                            registrationApiBaseUrl: '/registration/users',
+                            phrApiBaseUrl: '/phr',
+                            userInfo: '/uaa/userinfo',
+                            patientUserApiBaseUrl:'/patientUser'
                         },
                         unsecuredApis:{
-                            tokenUrl: 'https://dockerhost:8443/uaa/oauth/token'
+                            tokenUrl: '/uaa/oauth/token'
                         }
                     }
                 }

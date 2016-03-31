@@ -9,7 +9,7 @@
 
     /* @ngInject */
     function patientService($resource, envService) {
-        var registrationResource = $resource(envService.securedApis.registrationApiBaseUrl + "/users/signup");
+        var registrationResource = $resource(envService.securedApis.registrationApiBaseUrl + "/patients");
         var basePhrURL= envService.securedApis.phrApiBaseUrl;
         var basePhrPatientURL =basePhrURL +"/patients";
         var stateResource = $resource(basePhrURL + "/statecodes");
