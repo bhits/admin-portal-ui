@@ -559,7 +559,7 @@ module.exports = function (grunt) {
                     envService: {
                         name: 'QA',
                         version:'<%= pkg.version %>',
-                        base64BasicKey: 'cGF0aWVudC1wb3J0YWwtdWk6QllqeVdYU2JEdmRx',
+                        base64BasicKey: 'YWRtaW4tcG9ydGFsLXVpOkJZanlXWFNiRHZkcQ==',
                         securedApis: {
                             phrApiBaseUrl: '/phr',
                             registrationApiBaseUrl: '/patientRegistration',
