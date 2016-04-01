@@ -17,8 +17,7 @@
             scope: {},
             templateUrl: 'app/home/directives/patientSearch.html',
             bindToController: {
-                searchtext: '=?'//,
-                //patientsdata: '='
+                searchtext: '=?'
             },
             controller: PatientSearchController,
             controllerAs: 'patientSearchVm'
@@ -32,24 +31,28 @@
             vm.search=search;
             vm.editPatient=editPatient;
 
-            function search()
-            {
-                vm.searchtext=vm.searchtext;
-                patientService.searchPatient(vm.searchtext,
-                function success(response)
-                {
-                    vm.patients = response;
-
-                },
-                function error()
-                {
-                    notificationService.error('Failed to get the patient, please try again later...');
-                });
+            function search() {
+                if(angular.isDefined(vm.searchtext)){
+                    patientService.searchPatient(vm.searchtext,
+                        function success(response) {
+                            vm.patients = response;
+                        },
+                        function error() {
+                            console.warn('No search results was return...');
+                        });
+                }
             }
 
-            function editPatient(patientId)
+            function editPatient()
             {
-                $state.go('fe.patient.edit',{patientId: patientId});
+                patientService.searchPatient(vm.searchtext,
+                    function success(response) {
+                        var patient = response[0];
+                        $state.go('fe.patient.edit',{patientId: patient.id});
+                    },
+                    function error() {
+                        notificationService.error('Failed to get the patient, please try again later...');
+                    });
             }
         }
     }

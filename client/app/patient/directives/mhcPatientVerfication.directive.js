@@ -26,34 +26,48 @@
         function PatientVerificationController(notificationService,patientService) {
             var vm = this;
             vm.patient = vm.patientdata;
-            vm.verification = vm.verificationinfo;
+            //vm.verification = vm.verificationinfo;
             vm.verificationEmail = setEmail();
             vm.show = showVerifcationBox();
-            vm.accountStatus = getStatus();
+            //vm.accountStatus = getStatus();
             vm.sendEmail = sendEmail;
             vm.isAccountAlreadyVerified=isAccountVerified;
-            vm.sendEmailButtonText= isVerificationCodeSent()? "Resend Email" : "Send Email";
+
+
+            verifyPatient();
+
+            function verifyPatient() {
+                if(angular.isDefined(vm.patientdata) && angular.isDefined(vm.patientdata.id)) {
+                    patientService.getVerifcationInfo(vm.patient.id,
+                        function success(response) {
+                            vm.verification = response;
+                            vm.accountStatus = getStatus();
+                            vm.sendEmailButtonText= isVerificationCodeSent()? "Resend Email" : "Send Email";
+                            vm.accountStatus = getStatus();
+                        }, function error() {
+                            vm.accountStatus = getStatus();
+                            vm.sendEmailButtonText= isVerificationCodeSent()? "Resend Email" : "Send Email";
+                            console.error("Patient is not verified, please verify patient...");
+                        });
+                }else{
+                    vm.sendEmailButtonText= isVerificationCodeSent()? "Resend Email" : "Send Email";
+                    vm.accountStatus = getStatus();
+                    console.warn("No patient id available to get verification info...");
+                }
+            }
+
 
             function sendEmail() {
                 patientService.sendVerificationEmail(vm.patient.id,
                     function success() {
                         notificationService.success('email sent successfully');
-                        reloadPage();
+                        verifyPatient();
                     }, function error() {
                         notificationService.error('Failed to send email, please try again later...');
                     });
             }
 
-            function reloadPage()
-            {
-                patientService.getVerifcationInfo(vm.patient.id,
-                    function success(response) {
-                        vm.verification=response;
-                        vm.accountStatus = getStatus();
-                    }, function error() {
-                        notificationService.error('Failed to load verification, please try again later...');
-                    });
-            }
+
             function setEmail()
             {
                 if (!isPatientNotCreated())
@@ -80,19 +94,17 @@
 
             function isAccountVerified()
             {
-                var isAccountVerified =(angular.isDefined(vm.verification.verified)&& vm.verification.verified);
-                return isAccountVerified;
+                return (angular.isDefined(vm.verification)&& vm.verification.verified);
             }
 
             function isVerificationCodeSent()
             {
-                var verificationCodeSent = (angular.isDefined(vm.verification)) && ( angular.isDefined(vm.verification.verificationCode));
-                return verificationCodeSent;
+                return (angular.isDefined(vm.verification)) && ( angular.isDefined(vm.verification.verificationCode));
             }
+
             function isPatientNotCreated()
             {
-                var patientNotCreated=angular.isUndefined(vm.patient)|| (angular.isUndefined(vm.patient.id));
-                return patientNotCreated;
+                return angular.isUndefined(vm.patient)|| (angular.isUndefined(vm.patient.id));
             }
 
             function showVerifcationBox()

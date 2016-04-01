@@ -7,13 +7,12 @@
 
     angular
         .module('app.patient')
-        .controller('PatientController', PatientController);
+        .controller('PatientEditController', PatientEditController);
 
     /* @ngInject */
-    function PatientController(patientData,verificationInfo,$state){
+    function PatientEditController(patientData,$state){
         var vm = this;
-        vm.patientdata = patientData;
-        vm.verificationinfo = verificationInfo;
+        vm.patientdata = patientData[0];
         vm.title = $state.current.data.pageTitle;
     }
 })();

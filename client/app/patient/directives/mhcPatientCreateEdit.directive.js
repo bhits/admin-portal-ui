@@ -12,23 +12,27 @@
             scope: {},
             templateUrl: 'app/patient/directives/patientCreateEdit.html',
             controllerAs: 'patientCreateEditVm',
-            bindToController: {patientdata: '='},
+            bindToController: {
+                patientdata: '='
+            },
             controller: PatientCreateEditController
         };
 
         return directive;
 
         /* @ngInject */
-        function PatientCreateEditController(patientService, $state, notificationService) {
+        function PatientCreateEditController(patientService, $state, notificationService,utilityService) {
             var vm = this;
+            var original = vm.verifyInfo;
+
             vm.save = save;
             vm.cancel=cancel;
             vm.canCreate = canCreate;
             vm.patient = vm.patientdata;
             vm.isEditMode = isEditMode;
             vm.saveButtonText = isEditMode()? 'Update Patient': 'Create Patient';
-
-            /*activate();
+            vm.checkDateField = checkDateField;
+            activate();
 
             function activate(){
                 patientService.getStates(
@@ -36,10 +40,10 @@
                         vm.states = response;
                     },
                     function(error){
-                        notificationService.success("Error in getting states.");
+                        notificationService.error("Error in getting states.");
                     }
                 );
-            }*/
+            }
 
             function updatePatient() {
                 patientService.updatePatient(vm.patient,
@@ -60,8 +64,14 @@
                         notificationService.error('Error in creating patient.');
                     });
             }
+
+            function prepareDataBeforeSave() {
+                vm.patient.birthDate = formatBirthday(vm.patient.birthDate);
+            }
+
             function save()
             {
+                //prepareDataBeforeSave();
                 if (isEditMode()) {
                     updatePatient();
                 }
@@ -83,6 +93,24 @@
             function cancel()
             {
                 $state.go('fe.index.home');
+            }
+
+            function checkDateField(birthdate) {
+                vm.fillOutDate = !birthdate.$valid;
+            }
+
+            function clearField(patientCreateEditorm) {
+                patientCreateEditorm.$setPristine();
+                patientCreateEditorm.$setUntouched();
+                vm.verifyInfo = angular.copy(original);
+                vm.verifyError = false;
+            }
+
+            function formatBirthday(dateObj) {
+                var year = dateObj.getFullYear();
+                var month = utilityService.digitFormat((dateObj.getMonth() + 1), 2);
+                var day = utilityService.digitFormat(dateObj.getDate(), 2);
+                return year + '/' + month + '/' + day;
             }
         }
     }

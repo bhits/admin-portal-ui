@@ -82,108 +82,57 @@
             <!--<div class="radio"><label class="side-padding0"> <input mhc-icheck type="radio" name="gender" ng-model="patientCreateVm.patient.genderCode" value="N" required> Not Specified </label></div>-->
         </div>
     </div>
-
     <div class="form-group">
         <label class="col-xs-12 col-sm-3 col-md-2 control-label">Date of Birth <span class="text-alert">*</span></label>
         <div class="col-xs-5 col-sm-4 col-md-3 col-lg-2">
             <input type="text" class="form-control" name="dateOfBirth" placeholder="Date of birth" required
-                   ng-model="patientCreateEditVm.patient.birthDate" required mhc-datepicker >
+                   ng-model="patientCreateEditVm.patient.birthDate " required mhc-datepicker mhc-format-date>
             <div ng-messages="PatientForm.dateOfBirth.$error" ng-if="PatientForm.dateOfBirth.$dirty"
                  class="text-alert">
                 <div ng-messages-include="admin-messages"></div>
             </div>
         </div>
     </div>
-    <!--TODO do no delete-->
     <!--<div class="form-group">-->
-    <!--<label class="col-sm-3 col-md-2 control-label">Date of Birth <span class="text-alert">*</span></label>-->
-
-    <!--<div class="col-sm-7 col-md-6">-->
-    <!--<div class="row">-->
-
-    <!--<div class="col-xs-6">-->
-    <!--<label for="month" class="sr-only">Month</label>-->
-    <!--&lt;!&ndash;<input type="text" class="form-control" placeholder="Month">&ndash;&gt;-->
-    <!--<select id="month" class="form-control">-->
-    <!--<option selected="selected" value="  ">Month</option>-->
-    <!--<option value="01">January</option>-->
-    <!--<option value="02">February</option>-->
-    <!--<option value="03">March</option>-->
-    <!--<option value="04">April</option>-->
-    <!--<option value="05">May</option>-->
-    <!--<option value="06">June</option>-->
-    <!--<option value="07">July</option>-->
-    <!--<option value="08">August</option>-->
-    <!--<option value="09">September</option>-->
-    <!--<option value="10">October</option>-->
-    <!--<option value="11">November</option>-->
-    <!--<option value="12">December</option>-->
-    <!--</select>-->
+        <!--<label class="col-sm-3 col-md-2 control-label">Date of Birth <span class="text-alert">*</span></label>-->
+        <!--<div class="col-sm-9 col-md-10">-->
+            <!--<mhc-multi-select-date id="birthDate" name="birthDate"-->
+                                   <!--year-order="desc" start-year="" end-year=""-->
+                                   <!--ng-model="patientCreateEditVm.patient.birthDate"-->
+                                   <!--mhc-check-after-today required-->
+                                   <!--mhc-outside-click="patientCreateEditVm.checkDateField(PatientForm.dateOfBirth)">-->
+            <!--</mhc-multi-select-date>-->
+            <!--<div class="m-t-n-xs text-alert" ng-if="patientCreateEditVm.fillOutDate">-->
+                <!--<span>Please complete all required fields to continue.</span>-->
+            <!--</div>-->
+            <!--<div ng-messages="PatientForm.dateOfBirth.$error" ng-if="PatientForm.dateOfBirth.$dirty"-->
+                 <!--class="text-alert">-->
+                <!--<div ng-messages-include="admin-messages"></div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+   <!---->
+    <!--<div class="form-group wrap">-->
+        <!--<label class="col-xs-12 col-sm-3 col-md-2 control-label">Date of Birth <span class="text-alert">*</span></label>-->
+        <!--<div class="row">-->
+            <!--<div class="col-xs-12">-->
+                <!--<mhc-multi-select-date id="birthDate" name="birthDate"-->
+                                       <!--year-order="desc" start-year="" end-year=""-->
+                                       <!--ng-model="patientCreateEditVm.patient.birthDate"-->
+                                       <!--mhc-check-after-today required-->
+                                       <!--mhc-outside-click="patientCreateEditVm.checkDateField(PatientForm.dateOfBirth)">-->
+                <!--</mhc-multi-select-date>-->
+                <!--<div class="m-t-n-xs text-alert" ng-if="patientCreateEditVm.fillOutDate">-->
+                    <!--<span>Please complete all required fields to continue.</span>-->
+                <!--</div>-->
+                <!--<div ng-messages="PatientForm.dateOfBirth.$error" ng-if="PatientForm.dateOfBirth.$dirty"-->
+                     <!--class="text-alert">-->
+                    <!--<div ng-messages-include="admin-messages"></div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
     <!--</div>-->
 
-
-    <!--<div class="col-xs-2 side-padding0">-->
-    <!--<label for="day" class="sr-only">Day</label>-->
-    <!--&lt;!&ndash;<input type="text" class="form-control"  id="day" placeholder="Day">&ndash;&gt;-->
-    <!--<select id="day" class="form-control">-->
-    <!--<option selected="selected" value="  ">Day</option>-->
-    <!--<option value="01">01</option>-->
-    <!--<option value="02">02</option>-->
-    <!--<option value="03">03</option>-->
-    <!--<option value="04">04</option>-->
-    <!--<option value="05">05</option>-->
-    <!--<option value="06">06</option>-->
-    <!--<option value="07">07</option>-->
-    <!--<option value="08">08</option>-->
-    <!--<option value="09">09</option>-->
-    <!--<option value="10">10</option>-->
-    <!--<option value="11">11</option>-->
-    <!--<option value="12">12</option>-->
-    <!--<option value="13">13</option>-->
-    <!--<option value="14">14</option>-->
-    <!--<option value="15">15</option>-->
-    <!--<option value="16">16</option>-->
-    <!--<option value="17">17</option>-->
-    <!--<option value="18">18</option>-->
-    <!--<option value="19">19</option>-->
-    <!--<option value="20">20</option>-->
-    <!--<option value="21">21</option>-->
-    <!--<option value="22">22</option>-->
-    <!--<option value="23">23</option>-->
-    <!--<option value="24">24</option>-->
-    <!--<option value="25">25</option>-->
-    <!--<option value="26">26</option>-->
-    <!--<option value="27">27</option>-->
-    <!--<option value="28">28</option>-->
-    <!--<option value="29">29</option>-->
-    <!--<option value="30">30</option>-->
-    <!--<option value="31">31</option>-->
-    <!--</select>-->
-    <!--</div>-->
-
-
-    <!--<div class="col-xs-4">-->
-    <!--<label for="year" class="sr-only">Year</label>-->
-    <!--&lt;!&ndash;<input type="text" class="form-control"  id="year" placeholder="Year">&ndash;&gt;-->
-    <!--<select id="year" class="form-control">-->
-    <!--<option selected="selected" value="    ">Year</option>-->
-    <!--</select>-->
-    <!--</div>-->
-
-    <!--<div class="col-xs-12 m-t-sm">-->
-    <!--<div ng-messages="createPatientForm.dateOfBirth.$error" ng-if="createPatientForm.dateOfBirth.$dirty" class="text-alert">-->
-    <!--<div ng-messages-include="admin-messages"></div>-->
-    <!--</div>-->
-    <!--</div>-->
-    <!--</div>-->
-    <!--</div>-->
-    <!--</div>-->
-    <!-- Deleted From Groups -->
-
-
-
-
-    <!-- End of DELETED FORM GROUPS -->
     <div class="row">
         <div class="text-strong-blue col-sm-offset-3 col-sm-7 col-md-offset-2 col-md-5 col-lg-4">
             <h3>Additional Information</h3>
@@ -270,9 +219,9 @@
     <div class="form-group">
         <label class="col-sm-3 col-md-2 control-label">State</label>
         <div class="col-sm-7 col-md-5 col-lg-4">
-            <select ng-model="patientCreateVm.patient.stateCode"  >
+            <select ng-model="patientCreateEditVm.patient.stateCode" name="state" >
                 <option value="">-- choose state --</option>
-                <option ng-repeat="s in patientCreateVm.states" value="{{s.code}}" ng-selected="s.code == patientCreateVm.patient.stateCode" >{{s.displayName}}</option>
+                <option ng-repeat="s in patientCreateEditVm.states" value="{{s.code}}" ng-selected="s.code == patientCreateEditVm.patient.stateCode" >{{s.displayName}}</option>
             </select>
             <!--<input type="text" class="form-control"  name="state" placeholder="State" ng-model="patientCreateVm.patient.state">-->
         </div>
