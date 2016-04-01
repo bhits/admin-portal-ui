@@ -1,4 +1,6 @@
 ﻿<mhc-content-wrapper contenttitle="patientVm.title">
-    <mhc-patient-verification verificationinfo="patientVm.verificationinfo" patientdata="patientVm.patientdata"></mhc-patient-verification>
-    <mhc-patient-create-edit patientdata="patientVm.patientdata" usstates="patientVm.states"></mhc-patient-create-edit>
+    <span ng-if="patientVm.patientdata.id">
+        <mhc-patient-verification patientdata="patientVm.patientdata"></mhc-patient-verification>
+    </span>
+    <mhc-patient-create-edit patientdata="patientVm.patientdata" ></mhc-patient-create-edit>
 </mhc-content-wrapper>

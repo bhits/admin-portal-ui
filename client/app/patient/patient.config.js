@@ -22,26 +22,21 @@
                         url: '/create',
                         templateUrl: 'app/patient/controllers/patientCreateEdit.html',
                         data: { pageTitle: 'Create Patient' },
-                        controller: 'PatientController',
-                        controllerAs: 'patientVm',
-                        resolve:{
-                            patientData:function(){return '';},
-                            verificationInfo:function(){return '';}
-                        }
+                        controller: 'PatientCreateController',
+                        controllerAs: 'patientVm'
                     })
                     .state('fe.patient.edit', {
                             url: '/Edit',
                             templateUrl: 'app/patient/controllers/patientCreateEdit.html',
                             data: { pageTitle: 'Edit Patient' },
-                            controller: 'PatientController',
+                            controller: 'PatientEditController',
                             controllerAs: 'patientVm',
                             params: {
                               patientId: ''
                             },
-                            resolve:{
+                            resolve: {
                                 /* @ngInject */
-                                patientData: function( $q, $stateParams, patientService, notificationService)
-                                {
+                                patientData: function ($q, $stateParams, patientService, notificationService) {
                                     function success(response) {
                                         return response;
                                     }
@@ -50,44 +45,22 @@
                                         notificationService.error('Failed to get the patient, please try again later...');
                                         return response;
                                     }
+
                                     var deferred = $q.defer();
-                                    var patientId= $stateParams.patientId;
-                                    var patientPromise = patientService.getPatient(patientId,success,error).$promise;
+                                    var patientId = $stateParams.patientId;
+                                    var patientPromise = patientService.getPatient(patientId, success, error).$promise;
 
                                     var statesPromise = patientService.getStates(success,
-                                            function(error){
-                                                notificationService.success("Error in getting states.");
-                                            }
+                                        function (error) {
+                                            notificationService.success("Error in getting states.");
+                                        }
                                     ).$promise;
 
-                                    $q.all( [patientPromise, statesPromise] ).then(function(response) {
+                                    $q.all([patientPromise]).then(function (response) {
                                         deferred.resolve(response);
                                     });
                                     return deferred.promise;
 
-                                },
-                                verificationInfo:function($q,$stateParams,patientService)
-                                {
-                                    var deferred = $q.defer();
-                                    var patientId= $stateParams.patientId;
-
-                                    var vpromise= patientService.getVerifcationInfo(patientId,
-                                        function (response) {
-                                            return response;
-                                        },
-                                        function (response) {
-                                            return response;
-                                        }).$promise;
-
-                                    vpromise.then(
-                                        function (response) {
-                                             deferred.resolve(response);
-                                        },
-                                        function (response) {
-                                            deferred.resolve(response);
-                                        }
-                                    );
-                                    return deferred.promise;
                                 }
                             }
                     });
