@@ -219,7 +219,7 @@
     <div class="form-group">
         <label class="col-sm-3 col-md-2 control-label">State</label>
         <div class="col-sm-7 col-md-5 col-lg-4">
-            <select ng-model="patientCreateVm.patient.stateCode"  >
+            <select ng-model="patientCreateEditVm.patient.stateCode" name="state" >
                 <option value="">-- choose state --</option>
                 <option ng-repeat="s in patientCreateEditVm.states" value="{{s.code}}" ng-selected="s.code == patientCreateEditVm.patient.stateCode" >{{s.displayName}}</option>
             </select>
