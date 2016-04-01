@@ -15,12 +15,19 @@
         var stateResource = $resource(basePhrURL + "/statecodes");
 
         var basePatientUserURL=envService.securedApis.patientUserApiBaseUrl;
-        var patientListResource = $resource(basePhrPatientURL + "/pageNumber/:pageNumber",{pageNumber: '@pageNumber'} );
         var patientSearchResource = $resource(basePhrPatientURL + "/search/:token",{token: '@token'} );
         var patientProfileResource = $resource(basePhrPatientURL + "/:patientId/profile",{patientId: '@patientId'} );
         var patientProfileUpdateResource = $resource(basePhrPatientURL + "/:patientId",{patientId: '@patientId'},{'update': { method:'PUT' } } );
         var patientUserResource=$resource(basePatientUserURL + "/creations" );
         var getUserCreationResource = $resource(patientUserResource + "?patientId=:patientId",{patientId: '@patientId'} );
+        var patientListResource = $resource(basePhrPatientURL + "/pageNumber",
+            {pageNumber: '@pageNumber'},
+            { 'query':  {
+                        method:'GET',
+                        params: {pageNumber: '@pageNumber'}
+                }
+            }
+        );
 
 
         var service = {};
@@ -50,7 +57,7 @@
                 }
                 (success || angular.identity)(response);
             }
-            return patientListResource.get({pageNumber: page-1},adjustPageOnSuccessResponse, error);
+            return patientListResource.query({pageNumber: page-1},adjustPageOnSuccessResponse, error);
         }
 
         function getPatient (patientId,success, error){
