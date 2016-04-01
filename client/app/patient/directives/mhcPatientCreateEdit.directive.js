@@ -35,7 +35,6 @@
             activate();
 
             function activate(){
-
                 patientService.getStates(
                     function(response){
                         vm.states = response;
@@ -72,7 +71,7 @@
 
             function save()
             {
-                prepareDataBeforeSave();
+                //prepareDataBeforeSave();
                 if (isEditMode()) {
                     updatePatient();
                 }
