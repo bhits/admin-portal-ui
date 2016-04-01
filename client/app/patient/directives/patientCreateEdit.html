@@ -40,7 +40,7 @@
             <input type="text" class="form-control" placeholder="First name"
                    ng-model="patientCreateEditVm.patient.firstName" required ng-minlength="2" ng-maxlength="30"
                    name="firstName">
-            <div ng-messages="createPatientForm.firstName.$error" ng-if="PatientForm.firstName.$dirty"
+            <div ng-messages="PatientForm.firstName.$error" ng-if="PatientForm.firstName.$dirty"
                  class="text-alert">
                 <div ng-messages-include="admin-messages"></div>
             </div>
@@ -158,7 +158,7 @@
     <div class="form-group">
         <label class="col-xs-12 col-sm-3 col-md-2 control-label">Telephone</label>
         <div class="col-xs-5 col-sm-4 col-md-3 col-lg-2">
-            <input type="text" class="form-control" name="telephone" placeholder="Telephone"
+            <input type="text" class="form-control" name="telephone" placeholder="Telephone" mhc-validate-phone-number
                    ng-model="patientCreateEditVm.patient.telephone">
             <div ng-messages="PatientForm.telephone.$error" ng-if="PatientForm.telephone.$dirty"
                  class="text-alert">
@@ -230,7 +230,7 @@
     <div class="form-group">
         <label class="col-xs-12 col-sm-3 col-md-2 control-label">Zipcode</label>
         <div class="col-xs-5 col-sm-4 col-md-3 col-lg-2">
-            <input type="text" class="form-control" name="zipcode" placeholder="Zip Code"
+            <input type="text" class="form-control" name="zipcode" placeholder="Zip Code" mhc-validate-zipcode placeholder="Zip Code"
                    ng-model="patientCreateEditVm.patient.zip">
             <div ng-messages="PatientForm.zipcode.$error" ng-if="PatientForm.zipcode.$dirty"
                  class="text-alert">
@@ -241,7 +241,8 @@
     <div class="form-group">
         <div class="col-sm-7 col-sm-offset-3 col-md-offset-2">
             <button class="btn btn-white m-r" ng-click="patientCreateEditVm.cancel()">Cancel</button>
-            <button class="btn btn-primary dark-green" type="submit" ng-click="patientCreateEditVm.save()">{{patientCreateEditVm.saveButtonText}}</button>
+            <button class="btn btn-primary dark-green" type="submit" ng-click="patientCreateEditVm.save()" ng-disabled="!patientCreateEditVm.canCreate(PatientForm)">{{patientCreateEditVm.saveButtonText}}</button>
+
         </div>
     </div>
 </form>
