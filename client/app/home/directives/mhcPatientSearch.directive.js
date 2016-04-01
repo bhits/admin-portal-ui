@@ -31,15 +31,16 @@
             vm.search=search;
             vm.editPatient=editPatient;
 
-            function search()
-            {
-                patientService.searchPatient(vm.searchtext,
-                    function success(response) {
-                        vm.patients = response;
-                    },
-                    function error() {
-                        notificationService.error('Failed to get the patient, please try again later...');
-                    });
+            function search() {
+                if(angular.isDefined(vm.searchtext)){
+                    patientService.searchPatient(vm.searchtext,
+                        function success(response) {
+                            vm.patients = response;
+                        },
+                        function error() {
+                            console.warn('No search results was return...');
+                        });
+                }
             }
 
             function editPatient()

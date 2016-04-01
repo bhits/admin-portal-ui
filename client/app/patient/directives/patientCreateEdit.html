@@ -82,25 +82,35 @@
             <!--<div class="radio"><label class="side-padding0"> <input mhc-icheck type="radio" name="gender" ng-model="patientCreateVm.patient.genderCode" value="N" required> Not Specified </label></div>-->
         </div>
     </div>
-
     <div class="form-group">
-        <label class="col-sm-3 col-md-2 control-label">Date of Birth <span class="text-alert">*</span></label>
-        <div class="col-sm-9 col-md-10">
-            <mhc-multi-select-date id="birthDate" name="birthDate"
-                                   year-order="desc" start-year="" end-year=""
-                                   ng-model="patientCreateEditVm.patient.birthDate"
-                                   mhc-check-after-today required
-                                   mhc-outside-click="patientCreateEditVm.checkDateField(PatientForm.dateOfBirth)">
-            </mhc-multi-select-date>
-            <div class="m-t-n-xs text-alert" ng-if="patientCreateEditVm.fillOutDate">
-                <span>Please complete all required fields to continue.</span>
-            </div>
+        <label class="col-xs-12 col-sm-3 col-md-2 control-label">Date of Birth <span class="text-alert">*</span></label>
+        <div class="col-xs-5 col-sm-4 col-md-3 col-lg-2">
+            <input type="text" class="form-control" name="dateOfBirth" placeholder="Date of birth" required
+                   ng-model="patientCreateEditVm.patient.birthDate " required mhc-datepicker mhc-format-date>
             <div ng-messages="PatientForm.dateOfBirth.$error" ng-if="PatientForm.dateOfBirth.$dirty"
                  class="text-alert">
                 <div ng-messages-include="admin-messages"></div>
             </div>
         </div>
     </div>
+    <!--<div class="form-group">-->
+        <!--<label class="col-sm-3 col-md-2 control-label">Date of Birth <span class="text-alert">*</span></label>-->
+        <!--<div class="col-sm-9 col-md-10">-->
+            <!--<mhc-multi-select-date id="birthDate" name="birthDate"-->
+                                   <!--year-order="desc" start-year="" end-year=""-->
+                                   <!--ng-model="patientCreateEditVm.patient.birthDate"-->
+                                   <!--mhc-check-after-today required-->
+                                   <!--mhc-outside-click="patientCreateEditVm.checkDateField(PatientForm.dateOfBirth)">-->
+            <!--</mhc-multi-select-date>-->
+            <!--<div class="m-t-n-xs text-alert" ng-if="patientCreateEditVm.fillOutDate">-->
+                <!--<span>Please complete all required fields to continue.</span>-->
+            <!--</div>-->
+            <!--<div ng-messages="PatientForm.dateOfBirth.$error" ng-if="PatientForm.dateOfBirth.$dirty"-->
+                 <!--class="text-alert">-->
+                <!--<div ng-messages-include="admin-messages"></div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
    <!---->
     <!--<div class="form-group wrap">-->
         <!--<label class="col-xs-12 col-sm-3 col-md-2 control-label">Date of Birth <span class="text-alert">*</span></label>-->
@@ -209,9 +219,9 @@
     <div class="form-group">
         <label class="col-sm-3 col-md-2 control-label">State</label>
         <div class="col-sm-7 col-md-5 col-lg-4">
-            <select ng-model="patientCreateVm.patient.stateCode"  >
+            <select ng-model="patientCreateEditVm.patient.stateCode" name="state" >
                 <option value="">-- choose state --</option>
-                <option ng-repeat="s in patientCreateVm.states" value="{{s.code}}" ng-selected="s.code == patientCreateVm.patient.stateCode" >{{s.displayName}}</option>
+                <option ng-repeat="s in patientCreateEditVm.states" value="{{s.code}}" ng-selected="s.code == patientCreateEditVm.patient.stateCode" >{{s.displayName}}</option>
             </select>
             <!--<input type="text" class="form-control"  name="state" placeholder="State" ng-model="patientCreateVm.patient.state">-->
         </div>

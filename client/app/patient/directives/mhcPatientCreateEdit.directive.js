@@ -12,7 +12,9 @@
             scope: {},
             templateUrl: 'app/patient/directives/patientCreateEdit.html',
             controllerAs: 'patientCreateEditVm',
-            bindToController: {patientdata: '='},
+            bindToController: {
+                patientdata: '='
+            },
             controller: PatientCreateEditController
         };
 
@@ -30,7 +32,7 @@
             vm.isEditMode = isEditMode;
             vm.saveButtonText = isEditMode()? 'Update Patient': 'Create Patient';
             vm.checkDateField = checkDateField;
-            /*activate();
+            activate();
 
             function activate(){
                 patientService.getStates(
@@ -41,7 +43,7 @@
                         notificationService.success("Error in getting states.");
                     }
                 );
-            }*/
+            }
 
             function updatePatient() {
                 patientService.updatePatient(vm.patient,
@@ -69,7 +71,7 @@
 
             function save()
             {
-                prepareDataBeforeSave();
+                //prepareDataBeforeSave();
                 if (isEditMode()) {
                     updatePatient();
                 }

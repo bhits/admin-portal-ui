@@ -7,7 +7,7 @@
                             <button class="btn btn-primary dark-green" type="button" ng-click="patientSearchVm.editPatient()">Go!</button>
                         </span>
                         <input type="text" placeholder="Search Patients by first and last name" class="form-control" id="searchPatient"
-                               ng-model="patientSearchVm.searchtext" ng-change="patientSearchVm.searchtext&&patientSearchVm.search()" list="searchList" >
+                               ng-model="patientSearchVm.searchtext" ng-change="patientSearchVm.search()" list="searchList" >
                         <datalist id="searchList">
                             <option  ng-model="patient.id" ng-repeat="patient in patientSearchVm.patients" value="{{patient.firstName}} {{patient.lastName}}"></option>
                         </datalist>

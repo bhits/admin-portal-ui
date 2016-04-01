@@ -78,6 +78,7 @@ module.exports = {
             'vendor/angular-aria/angular-aria.js',
             'vendor/angular-messages/angular-messages.js',
             'vendor/angular-loading-bar/build/loading-bar.js',
+            'vendor/angular-bootstrap/ui-bootstrap-tpl.js',
             'vendor/angular-ui-router/release/angular-ui-router.js',
             'vendor/ngstorage/ngStorage.js',
             'vendor/checklist-model/checklist-model.js',
