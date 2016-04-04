@@ -40,7 +40,7 @@
                         vm.states = response;
                     },
                     function(error){
-                        notificationService.success("Error in getting states.");
+                        notificationService.error("Error in getting states.");
                     }
                 );
             }

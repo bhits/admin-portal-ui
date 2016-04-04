@@ -583,7 +583,7 @@ module.exports = function (grunt) {
                         version:'<%= pkg.version %>',
                         base64BasicKey: 'YWRtaW4tcG9ydGFsLXVpOmNoYW5nZWl0',
                         securedApis: {
-                            registrationApiBaseUrl: '/registration/users',
+                            registrationApiBaseUrl: '/patientRegistration',
                             phrApiBaseUrl: '/phr',
                             userInfo: '/uaa/userinfo',
                             patientUserApiBaseUrl:'/patientUser'

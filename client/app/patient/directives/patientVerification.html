@@ -30,11 +30,14 @@
                     </div>
                     <div class="col-md-6 m-b">
                         <p class="m-b-xxs">Verification Code:</p>
-                        <h3><span ng-bind="patientVerificationVm.verification.verificationCode"></span></h3>
+                        <h3>
+                            <span ng-bind="patientVerificationVm.verification.verificationCode"></span>
+                            <span ng-if="!patientVerificationVm.verification.verificationCode">---</span>
+                        </h3>
 
                     </div>
-                    <div class="col-md-12 m-b-sm">
-                        <p>
+                    <div class="col-md-12 m-b-sm" ng-if="!patientVerificationVm.verification.verified">
+                        <p >
                             <span><strong>Please Send Email to generate the Verification
                                 Code.</strong></span>
                             Sending an account activation email to the address listed above will generate a unique
