@@ -23,7 +23,7 @@
         return directive;
 
         /* @ngInject */
-        function OauthLoginController(utilityService, authenticationService, $state, profileService, oauthTokenService) {
+        function OauthLoginController(authenticationService, $state, profileService, oauthTokenService) {
             var vm = this;
             vm.login = login;
             vm.canSubmit = canSubmit;
