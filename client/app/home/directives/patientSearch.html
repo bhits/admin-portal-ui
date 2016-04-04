@@ -2,10 +2,7 @@
             <label class="sr-only" for="searchPatient">Search</label>
             <div class="row">
                 <div class="col-sm-8 col-md-7 col-lg-6 m-t-xs m-b-xs">
-                    <div class="input-group relative">
-                        <span class="input-group-btn">
-                            <button class="btn btn-primary dark-green" type="button" ng-click="patientSearchVm.editPatient()">Go!</button>
-                        </span>
+                    <div class="relative">
                         <input type="text" placeholder="Search Patients by first and last name" class="form-control" id="searchPatient"
                                ng-model="patientSearchVm.searchtext" ng-change="patientSearchVm.search()">
                         <div class="patient-autoComplete" ng-if="patientSearchVm.searchtext">
