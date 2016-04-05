@@ -241,8 +241,8 @@
     <div class="form-group">
         <div class="col-sm-7 col-sm-offset-3 col-md-offset-2">
             <button class="btn btn-white m-r" ng-click="patientCreateEditVm.cancel()">Cancel</button>
-            <button class="btn btn-primary dark-green" type="submit" ng-click="patientCreateEditVm.save()" ng-disabled="!patientCreateEditVm.canCreate(PatientForm)">{{patientCreateEditVm.saveButtonText}}</button>
-
+            <button class="btn btn-primary dark-green" type="submit" ng-click="patientCreateEditVm.createPatient()" ng-disabled="!patientCreateEditVm.canCreate(PatientForm)" ng-if="!patientCreateEditVm.isEditMode">Create Patient</button>
+            <button class="btn btn-primary dark-green" type="submit" ng-click="patientCreateEditVm.updatePatient()" ng-disabled="!patientCreateEditVm.canCreate(PatientForm)" ng-if="patientCreateEditVm.isEditMode">Update Patient</button>
         </div>
     </div>
 </form>

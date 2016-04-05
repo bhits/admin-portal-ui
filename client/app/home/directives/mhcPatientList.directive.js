@@ -7,25 +7,25 @@
 
     angular
         .module('app.home')
-        .directive('mhcPatientSearchResult', mhcPatientSearchResult);
+        .directive('mhcPatientList', mhcPatientList);
 
     /* @ngInject */
-    function mhcPatientSearchResult() {
+    function mhcPatientList() {
         var directive =  {
             restrict: 'E',
             scope: {},
-            templateUrl: 'app/home/directives/patientSearchResult.html',
+            templateUrl: 'app/home/directives/patientList.html',
             bindToController: {
                 patientsdata: '='
             },
-            controller: PatientSearchResultController,
-            controllerAs: 'patientSearchResultVm'
+            controller: PatientListController,
+            controllerAs: 'patientListVm'
         };
 
         return directive;
 
         /* @ngInject */
-        function PatientSearchResultController(patientService, notificationService) {
+        function PatientListController(patientService, notificationService) {
             var vm = this;
 
             var oldPage = vm.patientsdata.currentPage;

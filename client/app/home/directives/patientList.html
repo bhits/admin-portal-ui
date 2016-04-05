@@ -15,7 +15,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr ng-repeat="patient in patientSearchResultVm.patientList"  ui-sref="fe.patient.edit({patientId: patient.id})" >
+                        <tr ng-repeat="patient in patientListVm.patientList"  ui-sref="fe.patient.edit({patientId: patient.id})" >
                             <td >
                                 <span ng-bind="patient.firstName"></span>
                                 <span ng-bind="patient.lastName"></span>
@@ -26,11 +26,11 @@
                         </tbody>
                     </table>
                     <div class="text-center">
-                        <pagination total-items="patientSearchResultVm.pagination.totalItems"
-                                    items-per-page="patientSearchResultVm.pagination.itemsPerPage"
-                                    ng-model="patientSearchResultVm.pagination.currentPage"
-                                    ng-change="patientSearchResultVm.loadPage()"
-                                    max-size="patientSearchResultVm.pagination.maxSize"
+                        <pagination total-items="patientListVm.pagination.totalItems"
+                                    items-per-page="patientListVm.pagination.itemsPerPage"
+                                    ng-model="patientListVm.pagination.currentPage"
+                                    ng-change="patientListVm.loadPage()"
+                                    max-size="patientListVm.pagination.maxSize"
                                     class="pagination-sm"
                                     boundary-links="true"></pagination>
                     </div>

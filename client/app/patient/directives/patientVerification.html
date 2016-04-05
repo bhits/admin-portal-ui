@@ -1,16 +1,12 @@
-<div class="row" ng-if="patientVerificationVm.show">
+<div class="row">
     <div class="col-lg-12 relative">
         <div class="ibox panel panel-navbar-blueGray float-e-margins">
-            <div class="ibox-title modified panel-heading right-padding30"
-                 ng-click="consentCardVm.toggleCollapse()">
+            <div class="ibox-title modified panel-heading right-padding30">
                 <div class="chevron_absolute">
-                    <div pp-ibox-tools pp-collapsed="consentCardVm.collapsed"
-                         pp-chevron-prevent-default="true"></div>
+                    <div mhc-ibox-tools  mhc-chevron-prevent-default="true"></div>
                 </div>
 
                 <div class="row">
-                    <div pp-ibox-tools init-collapsed="true"></div>
-
                     <div class="col-sm-8 col-xs-12">
                         <div class="row">
                             <div class="col-sm-12">
@@ -56,9 +52,9 @@
                             <p class="inline bold nowrap"><span ng-bind="patientVerificationVm.accountStatus"/></p>
                         </div>
                     </div>
-                    <div class="pp-activation-button">
-                        <button class="btn btn-primary btn-xs dark-green" ng-click="patientVerificationVm.sendEmail()" ng-hide="patientVerificationVm.isAccountAlreadyVerified()">
-                            {{patientVerificationVm.sendEmailButtonText}}
+                    <div class="mhc-activation-button">
+                        <button class="btn btn-primary btn-xs dark-green" ng-click="patientVerificationVm.sendEmail()" ng-if="!patientVerificationVm.isAccountAlreadyVerified()">
+                            <span ng-bind="patientVerificationVm.sendEmailButtonText"/>
                         </button>
                     </div>
                 </div>

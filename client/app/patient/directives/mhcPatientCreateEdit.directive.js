@@ -25,12 +25,12 @@
             var vm = this;
             var original = vm.verifyInfo;
 
-            vm.save = save;
+            vm.createPatient = createPatient;
+            vm.updatePatient = updatePatient;
             vm.cancel=cancel;
             vm.canCreate = canCreate;
             vm.patient = vm.patientdata;
             vm.isEditMode = isEditMode;
-            vm.saveButtonText = isEditMode()? 'Update Patient': 'Create Patient';
             vm.checkDateField = checkDateField;
             activate();
 
@@ -63,22 +63,6 @@
                     }, function error() {
                         notificationService.error('Error in creating patient.');
                     });
-            }
-
-            function prepareDataBeforeSave() {
-                vm.patient.birthDate = formatBirthday(vm.patient.birthDate);
-            }
-
-            function save()
-            {
-                //prepareDataBeforeSave();
-                if (isEditMode()) {
-                    updatePatient();
-                }
-                else
-                {
-                   createPatient();
-                }
             }
 
             function isEditMode()
