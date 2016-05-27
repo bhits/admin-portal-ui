@@ -28,26 +28,36 @@
             vm.login = login;
             vm.canSubmit = canSubmit;
 
-            function login() {
-                authenticationService.login(vm.user.email, vm.user.password)
+            function prepareLoginInfo() {
+                return {
+                    grant_type: 'password',
+                    response_type: 'token',
+                    username: vm.user.email,
+                    password: vm.user.password
+                };
+            }
+
+            function loginSuccess(response) {
+                oauthTokenService.setToken(response);
+                profileService.loadProfile()
                     .then(
-                        function (response) {
-                            oauthTokenService.setToken(response);
-                            profileService.loadProfile()
-                                .then(
-                                    function (data) {
-                                        profileService.setProfile(data);
-                                        $state.go("fe.index.home");
-                                    },
-                                    function (error) {
-                                        vm.profileError = true;
-                                    }
-                                );
-                        }, function (error) {
-                            oauthTokenService.removeToken();
-                            vm.loginError = true;
+                        function (data) {
+                            profileService.setProfile(data);
+                            $state.go("fe.index.home");
+                        },
+                        function (error) {
+                            vm.profileError = true;
                         }
                     );
+            }
+
+            function loginError(error) {
+                oauthTokenService.removeToken();
+                vm.loginError = true;
+            }
+
+            function login() {
+                authenticationService.login(prepareLoginInfo(), loginSuccess, loginError);
             }
 
             function canSubmit(loginForm) {
