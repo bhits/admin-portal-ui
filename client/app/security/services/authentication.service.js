@@ -33,13 +33,17 @@
         return service;
 
         function login(loginInfo, success, error) {
-            return loginResource().save(loginInfo, success, error);
+            var requiredParameters = {
+                grant_type: 'password',
+                response_type: 'token'
+            };
+            var oauthParameters = angular.extend(requiredParameters, loginInfo);
+            return loginResource().save(oauthParameters, success, error);
         }
 
         function logout() {
             oauthTokenService.removeToken();
             $state.go("fe.login");
-            //utilityService.redirectTo(oauthConfig.loginPath);
         }
     }
 })();

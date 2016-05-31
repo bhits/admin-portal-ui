@@ -30,8 +30,6 @@
 
             function prepareLoginInfo() {
                 return {
-                    grant_type: 'password',
-                    response_type: 'token',
                     username: vm.user.email,
                     password: vm.user.password
                 };
