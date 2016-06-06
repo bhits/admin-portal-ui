@@ -8,7 +8,7 @@
             .directive('mhcValidateZipcode', mhcValidateZipcode);
 
             /* @ngInject */
-            function mhcValidateZipcode(constants) {
+            function mhcValidateZipcode(constants, utilityService) {
 
                 var ZIPCODE_REGEXP = constants.ZIPCODE_REGEXP;
 
@@ -23,7 +23,7 @@
                 /* @ngInject */
                 function linkFunc(scope, elm, attrs, ctrl) {
                    ctrl.$validators.isValidFiveDigitZipcode = function(modelValue) {
-                        if(angular.isDefined(modelValue) && modelValue.length <= 5  ){
+                        if(utilityService.isDefinedAndNotNull(modelValue) && modelValue.length <= 5  ){
                             return ctrl.$isEmpty(modelValue) || ZIPCODE_REGEXP.test(modelValue);
                         }else{
                             return true;
@@ -31,7 +31,7 @@
                    };
 
                     ctrl.$validators.isValidTenDigitZipcode = function(modelValue) {
-                        if(angular.isDefined(modelValue) && modelValue.length > 5 ){
+                        if( utilityService.isDefinedAndNotNull(modelValue) && modelValue.length > 5 ){
                             return ctrl.$isEmpty(modelValue) || ZIPCODE_REGEXP.test(modelValue);
                         }else{
                             return true;

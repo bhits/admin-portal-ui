@@ -52,7 +52,7 @@
                     return (angular.isUndefined(value) || value === null );
                 }
                 function isDefinedAndNotNull(value) {
-                    return (angular.isDefined(value) && value !== null );
+                    return (value !== null && angular.isDefined(value) );
                 }
 
                 function setShowHealthInformationMenu(show) {
