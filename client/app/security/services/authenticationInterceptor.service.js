@@ -24,7 +24,8 @@
 
             if (accessToken) {
                 if (accessToken && oauthTokenService.isExpiredToken()) {
-                    //authenticationService.logout();
+                    oauthTokenService.removeToken();
+                    utilityService.redirectTo("/fe/login");
                 } else if (utilityService.isSecuredApi(config.url)) {
                     config.headers.Authorization = 'Bearer  ' + accessToken;
                 }
@@ -41,7 +42,6 @@
 
         function responseError(rejection) {
             if (rejection.status === 401) {
-                //var authService = $injector.get('AuthenticationService');
                 var authData = oauthTokenService.getToken();
 
                 if (authData) {
