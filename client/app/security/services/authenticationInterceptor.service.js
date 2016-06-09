@@ -7,7 +7,7 @@
         .factory('authInterceptorService', authInterceptorService);
 
     /* @ngInject */
-    function authInterceptorService($q,$location, utilityService, oauthTokenService) {
+    function authInterceptorService($q, $location, utilityService, oauthTokenService, urlAuthorizationConfigurerService) {
         var service = {};
         service.request = request;
         service.responseError = responseError;
@@ -29,7 +29,7 @@
                     config.headers.Authorization = 'Bearer  ' + accessToken;
                 }
             } else {
-                if (currentPath.indexOf("/fe/index") !== -1) {
+                if (urlAuthorizationConfigurerService.isAllowAccess(currentPath)) {
                     utilityService.redirectTo(currentPath);
                 } else {
                     utilityService.redirectTo("/fe/login");
