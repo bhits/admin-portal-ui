@@ -12,7 +12,7 @@ module.exports = {
     build_dist_dir: '<%=build_dir%>' + 'dist',
     build_reports_dir: '<%=build_dir%>' + '.reports',
     build_war_dir: '<%=build_dir%>',
-    config_dir: 'app/config' ,
+    config_dir: 'app/config',
 
     /**
      * The `karma_conf_file` file name is where karma testing configuration resides.
@@ -36,7 +36,7 @@ module.exports = {
 
         html: ['index.html'],
         less: 'less/main.less',
-        debug_js:['target/debug/**/*.js', '!target/debug/**/karma.conf.js', '!target/debug/vendor/**/*.js', '!target/debug/assets/**/*.js'],
+        debug_js: ['target/debug/**/*.js', '!target/debug/**/karma.conf.js', '!target/debug/vendor/**/*.js', '!target/debug/assets/**/*.js'],
     },
 
     /**
@@ -82,13 +82,12 @@ module.exports = {
             'vendor/angular-ui-router/release/angular-ui-router.js',
             'vendor/ngstorage/ngStorage.js',
             'vendor/checklist-model/checklist-model.js',
-            'vendor/x2js/xml2json.js'
+            'vendor/x2js/xml2json.js',
+            'vendor/angular-jwt/dist/angular-jwt.js'
         ],
         css: [
             'vendor/angular-loading-bar/build/loading-bar.css'
         ],
-        assets: [
-
-        ]
+        assets: []
     }
 };
