@@ -10,9 +10,10 @@
         .controller('HomeController', HomeController);
 
     /* @ngInject */
-    function HomeController(loadedData){
+    function HomeController(loadedData, brand){
         var vm = this;
         vm.paginationdata = loadedData;
         vm.searchtext='';
+        vm.brandName = brand.getBrandName();
     }
 })();

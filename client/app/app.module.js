@@ -14,6 +14,7 @@
                 'app.home',
                 'app.layout',
                 'app.patient',
-                'app.account'
+                'app.account',
+                'app.brand'
             ]);
 })();

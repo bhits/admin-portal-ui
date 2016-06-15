@@ -11,7 +11,10 @@
 
 
     /* @ngInject */
-    function appConfig($urlRouterProvider, $locationProvider, $httpProvider, KeepaliveProvider, IdleProvider, idleConfigParams) {
+    function appConfig($urlRouterProvider, $locationProvider, $httpProvider, KeepaliveProvider, IdleProvider, idleConfigParams, brandProvider) {
+        //Set Brand Name
+        brandProvider.setBrandName("Consent2Share");
+        brandProvider.setAppName("Consent to Share");
 
         // enable html5 mode
         $locationProvider.html5Mode(true).hashPrefix('!');

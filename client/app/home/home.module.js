@@ -7,6 +7,7 @@
         .module('app.home',
             [
                 'app.core',
-                'app.data'
+                'app.data',
+                'app.brand'
             ]);
 })();

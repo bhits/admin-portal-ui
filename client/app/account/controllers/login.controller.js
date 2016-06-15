@@ -7,13 +7,11 @@
         .module("app.security")
             .controller('LoginController', LoginController);
             /* @ngInject */
-            function LoginController(envService) {
+            function LoginController(envService, brand) {
                 var vm = this;
                 vm.version = envService.version;
-
-                //$scope.$on('oauth:authorized', function (event, token) {
-                //    Idle.watch();
-                //    $state.go('fe.index.home');
-                //});
+                vm.brandName = brand.getBrandName();
+                vm.appName = brand.getAppName();
+                vm.altLogoText = brand.getAppName() + " Logo";
             }
 })();
