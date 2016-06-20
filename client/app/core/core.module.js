@@ -21,6 +21,7 @@
             'angular-loading-bar',
             'checklist-model',
             'ngStorage',
-            'cgNotify'
+            'cgNotify',
+            'angular-jwt'
         ]);
 })();

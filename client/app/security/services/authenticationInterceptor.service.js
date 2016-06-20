@@ -7,7 +7,7 @@
         .factory('authInterceptorService', authInterceptorService);
 
     /* @ngInject */
-    function authInterceptorService($q,$location, utilityService, oauthTokenService) {
+    function authInterceptorService($q, $location, utilityService, oauthTokenService, urlAuthorizationConfigurerService) {
         var service = {};
         service.request = request;
         service.responseError = responseError;
@@ -24,12 +24,13 @@
 
             if (accessToken) {
                 if (accessToken && oauthTokenService.isExpiredToken()) {
-                    //authenticationService.logout();
+                    oauthTokenService.removeToken();
+                    utilityService.redirectTo("/fe/login");
                 } else if (utilityService.isSecuredApi(config.url)) {
                     config.headers.Authorization = 'Bearer  ' + accessToken;
                 }
             } else {
-                if (currentPath.indexOf("/fe/index") !== -1) {
+                if (urlAuthorizationConfigurerService.isAllowAccess(currentPath)) {
                     utilityService.redirectTo(currentPath);
                 } else {
                     utilityService.redirectTo("/fe/login");
@@ -41,7 +42,6 @@
 
         function responseError(rejection) {
             if (rejection.status === 401) {
-                //var authService = $injector.get('AuthenticationService');
                 var authData = oauthTokenService.getToken();
 
                 if (authData) {

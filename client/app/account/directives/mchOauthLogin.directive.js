@@ -23,15 +23,13 @@
         return directive;
 
         /* @ngInject */
-        function OauthLoginController(authenticationService, $state, profileService, oauthTokenService) {
+        function OauthLoginController(authenticationService, $state, profileService, oauthTokenService, oauthConfig) {
             var vm = this;
             vm.login = login;
             vm.canSubmit = canSubmit;
 
             function prepareLoginInfo() {
                 return {
-                    grant_type: 'password',
-                    response_type: 'token',
                     username: vm.user.email,
                     password: vm.user.password
                 };
@@ -43,7 +41,7 @@
                     .then(
                         function (data) {
                             profileService.setProfile(data);
-                            $state.go("fe.index.home");
+                            isAllowAccess();
                         },
                         function (error) {
                             vm.profileError = true;
@@ -62,6 +60,16 @@
 
             function canSubmit(loginForm) {
                 return loginForm.$dirty && loginForm.$valid;
+            }
+
+            function isAllowAccess() {
+                var authScopes = oauthTokenService.getOauthScope();
+                if (authScopes.indexOf(oauthConfig.accessScope) !== -1) {
+                    $state.go(oauthConfig.loginSuccessPath);
+                } else {
+                    oauthTokenService.removeToken();
+                    vm.scopeError = true;
+                }
             }
         }
     }
