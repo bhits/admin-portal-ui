@@ -11,7 +11,6 @@
                 var vm = this;
                 vm.version = envService.version;
                 vm.brandName = brand.getBrandName();
-                vm.appName = brand.getAppName();
-                vm.altLogoText = brand.getAppName() + " Logo";
+                vm.altLogoText = brand.getBrandInitials() + " Logo";
             }
 })();
