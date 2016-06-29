@@ -8,6 +8,9 @@
             <li ui-sref-active="active" >
                 <a ui-sref="fe.index.home"><i class="fa fa-home"></i> <span class="nav-label">Home</span></a>
             </li>
+            <li ng-class="{active: $state.includes('fe.patientData')}" >
+                <a ui-sref="fe.patientData.search"><i class="fa fa-user-md"></i> <span class="nav-label">Patient Data</span></a>
+            </li>
         </ul>
     </div>
 </nav>
