@@ -7,11 +7,11 @@
     'use strict';
 
     angular
-        .module('app.patientData')
-        .controller('PatientDataController', PatientDataController);
+        .module('app.patientMedicalDocument')
+        .controller('PatientMedicalDocumentController', PatientMedicalDocumentController);
 
     /* @ngInject */
-    function PatientDataController(){
+    function PatientMedicalDocumentController(){
         var vm = this;
         vm.title = "Search Patient";
     }

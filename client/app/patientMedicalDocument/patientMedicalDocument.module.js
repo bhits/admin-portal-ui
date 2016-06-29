@@ -6,7 +6,7 @@
     'use strict';
 
     angular
-        .module('app.patientData',
+        .module('app.patientMedicalDocument',
             [
                 'app.config',
                 'app.core',

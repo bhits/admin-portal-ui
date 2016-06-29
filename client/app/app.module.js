@@ -16,6 +16,6 @@
                 'app.patient',
                 'app.account',
                 'app.brand',
-                'app.patientData'
+                'app.patientMedicalDocument'
             ]);
 })();
