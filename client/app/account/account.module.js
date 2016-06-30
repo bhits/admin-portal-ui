@@ -9,6 +9,7 @@
         .module('app.account',
                [
                  'app.config',
-                 'app.core'
+                 'app.core',
+                 'app.brand'
                ]);
 })();

@@ -6,7 +6,7 @@
             .directive('mhcPageTitle', mhcPageTitle);
 
             /* @ngInject */
-            function mhcPageTitle($rootScope, $timeout) {
+            function mhcPageTitle($rootScope, $timeout, brand) {
                 var directive =  {
                     link:linkFunc
                 };
@@ -20,7 +20,7 @@
                         var title = 'MHC-Admin | Login';
                         // Create your own title pattern
                         if (toState.data && toState.data.pageTitle) {
-                            title = 'MHC-Admin | ' + toState.data.pageTitle;
+                            title = brand.getBrandInitials() + ' | ' + toState.data.pageTitle;
                         }
                         $timeout(function () {
                             element.text(title);
