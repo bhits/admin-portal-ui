@@ -13,6 +13,6 @@
     /* @ngInject */
     function PatientMedicalDocumentController(){
         var vm = this;
-        vm.title = "Search Patient";
+        vm.title = "Review Patient Documents";
     }
 })();
