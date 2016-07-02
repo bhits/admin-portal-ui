@@ -1,4 +1,9 @@
 <div>
+    <script type="text/ng-template" id="search-patient-messages">
+        <div ng-message="required">Please complete this required fields.</div>
+        <div class="m-t-n-xs m-b-xs" ng-message="isAfterToday">Date of birth cannot be today's date, or a future date.</div>
+    </script>
+
     <div class="row">
         <div class="col-sm-12">
             <div class="alert alert-success" role="alert">
@@ -9,47 +14,46 @@
     </div>
     <div class="row">
         <div class="col-sm-offset-1 col-sm-10">
-            <form role="form">
+            <form name="searchPatientForm">
                 <div class="row">
                     <div class="form-group col-sm-4">
-                        <label>First Name</label>
-                        <input type="text" class="form-control" placeholder="First Name">
+                        <label for="firstName">First Name</label>
+                        <input id="firstName" type="text" class="form-control" placeholder="First Name"
+                        ng-model="documentSearchVm.patient.firstName" required>
                     </div>
                     <div class="form-group col-sm-4">
-                        <label>Last Name</label>
-                        <input type="text" class="form-control" placeholder="Last Name">
+                        <label for="lastName">Last Name</label>
+                        <input id="lastName" type="text" class="form-control" placeholder="Last Name"
+                        ng-model="documentSearchVm.patient.lastName" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-xs-12 col-sm-4 col-md-3">
                         <div class="form-group">
-
                             <label>Gender</label>
-                            <select class="form-control">
-                                <option value="Select One">Male</option>
-                                <option value="Male">Male</option>
-                                <option value="female">Female</option>
-                                <option value="other">Other</option>
+                            <select class="form-control" ng-model="documentSearchVm.patient.genderCode">
+                                <option value="" disabled>Please Select</option>
+                                <option value="M">Male</option>
+                                <option value="F">Female</option>
                             </select>
-
                         </div>
                     </div>
                 </div>
                 <div class="form-group wrap">
-                    <label for="birthdate">Date of Birth</label>
+                    <label for="birthDate">Date of Birth</label>
                     <div class="row">
                         <div class="col-xs-12">
-                            <mhc-multi-select-date id="birthdate" name="birthdate"
+                            <mhc-multi-select-date id="birthDate" name="birthDate"
                                                    year-order="desc" start-year="" end-year=""
-                                                   ng-model="verificationVm.verifyInfo.birthdate"
+                                                   ng-model="documentSearchVm.patient.birthDate"
                                                    mhc-check-after-today required
-                                                   mhc-outside-click="verificationVm.checkDateField(verificationForm.birthdate)">
+                                                   mhc-outside-click="documentSearchVm.checkDateField(searchPatientForm.birthDate)">
                             </mhc-multi-select-date>
-                            <div class="text-alert" ng-if="verificationForm.birthdate.$dirty"
-                                 ng-messages="verificationForm.birthdate.$error">
-                                <span ng-messages-include="verification-messages"></span>
+                            <div class="text-alert" ng-if="searchPatientForm.birthDate.$dirty"
+                                 ng-messages="searchPatientForm.birthDate.$error">
+                                <span ng-messages-include="search-patient-messages"></span>
                             </div>
-                            <div class="m-t-n-xs text-alert" ng-if="verificationVm.fillOutDate">
+                            <div class="m-t-n-xs text-alert" ng-if="documentSearchVm.fillOutDate">
                                 <span>Please complete all required fields to continue.</span>
                             </div>
                         </div>
@@ -57,20 +61,21 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-12">
-                        <button class="btn btn-primary m-b">Search Patient</button>
+                        <button class="btn btn-primary m-b" ng-click="documentSearchVm.search()"
+                                ng-disabled="!documentSearchVm.canSearch(searchPatientForm)">Search Patient</button>
                     </div>
                 </div>
             </form>
         </div>
     </div>
-    <div class="row">
+    <div ng-if="documentSearchVm.showResult" class="row">
         <div class="col-sm-12">
             <div class="alert alert-success">
                 <div class="inline">Your search was successful!</div>
                 <div class="inline bold">
-                    <span>First</span>
-                    <span>Last</span>
-                    <span> - MRN Number</span>
+                    <span ng-bind="documentSearchVm.firstname"></span>
+                    <span ng-bind="documentSearchVm.lastname"></span>
+                    <span ng-bind="documentSearchVm.mrn"></span>
                 </div>
             </div>
         </div>
@@ -82,7 +87,7 @@
                     <div class="form-group">
                         <label>Purpose of Use</label>
                         <select class="form-control">
-                            <option value="Select One">Select One</option>
+                            <option value="" disabled>Please Select</option>
                             <option value="Male">Healthcare Treatment</option>
                             <option value="female">Payment</option>
                             <option value="other">Research</option>
@@ -97,26 +102,4 @@
             </div>
         </div>
     </div>
-    <!--<div class="row">-->
-    <!--<div class="col-sm-12" id="provider_lookup_search">-->
-    <!--<div class="ibox panel panel-darkblue float-e-margins">-->
-    <!--<div class="ibox-title  modified panel-heading">-->
-    <!--<h2>Search</h2>-->
-
-    <!--<div pp-ibox-tools></div>-->
-    <!--</div>-->
-    <!--<div class="ibox-content modified">-->
-    <!--<form role="form" name="providerSearchForm">-->
-    <!--<div class="row">-->
-    <!--<div class="col-sm-12">-->
-    <!--<div class="alert alert-info">-->
-    <!--<span class="btn btn-success btn-circle bg-color-blue">1</span>&nbsp;<b>Step 1.</b>-->
-    <!--</div>-->
-    <!--</div>-->
-    <!--</div>-->
-    <!--</form>-->
-    <!--</div>-->
-    <!--</div>-->
-    <!--</div>-->
-    <!--</div>-->
 </div>
