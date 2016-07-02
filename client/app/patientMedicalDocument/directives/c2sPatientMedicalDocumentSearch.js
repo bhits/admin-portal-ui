@@ -22,42 +22,27 @@
         return directive;
 
         /* @ngInject */
-        function PatientMedicalDocumentSearchController(patientDocumentService, utilityService, notificationService) {
+        function PatientMedicalDocumentSearchController(patientDocumentService, notificationService) {
             var vm = this;
 
             vm.showResult = false;
-            vm.checkDateField = checkDateField;
             vm.search = search;
             vm.canSearch = canSearch;
 
-            function checkDateField(birthdate) {
-                vm.fillOutDate = !birthdate.$valid;
-            }
-
-            function getSearchPatientInput(input) {
-                input.birthDate = utilityService.formatDate(input.birthDate);
-                return input;
-            }
-
             function search() {
-                var patientInput = getSearchPatientInput(vm.patient);
-                patientDocumentService.getPatientFullDemographic(patientInput, searchSuccess, searchError);
+                patientDocumentService.getPatientFullDemographic(vm.patient, searchSuccess, searchError);
             }
 
             function searchSuccess(response) {
+                vm.hasResult = response.patientExist;
                 if (angular.equals(response.patientExist, true)) {
-                    vm.firstname = response.patientDtos.firstName;
-                    vm.lastname = response.patientDtos.lastName;
-                    vm.mrn = response.patientDtos.medicalRecordNumber;
-                } else {
-                    notificationService.success('Sorry, no patient has been found.');
+                    vm.patientList = response.patientDtos;
                 }
                 vm.showResult = true;
             }
 
             function searchError(response) {
                 notificationService.error('Error in searching patient.');
-                console.log(response);
             }
 
             function canSearch(searchPatientForm) {
