@@ -36,7 +36,11 @@
             function searchSuccess(response) {
                 vm.hasResult = response.patientExist;
                 if (angular.equals(response.patientExist, true)) {
-                    vm.patientList = response.patientDtos;
+                    var patientDtos = response.patientDtos;
+                    vm.patientList = patientDtos;
+                    angular.forEach(patientDtos, function (patientDto) {
+                        patientDocumentService.setMrn(patientDto.medicalRecordNumber);
+                    });
                 }
                 vm.showResult = true;
             }
