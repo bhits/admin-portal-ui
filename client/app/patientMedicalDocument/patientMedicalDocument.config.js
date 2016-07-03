@@ -26,6 +26,13 @@
                 templateUrl: 'app/patientMedicalDocument/controllers/patientMedicalDocumentSearch.html',
                 controller: 'PatientMedicalDocumentController',
                 controllerAs: 'medicalDocumentVm'
+            })
+            .state('fe.patientMedicalDocument.retrieveList', {
+                url: '/retrieveList',
+                data: {pageTitle: 'Patient Medical Document Result'},
+                templateUrl: 'app/patientMedicalDocument/controllers/retrieveDocumentResult.html',
+                controller: 'RetrieveDocumentController',
+                controllerAs: 'retrieveDocumentVm'
             });
     }
 })();

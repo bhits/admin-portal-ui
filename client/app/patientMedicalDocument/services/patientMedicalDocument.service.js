@@ -15,12 +15,16 @@
         var retrieveDocumentResource = $resource(envService.securedApis.phrApiBaseUrl + "/patients/accessDocument");
         var service = {};
         var mrn = {};
+        var accessResponse = {};
 
         service.getPatientFullDemographic = getPatientFullDemographic;
         service.getAccessDocument = getAccessDocument;
         service.setMrn = setMrn;
         service.getMrn = getMrn;
         service.getNpi = getNpi;
+        //TODO: will remove
+        service.setRetrieveResponse = setRetrieveResponse;
+        service.getRetrieveResponse = getRetrieveResponse;
 
         return service;
 
@@ -42,6 +46,14 @@
 
         function getNpi() {
             return envService.primaryNPI;
+        }
+
+        function setRetrieveResponse(response) {
+            accessResponse = response;
+        }
+
+        function getRetrieveResponse() {
+            return accessResponse;
         }
     }
 })();

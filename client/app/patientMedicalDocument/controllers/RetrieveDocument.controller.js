@@ -8,11 +8,11 @@
 
     angular
         .module('app.patientMedicalDocument')
-        .controller('PatientMedicalDocumentController', PatientMedicalDocumentController);
+        .controller('RetrieveDocumentController', RetrieveDocumentController);
 
     /* @ngInject */
-    function PatientMedicalDocumentController(){
+    function RetrieveDocumentController(){
         var vm = this;
-        vm.title = "Retrieve Patient Documents";
+        vm.title = "Review Patient Documents";
     }
 })();

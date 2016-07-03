@@ -22,7 +22,7 @@
         return directive;
 
         /* @ngInject */
-        function PatientMedicalDocumentSearchController(patientDocumentService, notificationService) {
+        function PatientMedicalDocumentSearchController($state, patientDocumentService, notificationService) {
             var vm = this;
 
             vm.showResult = false;
@@ -69,8 +69,13 @@
             }
 
             function retrieveSuccess(response) {
-                notificationService.success('Success in retrieving document.');
-                console.log(response);
+                var retrieveResponse = {
+                    responseMrn: response.requestMrn,
+                    responseNpi: response.requestNpi,
+                    responsePOU: response.requestPOU
+                };
+                patientDocumentService.setRetrieveResponse(retrieveResponse);
+                $state.go('fe.patientMedicalDocument.retrieveList');
             }
 
             function retrieveError(response) {

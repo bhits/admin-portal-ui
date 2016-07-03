@@ -1,6 +1,8 @@
 <div>
     <script type="text/ng-template" id="search-patient-messages">
         <div ng-message="required">Please complete this required fields.</div>
+        <div ng-message="minlength">The field should contain at least 2 characters, please try again.</div>
+        <div ng-message="maxlength">The field cannot contain more than 30 characters, please try again.</div>
         <div ng-message="isValidDate">Dates must be in the following format: mm/dd/yyyy</div>
         <div ng-message="isFutureDate">Date of birth cannot be today's date, or a future date.</div>
     </script>
@@ -19,23 +21,35 @@
                 <div class="row">
                     <div class="form-group col-sm-4">
                         <label for="firstName">First Name</label>
-                        <input id="firstName" type="text" class="form-control" placeholder="First Name"
-                               ng-model="documentSearchVm.patient.firstName" required>
+                        <input id="firstName" name="firstName" type="text" class="form-control" placeholder="First Name"
+                               ng-model="documentSearchVm.patient.firstName" ng-minlength="2" ng-maxlength="30" required>
+                        <div ng-messages="searchPatientForm.firstName.$error" ng-if="searchPatientForm.firstName.$dirty"
+                             class="text-alert">
+                            <div ng-messages-include="search-patient-messages"></div>
+                        </div>
                     </div>
                     <div class="form-group col-sm-4">
                         <label for="lastName">Last Name</label>
-                        <input id="lastName" type="text" class="form-control" placeholder="Last Name"
-                               ng-model="documentSearchVm.patient.lastName" required>
+                        <input id="lastName" name="lastName" type="text" class="form-control" placeholder="Last Name"
+                               ng-model="documentSearchVm.patient.lastName" ng-minlength="2" ng-maxlength="30" required>
+                        <div ng-messages="searchPatientForm.lastName.$error" ng-if="searchPatientForm.lastName.$dirty"
+                             class="text-alert">
+                            <div ng-messages-include="search-patient-messages"></div>
+                        </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-sm-4">
                         <label>Gender</label>
-                        <select class="form-control" ng-model="documentSearchVm.patient.genderCode" required>
+                        <select name="genderCode" class="form-control" ng-model="documentSearchVm.patient.genderCode" required>
                             <option value="" disabled>Please Select</option>
                             <option value="M">Male</option>
                             <option value="F">Female</option>
                         </select>
+                        <div ng-messages="searchPatientForm.genderCode.$error" ng-if="searchPatientForm.genderCode.$dirty"
+                             class="text-alert">
+                            <div ng-messages-include="search-patient-messages"></div>
+                        </div>
                     </div>
                     <div class="form-group col-sm-4">
                         <label for="birthDate">Date of Birth</label>
