@@ -30,6 +30,7 @@
             vm.retrieveDocument = retrieveDocument;
             vm.canSearch = canSearch;
             vm.canRetrieve = canRetrieve;
+            vm.cancel = cancel;
 
             function search() {
                 patientDocumentService.getPatientFullDemographic(vm.patient, searchSuccess, searchError);
@@ -84,6 +85,10 @@
 
             function canRetrieve(retrieveDocumentForm) {
                 return (retrieveDocumentForm.$dirty && retrieveDocumentForm.$valid);
+            }
+
+            function cancel() {
+                $state.go($state.current, {}, {reload: true});
             }
         }
     }
