@@ -27,7 +27,9 @@
 
             vm.showResult = false;
             vm.search = search;
+            vm.retrieveDocument = retrieveDocument;
             vm.canSearch = canSearch;
+            vm.canRetrieve = canRetrieve;
 
             function search() {
                 patientDocumentService.getPatientFullDemographic(vm.patient, searchSuccess, searchError);
@@ -51,6 +53,32 @@
 
             function canSearch(searchPatientForm) {
                 return (searchPatientForm.$dirty && searchPatientForm.$valid);
+            }
+
+            function createAccessRequest() {
+                return {
+                    mrn: patientDocumentService.getMrn(),
+                    npi: patientDocumentService.getNpi(),
+                    purposeOfUse: vm.patient.purposeOfUse
+                };
+            }
+
+            function retrieveDocument() {
+                var accessRequest = createAccessRequest();
+                patientDocumentService.getAccessDocument(accessRequest, retrieveSuccess, retrieveError);
+            }
+
+            function retrieveSuccess(response) {
+                notificationService.success('Success in retrieving document.');
+                console.log(response);
+            }
+
+            function retrieveError(response) {
+                notificationService.error('Error in retrieving document.');
+            }
+
+            function canRetrieve(retrieveDocumentForm) {
+                return (retrieveDocumentForm.$dirty && retrieveDocumentForm.$valid);
             }
         }
     }

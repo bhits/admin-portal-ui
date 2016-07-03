@@ -52,7 +52,8 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-12">
-                        <button class="btn btn-primary m-b" ng-click="documentSearchVm.search()"
+                        <button class="btn btn-primary dark-green" type="button"
+                                ng-click="documentSearchVm.search()"
                                 ng-disabled="!documentSearchVm.canSearch(searchPatientForm)">Search Patient
                         </button>
                     </div>
@@ -80,26 +81,31 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-10">
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-4 col-md-4">
-                            <div class="form-group">
-                                <label>Purpose of Use</label>
-                                <select class="form-control">
-                                    <option value="" disabled>Please Select</option>
-                                    <option value="Male">Healthcare Treatment</option>
-                                    <option value="female">Payment</option>
-                                    <option value="other">Research</option>
-                                </select>
+                <form name="retrieveDocumentForm">
+                    <div class="col-sm-10">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <label>Purpose of Use</label>
+                                    <select class="form-control" ng-model="documentSearchVm.patient.purposeOfUse" required>
+                                        <option value="" disabled>Please Select</option>
+                                        <option value="TREATMENT">Healthcare Treatment</option>
+                                        <option value="PAYMENT">Payment</option>
+                                        <option value="RESEARCH">Research</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-4 col-md-4">
+                                <button class="btn btn-primary dark-green" type="button"
+                                        ng-click="documentSearchVm.retrieveDocument()"
+                                        ng-disabled="!documentSearchVm.canRetrieve(retrieveDocumentForm)">Retrieve Document
+                                </button>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-4 col-md-4">
-                            <button class="btn btn-primary m-b">Retrieve Document</button>
-                        </div>
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
         <div class="col-sm-12" ng-show="!documentSearchVm.hasResult">
