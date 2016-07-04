@@ -22,6 +22,7 @@
         service.setMrn = setMrn;
         service.getMrn = getMrn;
         service.getNpi = getNpi;
+        service.getPurposeOfUse = getPurposeOfUse;
         //TODO: will remove
         service.setRetrieveResponse = setRetrieveResponse;
         service.getRetrieveResponse = getRetrieveResponse;
@@ -46,6 +47,28 @@
 
         function getNpi() {
             return envService.primaryNPI;
+        }
+
+        //TODO: Need getting data from API
+        function getPurposeOfUse() {
+            var purposeOfUseResource = [
+                {
+                    "code": "TREATMENT",
+                    "displayName": "Healthcare Treatment",
+                    "description": "To perform one or more operations on information for the provision of health care."
+                },
+                {
+                    "code": "PAYMENT",
+                    "displayName": "Payment",
+                    "description": "To perform one or more operations on information for conducting financial or contractual activities related to payment for the provision of health care."
+                },
+                {
+                    "code": "RESEARCH",
+                    "displayName": "Research",
+                    "description": "To perform one or more operations on information for conducting scientific investigations to obtain health care knowledge."
+                }
+            ];
+            return purposeOfUseResource;
         }
 
         function setRetrieveResponse(response) {

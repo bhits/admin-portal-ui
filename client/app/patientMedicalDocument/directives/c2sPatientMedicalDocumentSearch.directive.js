@@ -26,6 +26,7 @@
             var vm = this;
 
             vm.showResult = false;
+            vm.purposeOfUseItems = patientDocumentService.getPurposeOfUse();
             vm.search = search;
             vm.retrieveDocument = retrieveDocument;
             vm.canSearch = canSearch;
