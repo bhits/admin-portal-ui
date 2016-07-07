@@ -10,18 +10,32 @@
 
     /* @ngInject */
     function patientDocumentService($resource, envService) {
-        var patientDemographicResource = $resource(envService.securedApis.phrApiBaseUrl + "/patients/patientDemographic");
-        //TODO: Only for mock
+        var patientDemographicResource = $resource(envService.securedApis.phrApiBaseUrl + "/patients/patientDemographic", {},
+            {
+                'query': {
+                    method: 'GET',
+                    params: {
+                        firstName: '@firstName',
+                        lastName: '@lastName',
+                        birthDate: '@birthDate',
+                        genderCode: '@genderCode'
+                    }
+                }
+            }
+        );
+        //TODO: Only use for mock
         var retrieveDocumentResource = $resource(envService.securedApis.phrApiBaseUrl + "/patients/accessDocument");
         var service = {};
         var mrn = {};
+        var domainId = {};
         var accessResponse = {};
 
         service.getPatientFullDemographic = getPatientFullDemographic;
-        service.getAccessDocument = getAccessDocument;
+        service.retrieveDocument = retrieveDocument;
         service.setMrn = setMrn;
         service.getMrn = getMrn;
-        service.getNpi = getNpi;
+        service.setDomainId = setDomainId;
+        service.getDomainId = getDomainId;
         service.getPurposeOfUse = getPurposeOfUse;
         //TODO: will remove
         service.setRetrieveResponse = setRetrieveResponse;
@@ -30,11 +44,11 @@
         return service;
 
         function getPatientFullDemographic(patient, success, error) {
-            return patientDemographicResource.save(patient, success, error);
+            return patientDemographicResource.query(patient, success, error);
         }
 
-        function getAccessDocument(accessRequest, success, error) {
-            return retrieveDocumentResource.save(accessRequest, success, error);
+        function retrieveDocument(request, success, error) {
+            return retrieveDocumentResource.save(request, success, error);
         }
 
         function setMrn(mrnResponse) {
@@ -45,8 +59,12 @@
             return mrn;
         }
 
-        function getNpi() {
-            return envService.primaryNPI;
+        function setDomainId(domainIdResponse) {
+            domainId = domainIdResponse;
+        }
+
+        function getDomainId() {
+            return domainId;
         }
 
         //TODO: Need getting data from API

@@ -26,7 +26,7 @@
             var vm = this;
             var retrieveResponse = patientDocumentService.getRetrieveResponse();
             vm.mrn = retrieveResponse.responseMrn;
-            vm.npi = retrieveResponse.responseNpi;
+            vm.domainId = retrieveResponse.responseDomainId;
             vm.pou = retrieveResponse.responsePOU;
         }
     }
