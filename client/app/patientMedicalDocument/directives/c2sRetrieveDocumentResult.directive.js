@@ -22,12 +22,20 @@
         return directive;
 
         /* @ngInject */
-        function AccessDocumentController(patientDocumentService) {
+        function AccessDocumentController($window, patientDocumentService) {
             var vm = this;
             var retrieveResponse = patientDocumentService.getRetrieveResponse();
-            vm.mrn = retrieveResponse.responseMrn;
-            vm.domainId = retrieveResponse.responseDomainId;
-            vm.pou = retrieveResponse.responsePOU;
+            vm.documentName = retrieveResponse.documentName;
+            vm.viewDocument = viewDocument;
+
+            function viewDocument() {
+                if (angular.isDefined(retrieveResponse.document)) {
+                    var document = atob(retrieveResponse.document);
+                    var windowSpecs = 'toolbar=no, status=no, height = ' + screen.height + ', width = ' + screen.width;
+                    var viewer = $window.open('', '_blank', windowSpecs);
+                    viewer.document.open().write(document);
+                }
+            }
         }
     }
 })();

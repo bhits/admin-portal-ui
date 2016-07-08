@@ -1,14 +1,36 @@
 <div>
     <div class="row">
         <div class="col-sm-12">
-            <div class="panel panel-default">
+            <div class="panel panel-navbar-blueGray float-e-margins">
                 <div class="panel-heading">
-                    <h3><span>Patient Document</span></h3>
+                    <h3>
+                        <i class="fa fa-files-o"></i>
+                        <span>Patient Document</span>
+                    </h3>
                 </div>
                 <div class="panel-body">
-                    <p><b>MRN: </b><span ng-bind="accessDocumentVm.mrn"></span></p>
-                    <p><b>DomainId: </b><span ng-bind="accessDocumentVm.domainId"></span></p>
-                    <p><b>Purpose Of Use: </b><span ng-bind="accessDocumentVm.pou"></span></p>
+                    <table class="table table-striped table-hover">
+                        <thead>
+                        <tr>
+                            <th>Document Name</th>
+                            <th>Operation</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+                                <i class="fa fa-file"></i>
+                                <span ng-bind="accessDocumentVm.documentName"></span>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-success dark-green btn-xs btn-block"
+                                        ng-click="accessDocumentVm.viewDocument()">
+                                    <span class="hidden-xs m-r-xs"></span>View
+                                </button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

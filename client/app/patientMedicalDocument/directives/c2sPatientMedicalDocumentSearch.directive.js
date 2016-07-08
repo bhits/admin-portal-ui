@@ -82,12 +82,7 @@
             }
 
             function retrieveSuccess(response) {
-                var retrieveResponse = {
-                    responseMrn: response.requestMrn,
-                    responseDomainId: response.requestDomainId,
-                    responsePOU: response.requestPOU
-                };
-                patientDocumentService.setRetrieveResponse(retrieveResponse);
+                patientDocumentService.setRetrieveResponse(response);
                 $state.go('fe.patientMedicalDocument.retrieveList');
             }
 
