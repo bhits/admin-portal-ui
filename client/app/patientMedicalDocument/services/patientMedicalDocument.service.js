@@ -71,7 +71,7 @@
         function getPurposeOfUse() {
             var purposeOfUseResource = [
                 {
-                    "code": "TREATMENT",
+                    "code": "HEALTHCARE_TREATMENT",
                     "displayName": "Healthcare Treatment",
                     "description": "To perform one or more operations on information for the provision of health care."
                 },
