@@ -543,7 +543,8 @@ module.exports = function (grunt) {
                             phrApiBaseUrl: '/phr',
                             registrationApiBaseUrl: '/patientRegistration',
                             userInfo: '/uaa/userinfo',
-                            patientUserApiBaseUrl: '/patientUser'
+                            patientUserApiBaseUrl: '/patientUser',
+                            pepApiBaseUrl: '/pep'
                         },
                         unsecuredApis:{
                             tokenUrl: '/uaa/oauth/token'
@@ -565,7 +566,8 @@ module.exports = function (grunt) {
                             phrApiBaseUrl: '/phr',
                             registrationApiBaseUrl: '/patientRegistration',
                             userInfo: '/uaa/userinfo',
-                            patientUserApiBaseUrl:'/patientUser'
+                            patientUserApiBaseUrl:'/patientUser',
+                            pepApiBaseUrl: '/pep'
                         },
                         unsecuredApis:{
                             tokenUrl: '/uaa/oauth/token'
@@ -587,7 +589,8 @@ module.exports = function (grunt) {
                             registrationApiBaseUrl: '/patientRegistration',
                             phrApiBaseUrl: '/phr',
                             userInfo: '/uaa/userinfo',
-                            patientUserApiBaseUrl:'/patientUser'
+                            patientUserApiBaseUrl:'/patientUser',
+                            pepApiBaseUrl: '/pep'
                         },
                         unsecuredApis:{
                             tokenUrl: '/uaa/oauth/token'

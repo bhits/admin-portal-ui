@@ -23,12 +23,12 @@
                 }
             }
         );
-        //TODO: Only use for mock
-        var retrieveDocumentResource = $resource(envService.securedApis.phrApiBaseUrl + "/patients/accessDocument");
+        var retrieveDocumentResource = $resource(envService.securedApis.pepApiBaseUrl + "/documents");
+
         var service = {};
         var mrn = {};
         var domainId = {};
-        var accessResponse = {};
+        var retrieveResponse = {};
 
         service.getPatientFullDemographic = getPatientFullDemographic;
         service.retrieveDocument = retrieveDocument;
@@ -37,7 +37,6 @@
         service.setDomainId = setDomainId;
         service.getDomainId = getDomainId;
         service.getPurposeOfUse = getPurposeOfUse;
-        //TODO: will remove
         service.setRetrieveResponse = setRetrieveResponse;
         service.getRetrieveResponse = getRetrieveResponse;
 
@@ -90,11 +89,11 @@
         }
 
         function setRetrieveResponse(response) {
-            accessResponse = response;
+            retrieveResponse = response;
         }
 
         function getRetrieveResponse() {
-            return accessResponse;
+            return retrieveResponse;
         }
     }
 })();

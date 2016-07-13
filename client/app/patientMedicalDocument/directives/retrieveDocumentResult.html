@@ -13,14 +13,14 @@
                         <thead>
                         <tr>
                             <th>Document Name</th>
-                            <th>Operation</th>
+                            <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr>
-                            <td>
+                            <td ng-repeat="document in accessDocumentVm.documentList">
                                 <i class="fa fa-file"></i>
-                                <span ng-bind="accessDocumentVm.documentName"></span>
+                                <span ng-bind="document.name"></span>
                             </td>
                             <td>
                                 <button type="button" class="btn btn-success dark-green btn-xs btn-block"
