@@ -43,8 +43,7 @@
             }
 
             function search() {
-                var searchRequest = prepareRequestData();
-                patientDocumentService.getPatientFullDemographic(searchRequest, searchSuccess, searchError);
+                patientDocumentService.getPatientFullDemographic(prepareRequestData(), searchSuccess, searchError);
             }
 
             function searchSuccess(response) {
@@ -70,15 +69,14 @@
 
             function createRequest() {
                 return {
-                    domain: patientDocumentService.getDomainId(),
                     mrn: patientDocumentService.getMrn(),
-                    purposeOfUse: vm.patient.purposeOfUse
+                    purposeOfUse: vm.patient.purposeOfUse,
+                    domain: patientDocumentService.getDomainId()
                 };
             }
 
             function retrieveDocument() {
-                var retrieveDocumentRequest = createRequest();
-                patientDocumentService.retrieveDocument(retrieveDocumentRequest, retrieveSuccess, retrieveError);
+                patientDocumentService.retrieveDocument(createRequest(), retrieveSuccess, retrieveError);
             }
 
             function retrieveSuccess(response) {

@@ -23,7 +23,18 @@
                 }
             }
         );
-        var retrieveDocumentResource = $resource(envService.securedApis.pepApiBaseUrl + "/documents");
+        var retrieveDocumentResource = $resource(envService.securedApis.pepApiBaseUrl + "/documents", {},
+            {
+                'query': {
+                    method: 'GET',
+                    params: {
+                        firstName: '@mrn',
+                        lastName: '@purposeOfUse',
+                        birthDate: '@domain'
+                    }
+                }
+            }
+        );
 
         var service = {};
         var mrn = {};
@@ -47,7 +58,7 @@
         }
 
         function retrieveDocument(request, success, error) {
-            return retrieveDocumentResource.save(request, success, error);
+            return retrieveDocumentResource.query(request, success, error);
         }
 
         function setMrn(mrnResponse) {
