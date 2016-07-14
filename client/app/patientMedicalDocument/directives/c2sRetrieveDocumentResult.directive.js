@@ -22,15 +22,24 @@
         return directive;
 
         /* @ngInject */
-        function AccessDocumentController($window, patientDocumentService) {
+        function AccessDocumentController($window, $state, patientDocumentService) {
             var vm = this;
-            var retrieveResponse = patientDocumentService.getRetrieveResponse();
-            vm.documentList = retrieveResponse.documents;
             vm.viewDocument = viewDocument;
+            loadData();
+
+            function loadData() {
+                var retrieveResponse = patientDocumentService.getRetrieveResponse();
+                var patientDocuments = retrieveResponse.documents;
+                if (angular.isDefined(patientDocuments)) {
+                    vm.documentList = patientDocuments;
+                } else {
+                    $state.go('fe.patientMedicalDocument.search');
+                }
+            }
 
             function viewDocument() {
-                if (angular.isDefined(retrieveResponse.documents)) {
-                    angular.forEach(retrieveResponse.documents, function (retrieveDocuments) {
+                if (angular.isDefined(vm.documentList)) {
+                    angular.forEach(vm.documentList, function (retrieveDocuments) {
                         var encodedDocument = retrieveDocuments.document;
                         var decodedDocument = atob(encodedDocument);
                         var windowSpecs = 'toolbar=no, status=no, height = ' + screen.height + ', width = ' + screen.width;
