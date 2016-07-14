@@ -136,11 +136,11 @@
         </div>
         <div class="col-sm-12 m-t" ng-show="!documentSearchVm.isPatientExist">
             <i class="fa fa-search"></i>
-            <span class="text-alert">Sorry, no patient has been found.</span>
+            <span class="text-muted">Sorry, no patient has been found.</span>
         </div>
-        <div class="col-sm-12 m-t" ng-show="documentSearchVm.retrieveError">
+        <div class="col-sm-12 m-t" ng-show="documentSearchVm.isDocumentExist">
             <i class="fa fa-search"></i>
-            <span class="text-alert">Sorry, no document has been found.</span>
+            <span class="text-muted">Sorry, no document has been found.</span>
         </div>
     </div>
 </div>

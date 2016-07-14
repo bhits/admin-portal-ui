@@ -70,7 +70,7 @@
             function retrieveError(response) {
                 var retrieveDocumentException = response.data.exception;
                 if (retrieveDocumentException.indexOf('DocumentNotFoundException') !== -1) {
-                    vm.retrieveError = true;
+                    vm.isDocumentExist = true;
                 } else {
                     notificationService.error('Error in retrieving document.');
                 }
