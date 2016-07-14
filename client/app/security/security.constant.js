@@ -9,8 +9,11 @@
         .module('app.security')
         .constant('oauthConfig',
             {
-                loginSuccessPath: 'fe.index.home',
-                accessScope: 'adminUI.access'
+                adminHomePath: 'fe.index.home',
+                providerHomePath: 'fe.patientMedicalDocument.search',
+                accessScope: 'adminUI.access',
+                adminScope: 'uaa.admin',
+                providerScope: 'pep.patient_read'
             }
         );
 })();
