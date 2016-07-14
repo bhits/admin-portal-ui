@@ -18,7 +18,7 @@
     <div class="row">
         <div class="col-sm-10">
             <form name="searchPatientForm">
-                <fieldset ng-disabled="documentSearchVm.hasResult">
+                <fieldset ng-disabled="documentSearchVm.isPatientExist">
                     <div class="row">
                         <div class="form-group col-sm-4">
                             <label for="firstName">First Name</label>
@@ -86,7 +86,7 @@
         </div>
     </div>
     <div ng-if="documentSearchVm.showResult" class="row">
-        <div class="col-sm-12 m-t" ng-show="documentSearchVm.hasResult">
+        <div class="col-sm-12 m-t" ng-show="documentSearchVm.isPatientExist">
             <div class="alert alert-success">
                 <div class="inline">Your search was successful!</div>
             </div>
@@ -134,9 +134,13 @@
                 </form>
             </div>
         </div>
-        <div class="col-sm-12 m-t" ng-show="!documentSearchVm.hasResult">
+        <div class="col-sm-12 m-t" ng-show="!documentSearchVm.isPatientExist">
             <i class="fa fa-search"></i>
             <span class="text-alert">Sorry, no patient has been found.</span>
+        </div>
+        <div class="col-sm-12 m-t" ng-show="documentSearchVm.retrieveError">
+            <i class="fa fa-search"></i>
+            <span class="text-alert">Sorry, no document has been found.</span>
         </div>
     </div>
 </div>
