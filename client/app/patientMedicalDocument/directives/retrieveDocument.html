@@ -1,0 +1,39 @@
+<div>
+    <script type="text/ng-template" id="search-patient-messages">
+        <div ng-message="required">Please complete this required fields.</div>
+    </script>
+
+    <div class="row">
+        <form name="retrieveDocumentForm">
+            <div class="col-sm-10">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-4 col-md-4">
+                        <div class="form-group">
+                            <label for="purposeOfUse"> Purpose of Use</label>
+                            <select id="purposeOfUse" class="form-control"
+                                    ng-model="retrieveDocumentVm.patient.purposeOfUse"
+                                    ng-options="item.code as item.displayName for item in retrieveDocumentVm.purposeOfUseItems"
+                                    required>
+                                <option value="" disabled>Please Select</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-4 col-md-4">
+                        <button class="btn btn-white m-r" ng-click="retrieveDocumentVm.cancel()">Cancel</button>
+                        <button class="btn btn-primary dark-green" type="button"
+                                ng-click="retrieveDocumentVm.retrieveDocument()"
+                                ng-disabled="!retrieveDocumentVm.canRetrieve(retrieveDocumentForm)">Retrieve
+                            Document
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-sm-12 m-t" ng-show="retrieveDocumentVm.isDocumentExist">
+        <i class="fa fa-search"></i>
+        <span class="text-muted">Sorry, no document has been found.</span>
+    </div>
+</div>

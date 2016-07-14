@@ -18,13 +18,13 @@
     <div class="row">
         <div class="col-sm-10">
             <form name="searchPatientForm">
-                <fieldset ng-disabled="documentSearchVm.isPatientExist">
+                <fieldset ng-disabled="patientSearchVm.isPatientExist">
                     <div class="row">
                         <div class="form-group col-sm-4">
                             <label for="firstName">First Name</label>
                             <input id="firstName" name="firstName" type="text" class="form-control"
                                    placeholder="First Name"
-                                   ng-model="documentSearchVm.patient.firstName" ng-minlength="2" ng-maxlength="30"
+                                   ng-model="patientSearchVm.patient.firstName" ng-minlength="2" ng-maxlength="30"
                                    required>
                             <div ng-messages="searchPatientForm.firstName.$error"
                                  ng-if="searchPatientForm.firstName.$dirty"
@@ -36,7 +36,7 @@
                             <label for="lastName">Last Name</label>
                             <input id="lastName" name="lastName" type="text" class="form-control"
                                    placeholder="Last Name"
-                                   ng-model="documentSearchVm.patient.lastName" ng-minlength="2" ng-maxlength="30"
+                                   ng-model="patientSearchVm.patient.lastName" ng-minlength="2" ng-maxlength="30"
                                    required>
                             <div ng-messages="searchPatientForm.lastName.$error"
                                  ng-if="searchPatientForm.lastName.$dirty"
@@ -49,7 +49,7 @@
                         <div class="form-group col-sm-4">
                             <label for="genderCode">Gender</label>
                             <select id="genderCode" name="genderCode" class="form-control"
-                                    ng-model="documentSearchVm.patient.genderCode" required>
+                                    ng-model="patientSearchVm.patient.genderCode" required>
                                 <option value="" disabled>Please Select</option>
                                 <option value="M">Male</option>
                                 <option value="F">Female</option>
@@ -64,7 +64,7 @@
                             <label for="birthDate">Date of Birth</label>
                             <input type="text" id="birthDate" class="form-control" name="birthDate"
                                    placeholder="Date of birth"
-                                   ng-model="documentSearchVm.patient.birthDate " required mhc-datepicker
+                                   ng-model="patientSearchVm.patient.birthDate " required mhc-datepicker
                                    mhc-format-date mhc-validate-date>
                             <div ng-messages="searchPatientForm.birthDate.$error"
                                  ng-if="searchPatientForm.birthDate.$dirty"
@@ -76,8 +76,8 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <button class="btn btn-primary dark-green" type="button"
-                                    ng-click="documentSearchVm.search()"
-                                    ng-disabled="!documentSearchVm.canSearch(searchPatientForm)">Search Patient
+                                    ng-click="patientSearchVm.search()"
+                                    ng-disabled="!patientSearchVm.canSearch(searchPatientForm)">Search Patient
                             </button>
                         </div>
                     </div>
@@ -85,13 +85,13 @@
             </form>
         </div>
     </div>
-    <div ng-if="documentSearchVm.showResult" class="row">
-        <div class="col-sm-12 m-t" ng-show="documentSearchVm.isPatientExist">
+    <div ng-if="patientSearchVm.showResult" class="row">
+        <div class="col-sm-12 m-t" ng-show="patientSearchVm.isPatientExist">
             <div class="alert alert-success">
                 <div class="inline">Your search was successful!</div>
             </div>
             <div class="panel panel-default"
-                 ng-repeat="patient in documentSearchVm.patientList">
+                 ng-repeat="patient in patientSearchVm.patientList">
                 <div class="panel-heading">
                     <h3><span>[MRN: <span ng-bind="patient.medicalRecordNumber"></span>]</span></h3>
                 </div>
@@ -104,44 +104,11 @@
                     <p><b>Email: </b><span ng-bind="patient.email"></span></p>
                 </div>
             </div>
-            <div class="row">
-                <form name="retrieveDocumentForm">
-                    <div class="col-sm-10">
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-4 col-md-4">
-                                <div class="form-group">
-                                    <label for="purposeOfUse"> Purpose of Use</label>
-                                    <select id="purposeOfUse" class="form-control"
-                                            ng-model="documentSearchVm.patient.purposeOfUse"
-                                            ng-options="item.code as item.displayName for item in documentSearchVm.purposeOfUseItems"
-                                            required>
-                                        <option value="" disabled>Please Select</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-4 col-md-4">
-                                <button class="btn btn-white m-r" ng-click="documentSearchVm.cancel()">Cancel</button>
-                                <button class="btn btn-primary dark-green" type="button"
-                                        ng-click="documentSearchVm.retrieveDocument()"
-                                        ng-disabled="!documentSearchVm.canRetrieve(retrieveDocumentForm)">Retrieve
-                                    Document
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
+            <c2s-retrieve-document></c2s-retrieve-document>
         </div>
-        <div class="col-sm-12 m-t" ng-show="!documentSearchVm.isPatientExist">
+        <div class="col-sm-12 m-t" ng-show="!patientSearchVm.isPatientExist">
             <i class="fa fa-search"></i>
             <span class="text-muted">Sorry, no patient has been found.</span>
         </div>
-        <div class="col-sm-12 m-t" ng-show="documentSearchVm.isDocumentExist">
-            <i class="fa fa-search"></i>
-            <span class="text-muted">Sorry, no document has been found.</span>
-        </div>
     </div>
-</div>
 </div>

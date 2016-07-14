@@ -15,23 +15,19 @@
             restrict: 'E',
             scope: {},
             templateUrl: 'app/patientMedicalDocument/directives/patientMedicalDocumentSearch.html',
-            controllerAs: 'documentSearchVm',
+            controllerAs: 'patientSearchVm',
             controller: PatientMedicalDocumentSearchController
         };
 
         return directive;
 
         /* @ngInject */
-        function PatientMedicalDocumentSearchController($state, patientDocumentService, notificationService) {
+        function PatientMedicalDocumentSearchController(patientDocumentService, notificationService) {
             var vm = this;
 
             vm.showResult = false;
-            vm.purposeOfUseItems = patientDocumentService.getPurposeOfUse();
             vm.search = search;
-            vm.retrieveDocument = retrieveDocument;
             vm.canSearch = canSearch;
-            vm.canRetrieve = canRetrieve;
-            vm.cancel = cancel;
 
             function search() {
                 patientDocumentService.getPatientFullDemographic(prepareRequestData(), searchSuccess, searchError);
@@ -58,32 +54,6 @@
                 return (searchPatientForm.$dirty && searchPatientForm.$valid);
             }
 
-            function retrieveDocument() {
-                patientDocumentService.retrieveDocument(createRequest(), retrieveSuccess, retrieveError);
-            }
-
-            function retrieveSuccess(response) {
-                patientDocumentService.setRetrieveResponse(response);
-                $state.go('fe.patientMedicalDocument.retrieveList');
-            }
-
-            function retrieveError(response) {
-                var retrieveDocumentException = response.data.exception;
-                if (retrieveDocumentException.indexOf('DocumentNotFoundException') !== -1) {
-                    vm.isDocumentExist = true;
-                } else {
-                    notificationService.error('Error in retrieving document.');
-                }
-            }
-
-            function canRetrieve(retrieveDocumentForm) {
-                return (retrieveDocumentForm.$dirty && retrieveDocumentForm.$valid);
-            }
-
-            function cancel() {
-                $state.go($state.current, {}, {reload: true});
-            }
-
             function hasPatient(searchResult) {
                 return searchResult.length > 0;
             }
@@ -94,14 +64,6 @@
                     lastName: vm.patient.lastName,
                     birthDate: vm.patient.birthDate,
                     genderCode: vm.patient.genderCode
-                };
-            }
-
-            function createRequest() {
-                return {
-                    mrn: patientDocumentService.getMrn(),
-                    purposeOfUse: vm.patient.purposeOfUse,
-                    domain: patientDocumentService.getDomainId()
                 };
             }
         }
