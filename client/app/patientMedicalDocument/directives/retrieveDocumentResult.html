@@ -20,7 +20,7 @@
                         <tr>
                             <td ng-repeat="document in accessDocumentVm.documentList">
                                 <i class="fa fa-file"></i>
-                                <span ng-bind="document.name"></span>
+                                <span ng-bind="document.name | trimBeforeCharacter: '^'"></span>
                             </td>
                             <td>
                                 <button type="button" class="btn btn-success dark-green btn-xs btn-block"
