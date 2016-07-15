@@ -21,14 +21,20 @@
                     .state('fe.patient.create', {
                         url: '/create',
                         templateUrl: 'app/patient/controllers/patientCreateEdit.html',
-                        data: { pageTitle: 'Create Patient' },
+                        data: {
+                            pageTitle: 'Create Patient',
+                            roles: ['ADMIN']
+                        },
                         controller: 'PatientCreateController',
                         controllerAs: 'patientVm'
                     })
                     .state('fe.patient.edit', {
                             url: '/Edit',
                             templateUrl: 'app/patient/controllers/patientCreateEdit.html',
-                            data: { pageTitle: 'Edit Patient' },
+                            data: { 
+                                pageTitle: 'Edit Patient',
+                                roles: ['ADMIN']
+                            },
                             controller: 'PatientEditController',
                             controllerAs: 'patientVm',
                             params: {

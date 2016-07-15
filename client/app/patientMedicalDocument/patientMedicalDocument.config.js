@@ -22,14 +22,20 @@
             })
             .state('fe.patientMedicalDocument.search', {
                 url: '/search',
-                data: {pageTitle: 'Patient Medical Document Search'},
+                data: {
+                    pageTitle: 'Patient Medical Document Search',
+                    roles: ['PROVIDER']
+                },
                 templateUrl: 'app/patientMedicalDocument/controllers/patientMedicalDocumentSearch.html',
                 controller: 'PatientMedicalDocumentController',
                 controllerAs: 'medicalDocumentVm'
             })
             .state('fe.patientMedicalDocument.retrieveList', {
                 url: '/retrieveList',
-                data: {pageTitle: 'Patient Medical Document Result'},
+                data: {
+                    pageTitle: 'Patient Medical Document Result',
+                    roles: ['PROVIDER']
+                },
                 templateUrl: 'app/patientMedicalDocument/controllers/retrieveDocumentResult.html',
                 controller: 'RetrieveDocumentController',
                 controllerAs: 'retrieveDocumentVm'

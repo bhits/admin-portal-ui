@@ -26,7 +26,10 @@
                     })
                     .state('fe.index.home', {
                         url: '/home',
-                        data: { pageTitle: 'Home' },
+                        data: {
+                            pageTitle: 'Home',
+                            roles: ['ADMIN']
+                        },
                         templateUrl: 'app/home/controllers/home.html',
                         controller: 'HomeController',
                         controllerAs: 'homeVm',
