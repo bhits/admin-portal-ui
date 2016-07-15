@@ -17,7 +17,9 @@
             .state('fe.dataAccessFailure', {
                 url: "/dataAccessFailure",
                 data: {pageTitle: 'Unauthorized Page Access'},
-                templateUrl: "app/layout/dataAccessFailure.html"
+                templateUrl: "app/layout/dataAccessFailure.html",
+                controller: 'UnauthorizedController',
+                controllerAs: 'unauthorizedVm'
             });
     }
 })();
