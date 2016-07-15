@@ -15,6 +15,7 @@
         service.getRefreshToken = getRefreshToken;
         service.getTokenExpirationDate = getTokenExpirationDate;
         service.getOauthScope = getOauthScope;
+        service.hasScope = hasScope;
         service.isExpiredToken = isExpiredToken;
         service.removeToken = removeToken;
 
@@ -55,6 +56,11 @@
                 var tokenPayload = jwtHelper.decodeToken(getAccessToken());
                 return tokenPayload.scope;
             }
+        }
+
+        function hasScope(scope) {
+            var authScopes = getOauthScope();
+            return authScopes.indexOf(scope) !== -1;
         }
 
         function isExpiredToken() {
