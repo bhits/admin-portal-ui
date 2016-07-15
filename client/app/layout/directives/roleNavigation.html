@@ -1,0 +1,23 @@
+<div>
+    <nav class="navbar-default navbar-static-side fix-sidebar" role="navigation">
+        <div class="sidebar-collapse">
+            <ul mhc-side-navigation class="nav" id="side-menu">
+                <li class="nav-header">
+                    <mhc-profile-menu></mhc-profile-menu>
+                </li>
+                <li ui-sref-active="active" ng-if="roleNavigationVm.isAdmin">
+                    <a ui-sref="fe.index.home">
+                        <i class="fa fa-home"></i>
+                        <span class="nav-label">Home</span>
+                    </a>
+                </li>
+                <li ui-sref-active="active" ng-if="roleNavigationVm.isProvider">
+                    <a ui-sref="fe.patientMedicalDocument.search">
+                        <i class="fa fa-home"></i>
+                        <span class="nav-label">Home</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>

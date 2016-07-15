@@ -65,9 +65,12 @@
             }
 
             function isAllowAccess() {
-                var authScopes = oauthTokenService.getOauthScope();
-                if (authScopes.indexOf(oauthConfig.accessScope) !== -1) {
-                    $state.go(oauthConfig.loginSuccessPath);
+                if (oauthTokenService.hasScope(oauthConfig.accessScope)) {
+                    if (oauthTokenService.hasScope(oauthConfig.adminScope)) {
+                        $state.go(oauthConfig.adminHomePath);
+                    } else if (oauthTokenService.hasScope(oauthConfig.providerScope)) {
+                        $state.go(oauthConfig.providerHomePath);
+                    }
                 } else {
                     oauthTokenService.removeToken();
                     vm.scopeError = true;

@@ -1,0 +1,114 @@
+<div>
+    <script type="text/ng-template" id="search-patient-messages">
+        <div ng-message="required">Please complete this required fields.</div>
+        <div ng-message="minlength">The field should contain at least 2 characters, please try again.</div>
+        <div ng-message="maxlength">The field cannot contain more than 30 characters, please try again.</div>
+        <div ng-message="isValidDate">Dates must be in the following format: mm/dd/yyyy</div>
+        <div ng-message="isFutureDate">Date of birth cannot be today's date, or a future date.</div>
+    </script>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="alert alert-info" role="alert">
+                <strong>Please enter the required information below to to retrieve that patient's medical
+                    document.</strong>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10">
+            <form name="searchPatientForm">
+                <fieldset ng-disabled="patientSearchVm.isPatientExist">
+                    <div class="row">
+                        <div class="form-group col-sm-4">
+                            <label for="firstName">First Name</label>
+                            <input id="firstName" name="firstName" type="text" class="form-control"
+                                   placeholder="First Name"
+                                   ng-model="patientSearchVm.patient.firstName" ng-minlength="2" ng-maxlength="30"
+                                   required>
+                            <div ng-messages="searchPatientForm.firstName.$error"
+                                 ng-if="searchPatientForm.firstName.$dirty"
+                                 class="text-alert">
+                                <div ng-messages-include="search-patient-messages"></div>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label for="lastName">Last Name</label>
+                            <input id="lastName" name="lastName" type="text" class="form-control"
+                                   placeholder="Last Name"
+                                   ng-model="patientSearchVm.patient.lastName" ng-minlength="2" ng-maxlength="30"
+                                   required>
+                            <div ng-messages="searchPatientForm.lastName.$error"
+                                 ng-if="searchPatientForm.lastName.$dirty"
+                                 class="text-alert">
+                                <div ng-messages-include="search-patient-messages"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-sm-4">
+                            <label for="genderCode">Gender</label>
+                            <select id="genderCode" name="genderCode" class="form-control"
+                                    ng-model="patientSearchVm.patient.genderCode" required>
+                                <option value="" disabled>Please Select</option>
+                                <option value="M">Male</option>
+                                <option value="F">Female</option>
+                            </select>
+                            <div ng-messages="searchPatientForm.genderCode.$error"
+                                 ng-if="searchPatientForm.genderCode.$dirty"
+                                 class="text-alert">
+                                <div ng-messages-include="search-patient-messages"></div>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label for="birthDate">Date of Birth</label>
+                            <input type="text" id="birthDate" class="form-control" name="birthDate"
+                                   placeholder="Date of birth"
+                                   ng-model="patientSearchVm.patient.birthDate " required mhc-datepicker
+                                   mhc-format-date mhc-validate-date>
+                            <div ng-messages="searchPatientForm.birthDate.$error"
+                                 ng-if="searchPatientForm.birthDate.$dirty"
+                                 class="text-alert">
+                                <div ng-messages-include="search-patient-messages"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <button class="btn btn-primary dark-green" type="button"
+                                    ng-click="patientSearchVm.search()"
+                                    ng-disabled="!patientSearchVm.canSearch(searchPatientForm)">Search Patient
+                            </button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+    <div ng-if="patientSearchVm.showResult" class="row">
+        <div class="col-sm-12 m-t" ng-show="patientSearchVm.isPatientExist">
+            <div class="alert alert-success">
+                <div class="inline">Your search was successful!</div>
+            </div>
+            <div class="panel panel-default"
+                 ng-repeat="patient in patientSearchVm.patientList">
+                <div class="panel-heading">
+                    <h3><span>[MRN: <span ng-bind="patient.medicalRecordNumber"></span>]</span></h3>
+                </div>
+                <div class="panel-body">
+                    <p><b>Name: </b>
+                        <span ng-bind="patient.firstName"></span>
+                        <span ng-bind="patient.lastName"></span>
+                    </p>
+                    <p><b>DOB: </b><span ng-bind="patient.birthDate"></span></p>
+                    <p><b>Email: </b><span ng-bind="patient.email"></span></p>
+                </div>
+            </div>
+            <c2s-retrieve-document></c2s-retrieve-document>
+        </div>
+        <div class="col-sm-12 m-t" ng-show="!patientSearchVm.isPatientExist">
+            <i class="fa fa-search"></i>
+            <span class="text-muted">Sorry, no patient has been found.</span>
+        </div>
+    </div>
+</div>

@@ -23,7 +23,7 @@
             var accessToken = oauthTokenService.getAccessToken();
 
             if (accessToken) {
-                if (accessToken && oauthTokenService.isExpiredToken()) {
+                if (oauthTokenService.isExpiredToken()) {
                     oauthTokenService.removeToken();
                     utilityService.redirectTo("/fe/login");
                 } else if (utilityService.isSecuredApi(config.url)) {
