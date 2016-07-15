@@ -14,7 +14,6 @@
 </script>
 
 
-
 <div class="row">
     <div class="col-sm-12">
         <div class="p-xs alert alert-warning" role="alert">
@@ -50,7 +49,8 @@
     <div class="form-group">
         <label class="col-sm-3 col-md-2 control-label">Last Name <span class="text-alert">*</span></label>
         <div class="col-sm-7 col-md-5 col-lg-4">
-            <input type="text" class="form-control" placeholder="Last name" ng-model="patientCreateEditVm.patient.lastName"
+            <input type="text" class="form-control" placeholder="Last name"
+                   ng-model="patientCreateEditVm.patient.lastName"
                    name="lastName" required ng-minlength="2" ng-maxlength="30">
             <div ng-messages="PatientForm.lastName.$error" ng-if="PatientForm.lastName.$dirty"
                  class="text-alert">
@@ -86,52 +86,13 @@
         <label class="col-xs-12 col-sm-3 col-md-2 control-label">Date of Birth <span class="text-alert">*</span></label>
         <div class="col-xs-5 col-sm-4 col-md-3 col-lg-2">
             <input type="text" class="form-control" name="dateOfBirth" placeholder="Date of birth" required
-                   ng-model="patientCreateEditVm.patient.birthDate " required mhc-datepicker mhc-format-date>
+                   ng-model="patientCreateEditVm.patient.birthDate " mhc-validate-date mhc-datepicker mhc-format-date>
             <div ng-messages="PatientForm.dateOfBirth.$error" ng-if="PatientForm.dateOfBirth.$dirty"
                  class="text-alert">
                 <div ng-messages-include="admin-messages"></div>
             </div>
         </div>
     </div>
-    <!--<div class="form-group">-->
-        <!--<label class="col-sm-3 col-md-2 control-label">Date of Birth <span class="text-alert">*</span></label>-->
-        <!--<div class="col-sm-9 col-md-10">-->
-            <!--<mhc-multi-select-date id="birthDate" name="birthDate"-->
-                                   <!--year-order="desc" start-year="" end-year=""-->
-                                   <!--ng-model="patientCreateEditVm.patient.birthDate"-->
-                                   <!--mhc-check-after-today required-->
-                                   <!--mhc-outside-click="patientCreateEditVm.checkDateField(PatientForm.dateOfBirth)">-->
-            <!--</mhc-multi-select-date>-->
-            <!--<div class="m-t-n-xs text-alert" ng-if="patientCreateEditVm.fillOutDate">-->
-                <!--<span>Please complete all required fields to continue.</span>-->
-            <!--</div>-->
-            <!--<div ng-messages="PatientForm.dateOfBirth.$error" ng-if="PatientForm.dateOfBirth.$dirty"-->
-                 <!--class="text-alert">-->
-                <!--<div ng-messages-include="admin-messages"></div>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-   <!---->
-    <!--<div class="form-group wrap">-->
-        <!--<label class="col-xs-12 col-sm-3 col-md-2 control-label">Date of Birth <span class="text-alert">*</span></label>-->
-        <!--<div class="row">-->
-            <!--<div class="col-xs-12">-->
-                <!--<mhc-multi-select-date id="birthDate" name="birthDate"-->
-                                       <!--year-order="desc" start-year="" end-year=""-->
-                                       <!--ng-model="patientCreateEditVm.patient.birthDate"-->
-                                       <!--mhc-check-after-today required-->
-                                       <!--mhc-outside-click="patientCreateEditVm.checkDateField(PatientForm.dateOfBirth)">-->
-                <!--</mhc-multi-select-date>-->
-                <!--<div class="m-t-n-xs text-alert" ng-if="patientCreateEditVm.fillOutDate">-->
-                    <!--<span>Please complete all required fields to continue.</span>-->
-                <!--</div>-->
-                <!--<div ng-messages="PatientForm.dateOfBirth.$error" ng-if="PatientForm.dateOfBirth.$dirty"-->
-                     <!--class="text-alert">-->
-                    <!--<div ng-messages-include="admin-messages"></div>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
 
     <div class="row">
         <div class="text-strong-blue col-sm-offset-3 col-sm-7 col-md-offset-2 col-md-5 col-lg-4">
@@ -149,7 +110,8 @@
         <div class="col-xs-5 col-sm-4 col-md-3 col-lg-2">
             <input type="text" class="form-control" name="socialSecurityNumber" placeholder="Social security number"
                    mhc-validate-ssn ng-model="patientCreateEditVm.patient.socialSecurityNumber">
-            <div ng-messages="PatientForm.socialSecurityNumber.$error" ng-if="PatientForm.socialSecurityNumber.$dirty" class="text-alert">
+            <div ng-messages="PatientForm.socialSecurityNumber.$error" ng-if="PatientForm.socialSecurityNumber.$dirty"
+                 class="text-alert">
                 <div ng-messages-include="admin-messages"></div>
             </div>
         </div>
@@ -219,9 +181,11 @@
     <div class="form-group">
         <label class="col-sm-3 col-md-2 control-label">State</label>
         <div class="col-sm-7 col-md-5 col-lg-4">
-            <select ng-model="patientCreateEditVm.patient.stateCode" name="state" >
+            <select ng-model="patientCreateEditVm.patient.stateCode" name="state">
                 <option value="">-- choose state --</option>
-                <option ng-repeat="s in patientCreateEditVm.states" value="{{s.code}}" ng-selected="s.code == patientCreateEditVm.patient.stateCode" >{{s.displayName}}</option>
+                <option ng-repeat="s in patientCreateEditVm.states" value="{{s.code}}"
+                        ng-selected="s.code == patientCreateEditVm.patient.stateCode">{{s.displayName}}
+                </option>
             </select>
             <!--<input type="text" class="form-control"  name="state" placeholder="State" ng-model="patientCreateVm.patient.state">-->
         </div>
@@ -230,7 +194,8 @@
     <div class="form-group">
         <label class="col-xs-12 col-sm-3 col-md-2 control-label">Zipcode</label>
         <div class="col-xs-5 col-sm-4 col-md-3 col-lg-2">
-            <input type="text" class="form-control" name="zipcode" placeholder="Zip Code" mhc-validate-zipcode placeholder="Zip Code"
+            <input type="text" class="form-control" name="zipcode" placeholder="Zip Code" mhc-validate-zipcode
+                   placeholder="Zip Code"
                    ng-model="patientCreateEditVm.patient.zip">
             <div ng-messages="PatientForm.zipcode.$error" ng-if="PatientForm.zipcode.$dirty"
                  class="text-alert">
@@ -241,8 +206,14 @@
     <div class="form-group">
         <div class="col-sm-7 col-sm-offset-3 col-md-offset-2">
             <button class="btn btn-white m-r" ng-click="patientCreateEditVm.cancel()">Cancel</button>
-            <button class="btn btn-primary dark-green" type="submit" ng-click="patientCreateEditVm.createPatient()" ng-disabled="!patientCreateEditVm.canCreate(PatientForm)" ng-if="!patientCreateEditVm.isEditMode()">Create Patient</button>
-            <button class="btn btn-primary dark-green" type="submit" ng-click="patientCreateEditVm.updatePatient()" ng-disabled="!patientCreateEditVm.canCreate(PatientForm)" ng-if="patientCreateEditVm.isEditMode()">Update Patient</button>
+            <button class="btn btn-primary dark-green" type="submit" ng-click="patientCreateEditVm.createPatient()"
+                    ng-disabled="!patientCreateEditVm.canCreate(PatientForm)" ng-if="!patientCreateEditVm.isEditMode()">
+                Create Patient
+            </button>
+            <button class="btn btn-primary dark-green" type="submit" ng-click="patientCreateEditVm.updatePatient()"
+                    ng-disabled="!patientCreateEditVm.canCreate(PatientForm)" ng-if="patientCreateEditVm.isEditMode()">
+                Update Patient
+            </button>
         </div>
     </div>
 </form>
