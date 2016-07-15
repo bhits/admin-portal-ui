@@ -10,7 +10,7 @@
         .run(appRun);
 
     /* @ngInject */
-    function appRun($rootScope, $state, $anchorScroll, authorizationService) {
+    function appRun($rootScope, $state, $anchorScroll, authorizationService, utilityService) {
         $rootScope.$state = $state;
         $anchorScroll.yOffset = 135;
 
@@ -18,10 +18,8 @@
 
             if (angular.isDefined(toState.data) && angular.isDefined(toState.data.roles)) {
                 var roles = toState.data.roles;
-                if (authorizationService.canAccess(roles)) {
-                    console.log("Allow access");
-                } else {
-                    console.log("Logging out");
+                if (!authorizationService.canAccess(roles)) {
+                    utilityService.redirectTo("/fe/dataAccessFailure");
                 }
             }
         });
