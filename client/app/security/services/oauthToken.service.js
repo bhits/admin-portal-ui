@@ -5,7 +5,7 @@
         .factory('oauthTokenService', oauthTokenService);
 
     /* @ngInject */
-    function oauthTokenService($sessionStorage, jwtHelper, oauthConfig) {
+    function oauthTokenService($sessionStorage, jwtHelper) {
 
         var service = {};
 
@@ -18,7 +18,6 @@
         service.hasScope = hasScope;
         service.isExpiredToken = isExpiredToken;
         service.removeToken = removeToken;
-        service.canAccess = canAccess;
 
         return service;
 
@@ -74,15 +73,5 @@
             delete $sessionStorage.token;
             delete $sessionStorage.profile;
         }
-
-        function canAccess(roles){
-           if((hasScope(oauthConfig.adminScope) && roles.indexOf('ADMIN') !== -1) ||
-               (hasScope(oauthConfig.providerScope) && roles.indexOf('PROVIDER') !== -1)){
-               return true;
-           }else {
-               return false;
-           }
-        }
-
     }
 })();

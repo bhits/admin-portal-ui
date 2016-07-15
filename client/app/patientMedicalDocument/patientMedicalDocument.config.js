@@ -11,7 +11,7 @@
         .config(PatientMedicalDocumentConfig);
 
     /* @ngInject */
-    function PatientMedicalDocumentConfig($stateProvider){
+    function PatientMedicalDocumentConfig($stateProvider) {
 
         $stateProvider
             .state('fe.patientMedicalDocument', {
