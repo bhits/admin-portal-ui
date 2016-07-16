@@ -42,7 +42,7 @@
                     angular.forEach(vm.documentList, function (retrieveDocuments) {
                         var encodedDocument = retrieveDocuments.document;
                         var decodedDocument = atob(encodedDocument);
-                        var windowSpecs = 'toolbar=no, status=no, height = ' + screen.height + ', width = ' + screen.width;
+                        var windowSpecs = 'toolbar=no, status=no, scrollbars=yes, resizable=yes, height = ' + screen.height + ', width = ' + screen.width;
                         var viewer = $window.open('', '_blank', windowSpecs);
                         viewer.document.open().write(decodedDocument);
                     });
