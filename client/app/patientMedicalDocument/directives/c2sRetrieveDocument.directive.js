@@ -35,17 +35,17 @@
             }
 
             function retrieveSuccess(response) {
-                patientDocumentService.setRetrieveResponse(response);
-                $state.go('fe.patientMedicalDocument.retrieveList');
+                var patientDocuments = response.documents;
+                if (hasDocument(patientDocuments)) {
+                    patientDocumentService.setRetrieveResponse(response);
+                    $state.go('fe.patientMedicalDocument.retrieveList');
+                } else {
+                    vm.noDocumentFound = true;
+                }
             }
 
             function retrieveError(response) {
-                var retrieveDocumentException = response.data.exception;
-                if (retrieveDocumentException && retrieveDocumentException.indexOf('DocumentNotFoundException') !== -1) {
-                    vm.isDocumentExist = true;
-                } else {
-                    notificationService.error('Error in retrieving document.');
-                }
+                notificationService.error('Error in retrieving document.');
             }
 
             function canRetrieve(retrieveDocumentForm) {
@@ -62,6 +62,10 @@
                     purposeOfUse: vm.patient.purposeOfUse,
                     domain: patientDocumentService.getDomainId()
                 };
+            }
+
+            function hasDocument(searchResult) {
+                return searchResult.length > 0;
             }
         }
     }
