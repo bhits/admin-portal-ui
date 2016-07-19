@@ -11,8 +11,7 @@
     /* @ngInject */
     function urlAuthorizationConfigurerService() {
         var requestMatcherRegistry = [
-            '/fe/index',
-            '/fe/dataAccessFailure'
+            "/fe/index"
         ];
         var service = {};
 
