@@ -7,7 +7,7 @@
 
     angular
         .module('app.security')
-        .constant('oauthConfig',
+        .constant('securityConstants',
             {
                 adminHomePath: 'fe.index.home',
                 providerHomePath: 'fe.patientMedicalDocument.search',

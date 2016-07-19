@@ -25,7 +25,7 @@
         return directive;
 
         /* @ngInject */
-        function OauthLoginController(authenticationService, $state, profileService, oauthTokenService, oauthConfig) {
+        function OauthLoginController(authenticationService, $state, profileService, oauthTokenService, securityConstants) {
             var vm = this;
             vm.login = login;
             vm.canSubmit = canSubmit;
@@ -65,11 +65,11 @@
             }
 
             function isAllowAccess() {
-                if (oauthTokenService.hasScope(oauthConfig.accessScope)) {
-                    if (oauthTokenService.hasScope(oauthConfig.adminScope)) {
-                        $state.go(oauthConfig.adminHomePath);
-                    } else if (oauthTokenService.hasScope(oauthConfig.providerScope)) {
-                        $state.go(oauthConfig.providerHomePath);
+                if (oauthTokenService.hasScope(securityConstants.accessScope)) {
+                    if (oauthTokenService.hasScope(securityConstants.adminScope)) {
+                        $state.go(securityConstants.adminHomePath);
+                    } else if (oauthTokenService.hasScope(securityConstants.providerScope)) {
+                        $state.go(securityConstants.providerHomePath);
                     }
                 } else {
                     oauthTokenService.removeToken();
