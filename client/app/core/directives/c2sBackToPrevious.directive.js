@@ -17,8 +17,9 @@
 
         /* @ngInject */
         function linkFunc(scope, element, attrs) {
-            element.on('click', function() {
-                $window.history.go(-2);
+            var backTo = attrs.backTo || -1; // default: back to previous
+            element.on('click', function () {
+                $window.history.go(backTo);
             });
         }
     }

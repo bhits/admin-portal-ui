@@ -22,7 +22,7 @@
         return directive;
 
         /* @ngInject */
-        function PatientMedicalDocumentSearchController(patientDocumentService, notificationService) {
+        function PatientMedicalDocumentSearchController(patientDocumentService, errorService) {
             var vm = this;
 
             vm.showResult = false;
@@ -47,7 +47,7 @@
             }
 
             function searchError(response) {
-                notificationService.error('Error in searching patient.');
+                errorService.uncaughtException();
             }
 
             function canSearch(searchPatientForm) {

@@ -22,7 +22,7 @@
         return directive;
 
         /* @ngInject */
-        function RetrieveDocumentController($state, patientDocumentService, notificationService) {
+        function RetrieveDocumentController($state, patientDocumentService, errorService) {
             var vm = this;
 
             vm.purposeOfUseItems = patientDocumentService.getPurposeOfUse();
@@ -45,7 +45,7 @@
             }
 
             function retrieveError(response) {
-                notificationService.error('Error in retrieving document.');
+                errorService.uncaughtException();
             }
 
             function canRetrieve(retrieveDocumentForm) {

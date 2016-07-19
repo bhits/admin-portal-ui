@@ -9,7 +9,8 @@
         .module('app.error')
         .constant('errorConstants',
             {
-                unauthorizedAccessErrorPath: 'fe/error/dataAccessFailure'
+                unauthorizedAccessErrorPath: 'fe/error/dataAccessFailure',
+                uncaughtExceptionPath: 'fe/error/uncaughtException'
             }
         );
 })();

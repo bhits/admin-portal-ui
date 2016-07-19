@@ -26,6 +26,13 @@
                 templateUrl: "app/error/controllers/dataAccessFailure.html",
                 controller: 'UnauthorizedController',
                 controllerAs: 'unauthorizedVm'
+            })
+            .state('fe.error.uncaughtException', {
+                url: "/uncaughtException",
+                data: {pageTitle: 'Uncaught Exception'},
+                templateUrl: "app/error/controllers/uncaughtException.html",
+                controller: 'UncaughtController',
+                controllerAs: 'uncaughtVm'
             });
     }
 })();
