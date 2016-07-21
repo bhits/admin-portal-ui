@@ -1,14 +1,7 @@
 ﻿<mhc-content-wrapper contenttitle="patientVm.title">
-    <div class="row">
-        <div class="col-sm-12">
-            <h3 class="m-b">
-                <span class="font-light">Patient ID:</span>
-                <span class="m-l-xs">C2S-DEV.ABCDEF^^^&1.3.6.1.4.1.21367.13.20.200&ISO</span>
-            </h3>
-        </div>
-    </div>
-    <span ng-if="patientVm.patientdata.id">
+    <div ng-if="patientVm.patientdata.id">
+        <c2s-show-patient-identifier patientdata="patientVm.patientdata"></c2s-show-patient-identifier>
         <mhc-patient-verification patientdata="patientVm.patientdata"></mhc-patient-verification>
-    </span>
+    </div>
     <mhc-patient-create-edit patientdata="patientVm.patientdata"></mhc-patient-create-edit>
 </mhc-content-wrapper>
