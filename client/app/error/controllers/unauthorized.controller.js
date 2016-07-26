@@ -1,5 +1,5 @@
 /**
- * Created by Jiahao.Li on 7/15/2016.
+ * Created by Jiahao.Li on 7/18/2016.
  */
 
 (function () {
@@ -7,7 +7,7 @@
     'use strict';
 
     angular
-        .module("app.layout")
+        .module("app.error")
         .controller('UnauthorizedController', UnauthorizedController);
 
     /* @ngInject */

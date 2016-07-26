@@ -5,7 +5,7 @@
         .factory('authorizationService', authorizationService);
 
     /* @ngInject */
-    function authorizationService(oauthTokenService, oauthConfig) {
+    function authorizationService(oauthTokenService, securityConstants) {
 
         var service = {};
 
@@ -14,8 +14,8 @@
         return service;
 
         function canAccess(roles) {
-            return ((oauthTokenService.hasScope(oauthConfig.adminScope) && roles.indexOf('ADMIN') !== -1) ||
-            (oauthTokenService.hasScope(oauthConfig.providerScope) && roles.indexOf('PROVIDER') !== -1));
+            return ((oauthTokenService.hasScope(securityConstants.adminScope) && roles.indexOf('ADMIN') !== -1) ||
+            (oauthTokenService.hasScope(securityConstants.providerScope) && roles.indexOf('PROVIDER') !== -1));
         }
     }
 })();

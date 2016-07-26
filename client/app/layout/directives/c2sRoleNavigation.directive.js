@@ -22,10 +22,10 @@
         return directive;
 
         /* @ngInject */
-        function RoleNavigationController(oauthTokenService, oauthConfig) {
+        function RoleNavigationController(oauthTokenService, securityConstants) {
             var vm = this;
-            vm.isAdmin = oauthTokenService.hasScope(oauthConfig.adminScope);
-            vm.isProvider = oauthTokenService.hasScope(oauthConfig.providerScope);
+            vm.isAdmin = oauthTokenService.hasScope(securityConstants.adminScope);
+            vm.isProvider = oauthTokenService.hasScope(securityConstants.providerScope);
         }
     }
 })();
