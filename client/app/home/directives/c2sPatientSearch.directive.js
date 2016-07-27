@@ -8,10 +8,10 @@
 
     angular
         .module('app.home')
-        .directive('mhcPatientSearch', mhcPatientSearch);
+        .directive('c2sPatientSearch', c2sPatientSearch);
 
     /* @ngInject */
-    function mhcPatientSearch() {
+    function c2sPatientSearch() {
         var directive =  {
             restrict: 'E',
             scope: {},

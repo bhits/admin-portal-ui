@@ -3,10 +3,10 @@
 
     angular
         .module('app.patient')
-        .directive('mhcPatientCreateEdit', mhcPatientCreateEdit);
+        .directive('c2sPatientCreateEdit', c2sPatientCreateEdit);
 
     /* @ngInject */
-    function mhcPatientCreateEdit() {
+    function c2sPatientCreateEdit() {
         var directive =  {
             restrict: 'E',
             scope: {},
