@@ -26,7 +26,7 @@ xdescribe('app.patient:', function() {
             notificationService = _notificationService_;
             $state = _$state_;
             patientCreateTemplate = $templateCache.get('app/patient/directives/patientCreate.html');
-            element = angular.element("<mhc-patient-create-edit></mhc-patient-create-edit>");
+            element = angular.element("<c2s-patient-create-edit></c2s-patient-create-edit>");
             $compile(element)(scope);
             rootScope.$digest();
             controller = element.isolateScope().patientCreateVm;

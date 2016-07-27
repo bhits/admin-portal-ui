@@ -17,6 +17,7 @@
         var basePatientUserURL=envService.securedApis.patientUserApiBaseUrl;
         var patientSearchResource = $resource(basePhrPatientURL + "/search/:token",{token: '@token'} );
         var patientProfileResource = $resource(basePhrPatientURL + "/:patientId/profile",{patientId: '@patientId'} );
+        var patientIdentifierResource = $resource(basePhrPatientURL + "/:patientId/patientIdentifier",{patientId: '@patientId'} );
         var patientProfileUpdateResource = $resource(basePhrPatientURL + "/:patientId",{patientId: '@patientId'},{'update': { method:'PUT' } } );
         var patientUserResource=$resource(basePatientUserURL + "/creations" );
         var getUserCreationResource = $resource(patientUserResource + "?patientId=:patientId",{patientId: '@patientId'} );
@@ -36,6 +37,7 @@
         service.updatePatient = updatePatient;
         service.getPatients = getPatients;
         service.getPatient = getPatient;
+        service.getPatientIdentifier = getPatientIdentifier;
         service.getVerifcationInfo= getVerificationInfo;
         service.sendVerificationEmail=sendVerificationEmail;
         service.searchPatient = searchPatient;
@@ -62,6 +64,10 @@
 
         function getPatient (patientId,success, error){
             return patientProfileResource.get({patientId: patientId},success, error);
+        }
+
+        function getPatientIdentifier (patientId,success, error){
+            return patientIdentifierResource.get({patientId: patientId},success, error);
         }
 
         function getVerificationInfo (patientId,success, error){
