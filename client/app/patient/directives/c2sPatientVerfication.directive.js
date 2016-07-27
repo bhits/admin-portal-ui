@@ -7,10 +7,10 @@
 
     angular
         .module('app.patient')
-        .directive('mhcPatientVerification', mhcPatientVerification);
+        .directive('c2sPatientVerification', c2sPatientVerification);
 
     /* @ngInject */
-    function mhcPatientVerification() {
+    function c2sPatientVerification() {
         var directive =  {
             restrict: 'E',
             scope: {},
