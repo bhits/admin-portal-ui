@@ -73,20 +73,20 @@
     <div class="form-group">
         <label class="col-sm-3 col-md-2 control-label">Gender <span class="text-alert">*</span></label>
         <div class="col-sm-7 col-md-6">
-            <div class="radio"><label class="side-padding0"> <input type="radio" mhc-icheck name="gender"
+            <div class="radio"><label class="side-padding0"> <input type="radio" c2s-icheck name="gender"
                                                                     ng-model="patientCreateEditVm.patient.genderCode"
                                                                     value="M" required> Male </label></div>
-            <div class="radio"><label class="side-padding0"> <input type="radio" mhc-icheck name="gender"
+            <div class="radio"><label class="side-padding0"> <input type="radio" c2s-icheck name="gender"
                                                                     ng-model="patientCreateEditVm.patient.genderCode"
                                                                     value="F" required> Female </label></div>
-            <!--<div class="radio"><label class="side-padding0"> <input mhc-icheck type="radio" name="gender" ng-model="patientCreateVm.patient.genderCode" value="N" required> Not Specified </label></div>-->
+            <!--<div class="radio"><label class="side-padding0"> <input c2s-icheck type="radio" name="gender" ng-model="patientCreateVm.patient.genderCode" value="N" required> Not Specified </label></div>-->
         </div>
     </div>
     <div class="form-group">
         <label class="col-xs-12 col-sm-3 col-md-2 control-label">Date of Birth <span class="text-alert">*</span></label>
         <div class="col-xs-5 col-sm-4 col-md-3 col-lg-2">
             <input type="text" class="form-control" name="dateOfBirth" placeholder="Date of birth" required
-                   ng-model="patientCreateEditVm.patient.birthDate " mhc-validate-date mhc-datepicker mhc-format-date>
+                   ng-model="patientCreateEditVm.patient.birthDate " c2s-validate-date c2s-datepicker c2s-format-date>
             <div ng-messages="PatientForm.dateOfBirth.$error" ng-if="PatientForm.dateOfBirth.$dirty"
                  class="text-alert">
                 <div ng-messages-include="admin-messages"></div>
@@ -109,7 +109,7 @@
         <label class="col-xs-12 col-sm-3 col-md-2 control-label">SSN</label>
         <div class="col-xs-5 col-sm-4 col-md-3 col-lg-2">
             <input type="text" class="form-control" name="socialSecurityNumber" placeholder="Social security number"
-                   mhc-validate-ssn ng-model="patientCreateEditVm.patient.socialSecurityNumber">
+                   c2s-validate-ssn ng-model="patientCreateEditVm.patient.socialSecurityNumber">
             <div ng-messages="PatientForm.socialSecurityNumber.$error" ng-if="PatientForm.socialSecurityNumber.$dirty"
                  class="text-alert">
                 <div ng-messages-include="admin-messages"></div>
@@ -120,7 +120,7 @@
     <div class="form-group">
         <label class="col-xs-12 col-sm-3 col-md-2 control-label">Telephone</label>
         <div class="col-xs-5 col-sm-4 col-md-3 col-lg-2">
-            <input type="text" class="form-control" name="telephone" placeholder="Telephone" mhc-validate-phone-number
+            <input type="text" class="form-control" name="telephone" placeholder="Telephone" c2s-validate-phone-number
                    ng-model="patientCreateEditVm.patient.telephone">
             <div ng-messages="PatientForm.telephone.$error" ng-if="PatientForm.telephone.$dirty"
                  class="text-alert">
@@ -194,7 +194,7 @@
     <div class="form-group">
         <label class="col-xs-12 col-sm-3 col-md-2 control-label">Zipcode</label>
         <div class="col-xs-5 col-sm-4 col-md-3 col-lg-2">
-            <input type="text" class="form-control" name="zipcode" placeholder="Zip Code" mhc-validate-zipcode
+            <input type="text" class="form-control" name="zipcode" placeholder="Zip Code" c2s-validate-zipcode
                    placeholder="Zip Code"
                    ng-model="patientCreateEditVm.patient.zip">
             <div ng-messages="PatientForm.zipcode.$error" ng-if="PatientForm.zipcode.$dirty"

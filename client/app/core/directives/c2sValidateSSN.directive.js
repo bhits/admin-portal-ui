@@ -5,10 +5,10 @@
 
     angular
         .module('app.core')
-            .directive('mhcValidateSsn', mhcValidateSsn);
+            .directive('c2sValidateSsn', c2sValidateSsn);
 
             /* @ngInject */
-            function mhcValidateSsn(constants) {
+            function c2sValidateSsn(constants) {
 
                 var SSN_REGEXP = constants.SSN_REGEXP;
 

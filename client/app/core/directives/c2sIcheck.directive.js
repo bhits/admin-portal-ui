@@ -5,10 +5,10 @@
 
     angular
         .module('app.core')
-            .directive('mhcIcheck', mhcIcheck);
+            .directive('c2sIcheck', c2sIcheck);
 
             /* @ngInject */
-            function mhcIcheck($timeout) {
+            function c2sIcheck($timeout) {
 
                 var directive = {
                     restrict: 'A',

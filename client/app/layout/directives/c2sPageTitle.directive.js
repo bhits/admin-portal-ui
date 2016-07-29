@@ -3,10 +3,10 @@
 
     angular
         .module('app.layout')
-            .directive('mhcPageTitle', mhcPageTitle);
+            .directive('c2cPageTitle', c2cPageTitle);
 
             /* @ngInject */
-            function mhcPageTitle($rootScope, $timeout, brand) {
+            function c2cPageTitle($rootScope, $timeout, brand) {
                 var directive =  {
                     link:linkFunc
                 };

@@ -5,10 +5,10 @@
 
     angular
         .module('app.core')
-            .directive('mhcDatepicker', mhcDatepickerRange);
+            .directive('c2sDatepicker', c2sDatepickerRange);
 
             /* @ngInject */
-            function mhcDatepickerRange(utilityService) {
+            function c2sDatepickerRange(utilityService) {
                 var directive =  {
                     restrict: 'A',
                     link: linkFunc
