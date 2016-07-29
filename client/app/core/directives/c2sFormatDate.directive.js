@@ -5,10 +5,10 @@
 
     angular
         .module('app.core')
-            .directive('mhcFormatDate', mhcFormatDate);
+            .directive('c2sFormatDate', c2sFormatDate);
 
             /* @ngInject */
-            function mhcFormatDate($filter) {
+            function c2sFormatDate($filter) {
                 return {
                     require: 'ngModel',
                     link: function(scope, element, attrs, ngModelController) {
