@@ -65,7 +65,7 @@
                             <input type="text" id="birthDate" class="form-control" name="birthDate"
                                    placeholder="Date of birth"
                                    ng-model="patientSearchVm.patient.birthDate " required c2s-datepicker
-                                   c2s-format-date mhc-validate-date>
+                                   c2s-format-date c2s-validate-date>
                             <div ng-messages="searchPatientForm.birthDate.$error"
                                  ng-if="searchPatientForm.birthDate.$dirty"
                                  class="text-alert">
