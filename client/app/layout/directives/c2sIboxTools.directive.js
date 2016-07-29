@@ -3,10 +3,10 @@
 
     angular
         .module('app.layout')
-            .directive('mhcIboxTools', mhcIboxTools);
+            .directive('c2sIboxTools', c2sIboxTools);
 
             /* @ngInject */
-            function mhcIboxTools() {
+            function c2sIboxTools() {
                 var directive = {
                     restrict: 'A',
                     scope: {},

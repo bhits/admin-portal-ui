@@ -5,10 +5,10 @@
 
     angular
         .module('app.core')
-            .directive('mhcValidateEmail', mhcValidateEmail);
+            .directive('c2sValidateEmail', c2sValidateEmail);
 
             /* @ngInject */
-            function mhcValidateEmail(constants) {
+            function c2sValidateEmail(constants) {
 
                 var EMAIL_REGEXP = constants.EMAIL_REGEXP;
 

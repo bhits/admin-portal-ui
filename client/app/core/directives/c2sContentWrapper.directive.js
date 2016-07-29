@@ -3,9 +3,9 @@
 
     angular
         .module('app.core')
-            .directive('mhcContentWrapper', mhcContentWrapper);
+            .directive('c2sContentWrapper', c2sContentWrapper);
 
-            function mhcContentWrapper() {
+            function c2sContentWrapper() {
                 var directive  =  {
                     restrict: 'E',
                     transclude: true,

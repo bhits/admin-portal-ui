@@ -3,10 +3,10 @@
 
     angular
         .module('app.layout')
-            .directive('mhcSideNavigation', mhcSideNavigation);
+            .directive('c2sSideNavigation', c2sSideNavigation);
 
             /* @ngInject */
-            function mhcSideNavigation($timeout) {
+            function c2sSideNavigation($timeout) {
 
                 var directive = {
                     restrict: 'A',

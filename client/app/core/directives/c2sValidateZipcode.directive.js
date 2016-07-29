@@ -5,10 +5,10 @@
 
     angular
         .module('app.core')
-            .directive('mhcValidateZipcode', mhcValidateZipcode);
+            .directive('c2sValidateZipcode', c2sValidateZipcode);
 
             /* @ngInject */
-            function mhcValidateZipcode(constants, utilityService) {
+            function c2sValidateZipcode(constants, utilityService) {
 
                 var ZIPCODE_REGEXP = constants.ZIPCODE_REGEXP;
 
