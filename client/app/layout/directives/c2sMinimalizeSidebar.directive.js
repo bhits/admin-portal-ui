@@ -3,10 +3,10 @@
 
     angular
         .module('app.layout')
-            .directive('c2cMinimalizeSidebar', c2cMinimalizeSidebar);
+            .directive('c2sMinimalizeSidebar', c2sMinimalizeSidebar);
 
             /* @ngInject */
-            function c2cMinimalizaSidebar() {
+            function c2sMinimalizeSidebar() {
                 var directive =  {
                     restrict: 'A',
                     scope: {
