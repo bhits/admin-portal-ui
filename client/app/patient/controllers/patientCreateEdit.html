@@ -1,7 +1,7 @@
-﻿<mhc-content-wrapper contenttitle="patientVm.title">
+﻿<c2s-content-wrapper contenttitle="patientVm.title">
     <div ng-if="patientVm.patientdata.id">
         <c2s-show-patient-identifier patientdata="patientVm.patientdata"></c2s-show-patient-identifier>
         <c2s-patient-verification patientdata="patientVm.patientdata"></c2s-patient-verification>
     </div>
     <c2s-patient-create-edit patientdata="patientVm.patientdata"></c2s-patient-create-edit>
-</mhc-content-wrapper>
+</c2s-content-wrapper>
