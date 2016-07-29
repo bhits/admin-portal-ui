@@ -5,10 +5,10 @@
 
     angular
         .module('app.core')
-            .directive('mhcValidatePhoneNumber', mhcValidatePhoneNumber);
+            .directive('c2sValidatePhoneNumber', c2sValidatePhoneNumber);
 
             /* @ngInject */
-            function mhcValidatePhoneNumber(constants) {
+            function c2sValidatePhoneNumber(constants) {
                 //NANP
                 var PHONE_NUMBER_REGEXP = constants.PHONE_NUMBER_REGEXP;
 
