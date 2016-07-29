@@ -5,9 +5,9 @@
 
     angular
         .module('app.core')
-            .directive('mhcDatepickerRange', mhcDatepickerRange);
+            .directive('c2sDatepickerRange', c2sDatepickerRange);
 
-            function mhcDatepickerRange() {
+            function c2sDatepickerRange() {
                 var directive =  {
                     restrict: 'EA',
                     templateUrl: 'app/core/directives/datepickerRange.html',
