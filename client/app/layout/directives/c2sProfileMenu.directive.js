@@ -3,10 +3,10 @@
 
     angular
         .module('app.layout')
-        .directive('c2cProfileMenu', c2cProfileMenu);
+        .directive('c2sProfileMenu', c2sProfileMenu);
 
     /* @ngInject */
-    function c2cProfileMenu() {
+    function c2sProfileMenu() {
         var directive = {
             restrict: 'E',
             scope: {},
