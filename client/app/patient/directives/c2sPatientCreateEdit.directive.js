@@ -57,11 +57,15 @@
 
             function createPatient() {
                 patientService.createPatient(vm.patient,
-                    function success() {
+                    function success(response) {
                         notificationService.success('Success in creating patient.');
                         $state.go('fe.index.home');
-                    }, function error() {
-                        notificationService.error('Error in creating patient.');
+                    }, function error(response) {
+                        if(angular.isUndefined(response.data)|| angular.isUndefined(response.data.message) || response.data.message === null){
+                            notificationService.error('Error in creating patient.');
+                        } else{
+                            notificationService.error(response.data.message);
+                        }
                     });
             }
 
