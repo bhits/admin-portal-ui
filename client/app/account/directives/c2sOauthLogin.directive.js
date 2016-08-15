@@ -53,7 +53,10 @@
 
             function loginError(error) {
                 oauthTokenService.removeToken();
-                vm.loginError = true;
+                var errorDescription = error.data.error_description;
+                var accountHasLocked = angular.equals(errorDescription, securityConstants.accountLockedErrorMessage);
+                vm.accountLocked = accountHasLocked;
+                vm.loginError = !accountHasLocked;
             }
 
             function login() {

@@ -13,7 +13,8 @@
                 providerHomePath: 'fe.patientMedicalDocument.search',
                 accessScope: 'adminUI.access',
                 adminScope: 'uaa.admin',
-                providerScope: 'pep.patient_read'
+                providerScope: 'pep.patient_read',
+                accountLockedErrorMessage: "Your account has been locked because of too many failed attempts to login."
             }
         );
 })();
