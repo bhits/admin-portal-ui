@@ -34,9 +34,9 @@
 </div>
 <form class="form-horizontal" name="PatientForm" novalidate>
     <div class="form-group">
-        <label class="col-sm-3 col-md-2 control-label">First Name <span class="text-alert">*</span></label>
+        <label for="firstName" class="col-sm-3 col-md-2 control-label">First Name <span class="text-alert">*</span></label>
         <div class="col-sm-7 col-md-5 col-lg-4">
-            <input type="text" class="form-control" placeholder="First name"
+            <input id="firstName" type="text" class="form-control" placeholder="First name"
                    ng-model="patientCreateEditVm.patient.firstName" required ng-minlength="2" ng-maxlength="30"
                    name="firstName">
             <div ng-messages="PatientForm.firstName.$error" ng-if="PatientForm.firstName.$dirty"
@@ -47,9 +47,9 @@
     </div>
 
     <div class="form-group">
-        <label class="col-sm-3 col-md-2 control-label">Last Name <span class="text-alert">*</span></label>
+        <label for="lastName" class="col-sm-3 col-md-2 control-label">Last Name <span class="text-alert">*</span></label>
         <div class="col-sm-7 col-md-5 col-lg-4">
-            <input type="text" class="form-control" placeholder="Last name"
+            <input id="lastName" type="text" class="form-control" placeholder="Last name"
                    ng-model="patientCreateEditVm.patient.lastName"
                    name="lastName" required ng-minlength="2" ng-maxlength="30">
             <div ng-messages="PatientForm.lastName.$error" ng-if="PatientForm.lastName.$dirty"
@@ -60,9 +60,9 @@
     </div>
 
     <div class="form-group">
-        <label class="col-sm-3 col-md-2 control-label">Email <span class="text-alert">*</span></label>
+        <label for="email" class="col-sm-3 col-md-2 control-label">Email <span class="text-alert">*</span></label>
         <div class="col-sm-7 col-md-5 col-lg-4">
-            <input type="email" class="form-control" placeholder="Email" required
+            <input id="email" type="email" class="form-control" placeholder="Email" required
                    ng-model="patientCreateEditVm.patient.email" name="email">
             <div ng-messages="PatientForm.email.$error" ng-if="PatientForm.email.$dirty" class="text-alert">
                 <div ng-messages-include="admin-messages"></div>
@@ -75,17 +75,17 @@
         <div class="col-sm-7 col-md-6">
             <div class="radio"><label class="side-padding0"> <input type="radio" c2s-icheck name="gender"
                                                                     ng-model="patientCreateEditVm.patient.genderCode"
-                                                                    value="M" required> Male </label></div>
+                                                                    value="M" required /> Male </label></div>
             <div class="radio"><label class="side-padding0"> <input type="radio" c2s-icheck name="gender"
                                                                     ng-model="patientCreateEditVm.patient.genderCode"
-                                                                    value="F" required> Female </label></div>
+                                                                    value="F" required /> Female </label></div>
             <!--<div class="radio"><label class="side-padding0"> <input c2s-icheck type="radio" name="gender" ng-model="patientCreateVm.patient.genderCode" value="N" required> Not Specified </label></div>-->
         </div>
     </div>
     <div class="form-group">
-        <label class="col-xs-12 col-sm-3 col-md-2 control-label">Date of Birth <span class="text-alert">*</span></label>
+        <label for="dateOfBirth" class="col-xs-12 col-sm-3 col-md-2 control-label">Date of Birth <span class="text-alert">*</span></label>
         <div class="col-xs-5 col-sm-4 col-md-3 col-lg-2">
-            <input type="text" class="form-control" name="dateOfBirth" placeholder="Date of birth" required
+            <input id="dateOfBirth" type="text" class="form-control" name="dateOfBirth" placeholder="Date of birth" required
                    ng-model="patientCreateEditVm.patient.birthDate " c2s-validate-date c2s-datepicker c2s-format-date>
             <div ng-messages="PatientForm.dateOfBirth.$error" ng-if="PatientForm.dateOfBirth.$dirty"
                  class="text-alert">
