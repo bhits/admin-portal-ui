@@ -1,4 +1,4 @@
-package gov.samhsa.bhits.adminui;
+package gov.samhsa.c2s.adminui;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

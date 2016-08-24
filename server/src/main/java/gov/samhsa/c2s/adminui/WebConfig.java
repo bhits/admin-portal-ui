@@ -1,4 +1,4 @@
-package gov.samhsa.bhits.adminui;
+package gov.samhsa.c2s.adminui;
 
 import org.apache.catalina.Context;
 import org.apache.catalina.connector.Connector;
