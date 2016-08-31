@@ -74,7 +74,7 @@ xdescribe('app.authenticationModule, authenticationService ', function() {
     });
 
     it("should clear cache", function() {
-        $httpBackend.expectPOST("https://testbed-api-dev.feisystems.com/user/clearcacheforuser").respond({status: 201});
+        $httpBackend.expectPOST("https://Consent2Share-api-dev.feisystems.com/user/clearcacheforuser").respond({status: 201});
 
         spyOn(localStorageService, 'get').andReturn({
             token: { AccessToken: "", ExpiresIn: 3600, RefreshToken: "d387461fdbb0ee8d9a4dfbc39003ac85", TokenType: "Bearer"}
@@ -119,7 +119,7 @@ xdescribe('app.authenticationModule, authenticationService ', function() {
 
     it("should logout", function() {
         $httpBackend.expectPOST("https://sts-dev.feisystems.com/identity/tokens/revoke").respond({status: 201});
-        $httpBackend.expectPOST("https://testbed-api-dev.feisystems.com/user/clearcacheforuser").respond({status: 201});
+        $httpBackend.expectPOST("https://Consent2Share-api-dev.feisystems.com/user/clearcacheforuser").respond({status: 201});
 
         spyOn(authenticationService, 'revokeToken').andCallThrough();
         spyOn(authenticationService, 'clearCache').andCallThrough();
