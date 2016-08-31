@@ -26,10 +26,8 @@
         function PatientVerificationController(notificationService,patientService) {
             var vm = this;
             vm.patient = vm.patientdata;
-            //vm.verification = vm.verificationinfo;
             vm.verificationEmail = setEmail();
             vm.show = showVerifcationBox();
-            //vm.accountStatus = getStatus();
             vm.sendEmail = sendEmail;
             vm.isAccountAlreadyVerified=isAccountVerified;
 

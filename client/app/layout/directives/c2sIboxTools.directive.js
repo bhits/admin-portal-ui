@@ -13,7 +13,7 @@
                     bindToController: {
                         total: '@',
                         ppCollapsed: '=?',
-                        ppChevronPreventDefault: '=?'
+                        c2sChevronPreventDefault: '=?'
                     },
                     templateUrl: 'app/layout/directives/iBoxTools.html',
                     controller: IboxToolController,

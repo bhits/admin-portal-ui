@@ -3,7 +3,7 @@
         <div class="ibox panel panel-navbar-blueGray float-e-margins">
             <div class="ibox-title modified panel-heading right-padding30">
                 <div class="chevron_absolute">
-                    <div c2s-ibox-tools  mhc-chevron-prevent-default="true"></div>
+                    <div c2s-ibox-tools  c2s-chevron-prevent-default="true"></div>
                 </div>
 
                 <div class="row">
@@ -52,7 +52,7 @@
                             <p class="inline bold nowrap"><span ng-bind="patientVerificationVm.accountStatus"/></p>
                         </div>
                     </div>
-                    <div class="col-xs-3 mhc-activation-button">
+                    <div class="col-xs-3 c2s-activation-button">
                         <button class="btn btn-primary btn-xs dark-green pull-right" type="button" ng-click="patientVerificationVm.sendEmail()" ng-if="!patientVerificationVm.isAccountAlreadyVerified()">
                             <span ng-bind="patientVerificationVm.sendEmailButtonText"/>
                         </button>
