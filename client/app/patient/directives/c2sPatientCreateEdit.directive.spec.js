@@ -7,7 +7,7 @@ xdescribe('app.patient:', function() {
     beforeEach(module('app.patient'));
     beforeEach(module('app/patient/directives/patientCreateEdit.html'));
 
-    describe('patientCreateEdit directive', function() {
+    describe('c2sPatientCreateEdit directive', function() {
         var patientCreateTemplate;
         var rootScope;
         var scope;
