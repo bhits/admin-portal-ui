@@ -60,8 +60,13 @@
                     function success(response) {
                         notificationService.success('Success in creating patient.');
                         $state.go('fe.index.home');
-                    }, function error() {
-                        notificationService.error('Error in creating patient.');
+                    }, function error(response) {
+                        var emailExistsException = response.data.exception;
+                        if (emailExistsException.indexOf('EmailExistsException') !== -1) {
+                            notificationService.error('Sorry, the email address provided is already in use.');
+                        } else {
+                            notificationService.error('Error in creating patient.');
+                        }
                     });
             }
 
