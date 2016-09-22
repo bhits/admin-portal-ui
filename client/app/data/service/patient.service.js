@@ -5,7 +5,7 @@
 
     angular
         .module("app.data")
-        .factory('patientService', patientService);
+            .factory('patientService', patientService);
 
     /* @ngInject */
     function patientService($resource, envService) {
@@ -22,13 +22,13 @@
         var patientUserResource=$resource(basePatientUserURL + "/creations" );
         var getUserCreationResource = $resource(patientUserResource + "?patientId=:patientId",{patientId: '@patientId'} );
         var patientListResource = $resource(basePhrPatientURL + "/pageNumber",
-            {pageNumber: '@pageNumber'},
-            { 'query':  {
-                        method:'GET',
-                        params: {pageNumber: '@pageNumber'}
-                }
-            }
-        );
+                                                {pageNumber: '@pageNumber'},
+                                                { 'query':  {
+                                                            method:'GET',
+                                                            params: {pageNumber: '@pageNumber'}
+                                                    }
+                                                }
+                                            );
 
 
         var service = {};
