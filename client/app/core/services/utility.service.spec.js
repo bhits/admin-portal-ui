@@ -3,36 +3,36 @@
  * Created by tomson.ngassa on 7/20/2015.
  */
 
-xdescribe('app.servicesModule  ', function(){
+xdescribe('app.servicesModule  ', function () {
     var module;
 
-    beforeEach(function() {
-        module = angular.module("app.servicesModule");
+    beforeEach(function () {
+        // module = angular.module("app.servicesModule");
     });
 
-    it("should be registered", function() {
+    it("should be registered", function () {
         expect(module).not.toEqual(null);
     });
 
-    describe("Dependencies:", function() {
+    describe("Dependencies:", function () {
 
         var dependencies;
 
-        var hasModule = function(m) {
+        var hasModule = function (m) {
             return dependencies.indexOf(m) >= 0;
         };
-        beforeEach(function() {
+        beforeEach(function () {
             dependencies = module.value('app.servicesModule').requires;
         });
 
-        it("should be registered", function() {
+        it("should be registered", function () {
             expect(module).not.toEqual(null);
         });
     });
 });
 
 
-xdescribe('app.servicesModule ', function() {
+xdescribe('app.servicesModule ', function () {
     var utilityService, location;
 
     beforeEach(module('app.servicesModule'));

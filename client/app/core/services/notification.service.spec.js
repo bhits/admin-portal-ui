@@ -8,7 +8,7 @@ xdescribe('app.notificationModule  ', function(){
     var module;
 
     beforeEach(function() {
-        module = angular.module("app.notificationModule");
+        // module = angular.module("app.notificationModule");
     });
 
     it("should be registered", function() {
