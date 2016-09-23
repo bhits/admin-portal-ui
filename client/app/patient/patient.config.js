@@ -1,5 +1,4 @@
 (function () {
-
     'use strict';
 
     angular
@@ -8,7 +7,6 @@
 
     /* @ngInject */
     function patientConfig($stateProvider) {
-
         $stateProvider
             .state('fe.patient', {
                 abstract: true,
@@ -54,17 +52,10 @@
                         var patientId = $stateParams.patientId;
                         var patientPromise = patientService.getPatient(patientId, success, error).$promise;
 
-                        var statesPromise = patientService.getStates(success,
-                            function (error) {
-                                notificationService.success("Error in getting states.");
-                            }
-                        ).$promise;
-
                         $q.all([patientPromise]).then(function (response) {
                             deferred.resolve(response);
                         });
                         return deferred.promise;
-
                     }
                 }
             });

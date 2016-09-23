@@ -9,51 +9,50 @@
         .module('app.patient')
         .directive('c2sPatientVerification', c2sPatientVerification);
 
-    /* @ngInject */
     function c2sPatientVerification() {
-        var directive =  {
+        var directive = {
             restrict: 'E',
             scope: {},
             templateUrl: 'app/patient/directives/patientVerification.html',
             controllerAs: 'patientVerificationVm',
-            bindToController: {verificationinfo: '=',patientdata: '='},
+            bindToController: {
+                verificationinfo: '=',
+                patientdata: '='
+            },
             controller: PatientVerificationController
         };
-
         return directive;
 
         /* @ngInject */
-        function PatientVerificationController(notificationService,patientService) {
+        function PatientVerificationController(notificationService, patientService) {
             var vm = this;
             vm.patient = vm.patientdata;
             vm.verificationEmail = setEmail();
             vm.show = showVerifcationBox();
             vm.sendEmail = sendEmail;
-            vm.isAccountAlreadyVerified=isAccountVerified;
-
+            vm.isAccountAlreadyVerified = isAccountVerified;
 
             verifyPatient();
 
             function verifyPatient() {
-                if(angular.isDefined(vm.patientdata) && angular.isDefined(vm.patientdata.id)) {
+                if (angular.isDefined(vm.patientdata) && angular.isDefined(vm.patientdata.id)) {
                     patientService.getVerifcationInfo(vm.patient.id,
                         function success(response) {
                             vm.verification = response;
                             vm.accountStatus = getStatus();
-                            vm.sendEmailButtonText= isVerificationCodeSent()? "Resend Email" : "Send Email";
+                            vm.sendEmailButtonText = isVerificationCodeSent() ? "Resend Email" : "Send Email";
                             vm.accountStatus = getStatus();
                         }, function error() {
                             vm.accountStatus = getStatus();
-                            vm.sendEmailButtonText= isVerificationCodeSent()? "Resend Email" : "Send Email";
+                            vm.sendEmailButtonText = isVerificationCodeSent() ? "Resend Email" : "Send Email";
                             console.error("Patient is not verified, please verify patient...");
                         });
-                }else{
-                    vm.sendEmailButtonText= isVerificationCodeSent()? "Resend Email" : "Send Email";
+                } else {
+                    vm.sendEmailButtonText = isVerificationCodeSent() ? "Resend Email" : "Send Email";
                     vm.accountStatus = getStatus();
                     console.warn("No patient id available to get verification info...");
                 }
             }
-
 
             function sendEmail() {
                 patientService.sendVerificationEmail(vm.patient.id,
@@ -65,19 +64,15 @@
                     });
             }
 
-
-            function setEmail()
-            {
-                if (!isPatientNotCreated())
-                {
+            function setEmail() {
+                if (!isPatientNotCreated()) {
                     return vm.patient.email;
                 }
                 return '';
             }
 
-            function getStatus()
-            {
-                var status ='Account Not Yet Activated.';
+            function getStatus() {
+                var status = 'Account Not Yet Activated.';
                 if (angular.isDefined(vm.verification)) {
                     var verificationCodeSent = angular.isDefined(vm.verification.verificationCode);
                     if (isAccountVerified()) {
@@ -90,34 +85,21 @@
                 return status;
             }
 
-            function isAccountVerified()
-            {
-                return (angular.isDefined(vm.verification)&& vm.verification.verified);
+            function isAccountVerified() {
+                return (angular.isDefined(vm.verification) && vm.verification.verified);
             }
 
-            function isVerificationCodeSent()
-            {
+            function isVerificationCodeSent() {
                 return (angular.isDefined(vm.verification)) && ( angular.isDefined(vm.verification.verificationCode));
             }
 
-            function isPatientNotCreated()
-            {
-                return angular.isUndefined(vm.patient)|| (angular.isUndefined(vm.patient.id));
+            function isPatientNotCreated() {
+                return angular.isUndefined(vm.patient) || (angular.isUndefined(vm.patient.id));
             }
 
-            function showVerifcationBox()
-            {
+            function showVerifcationBox() {
                 return !isPatientNotCreated();
             }
         }
     }
 })();
-
-
-
-
-
-
-
-
-

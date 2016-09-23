@@ -20,8 +20,8 @@
 <div class="row">
     <div class="col-sm-12">
         <div class="p-xs alert alert-warning" role="alert">
-            <strong>Please Note. All fields with * are required to create a User Account. Additional Information may
-                also be added as provided.</strong>
+            <strong>Please Note. All fields with * are required to create a User Account. Additional
+                Information may also be added as provided.</strong>
         </div>
     </div>
 </div>
@@ -40,9 +40,15 @@
         <label for="firstName" class="col-sm-3 col-md-2 control-label">First Name <span
                 class="text-alert">*</span></label>
         <div class="col-sm-7 col-md-5 col-lg-4">
-            <input id="firstName" type="text" class="form-control" placeholder="First name" c2s-validate-name
-                   ng-model="patientCreateEditVm.patient.firstName" required ng-minlength="2" ng-maxlength="30"
-                   name="firstName">
+            <input id="firstName"
+                   name="firstName"
+                   type="text"
+                   class="form-control"
+                   placeholder="First name" c2s-validate-name
+                   ng-model="patientCreateEditVm.patient.firstName"
+                   required
+                   ng-minlength="2"
+                   ng-maxlength="30">
             <div ng-messages="PatientForm.firstName.$error" ng-if="PatientForm.firstName.$dirty"
                  class="text-alert">
                 <div ng-messages-include="admin-messages"></div>
@@ -54,9 +60,16 @@
         <label for="lastName" class="col-sm-3 col-md-2 control-label">Last Name <span
                 class="text-alert">*</span></label>
         <div class="col-sm-7 col-md-5 col-lg-4">
-            <input id="lastName" type="text" class="form-control" placeholder="Last name"
-                   ng-model="patientCreateEditVm.patient.lastName" c2s-validate-name
-                   name="lastName" required ng-minlength="2" ng-maxlength="30">
+            <input id="lastName"
+                   name="lastName"
+                   type="text"
+                   class="form-control"
+                   placeholder="Last name"
+                   ng-model="patientCreateEditVm.patient.lastName"
+                   c2s-validate-name
+                   required
+                   ng-minlength="2"
+                   ng-maxlength="30">
             <div ng-messages="PatientForm.lastName.$error" ng-if="PatientForm.lastName.$dirty"
                  class="text-alert">
                 <div ng-messages-include="admin-messages"></div>
@@ -67,8 +80,14 @@
     <div class="form-group">
         <label for="email" class="col-sm-3 col-md-2 control-label">Email <span class="text-alert">*</span></label>
         <div class="col-sm-7 col-md-5 col-lg-4">
-            <input id="email" type="email" class="form-control" placeholder="Email" c2s-validate-email required
-                   ng-model="patientCreateEditVm.patient.email" name="email">
+            <input id="email"
+                   name="email"
+                   type="email"
+                   class="form-control"
+                   placeholder="Email"
+                   c2s-validate-email
+                   required
+                   ng-model="patientCreateEditVm.patient.email">
             <div ng-messages="PatientForm.email.$error" ng-if="PatientForm.email.$dirty" class="text-alert">
                 <div ng-messages-include="admin-messages"></div>
             </div>
@@ -81,18 +100,24 @@
             <legend class="hidden">Gender Selection</legend>
             <div class="radio">
                 <label for="male" class="side-padding0">
-                    <input id="male" type="radio" c2s-icheck name="gender"
+                    <input id="male"
+                           name="gender"
+                           type="radio"
+                           c2s-icheck
                            ng-model="patientCreateEditVm.patient.genderCode"
-                           value="M" required/>
-                    Male
+                           value="M"
+                           required/>Male
                 </label>
             </div>
             <div class="radio">
                 <label for="female" class="side-padding0">
-                    <input id="female" type="radio" c2s-icheck name="gender"
+                    <input id="female"
+                           name="gender"
+                           type="radio"
+                           c2s-icheck
                            ng-model="patientCreateEditVm.patient.genderCode"
-                           value="F" required/>
-                    Female
+                           value="F"
+                           required/>Female
                 </label>
             </div>
         </fieldset>
@@ -101,9 +126,16 @@
         <label for="dateOfBirth" class="col-xs-12 col-sm-3 col-md-2 control-label">Date of Birth <span
                 class="text-alert">*</span></label>
         <div class="col-xs-5 col-sm-4 col-md-3 col-lg-2">
-            <input id="dateOfBirth" type="text" class="form-control" name="dateOfBirth" placeholder="Date of birth"
+            <input id="dateOfBirth"
+                   name="dateOfBirth"
+                   type="text"
+                   class="form-control"
+                   placeholder="Date of birth"
                    required
-                   ng-model="patientCreateEditVm.patient.birthDate " c2s-validate-date c2s-datepicker c2s-format-date>
+                   ng-model="patientCreateEditVm.patient.birthDate "
+                   c2s-validate-date
+                   c2s-datepicker
+                   c2s-format-date>
             <div ng-messages="PatientForm.dateOfBirth.$error" ng-if="PatientForm.dateOfBirth.$dirty"
                  class="text-alert">
                 <div ng-messages-include="admin-messages"></div>
@@ -125,9 +157,13 @@
     <div class="form-group">
         <label for="socailSecurityNumber" class="col-xs-12 col-sm-3 col-md-2 control-label">SSN</label>
         <div class="col-xs-5 col-sm-4 col-md-3">
-            <input id="socailSecurityNumber" type="text" class="form-control" name="socialSecurityNumber"
+            <input id="socailSecurityNumber"
+                   name="socialSecurityNumber"
+                   type="text"
+                   class="form-control"
                    placeholder="Social security number"
-                   c2s-validate-ssn ng-model="patientCreateEditVm.patient.socialSecurityNumber">
+                   c2s-validate-ssn
+                   ng-model="patientCreateEditVm.patient.socialSecurityNumber">
             <div ng-messages="PatientForm.socialSecurityNumber.$error" ng-if="PatientForm.socialSecurityNumber.$dirty"
                  class="text-alert">
                 <div ng-messages-include="admin-messages"></div>
@@ -138,7 +174,11 @@
     <div class="form-group">
         <label for="telephoneNumber" class="col-xs-12 col-sm-3 col-md-2 control-label">Telephone</label>
         <div class="col-xs-5 col-sm-4 col-md-3">
-            <input id="telephoneNumber" type="text" class="form-control" name="telephone" placeholder="Telephone"
+            <input id="telephoneNumber"
+                   name="telephone"
+                   type="text"
+                   class="form-control"
+                   placeholder="Telephone"
                    c2s-validate-phone-number
                    ng-model="patientCreateEditVm.patient.telephone">
             <div ng-messages="PatientForm.telephone.$error" ng-if="PatientForm.telephone.$dirty"
@@ -147,44 +187,15 @@
             </div>
         </div>
     </div>
-    <!--TODO do no delete-->
-
-    <!--<div class="form-group">-->
-    <!--<label class="col-sm-3 col-md-2 control-label">Telephone</label>-->
-    <!--<div class="col-sm-7 col-md-6">-->
-    <!--<div class="row">-->
-
-    <!--<div class="col-xs-3 col-md-2 right-padding0">-->
-    <!--<label for="areaCode" class="sr-only">Area Code</label>-->
-    <!--<input type="text" class="form-control"  id="areaCode" placeholder="">-->
-    <!--</div>-->
-
-
-    <!--<div class="col-xs-3 col-md-2 right-padding0">-->
-    <!--<label for="prefix" class="sr-only">Prefix</label>-->
-    <!--<input type="text" class="form-control"  id="prefix" placeholder="">-->
-    <!--</div>-->
-
-
-    <!--<div class="col-xs-5 col-md-3">-->
-    <!--<label for="fourDigits" class="sr-only">Month</label>-->
-    <!--<input type="text" class="form-control"  id="fourDigits" placeholder="">-->
-    <!--</div>-->
-
-    <!--<div class="col-xs-12 m-t-sm">-->
-    <!--<div ng-messages="createPatientForm.telephone.$error" ng-if="createPatientForm.telephone.$dirty" class="text-alert">-->
-    <!--<div ng-messages-include="admin-messages"></div>-->
-    <!--</div>-->
-    <!--</div>-->
-    <!--</div>-->
-
-    <!--</div>-->
-    <!--</div>-->
 
     <div class="form-group">
         <label for="address" class="col-sm-3 col-md-2 control-label">Address</label>
         <div class="col-sm-7 col-md-5 col-lg-4">
-            <input id="address" type="text" class="form-control" name="address" placeholder="Address"
+            <input id="address"
+                   name="address"
+                   type="text"
+                   class="form-control"
+                   placeholder="Address"
                    ng-model="patientCreateEditVm.patient.address">
         </div>
     </div>
@@ -192,7 +203,11 @@
     <div class="form-group">
         <label for="city" class="col-sm-3 col-md-2 control-label">City</label>
         <div class="col-sm-7 col-md-5 col-lg-4">
-            <input id="city" type="text" class="form-control" name="city" placeholder="City"
+            <input id="city"
+                   name="city"
+                   type="text"
+                   class="form-control"
+                   placeholder="City"
                    ng-model="patientCreateEditVm.patient.city">
         </div>
     </div>
@@ -200,7 +215,10 @@
     <div class="form-group">
         <label for="state" class="col-sm-3 col-md-2 control-label">State</label>
         <div class="col-sm-7 col-md-5 col-lg-4">
-            <select id="state" class="form-control" ng-model="patientCreateEditVm.patient.stateCode" name="state">
+            <select id="state"
+                    name="state"
+                    class="form-control"
+                    ng-model="patientCreateEditVm.patient.stateCode">
                 <option value="">-- choose state --</option>
                 <option ng-repeat="s in patientCreateEditVm.states" value="{{s.code}}"
                         ng-selected="s.code == patientCreateEditVm.patient.stateCode">{{s.displayName}}
@@ -212,7 +230,11 @@
     <div class="form-group">
         <label for="zipcode" class="col-xs-12 col-sm-3 col-md-2 control-label">Zipcode</label>
         <div class="col-xs-5 col-sm-4 col-md-3 col-lg-2">
-            <input id="zipcode" type="text" class="form-control" name="zipcode" placeholder="Zip Code"
+            <input id="zipcode"
+                   name="zipcode"
+                   type="text"
+                   class="form-control"
+                   placeholder="Zip Code"
                    c2s-validate-zipcode
                    placeholder="Zip Code"
                    ng-model="patientCreateEditVm.patient.zip">
@@ -225,12 +247,18 @@
     <div class="form-group">
         <div class="col-sm-7 col-sm-offset-3 col-md-offset-2">
             <button class="btn btn-white m-r" type="button" ng-click="patientCreateEditVm.cancel()">Cancel</button>
-            <button class="btn btn-primary dark-green" type="submit" ng-click="patientCreateEditVm.createPatient()"
-                    ng-disabled="!patientCreateEditVm.canCreate(PatientForm)" ng-if="!patientCreateEditVm.isEditMode()">
+            <button class="btn btn-primary dark-green"
+                    type="submit"
+                    ng-click="patientCreateEditVm.createPatient()"
+                    ng-disabled="!patientCreateEditVm.canCreate(PatientForm)"
+                    ng-if="!patientCreateEditVm.isEditMode()">
                 Create Patient
             </button>
-            <button class="btn btn-primary dark-green" type="submit" ng-click="patientCreateEditVm.updatePatient()"
-                    ng-disabled="!patientCreateEditVm.canCreate(PatientForm)" ng-if="patientCreateEditVm.isEditMode()">
+            <button class="btn btn-primary dark-green"
+                    type="submit"
+                    ng-click="patientCreateEditVm.updatePatient()"
+                    ng-disabled="!patientCreateEditVm.canCreate(PatientForm)"
+                    ng-if="patientCreateEditVm.isEditMode()">
                 Update Patient
             </button>
         </div>
