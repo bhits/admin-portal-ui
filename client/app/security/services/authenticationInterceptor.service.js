@@ -1,5 +1,4 @@
 ﻿(function () {
-
     'use strict';
 
     angular
@@ -35,7 +34,6 @@
                 } else {
                     utilityService.redirectTo("/fe/login");
                 }
-
             }
             return config;
         }

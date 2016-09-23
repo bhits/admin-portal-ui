@@ -4,41 +4,41 @@
 
 'use strict';
 
-xdescribe('app.security ', function(){
+xdescribe('app.security ', function () {
     var module;
 
-    beforeEach(function() {
+    beforeEach(function () {
         module = angular.module("app.security");
     });
 
-    it("should be registered", function() {
+    it("should be registered", function () {
         expect(module).not.toEqual(null);
     });
 
-    describe("Dependencies:", function() {
+    describe("Dependencies:", function () {
 
         var dependencies;
 
-        var hasModule = function(m) {
+        var hasModule = function (m) {
             return dependencies.indexOf(m) >= 0;
         };
-        beforeEach(function() {
+        beforeEach(function () {
             dependencies = module.value('app.authenticationModule').requires;
         });
 
-        it("should have LocalStorageModule as a dependency", function() {
+        it("should have LocalStorageModule as a dependency", function () {
             expect(hasModule('LocalStorageModule')).toEqual(true);
         });
 
-        it("should have angular-jwt as a dependency", function() {
+        it("should have angular-jwt as a dependency", function () {
             expect(hasModule('angular-jwt')).toEqual(true);
         });
 
-        it("should have app.servicesModule as a dependency", function() {
+        it("should have app.servicesModule as a dependency", function () {
             expect(hasModule('app.servicesModule')).toEqual(true);
         });
 
-        it("should have ngResource as a dependency", function() {
+        it("should have ngResource as a dependency", function () {
             expect(hasModule('ngResource')).toEqual(true);
         });
 
@@ -46,7 +46,7 @@ xdescribe('app.security ', function(){
 });
 
 
-xdescribe('app.authenticationModule, authenticationService ', function() {
+xdescribe('app.authenticationModule, authenticationService ', function () {
     var utilityService, localStorageService, q, jwtHelper, authenticationService, location, base64, $httpBackend;
 
     beforeEach(module('LocalStorageModule'));
@@ -56,7 +56,7 @@ xdescribe('app.authenticationModule, authenticationService ', function() {
     beforeEach(module('ngResource'));
     beforeEach(module('app.security'));
 
-    beforeEach(inject(function ( _localStorageService_, _$q_, _jwtHelper_, _authenticationService_, _$location_, _base64_, _utilityService_, _$httpBackend_) {
+    beforeEach(inject(function (_localStorageService_, _$q_, _jwtHelper_, _authenticationService_, _$location_, _base64_, _utilityService_, _$httpBackend_) {
 
         utilityService = utilityService;
         localStorageService = _localStorageService_;
@@ -68,44 +68,65 @@ xdescribe('app.authenticationModule, authenticationService ', function() {
         $httpBackend = _$httpBackend_;
     }));
 
-    afterEach(function() {
+    afterEach(function () {
         $httpBackend.verifyNoOutstandingExpectation();
         $httpBackend.verifyNoOutstandingRequest();
     });
 
-    it("should clear cache", function() {
+    it("should clear cache", function () {
         $httpBackend.expectPOST("https://Consent2Share-api-dev.feisystems.com/user/clearcacheforuser").respond({status: 201});
 
         spyOn(localStorageService, 'get').andReturn({
-            token: { AccessToken: "", ExpiresIn: 3600, RefreshToken: "d387461fdbb0ee8d9a4dfbc39003ac85", TokenType: "Bearer"}
+            token: {
+                AccessToken: "",
+                ExpiresIn: 3600,
+                RefreshToken: "d387461fdbb0ee8d9a4dfbc39003ac85",
+                TokenType: "Bearer"
+            }
         });
         var status = authenticationService.clearCache(
-            function(data ){ status = data.status;},
-            function(error){}
+            function (data) {
+                status = data.status;
+            },
+            function (error) {
+            }
         );
         $httpBackend.flush();
         expect(status).toEqual(201);
 
     });
 
-    it("should revoke token", function() {
+    it("should revoke token", function () {
         $httpBackend.expectPOST("https://sts-dev.feisystems.com/identity/tokens/revoke").respond({status: 201});
 
         spyOn(localStorageService, 'get').andReturn({
-            token: { AccessToken: "", ExpiresIn: 3600, RefreshToken: "d387461fdbb0ee8d9a4dfbc39003ac85", TokenType: "Bearer"}
+            token: {
+                AccessToken: "",
+                ExpiresIn: 3600,
+                RefreshToken: "d387461fdbb0ee8d9a4dfbc39003ac85",
+                TokenType: "Bearer"
+            }
         });
         var status = authenticationService.revokeToken(
-            function(data ){ status = data.status;},
-            function(error){}
+            function (data) {
+                status = data.status;
+            },
+            function (error) {
+            }
         );
         $httpBackend.flush();
         expect(status).toEqual(201);
     });
 
-    it("should set authentication data", function() {
+    it("should set authentication data", function () {
 
         spyOn(localStorageService, 'get').andReturn({
-            session: { AccessToken: "", ExpiresIn: 3600, RefreshToken: "d387461fdbb0ee8d9a4dfbc39003ac85", TokenType: "Bearer"},
+            session: {
+                AccessToken: "",
+                ExpiresIn: 3600,
+                RefreshToken: "d387461fdbb0ee8d9a4dfbc39003ac85",
+                TokenType: "Bearer"
+            },
             userName: "test"
         });
 
@@ -117,7 +138,7 @@ xdescribe('app.authenticationModule, authenticationService ', function() {
         expect(authenticationService.authentication.userName).toEqual("test");
     });
 
-    it("should logout", function() {
+    it("should logout", function () {
         $httpBackend.expectPOST("https://sts-dev.feisystems.com/identity/tokens/revoke").respond({status: 201});
         $httpBackend.expectPOST("https://Consent2Share-api-dev.feisystems.com/user/clearcacheforuser").respond({status: 201});
 
@@ -125,7 +146,12 @@ xdescribe('app.authenticationModule, authenticationService ', function() {
         spyOn(authenticationService, 'clearCache').andCallThrough();
 
         spyOn(localStorageService, 'get').andReturn({
-            session: { AccessToken: "", ExpiresIn: 3600, RefreshToken: "d387461fdbb0ee8d9a4dfbc39003ac85", TokenType: "Bearer"},
+            session: {
+                AccessToken: "",
+                ExpiresIn: 3600,
+                RefreshToken: "d387461fdbb0ee8d9a4dfbc39003ac85",
+                TokenType: "Bearer"
+            },
             userName: "test"
         });
 
@@ -136,7 +162,7 @@ xdescribe('app.authenticationModule, authenticationService ', function() {
         expect(authenticationService.authentication.userName).toEqual("");
     });
 
-    xit("should login", function() {
+    xit("should login", function () {
         //$httpBackend.expectGET("https://sts-dev.feisystems.com/identity/tokens/get").respond({status: 201});
 
         spyOn(utilityService, 'isUnDefinedOrNull').andReturn(true);
@@ -144,7 +170,12 @@ xdescribe('app.authenticationModule, authenticationService ', function() {
         //spyOn(utilityService, 'isUnDefinedOrNull').andReturn(true);
 
         spyOn(localStorageService, 'get').andReturn({
-            session: { AccessToken: "", ExpiresIn: 3600, RefreshToken: "d387461fdbb0ee8d9a4dfbc39003ac85", TokenType: "Bearer"},
+            session: {
+                AccessToken: "",
+                ExpiresIn: 3600,
+                RefreshToken: "d387461fdbb0ee8d9a4dfbc39003ac85",
+                TokenType: "Bearer"
+            },
             userName: "test"
         });
 

@@ -4,43 +4,43 @@
 
 'use strict';
 
-xdescribe('app.security ', function(){
+xdescribe('app.security ', function () {
     var module;
 
-    beforeEach(function() {
+    beforeEach(function () {
         module = angular.module("app.security");
     });
 
-    it("should be registered", function() {
+    it("should be registered", function () {
         expect(module).not.toEqual(null);
     });
 
-    describe("Dependencies:", function() {
+    describe("Dependencies:", function () {
 
         var dependencies;
 
-        var hasModule = function(m) {
+        var hasModule = function (m) {
             return dependencies.indexOf(m) >= 0;
         };
-        beforeEach(function() {
+        beforeEach(function () {
             dependencies = module.value('app.authInterceptorModule').requires;
         });
 
-        it("should have LocalStorageModule as a dependency", function() {
+        it("should have LocalStorageModule as a dependency", function () {
             expect(hasModule('LocalStorageModule')).toEqual(true);
         });
 
-        it("should have angular-jwt as a dependency", function() {
+        it("should have angular-jwt as a dependency", function () {
             expect(hasModule('angular-jwt')).toEqual(true);
         });
 
-        it("should have app.servicesModule as a dependency", function() {
+        it("should have app.servicesModule as a dependency", function () {
             expect(hasModule('app.servicesModule')).toEqual(true);
         });
     });
 });
 
-xdescribe('app.authInterceptorModule, authInterceptorService ', function(){
+xdescribe('app.authInterceptorModule, authInterceptorService ', function () {
     var utilityService, localStorageService, q, jwtHelper, authInterceptorService, config, location, AuthenticationService, injector;
 
     beforeEach(module('LocalStorageModule'));
@@ -48,7 +48,7 @@ xdescribe('app.authInterceptorModule, authInterceptorService ', function(){
     beforeEach(module('app.servicesModule'));
     beforeEach(module('app.security'));
 
-    beforeEach(inject(function($injector, _localStorageService_, _$q_, _jwtHelper_, _authInterceptorService_, _$location_){
+    beforeEach(inject(function ($injector, _localStorageService_, _$q_, _jwtHelper_, _authInterceptorService_, _$location_) {
         injector = $injector;
         utilityService = $injector.get('utilityService');
 
@@ -60,14 +60,14 @@ xdescribe('app.authInterceptorModule, authInterceptorService ', function(){
         spyOn(utilityService, 'redirectTo').andCallThrough();
     }));
 
-    xit("should redirect to login", function() {
+    xit("should redirect to login", function () {
         spyOn(jwtHelper, 'isTokenExpired').andCallThrough();
         config = {};
         config = authInterceptorService.request(config);
         expect(location.path()).toEqual("/fe/login");
     });
 
-    xit("should redirect to index ", function() {
+    xit("should redirect to index ", function () {
         spyOn(jwtHelper, 'isTokenExpired').andCallThrough();
         config = {};
         location.path("/");
@@ -75,12 +75,17 @@ xdescribe('app.authInterceptorModule, authInterceptorService ', function(){
         expect(location.path()).toEqual("/fe/login");
     });
 
-    xit("should redirect to login page if token has expired ", function() {
+    xit("should redirect to login page if token has expired ", function () {
         AuthenticationService = injector.get('AuthenticationService');
         spyOn(AuthenticationService, 'logOut').andCallThrough();
         spyOn(jwtHelper, 'isTokenExpired').andReturn(true);
         spyOn(localStorageService, 'get').andReturn({
-            token: { AccessToken: "", ExpiresIn: 3600, RefreshToken: "d387461fdbb0ee8d9a4dfbc39003ac85", TokenType: "Bearer"}
+            token: {
+                AccessToken: "",
+                ExpiresIn: 3600,
+                RefreshToken: "d387461fdbb0ee8d9a4dfbc39003ac85",
+                TokenType: "Bearer"
+            }
         });
 
         config = {header: "information"};
@@ -88,24 +93,29 @@ xdescribe('app.authInterceptorModule, authInterceptorService ', function(){
         expect(location.path()).toEqual("/fe/login");
     });
 
-    it("should set token in header ", function() {
+    it("should set token in header ", function () {
         spyOn(jwtHelper, 'isTokenExpired').andReturn(false);
-        spyOn(localStorageService, 'get').andReturn({ token: "my token"});
+        spyOn(localStorageService, 'get').andReturn({token: "my token"});
         config = {header: "information"};
         config = authInterceptorService.request(config);
         expect(config.headers.Authorization).toEqual("Bearer  my token");
     });
 
-    it("should route to login in case of 401 ", function() {
+    it("should route to login in case of 401 ", function () {
         spyOn(localStorageService, 'get').andReturn("");
         var rejection = {status: 401};
         config = authInterceptorService.responseError(rejection);
         expect(location.path()).toEqual("/fe/login");
     });
 
-    it("should route to login in case of 401 and token has expired ", function() {
+    it("should route to login in case of 401 and token has expired ", function () {
         spyOn(localStorageService, 'get').andReturn({
-            token: { AccessToken: "", ExpiresIn: 3600, RefreshToken: "d387461fdbb0ee8d9a4dfbc39003ac85", TokenType: "Bearer"}
+            token: {
+                AccessToken: "",
+                ExpiresIn: 3600,
+                RefreshToken: "d387461fdbb0ee8d9a4dfbc39003ac85",
+                TokenType: "Bearer"
+            }
         });
         spyOn(jwtHelper, 'isTokenExpired').andReturn(true);
         var rejection = {status: 401};

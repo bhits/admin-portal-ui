@@ -1,18 +1,14 @@
 /**
  * Created by Jiahao.Li on 6/8/2016.
  */
-
 (function () {
     'use strict';
 
     angular.module('app.security')
         .factory('urlAuthorizationConfigurerService', urlAuthorizationConfigurerService);
 
-    /* @ngInject */
     function urlAuthorizationConfigurerService() {
-        var requestMatcherRegistry = [
-            "/fe/index"
-        ];
+        var requestMatcherRegistry = ["/fe/index"];
         var service = {};
 
         service.isAllowAccess = isAllowAccess;
