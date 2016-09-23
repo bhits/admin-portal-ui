@@ -8,7 +8,7 @@ xdescribe('app.filtersModule ', function () {
     var module;
 
     beforeEach(function () {
-        module = angular.module("app.filtersModule");
+        // module = angular.module("app.filtersModule");
     });
 
     it("should be registered", function () {
