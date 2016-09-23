@@ -5,12 +5,12 @@
 (function () {
     'use strict';
 
-    angular.module('app.error')
+    angular
+        .module('app.error')
         .factory('errorService', errorService);
 
     /* @ngInject */
     function errorService(utilityService, errorConstants) {
-
         var service = {};
 
         service.unauthorizedAccess = unauthorizedAccess;
