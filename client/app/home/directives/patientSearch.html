@@ -1,38 +1,31 @@
-
-            <label class="sr-only" for="searchPatient">Search</label>
-            <div class="row">
-                <div class="col-sm-8 col-md-7 col-lg-6 m-t-xs m-b-xs">
-                    <div class="relative">
-                        <input type="text" placeholder="Search Patients by first and last name" class="form-control" id="searchPatient"
-                               ng-model="patientSearchVm.searchtext" ng-change="patientSearchVm.search()">
-                        <div class="patient-autoComplete" ng-if="patientSearchVm.searchtext">
-                            <ul class="list-group m-b-none">
-
-                                <li class="list-group-item" ng-repeat="patient in patientSearchVm.patients" ng-click="patientSearchVm.editPatient(patient.id)">
-
-                                    <div>
-                                        <span ng-bind="patient.firstName"></span>
-                                        <span ng-bind="patient.lastName"></span>
-                                    </div>
-
-                                </li>
-
-                            </ul>
+<label class="sr-only" for="searchPatient">Search</label>
+<div class="row">
+    <div class="col-sm-8 col-md-7 col-lg-6 m-t-xs m-b-xs">
+        <div class="relative">
+            <input type="text" placeholder="Search Patients by first and last name"
+                   class="form-control"
+                   id="searchPatient"
+                   ng-model="patientSearchVm.searchtext"
+                   ng-change="patientSearchVm.search()">
+            <div class="patient-autoComplete" ng-if="patientSearchVm.searchtext">
+                <ul class="list-group m-b-none">
+                    <li class="list-group-item"
+                        ng-repeat="patient in patientSearchVm.patients"
+                        ng-click="patientSearchVm.editPatient(patient.id)">
+                        <div>
+                            <span ng-bind="patient.firstName"></span>
+                            <span ng-bind="patient.lastName"></span>
                         </div>
-
-                        <!--<datalist id="searchList">-->
-                            <!--<option ng-repeat="patient in patientSearchVm.patients" value="{{patient.firstName}} {{patient.lastName}}"></option>-->
-                        <!--</datalist> list="searchList"-->
-
-                    </div>
-                </div>
-
-                <div class="col-sm-4 m-t-xs">
-                    <button class="btn btn-primary dark-green" type="button" ui-sref="fe.patient.create">
-                        Create Patient <i class="m-l-xs fa fa-plus"></i>
-                    </button>
-                </div>
-
+                    </li>
+                </ul>
             </div>
+        </div>
+    </div>
+    <div class="col-sm-4 m-t-xs">
+        <button class="btn btn-primary dark-green" type="button" ui-sref="fe.patient.create">
+            Create Patient <i class="m-l-xs fa fa-plus"></i>
+        </button>
+    </div>
+</div>
 
 

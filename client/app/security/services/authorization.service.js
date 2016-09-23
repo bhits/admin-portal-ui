@@ -6,7 +6,6 @@
 
     /* @ngInject */
     function authorizationService(oauthTokenService, securityConstants) {
-
         var service = {};
 
         service.canAccess = canAccess;

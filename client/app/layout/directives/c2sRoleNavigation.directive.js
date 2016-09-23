@@ -1,7 +1,6 @@
 /**
  * Created by jiahao.li on 7/14/2016.
  */
-
 (function () {
     'use strict';
 
@@ -18,7 +17,6 @@
             controllerAs: 'roleNavigationVm',
             controller: RoleNavigationController
         };
-
         return directive;
 
         /* @ngInject */

@@ -3,25 +3,21 @@
 
     angular
         .module('app.layout')
-            .directive('c2sSideNavigation', c2sSideNavigation);
+        .directive('c2sSideNavigation', c2sSideNavigation);
 
-            /* @ngInject */
-            function c2sSideNavigation($timeout) {
+    /* @ngInject */
+    function c2sSideNavigation($timeout) {
+        var directive = {
+            restrict: 'A',
+            link: linkFunc
+        };
+        return directive;
 
-                var directive = {
-                    restrict: 'A',
-                    link: linkFunc
-                };
-                return directive;
-
-                /* @ngInject */
-                function linkFunc (scope, element) {
-                    $timeout(function () {
-                        element.metisMenu();
-
-                    });
-                }
-            }
-
-
+        /* @ngInject */
+        function linkFunc(scope, element) {
+            $timeout(function () {
+                element.metisMenu();
+            });
+        }
+    }
 })();

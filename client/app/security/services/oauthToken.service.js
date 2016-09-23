@@ -6,7 +6,6 @@
 
     /* @ngInject */
     function oauthTokenService($sessionStorage, jwtHelper) {
-
         var service = {};
 
         service.getToken = getToken;
