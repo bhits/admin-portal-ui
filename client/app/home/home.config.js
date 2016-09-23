@@ -1,5 +1,4 @@
 (function () {
-
     'use strict';
 
     angular
@@ -8,7 +7,6 @@
 
     /* @ngInject */
     function homeConfig($stateProvider) {
-
         $stateProvider
             .state('fe', {
                 abstract: true,

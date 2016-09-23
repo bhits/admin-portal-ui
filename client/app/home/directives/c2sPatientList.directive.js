@@ -1,7 +1,6 @@
 /**
  * Created by Feruz.Abdella on 3/17/2016.
  */
-
 (function () {
     'use strict';
 
@@ -9,9 +8,8 @@
         .module('app.home')
         .directive('c2sPatientList', c2sPatientList);
 
-    /* @ngInject */
     function c2sPatientList() {
-        var directive =  {
+        var directive = {
             restrict: 'E',
             scope: {},
             templateUrl: 'app/home/directives/patientList.html',
@@ -21,17 +19,13 @@
             controller: PatientListController,
             controllerAs: 'patientListVm'
         };
-
         return directive;
 
         /* @ngInject */
         function PatientListController(patientService, notificationService) {
             var vm = this;
-
             var oldPage = vm.patientsdata.currentPage;
             vm.patientList = vm.patientsdata.patientList;
-
-
             vm.pagination = {
                 totalItems: vm.patientsdata.totalItems,
                 currentPage: oldPage,
@@ -43,7 +37,7 @@
             function loadPage() {
                 var newPage = vm.pagination.currentPage;
                 vm.pagination.currentPage = oldPage;
-                patientService.getPatients(newPage,success, error);
+                patientService.getPatients(newPage, success, error);
             }
 
             function success(response) {
@@ -53,9 +47,8 @@
             }
 
             function error(response) {
-               notificationService.error('Failed to get the patient list, please try again later...');
+                notificationService.error('Failed to get the patient list, please try again later...');
             }
-
 
             function updatePagination(response) {
                 vm.pagination.totalItems = response.totalItems;
@@ -65,5 +58,3 @@
         }
     }
 })();
-
-
