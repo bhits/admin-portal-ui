@@ -4,31 +4,31 @@
 
 'use strict';
 
-xdescribe('app.accessModule ', function(){
+xdescribe('app.accessModule ', function () {
     var module;
 
-    beforeEach(function() {
+    beforeEach(function () {
         module = angular.module("app");
     });
 
-    it("should be registered", function() {
+    it("should be registered", function () {
         expect(module).not.toEqual(null);
     });
 
-    describe("Dependencies:", function() {
+    describe("Dependencies:", function () {
 
         var dependencies;
 
-        var hasModule = function(m) {
+        var hasModule = function (m) {
             return dependencies.indexOf(m) >= 0;
         };
-        beforeEach(function() {
+        beforeEach(function () {
             dependencies = module.value('app').requires;
         });
     });
 });
 
-xdescribe("app.accessModule LoginController ", function() {
+xdescribe("app.accessModule LoginController ", function () {
 
     beforeEach(module('ui.router'));
     beforeEach(module('ngIdle'));
@@ -36,17 +36,17 @@ xdescribe("app.accessModule LoginController ", function() {
 
     var state, envService, Idle, authenticationService, controller, utilityService;
 
-    beforeEach(inject(function( $controller, $state, _Idle_, _authenticationService_, _envService_, _utilityService_) {
+    beforeEach(inject(function ($controller, $state, _Idle_, _authenticationService_, _envService_, _utilityService_) {
         state = $state;
         Idle = _Idle_;
         envService = _envService_;
         authenticationService = _authenticationService_;
         utilityService = _utilityService_;
 
-        spyOn(utilityService,'scrollTo').andCallThrough();
-        spyOn(authenticationService,'login').andCallThrough();
-        spyOn(Idle,'watch').andCallThrough();
-        spyOn(state,'go').andCallThrough();
+        spyOn(utilityService, 'scrollTo').andCallThrough();
+        spyOn(authenticationService, 'login').andCallThrough();
+        spyOn(Idle, 'watch').andCallThrough();
+        spyOn(state, 'go').andCallThrough();
 
         controller = $controller('LoginController', {
             $state: state,
@@ -57,17 +57,17 @@ xdescribe("app.accessModule LoginController ", function() {
         });
     }));
 
-    it('should have default values ', function(){
+    it('should have default values ', function () {
         expect(controller.loginData).toEqual({userName: "", password: ""});
         expect(controller.version).toEqual(envService.version);
     });
 
-    it('should scroll to specify location', function(){
+    it('should scroll to specify location', function () {
         controller.scrollTo("#test");
         expect(utilityService.scrollTo).toHaveBeenCalledWith('#test');
     });
 
-    it('should login user', function(){
+    it('should login user', function () {
         controller.loginData = {userName: "test", password: "test"};
         controller.login();
         expect(authenticationService.login).toHaveBeenCalledWith({userName: "test", password: "test"});

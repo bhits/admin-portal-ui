@@ -8,37 +8,37 @@
 
     angular
         .module('app.brand')
-            .provider('brand',brandService);
+        .provider('brand', brandService);
 
     /* @ngInject */
-    function brandService(){
+    function brandService() {
 
         var brandName = "";
         var brandInitials = "";
 
         var service = {};
         service.setBrandName = setBrandName;
-        service.setBrandInitial= setBrandInitial;
+        service.setBrandInitial = setBrandInitial;
         service.$get = getBrand;
 
         return service;
 
-        function setBrandName(name){
+        function setBrandName(name) {
             brandName = name;
         }
 
-        function setBrandInitial(initials){
+        function setBrandInitial(initials) {
             brandInitials = initials;
         }
 
-        function getBrand(){
+        function getBrand() {
 
             return {
-                getBrandName: function(){
-                   return  brandName;
+                getBrandName: function () {
+                    return brandName;
                 },
-                getBrandInitials: function(){
-                    return  brandInitials;
+                getBrandInitials: function () {
+                    return brandInitials;
                 }
             };
         }

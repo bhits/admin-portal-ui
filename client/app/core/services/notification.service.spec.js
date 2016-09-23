@@ -4,41 +4,41 @@
 
 'use strict';
 
-xdescribe('app.notificationModule  ', function(){
+xdescribe('app.notificationModule  ', function () {
     var module;
 
-    beforeEach(function() {
+    beforeEach(function () {
         // module = angular.module("app.notificationModule");
     });
 
-    it("should be registered", function() {
+    it("should be registered", function () {
         expect(module).not.toEqual(null);
     });
 
-    describe("Dependencies:", function() {
+    describe("Dependencies:", function () {
 
         var dependencies;
 
-        var hasModule = function(m) {
+        var hasModule = function (m) {
             return dependencies.indexOf(m) >= 0;
         };
-        beforeEach(function() {
+        beforeEach(function () {
             dependencies = module.value('app.notificationModule').requires;
         });
 
-        it("should be registered", function() {
+        it("should be registered", function () {
             expect(module).not.toEqual(null);
         });
 
-        it("should have cgNotify as a dependency", function() {
+        it("should have cgNotify as a dependency", function () {
             expect(hasModule('cgNotify')).toEqual(true);
         });
     });
 });
 
 
-xdescribe('app.notificationModule ', function() {
-    var notificationService,mockNotify;
+xdescribe('app.notificationModule ', function () {
+    var notificationService, mockNotify;
 
     beforeEach(module('cgNotify'));
     beforeEach(module('app.notificationModule'));
@@ -50,14 +50,14 @@ xdescribe('app.notificationModule ', function() {
         });
         //
 
-       spyOn(mockNotify, this).andCallThrough();
+        spyOn(mockNotify, this).andCallThrough();
     });
 
     it('should show success notify', function () {
 
         console.log(mockNotify);
         var msg = "test";
-        var notifyObj = { message: msg, duration: 2000, classes: 'alert-success', templateUrl: ""};
+        var notifyObj = {message: msg, duration: 2000, classes: 'alert-success', templateUrl: ""};
         notificationService.success(msg);
 
         expect(mockNotify).toHaveBeenCalled();

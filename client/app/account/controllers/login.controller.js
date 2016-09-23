@@ -1,11 +1,10 @@
-﻿
-'use strict';
+﻿'use strict';
 
 (function () {
 
     angular
         .module("app.security")
-            .controller('LoginController', LoginController);
+        .controller('LoginController', LoginController);
 
     /* @ngInject */
     function LoginController(envService, brand) {
