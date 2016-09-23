@@ -3,15 +3,13 @@
  */
 
 (function () {
-
     'use strict';
 
     angular
         .module('app.patientMedicalDocument')
         .controller('PatientMedicalDocumentController', PatientMedicalDocumentController);
 
-    /* @ngInject */
-    function PatientMedicalDocumentController(){
+    function PatientMedicalDocumentController() {
         var vm = this;
         vm.title = "Retrieve Patient Documents";
     }

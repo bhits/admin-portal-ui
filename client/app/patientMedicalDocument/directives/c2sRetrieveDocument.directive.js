@@ -9,7 +9,6 @@
         .module('app.patientMedicalDocument')
         .directive('c2sRetrieveDocument', c2sRetrieveDocument);
 
-    /* @ngInject */
     function c2sRetrieveDocument() {
         var directive = {
             restrict: 'E',

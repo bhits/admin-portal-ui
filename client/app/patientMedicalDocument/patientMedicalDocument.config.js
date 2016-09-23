@@ -3,7 +3,6 @@
  */
 
 (function () {
-
     'use strict';
 
     angular
@@ -12,7 +11,6 @@
 
     /* @ngInject */
     function PatientMedicalDocumentConfig($stateProvider) {
-
         $stateProvider
             .state('fe.patientMedicalDocument', {
                 abstract: true,
