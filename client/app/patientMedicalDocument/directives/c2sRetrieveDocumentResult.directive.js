@@ -9,7 +9,6 @@
         .module('app.patientMedicalDocument')
         .directive('c2sRetrieveDocumentResult', c2sRetrieveDocumentResult);
 
-    /* @ngInject */
     function c2sRetrieveDocumentResult() {
         var directive = {
             restrict: 'E',
@@ -18,7 +17,6 @@
             controllerAs: 'accessDocumentVm',
             controller: AccessDocumentController
         };
-
         return directive;
 
         /* @ngInject */

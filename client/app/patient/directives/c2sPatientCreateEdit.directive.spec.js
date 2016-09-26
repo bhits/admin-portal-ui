@@ -1,13 +1,13 @@
 ﻿'use strict';
 
-xdescribe('app.patient:', function() {
+xdescribe('app.patient:', function () {
 
     beforeEach(module('app.config'));
     beforeEach(module('app.core'));
     beforeEach(module('app.patient'));
     beforeEach(module('app/patient/directives/patientCreateEdit.html'));
 
-    describe('c2sPatientCreateEdit directive', function() {
+    describe('c2sPatientCreateEdit directive', function () {
         var patientCreateTemplate;
         var rootScope;
         var scope;
@@ -19,8 +19,8 @@ xdescribe('app.patient:', function() {
         var patient1;
         var patient2;
 
-        beforeEach(inject(function($templateCache, $compile,  _$rootScope_, _patientService_, _notificationService_, _$state_) {
-            rootScope =  _$rootScope_;
+        beforeEach(inject(function ($templateCache, $compile, _$rootScope_, _patientService_, _notificationService_, _$state_) {
+            rootScope = _$rootScope_;
             scope = rootScope.$new();
             patientService = _patientService_;
             notificationService = _notificationService_;
@@ -30,11 +30,28 @@ xdescribe('app.patient:', function() {
             $compile(element)(scope);
             rootScope.$digest();
             controller = element.isolateScope().patientCreateVm;
-            patient1 = {birthDate: "03/02/2016", email: "usr3@gmail.com", firstName: "usr1", genderCode: "M", lastName: "usr2", password: "Akacity77",password2: "Akacity77", username: "usr3"};
-            patient2 = {birthDate: "03/02/2016", email: "usr3@gmail.com", firstName: "usr1", genderCode: "M", lastName: "usr2", password: "Akacity77", username: "usr3"};
+            patient1 = {
+                birthDate: "03/02/2016",
+                email: "usr3@gmail.com",
+                firstName: "usr1",
+                genderCode: "M",
+                lastName: "usr2",
+                password: "Akacity77",
+                password2: "Akacity77",
+                username: "usr3"
+            };
+            patient2 = {
+                birthDate: "03/02/2016",
+                email: "usr3@gmail.com",
+                firstName: "usr1",
+                genderCode: "M",
+                lastName: "usr2",
+                password: "Akacity77",
+                username: "usr3"
+            };
         }));
 
-        xit('should save patient', function() {
+        xit('should save patient', function () {
             scope.patient = patient1;
             spyOn(patientService, 'createPatient').and.callThrough();
             spyOn(controller, 'removeConfirmPassword').and.returnValue(patient2);
@@ -45,12 +62,12 @@ xdescribe('app.patient:', function() {
             expect(controller.removeConfirmPassword).toHaveBeenCalledWith(patient1);
         });
 
-        xit('should disable create patient form submit button', function() {
+        xit('should disable create patient form submit button', function () {
             //dump(controller.form);
             console.log("Hello");
         });
 
-        it('should enable create patient form  submit button', function() {
+        it('should enable create patient form  submit button', function () {
 
         });
     });

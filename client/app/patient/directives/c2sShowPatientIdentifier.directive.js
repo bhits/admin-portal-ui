@@ -9,7 +9,6 @@
         .module('app.patient')
         .directive('c2sShowPatientIdentifier', c2sShowPatientIdentifier);
 
-    /* @ngInject */
     function c2sShowPatientIdentifier() {
         var directive = {
             restrict: 'E',
@@ -21,7 +20,6 @@
             controllerAs: 'patientIdentifierVm',
             controller: PatientIdentifierController
         };
-
         return directive;
 
         /* @ngInject */

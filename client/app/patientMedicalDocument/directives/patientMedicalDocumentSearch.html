@@ -22,9 +22,14 @@
                     <div class="row">
                         <div class="form-group col-sm-4">
                             <label for="firstName">First Name</label>
-                            <input id="firstName" name="firstName" type="text" class="form-control"
+                            <input id="firstName"
+                                   name="firstName"
+                                   type="text"
+                                   class="form-control"
                                    placeholder="First Name"
-                                   ng-model="patientSearchVm.patient.firstName" ng-minlength="2" ng-maxlength="30"
+                                   ng-model="patientSearchVm.patient.firstName"
+                                   ng-minlength="2"
+                                   ng-maxlength="30"
                                    required>
                             <div ng-messages="searchPatientForm.firstName.$error"
                                  ng-if="searchPatientForm.firstName.$dirty"
@@ -34,9 +39,14 @@
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="lastName">Last Name</label>
-                            <input id="lastName" name="lastName" type="text" class="form-control"
+                            <input id="lastName"
+                                   name="lastName"
+                                   type="text"
+                                   class="form-control"
                                    placeholder="Last Name"
-                                   ng-model="patientSearchVm.patient.lastName" ng-minlength="2" ng-maxlength="30"
+                                   ng-model="patientSearchVm.patient.lastName"
+                                   ng-minlength="2"
+                                   ng-maxlength="30"
                                    required>
                             <div ng-messages="searchPatientForm.lastName.$error"
                                  ng-if="searchPatientForm.lastName.$dirty"
@@ -48,7 +58,9 @@
                     <div class="row">
                         <div class="form-group col-sm-4">
                             <label for="genderCode">Gender</label>
-                            <select id="genderCode" name="genderCode" class="form-control"
+                            <select id="genderCode"
+                                    name="genderCode"
+                                    class="form-control"
                                     ng-model="patientSearchVm.patient.genderCode" required>
                                 <option value="" disabled>Please Select</option>
                                 <option value="M">Male</option>
@@ -62,9 +74,13 @@
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="birthDate">Date of Birth</label>
-                            <input type="text" id="birthDate" class="form-control" name="birthDate"
+                            <input type="text"
+                                   name="birthDate"
+                                   id="birthDate"
+                                   class="form-control"
                                    placeholder="Date of birth"
-                                   ng-model="patientSearchVm.patient.birthDate " required c2s-datepicker
+                                   ng-model="patientSearchVm.patient.birthDate "
+                                   required c2s-datepicker
                                    c2s-format-date c2s-validate-date>
                             <div ng-messages="searchPatientForm.birthDate.$error"
                                  ng-if="searchPatientForm.birthDate.$dirty"
@@ -75,7 +91,8 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-12">
-                            <button class="btn btn-primary dark-green" type="button"
+                            <button class="btn btn-primary dark-green"
+                                    type="button"
                                     ng-click="patientSearchVm.search()"
                                     ng-disabled="!patientSearchVm.canSearch(searchPatientForm)">Search Patient
                             </button>
@@ -93,7 +110,9 @@
             <div class="panel panel-default"
                  ng-repeat="patient in patientSearchVm.patientList">
                 <div class="panel-heading">
-                    <h3><span>[MRN: <span ng-bind="patient.medicalRecordNumber"></span>]</span></h3>
+                    <h3>
+                        <span>[MRN: <span ng-bind="patient.medicalRecordNumber"></span>]</span>
+                    </h3>
                 </div>
                 <div class="panel-body">
                     <p><b>Name: </b>
