@@ -75,13 +75,6 @@ module.exports = function (grunt) {
             }
         },
         /**
-         * The directories to delete when `grunt clean` is executed.
-         */
-        /*clean: [
-         '<%= build_dir %>'
-         ],*/
-
-        /**
          * Should use above clean task configuration. But
          * we are using WebStorm's functionalities provided for karma.
          * Once Run 'karma.conf.js' in WebStorm target/debug folder is locked and can not delete it.
