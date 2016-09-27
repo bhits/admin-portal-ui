@@ -1,10 +1,8 @@
-// These Grunt build scrips are based on famous ngbp, angular-app and yo angular generated template which is based on angular-seed
-
-/*global module:false*/
+// These Grunt build scrips are based on famous ngbp, angular-app and
+// yo angular generated template which is based on angular-seed
 
 'use strict';
 
-// The "wrapper" function
 module.exports = function (grunt) {
 
     /**
@@ -12,9 +10,13 @@ module.exports = function (grunt) {
      * in `package.json` when you do `npm install` in this directory.
      * Load multiple grunt plugin tasks using globbing patterns.
      */
-    require('load-grunt-tasks')(grunt); // Equivalent to: require('load-grunt-tasks')(grunt, {pattern: 'grunt-*'});
+    require('load-grunt-tasks')(grunt);
 
-    require('time-grunt')(grunt); // Tasks that take less than 1% of the total time are hidden to reduce clutter. Run grunt with grunt --verbose to see all tasks.
+    /**
+     * Tasks that take less than 1% of the total time are hidden to reduce clutter.
+     * Run grunt with grunt --verbose to see all tasks.
+     */
+    require('time-grunt')(grunt);
 
     /**
      * Load in our build configuration file.

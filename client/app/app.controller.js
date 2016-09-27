@@ -56,7 +56,6 @@
             $modalStack.dismissAll('cancel');
         }
 
-        //TODO
         function handleLoggedOutAndExpiredSession(event) {
             Idle.unwatch();
             $state.go('fe.login');
