@@ -1,5 +1,6 @@
-FROM java:8
+FROM bhits/java-jar-runner:8u102-jre
 VOLUME /java
 ARG finalName
-ADD $finalName /admin-portal-ui.jar
-ENTRYPOINT ["java","-Djavax.net.ssl.trustStore=/java/keystore/c2s.keystore","-Djavax.net.ssl.trustStorePassword=changeit","-jar","/admin-portal-ui.jar","--spring.profiles.active=docker"]
+ENV JAR_FILE $finalName
+COPY $finalName /
+ENV DEFAULT_PROGRAM_ARGS --spring.profiles.active=docker
