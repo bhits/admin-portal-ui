@@ -8,7 +8,7 @@ xdescribe('app.filtersModule ', function () {
     var module;
 
     beforeEach(function () {
-        module = angular.module("app.filtersModule");
+        // module = angular.module("app.filtersModule");
     });
 
     it("should be registered", function () {
@@ -41,7 +41,7 @@ xdescribe('app.filtersModule', function () {
 
     beforeEach(module('app.filtersModule'));
 
-    beforeEach(inject(function (_hasStringFilter_,_zipFilter_, _phoneFilter_, _utilityService_) {
+    beforeEach(inject(function (_hasStringFilter_, _zipFilter_, _phoneFilter_, _utilityService_) {
         hasString = _hasStringFilter_;
         zip = _zipFilter_;
         phone = _phoneFilter_;
@@ -50,7 +50,7 @@ xdescribe('app.filtersModule', function () {
 
     it('should evaluate hasString same as utilityService.hasString', function () {
         // Arrange
-        var input ='inputValue';
+        var input = 'inputValue';
         var returnedValue = 'returnedValue';
         spyOn(utilityService, 'hasString').andReturn(returnedValue);
 
@@ -61,7 +61,7 @@ xdescribe('app.filtersModule', function () {
 
     it('should return zip as utilityService.formatZipCode', function () {
         // Arrange
-        var input ='inputValue';
+        var input = 'inputValue';
         var returnedValue = 'returnedValue';
         spyOn(utilityService, 'formatZipCode').andReturn(returnedValue);
 
@@ -72,7 +72,7 @@ xdescribe('app.filtersModule', function () {
 
     it('should format phone number without extension', function () {
         // Arrange
-        var input ='1234567890';
+        var input = '1234567890';
         var returnedValue = '123-456-7890';
 
         // Act & Assert
@@ -81,7 +81,7 @@ xdescribe('app.filtersModule', function () {
 
     it('should format phone number with extension', function () {
         // Arrange
-        var input ='12345678901234';
+        var input = '12345678901234';
         var returnedValue = '123-456-7890-1234';
 
         // Act & Assert

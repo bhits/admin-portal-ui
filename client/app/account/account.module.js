@@ -7,9 +7,9 @@
 
     angular
         .module('app.account',
-               [
-                 'app.config',
-                 'app.core',
-                 'app.brand'
-               ]);
+            [
+                'app.config',
+                'app.core',
+                'app.brand'
+            ]);
 })();

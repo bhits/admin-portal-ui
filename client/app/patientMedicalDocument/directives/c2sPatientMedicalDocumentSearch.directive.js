@@ -9,7 +9,6 @@
         .module('app.patientMedicalDocument')
         .directive('c2sPatientMedicalDocumentSearch', c2sPatientMedicalDocumentSearch);
 
-    /* @ngInject */
     function c2sPatientMedicalDocumentSearch() {
         var directive = {
             restrict: 'E',
@@ -18,7 +17,6 @@
             controllerAs: 'patientSearchVm',
             controller: PatientMedicalDocumentSearchController
         };
-
         return directive;
 
         /* @ngInject */

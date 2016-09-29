@@ -1,4 +1,4 @@
 ﻿(function () {
     'use strict';
-        angular.module('app.brand', []);
+    angular.module('app.brand', []);
 })();

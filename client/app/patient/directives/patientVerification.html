@@ -3,9 +3,8 @@
         <div class="ibox panel panel-navbar-blueGray float-e-margins">
             <div class="ibox-title modified panel-heading right-padding30">
                 <div class="chevron_absolute">
-                    <div c2s-ibox-tools  c2s-chevron-prevent-default="true"></div>
+                    <div c2s-ibox-tools c2s-chevron-prevent-default="true"></div>
                 </div>
-
                 <div class="row">
                     <div class="col-sm-8 col-xs-12">
                         <div class="row">
@@ -17,7 +16,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="ibox-content modified">
                 <div class="row">
                     <div class="col-sm-6">
@@ -30,31 +28,34 @@
                             <span ng-bind="patientVerificationVm.verification.verificationCode"></span>
                             <span ng-if="!patientVerificationVm.verification.verificationCode">---</span>
                         </h3>
-
                     </div>
                     <div class="col-md-12 m-b-sm" ng-if="!patientVerificationVm.verification.verified">
-                        <p >
-                            <span><strong>Please Send Email to generate the Verification
-                                Code.</strong></span>
-                            Sending an account activation email to the address listed above will generate a unique
-                            Verification Code.
-                            That Verification Code will be displayed above.</p>
+                        <p>
+                            <span>
+                                <strong>Please Send Email to generate the Verification Code.</strong>
+                            </span>
+                            Sending an account activation email to the address listed above will generate
+                            a unique Verification Code. That Verification Code will be displayed above.</p>
                         <p>
                     </div>
                 </div>
-
             </div>
             <div class="panel-footer">
                 <div class="row relative">
                     <div class="col-xs-9">
                         <div class="left-padding25 statusIcon_created">
                             <p class="inline m-b-xxs m-r-xs">Account Status:</p>
-                            <p class="inline bold nowrap"><span ng-bind="patientVerificationVm.accountStatus"/></p>
+                            <p class="inline bold nowrap">
+                                <span ng-bind="patientVerificationVm.accountStatus"></span>
+                            </p>
                         </div>
                     </div>
                     <div class="col-xs-3 c2s-activation-button">
-                        <button class="btn btn-primary btn-xs dark-green pull-right" type="button" ng-click="patientVerificationVm.sendEmail()" ng-if="!patientVerificationVm.isAccountAlreadyVerified()">
-                            <span ng-bind="patientVerificationVm.sendEmailButtonText"/>
+                        <button class="btn btn-primary btn-xs dark-green pull-right"
+                                type="button"
+                                ng-click="patientVerificationVm.sendEmail()"
+                                ng-if="!patientVerificationVm.isAccountAlreadyVerified()">
+                            <span ng-bind="patientVerificationVm.sendEmailButtonText"></span>
                         </button>
                     </div>
                 </div>
@@ -62,4 +63,3 @@
         </div>
     </div>
 </div>
-

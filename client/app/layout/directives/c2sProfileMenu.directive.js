@@ -15,14 +15,13 @@
             bindToController: true,
             controller: ProfileMenuController
         };
-
         return directive;
 
         /* @ngInject */
         function ProfileMenuController(utilityService, profileService) {
             var vm = this;
             vm.name = profileService.getName();
-            //TODO get/set image url dynamically
+            //TODO: get/set image url dynamically
             vm.profileImgName = getProfileImageName(profileService.getUserName());
 
             function getProfileImageName(profileName) {

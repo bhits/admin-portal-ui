@@ -1,8 +1,6 @@
 /**
  * Created by Feruz.Abdella on 3/17/2016.
  */
-
-
 (function () {
     'use strict';
 
@@ -10,9 +8,8 @@
         .module('app.home')
         .directive('c2sPatientSearch', c2sPatientSearch);
 
-    /* @ngInject */
     function c2sPatientSearch() {
-        var directive =  {
+        var directive = {
             restrict: 'E',
             scope: {},
             templateUrl: 'app/home/directives/patientSearch.html',
@@ -22,17 +19,16 @@
             controller: PatientSearchController,
             controllerAs: 'patientSearchVm'
         };
-
         return directive;
 
         /* @ngInject */
-        function PatientSearchController($state,patientService, notificationService) {
+        function PatientSearchController($state, patientService, notificationService) {
             var vm = this;
-            vm.search=search;
-            vm.editPatient=editPatient;
+            vm.search = search;
+            vm.editPatient = editPatient;
 
             function search() {
-                if(angular.isDefined(vm.searchtext)){
+                if (angular.isDefined(vm.searchtext)) {
                     patientService.searchPatient(vm.searchtext,
                         function success(response) {
                             vm.patients = response;
@@ -43,12 +39,11 @@
                 }
             }
 
-            function editPatient()
-            {
+            function editPatient() {
                 patientService.searchPatient(vm.searchtext,
                     function success(response) {
                         var patient = response[0];
-                        $state.go('fe.patient.edit',{patientId: patient.id});
+                        $state.go('fe.patient.edit', {patientId: patient.id});
                     },
                     function error() {
                         notificationService.error('Failed to get the patient, please try again later...');
@@ -57,4 +52,3 @@
         }
     }
 })();
-

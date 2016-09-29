@@ -1,42 +1,41 @@
-﻿
-(function () {
+﻿(function () {
 
     'use strict';
 
     angular
         .module('app.core')
-            .directive('c2sValidateZipcode', c2sValidateZipcode);
+        .directive('c2sValidateZipcode', c2sValidateZipcode);
 
-            /* @ngInject */
-            function c2sValidateZipcode(constants, utilityService) {
+    /* @ngInject */
+    function c2sValidateZipcode(constants, utilityService) {
 
-                var ZIPCODE_REGEXP = constants.ZIPCODE_REGEXP;
+        var ZIPCODE_REGEXP = constants.ZIPCODE_REGEXP;
 
-                var directive =  {
-                    require: 'ngModel',
-                    restrict: 'A',
-                    scope: {},
-                    link: linkFunc
-                };
-                return directive;
+        var directive = {
+            require: 'ngModel',
+            restrict: 'A',
+            scope: {},
+            link: linkFunc
+        };
+        return directive;
 
-                /* @ngInject */
-                function linkFunc(scope, elm, attrs, ctrl) {
-                   ctrl.$validators.isValidFiveDigitZipcode = function(modelValue) {
-                        if(utilityService.isDefinedAndNotNull(modelValue) && modelValue.length <= 5  ){
-                            return ctrl.$isEmpty(modelValue) || ZIPCODE_REGEXP.test(modelValue);
-                        }else{
-                            return true;
-                        }
-                   };
-
-                    ctrl.$validators.isValidTenDigitZipcode = function(modelValue) {
-                        if( utilityService.isDefinedAndNotNull(modelValue) && modelValue.length > 5 ){
-                            return ctrl.$isEmpty(modelValue) || ZIPCODE_REGEXP.test(modelValue);
-                        }else{
-                            return true;
-                        }
-                    };
+        /* @ngInject */
+        function linkFunc(scope, elm, attrs, ctrl) {
+            ctrl.$validators.isValidFiveDigitZipcode = function (modelValue) {
+                if (utilityService.isDefinedAndNotNull(modelValue) && modelValue.length <= 5) {
+                    return ctrl.$isEmpty(modelValue) || ZIPCODE_REGEXP.test(modelValue);
+                } else {
+                    return true;
                 }
-            }
+            };
+
+            ctrl.$validators.isValidTenDigitZipcode = function (modelValue) {
+                if (utilityService.isDefinedAndNotNull(modelValue) && modelValue.length > 5) {
+                    return ctrl.$isEmpty(modelValue) || ZIPCODE_REGEXP.test(modelValue);
+                } else {
+                    return true;
+                }
+            };
+        }
+    }
 })();

@@ -14,7 +14,7 @@
         $rootScope.$state = $state;
         $anchorScroll.yOffset = 135;
 
-        $rootScope.$on('$stateChangeStart', function (e, toState, toParams, fromState, fromParams) {
+        $rootScope.$on('$stateChangeStart', function (e, toState) {
 
             if (angular.isDefined(toState.data) && angular.isDefined(toState.data.roles)) {
                 var roles = toState.data.roles;

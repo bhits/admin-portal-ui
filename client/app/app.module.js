@@ -1,22 +1,22 @@
 ﻿(function () {
     'use strict';
-        angular.module('app',
-            [
-                /* Shared modules*/
-                'app.core',
-                'templates-app',
-                'app.security',
-                'app.config',
+    angular.module('app',
+        [
+            /* Shared modules*/
+            'app.core',
+            'templates-app',
+            'app.security',
+            'app.config',
 
-                /*
-                 * Feature areas
-                 */
-                'app.home',
-                'app.layout',
-                'app.patient',
-                'app.account',
-                'app.brand',
-                'app.patientMedicalDocument',
-                'app.error'
-            ]);
+            /*
+             * Feature areas
+             */
+            'app.home',
+            'app.layout',
+            'app.patient',
+            'app.account',
+            'app.brand',
+            'app.patientMedicalDocument',
+            'app.error'
+        ]);
 })();

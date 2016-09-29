@@ -21,10 +21,8 @@
         return directive;
 
         /* @ngInject */
-        function PatientCreateEditController(patientService, $state, notificationService, utilityService) {
+        function PatientCreateEditController(patientService, $state, notificationService) {
             var vm = this;
-            var original = vm.verifyInfo;
-
             vm.createPatient = createPatient;
             vm.updatePatient = updatePatient;
             vm.cancel = cancel;

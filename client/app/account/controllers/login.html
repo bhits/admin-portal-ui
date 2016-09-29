@@ -1,15 +1,14 @@
-﻿﻿<div class="container-fluid left-right-padding-0">
+﻿﻿
+<div class="container-fluid left-right-padding-0">
     <div class="page-bg-white" id="topPage">
         <div class="b9gray-bg">
             <div class="custom-header modified">
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="m-t m-l-sm">
-                            <img src="assets/img/consent2share_white.png" class="c2sLoginLogo" alt="loginVm.altLogoText">
+                            <img src="assets/img/consent2share_white.png" class="c2sLoginLogo"
+                                 alt="loginVm.altLogoText">
                         </div>
-                        <!--<div class="pull-right info-link">-->
-                            <!--<span class="side-padding10">HOME</span> <span>ABOUT</span>-->
-                        <!--</div>-->
                     </div>
                 </div>
             </div>
@@ -18,19 +17,23 @@
                     <div class="loginColumns animated fadeInDown custom-login-column modified">
                         <div class="row m-b-xl">
                             <div class="col-md-5 m-b-md">
-                                <h1 class="font-bold text-navbar-blue">Take control of your health and well-being with <span ng-bind="loginVm.brandName"></span>.</h1>
+                                <h1 class="font-bold text-navbar-blue">Take control of your health and well-being with
+                                    <span ng-bind="loginVm.brandName"></span>.</h1>
                                 <div class="m-t border-top-navbar-blue">
-                                    <h2 class="m-t-xs font-bold m-t text-dark-blue">Welcome to the <span ng-bind="loginVm.brandName"></span>  Administration Page</h2>
+                                    <h2 class="m-t-xs font-bold m-t text-dark-blue">Welcome to the <span
+                                            ng-bind="loginVm.brandName"></span> Administration Page</h2>
                                     <p> Please Log in.</p>
                                 </div>
                             </div>
                             <div class="col-md-7 skin-1">
                                 <div class="ibox-content img-circle">
                                     <div class="m-t-sm">
-                                        <c2s-oauth-login brand="loginVm.brandName" ></c2s-oauth-login>
+                                        <c2s-oauth-login brand="loginVm.brandName"></c2s-oauth-login>
                                     </div>
                                     <div class="text-center">
-                                        <a href="#"><small>Forgot Password?</small></a>
+                                        <a href="#">
+                                            <small>Forgot Password?</small>
+                                        </a>
                                         <p> Version: {{::loginVm.version}} </p>
                                     </div>
                                 </div>
@@ -44,13 +47,21 @@
             <div class="row " style="background-color: #fff">
                 <div class="col-md-8 col-md-offset-2 padding-bottom-15">
                     <div id="ppTop" class="text-left">
-                        <h3 class="text-navbar-blue"><i class="fa fa-legal fa-2x m-r-xs"></i>  About Using the <span ng-bind="loginVm.brandName"></span> Administrator account.</h3>
+                        <h3 class="text-navbar-blue"><i class="fa fa-legal fa-2x m-r-xs"></i> About Using the <span
+                                ng-bind="loginVm.brandName"></span> Administrator account.</h3>
                     </div>
-                    <p>By entering this electronic system, you have acknowledged that you have read and understand the HIPPA and HITECH regulations and requirements relating to privacy, confidentiality, and security of PHI, please read the HIPAA information.</p>
+                    <p>By entering this electronic system, you have acknowledged that you have read and understand the
+                        HIPPA and HITECH regulations and requirements relating to privacy, confidentiality, and security
+                        of PHI, please read the HIPAA information.</p>
 
-                    <p><span ng-bind="loginVm.brandName"></span>, a Health Insurance Portability and Accountability Act (HIPAA) & Health Information Technology for Economic and Clinical Health (HITECH) Act compliant electronic system housing protected health information (PHI).
-                        The HIPAA and HITECH regulations apply to covered entities (Consent2Share) and also extend to business associates (agencies and contracted vendors).
-                        For more information, please visit our <a href="http://www.hhs.gov/hipaa" aria-label="Health Information Privacy Website" target="_blank">HIPAA and HITECH</a> resource.</p>
+                    <p><span ng-bind="loginVm.brandName"></span>, a Health Insurance Portability and Accountability Act
+                        (HIPAA) & Health Information Technology for Economic and Clinical Health (HITECH) Act compliant
+                        electronic system housing protected health information (PHI).
+                        The HIPAA and HITECH regulations apply to covered entities (Consent2Share) and also extend to
+                        business associates (agencies and contracted vendors).
+                        For more information, please visit our <a href="http://www.hhs.gov/hipaa"
+                                                                  aria-label="Health Information Privacy Website"
+                                                                  target="_blank">HIPAA and HITECH</a> resource.</p>
                     </p>
                 </div>
             </div>
