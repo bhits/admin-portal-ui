@@ -1,6 +1,6 @@
 # Admin Portal UI
 
-The Admin Portal UI (admin-portal-ui) is an administrative user interface module of the Consent2Share (C2S) used to create and manage patient accounts. Administrative staff can use this to log in, visit their home page, create patient accounts, and manage patient information.
+The Admin Portal UI (admin-portal-ui) is an administrative user interface module of Consent2Share (C2S) used to create and manage patient accounts. Administrative staff can use this to log in, visit their home page, create patient accounts, and manage patient information.
 
 ## Build
 
@@ -43,7 +43,7 @@ Note: Frontend developers can build `client` and `server` modules separately and
 
 ### Commands
 
-This is a [Spring Boot](https://projects.spring.io/spring-boot/) project and serves the project via an embedded Tomcat instance, therefore there is no need for a separate application server to run it.
+This is a [Spring Boot](https://projects.spring.io/spring-boot/) project and serves the project via an embedded Tomcat instance. Therefore there is no need for a separate application server to run it.
 
 + Run as a JAR file: `java -jar admin-portal-ui-x.x.x-SNAPSHOT.jar <additional program arguments>`
 + Run as a Docker Container: `docker run -d bhits/admin-portal-ui:latest <additional program arguments>`
