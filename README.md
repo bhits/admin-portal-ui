@@ -1,6 +1,6 @@
 # Admin Portal UI
 
-The Admin Portal UI (admin-portal-ui) is an administrative user interface module of Consent2Share (C2S) used to create and manage patient accounts. Administrative staff can use this to log in, visit their home page, create patient accounts, and manage patient information.
+The Admin Portal UI (admin-portal-ui) is an administrative user interface component of Consent2Share (C2S) used to create and manage patient accounts. Administrative staff can use this to log in, visit their home page, create patient accounts, and manage patient information.
 
 ## Build
 
