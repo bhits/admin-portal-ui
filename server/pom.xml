@@ -78,6 +78,9 @@
         </profile>
         <profile>
             <id>bhits-mvn-repo</id>
+            <properties>
+                <grunt.build.arguments>build-dev</grunt.build.arguments>
+            </properties>
             <distributionManagement>
                 <repository>
                     <id>deployment</id>
@@ -102,9 +105,6 @@
         </profile>
         <profile>
             <id>dev</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
             <properties>
                 <grunt.build.arguments>build-dev</grunt.build.arguments>
             </properties>
