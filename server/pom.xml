@@ -62,38 +62,30 @@
         <docker.maven.version>0.4.3</docker.maven.version>
     </properties>
 
+    <!-- Comment out the below distributionManagement if you couldn't connect to FEi Nexus repository manager to upload dependencies when you run 'mvn deploy' command -->
+
+    <distributionManagement>
+        <repository>
+            <id>deployment</id>
+            <name>Internal Releases</name>
+            <url>http://${maven.nexus.servername}/repository/releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>deployment</id>
+            <name>Internal Releases</name>
+            <url>http://${maven.nexus.servername}/repository/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <repositories>
+        <repository>
+            <id>repo.spring.io</id>
+            <name>Spring Milestone Repository</name>
+            <url>https://repo.spring.io/libs-milestone-local</url>
+        </repository>
+    </repositories>
+
     <profiles>
-        <profile>
-            <id>external-build</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <repositories>
-                <repository>
-                    <id>repo.spring.io</id>
-                    <name>Spring Milestone Repository</name>
-                    <url>https://repo.spring.io/libs-milestone-local</url>
-                </repository>
-            </repositories>
-        </profile>
-        <profile>
-            <id>bhits-mvn-repo</id>
-            <properties>
-                <grunt.build.arguments>build-dev</grunt.build.arguments>
-            </properties>
-            <distributionManagement>
-                <repository>
-                    <id>deployment</id>
-                    <name>Internal Releases</name>
-                    <url>http://${maven.nexus.servername}/repository/releases/</url>
-                </repository>
-                <snapshotRepository>
-                    <id>deployment</id>
-                    <name>Internal Releases</name>
-                    <url>http://${maven.nexus.servername}/repository/snapshots/</url>
-                </snapshotRepository>
-            </distributionManagement>
-        </profile>
         <profile>
             <id>skipGrunt</id>
             <activation>
@@ -105,6 +97,9 @@
         </profile>
         <profile>
             <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
             <properties>
                 <grunt.build.arguments>build-dev</grunt.build.arguments>
             </properties>
