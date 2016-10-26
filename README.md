@@ -48,7 +48,7 @@ This is a [Spring Boot](https://projects.spring.io/spring-boot/) project and ser
 + Run as a JAR file: `java -jar admin-portal-ui-x.x.x-SNAPSHOT.jar <additional program arguments>`
 + Run as a Docker Container: `docker run -d bhits/admin-portal-ui:latest <additional program arguments>`
 
-*NOTE: In order for this application to fully function as a microservice in C2S Application, it is also required to setup the dependency microservices and support level infrastructure. Please refer to the C2S Deployment Guide for instructions to setup the C2S infrastructure.*
+*NOTE: In order for this application to fully function as a microservice in C2S Application, it is also required to setup the dependency microservices and support level infrastructure. Please refer to the [C2S Deployment Guide](https://github.com/bhits/consent2share/releases/download/2.0.0/c2s-deployment-guide.pdf) for instructions to setup the C2S infrastructure.*
 
 ## Configure
 
@@ -129,6 +129,9 @@ In the `gruntfile.js`, locate the `dev` environment configuration. After adjusti
 [//]: # (## Notes)
 
 [//]: # (## Contribute)
+
+## License
+View [license](https://github.com/bhits/admin-portal-ui/blob/master/LICENSE) information for the software contained in this repository.
 
 ## Contact
 If you have any questions, comments, or concerns please see [Consent2Share](https://bhits.github.io/consent2share/) page

@@ -5,7 +5,7 @@ The Admin Portal UI is an administrative user interface used to create and manag
 
 # Supported Tags and Respective `Dockerfile` Links
 
-[`1.13.0`](https://github.com/bhits/admin-portal-ui/blob/master/admin-portal-ui/src/main/docker/Dockerfile),[`latest`](https://github.com/bhits/admin-portal-ui/blob/master/admin-portal-ui/src/main/docker/Dockerfile)[(1.13.0/Dockerfile)](https://github.com/bhits/admin-portal-ui/blob/master/admin-portal-ui/src/main/docker/Dockerfile)
+[`1.13.0`](https://github.com/bhits/admin-portal-ui/blob/master/server/src/main/docker/Dockerfile),[`latest`](https://github.com/bhits/admin-portal-ui/blob/master/server/src/main/docker/Dockerfile)[(1.13.0/Dockerfile)](https://github.com/bhits/admin-portal-ui/blob/master/server/src/main/docker/Dockerfile)
 
 For more information about this image, the source code, and its history, please see the [GitHub repository](https://github.com/bhits/admin-portal-ui).
 
@@ -29,7 +29,7 @@ Be sure to familiarize yourself with the repository's [README.md](https://github
 
 ## Configure
 
-This API runs with a [default configuration](https://github.com/bhits/admin-portal-ui/blob/master/admin-portal-ui/src/main/resources/application.yml) that is primarily targeted for the development environment.  The Spring profile `docker` is actived by default when building images. [Spring Boot](https://projects.spring.io/spring-boot/) supports several methods to override the default configuration to configure the API for a certain deployment environment. 
+This API runs with a [default configuration](https://github.com/bhits/admin-portal-ui/blob/master/server/src/main/resources/application.yml) that is primarily targeted for the development environment.  The Spring profile `docker` is actived by default when building images. [Spring Boot](https://projects.spring.io/spring-boot/) supports several methods to override the default configuration to configure the API for a certain deployment environment. 
 
 Here is example to override default database password:
 
@@ -68,7 +68,7 @@ Support for older versions (down to 1.6) is provided on a best-effort basis.
 Please see the [Docker installation documentation](https://docs.docker.com/engine/installation/) for details on how to upgrade your Docker daemon.
 
 # License
-View [license](https://github.com/bhits/admin-portal-ui) information for the software contained in this image.
+View [license](https://github.com/bhits/admin-portal-ui/blob/master/LICENSE) information for the software contained in this image.
 
 # User Feedback
 
