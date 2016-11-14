@@ -9,8 +9,8 @@
         .factory('patientDocumentService', patientDocumentService);
 
     /* @ngInject */
-    function patientDocumentService($resource, envService) {
-        var patientDemographicResource = $resource(envService.securedApis.phrApiBaseUrl + "/patients/patientDemographic", {},
+    function patientDocumentService($resource, configService) {
+        var patientDemographicResource = $resource(configService.getPhrApiBaseUrl() + "/patients/patientDemographic", {},
             {
                 'query': {
                     method: 'GET',
@@ -23,7 +23,7 @@
                 }
             }
         );
-        var retrieveDocumentResource = $resource(envService.securedApis.pepApiBaseUrl + "/documents", {},
+        var retrieveDocumentResource = $resource(configService.getPepApiBaseUrl() + "/documents", {},
             {
                 'query': {
                     method: 'GET',
