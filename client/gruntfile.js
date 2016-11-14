@@ -38,10 +38,10 @@ module.exports = function (grunt) {
          */
         meta: {
             banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' +
-                '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
-                '<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
-                '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
-                ' Licensed <%= _.map(pkg.licenses, "type").join(", ") %> */\n'
+            '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
+            '<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
+            '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
+            ' Licensed <%= _.map(pkg.licenses, "type").join(", ") %> */\n'
         },
         bower: {
             install: {
@@ -83,7 +83,7 @@ module.exports = function (grunt) {
         clean: {
             all: {
                 src: ['<%= build_dir %>**', '<%= build_reports_dir %>']
-            },
+            }
         },
         /**
          * The `copy` task just copies files from A to B. We use it here to copy
@@ -109,6 +109,16 @@ module.exports = function (grunt) {
                         cwd: '.',
                         expand: true,
                         flatten: true
+                    }
+                ]
+            },
+            build_bootstrapjs: {
+                files: [
+                    {
+                        src: ['<%= bootstrap_files.js %>'],
+                        dest: '<%= build_debug_dir %>/',
+                        cwd: '.',
+                        expand: true
                     }
                 ]
             },
@@ -504,7 +514,7 @@ module.exports = function (grunt) {
                 constants: {
                     envService: {
                         name: 'Development',
-                        version:'<%= pkg.version %>',
+                        version: '<%= pkg.version %>',
                         base64BasicKey: 'YWRtaW4tcG9ydGFsLXVpOmNoYW5nZWl0',
                         securedApis: {
                             phrApiBaseUrl: '/phr',
@@ -513,7 +523,7 @@ module.exports = function (grunt) {
                             patientUserApiBaseUrl: '/patientUser',
                             pepApiBaseUrl: '/pep'
                         },
-                        unsecuredApis:{
+                        unsecuredApis: {
                             tokenUrl: '/uaa/oauth/token'
                         }
                     }
@@ -526,16 +536,16 @@ module.exports = function (grunt) {
                 constants: {
                     envService: {
                         name: 'QA',
-                        version:'<%= pkg.version %>',
+                        version: '<%= pkg.version %>',
                         base64BasicKey: 'YWRtaW4tcG9ydGFsLXVpOkJZanlXWFNiRHZkcQ==',
                         securedApis: {
                             phrApiBaseUrl: '/phr',
                             registrationApiBaseUrl: '/patientRegistration',
                             userInfo: '/uaa/userinfo',
-                            patientUserApiBaseUrl:'/patientUser',
+                            patientUserApiBaseUrl: '/patientUser',
                             pepApiBaseUrl: '/pep'
                         },
-                        unsecuredApis:{
+                        unsecuredApis: {
                             tokenUrl: '/uaa/oauth/token'
                         }
                     }
@@ -548,16 +558,16 @@ module.exports = function (grunt) {
                 constants: {
                     envService: {
                         name: 'docker',
-                        version:'<%= pkg.version %>',
+                        version: '<%= pkg.version %>',
                         base64BasicKey: 'YWRtaW4tcG9ydGFsLXVpOmNoYW5nZWl0',
                         securedApis: {
                             registrationApiBaseUrl: '/patientRegistration',
                             phrApiBaseUrl: '/phr',
                             userInfo: '/uaa/userinfo',
-                            patientUserApiBaseUrl:'/patientUser',
+                            patientUserApiBaseUrl: '/patientUser',
                             pepApiBaseUrl: '/pep'
                         },
-                        unsecuredApis:{
+                        unsecuredApis: {
                             tokenUrl: '/uaa/oauth/token'
                         }
                     }
@@ -570,9 +580,9 @@ module.exports = function (grunt) {
         war: {
             target: {
                 options: {
-                    war_dist_folder: '<%= build_war_dir %>',    /* Folder where to generate the WAR. */
-                    war_name: '<%= pkg.name %>',    /* The name fo the WAR file (.war will be the extension) */
-                    webxml_display_name: '<%= pkg.name %>',
+                    war_dist_folder: '<%= build_war_dir %>', /* Folder where to generate the WAR. */
+                    war_name: '<%= pkg.name %>', /* The name fo the WAR file (.war will be the extension) */
+                    webxml_display_name: '<%= pkg.name %>'
                 },
                 files: [
                     {
@@ -586,9 +596,9 @@ module.exports = function (grunt) {
         },
         ngAnnotate: {
             options: {
-              remove:true,
-              add: true,
-              singleQuotes: true
+                remove: true,
+                add: true,
+                singleQuotes: true
             },
             compile: {
                 files: [
@@ -618,6 +628,7 @@ module.exports = function (grunt) {
             return file.match(/\.js$/);
         });
     }
+
     /**
      * A utility function to get all app CSS sources.
      */
@@ -626,6 +637,7 @@ module.exports = function (grunt) {
             return file.match(/\.css$/);
         });
     }
+
     /**
      * The index.html template includes the stylesheet and javascript sources
      * based on dynamic names calculated in this Gruntfile. This task assembles
@@ -734,33 +746,34 @@ module.exports = function (grunt) {
 
         taskList = ['clean', 'bower:install'];
 
-        if (target === targetEnum.dev || target === targetEnum.ci ) {
+        if (target === targetEnum.dev || target === targetEnum.ci) {
             taskList.push('ngconstant:dev');
-        }else if (target === targetEnum.qa ) {
+        } else if (target === targetEnum.qa) {
             taskList.push('ngconstant:qa');
-        }else if (target === targetEnum.docker ) {
+        } else if (target === targetEnum.docker) {
             taskList.push('ngconstant:docker');
         }
 
         taskList.push('html2js',
-                      'jshint-all',
-                      'recess:build',
-                      'concat:build_css',
-                      'copy:build_app_assets',
-                      'copy:build_vendor_assets',
-                      'copy:build_appjs',
-                      'copy:build_vendorjs',
-                      'index:build',
-                      'angularFileLoader',
-                      'karmaconfig');
+            'jshint-all',
+            'recess:build',
+            'concat:build_css',
+            'copy:build_app_assets',
+            'copy:build_vendor_assets',
+            'copy:build_bootstrapjs',
+            'copy:build_appjs',
+            'copy:build_vendorjs',
+            'index:build',
+            'angularFileLoader',
+            'karmaconfig');
 
-        if (target === targetEnum.debug || target === targetEnum.dist || target === targetEnum.dev  ) {
+        if (target === targetEnum.debug || target === targetEnum.dist || target === targetEnum.dev) {
             taskList.push('karma:unit');
-        }else if(target === targetEnum.ci){
+        } else if (target === targetEnum.ci) {
             taskList.push('karma:ci');
         }
 
-        if (target === targetEnum.dev || target === targetEnum.debug || target === targetEnum.dist || target === targetEnum.qa ||target === targetEnum.docker||target === targetEnum.ci) {
+        if (target === targetEnum.dev || target === targetEnum.debug || target === targetEnum.dist || target === targetEnum.qa || target === targetEnum.docker || target === targetEnum.ci) {
             taskList = taskList.concat(['compile']);
         }
         grunt.task.run(taskList);
