@@ -515,7 +515,6 @@ module.exports = function (grunt) {
                     envService: {
                         name: 'Development',
                         version: '<%= pkg.version %>',
-                        base64BasicKey: 'YWRtaW4tcG9ydGFsLXVpOmNoYW5nZWl0',
                         securedApis: {
                             phrApiBaseUrl: '/phr',
                             registrationApiBaseUrl: '/patientRegistration',
@@ -537,7 +536,6 @@ module.exports = function (grunt) {
                     envService: {
                         name: 'QA',
                         version: '<%= pkg.version %>',
-                        base64BasicKey: 'YWRtaW4tcG9ydGFsLXVpOkJZanlXWFNiRHZkcQ==',
                         securedApis: {
                             phrApiBaseUrl: '/phr',
                             registrationApiBaseUrl: '/patientRegistration',
@@ -559,7 +557,6 @@ module.exports = function (grunt) {
                     envService: {
                         name: 'docker',
                         version: '<%= pkg.version %>',
-                        base64BasicKey: 'YWRtaW4tcG9ydGFsLXVpOmNoYW5nZWl0',
                         securedApis: {
                             registrationApiBaseUrl: '/patientRegistration',
                             phrApiBaseUrl: '/phr',

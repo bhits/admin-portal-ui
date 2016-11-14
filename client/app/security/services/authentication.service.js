@@ -5,14 +5,14 @@
         .factory('authenticationService', authenticationService);
 
     /* @ngInject */
-    function authenticationService($resource, envService, oauthTokenService, $state) {
+    function authenticationService($resource, envService, configService, oauthTokenService, $state) {
         var loginResource = function () {
             return $resource(envService.unsecuredApis.tokenUrl, {},
                 {
                     save: {
                         method: 'POST',
                         headers: {
-                            'Authorization': 'Basic ' + envService.base64BasicKey,
+                            'Authorization': 'Basic ' + configService.getOauthBasicKey(),
                             'Content-Type': 'application/x-www-form-urlencoded'
                         },
                         transformRequest: function (data) {
