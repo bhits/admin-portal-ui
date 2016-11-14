@@ -5,9 +5,9 @@
         .factory('authenticationService', authenticationService);
 
     /* @ngInject */
-    function authenticationService($resource, envService, configService, oauthTokenService, $state) {
+    function authenticationService($resource, configService, oauthTokenService, $state) {
         var loginResource = function () {
-            return $resource(envService.unsecuredApis.tokenUrl, {},
+            return $resource(configService.getTokenUrl(), {},
                 {
                     save: {
                         method: 'POST',
