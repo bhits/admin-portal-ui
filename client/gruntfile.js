@@ -513,18 +513,7 @@ module.exports = function (grunt) {
                 },
                 constants: {
                     envService: {
-                        name: 'Development',
-                        version: '<%= pkg.version %>',
-                        securedApis: {
-                            phrApiBaseUrl: '/phr',
-                            registrationApiBaseUrl: '/patientRegistration',
-                            userInfo: '/uaa/userinfo',
-                            patientUserApiBaseUrl: '/patientUser',
-                            pepApiBaseUrl: '/pep'
-                        },
-                        unsecuredApis: {
-                            tokenUrl: '/uaa/oauth/token'
-                        }
+                        version: '<%= pkg.version %>'
                     }
                 }
             },
@@ -534,18 +523,7 @@ module.exports = function (grunt) {
                 },
                 constants: {
                     envService: {
-                        name: 'QA',
-                        version: '<%= pkg.version %>',
-                        securedApis: {
-                            phrApiBaseUrl: '/phr',
-                            registrationApiBaseUrl: '/patientRegistration',
-                            userInfo: '/uaa/userinfo',
-                            patientUserApiBaseUrl: '/patientUser',
-                            pepApiBaseUrl: '/pep'
-                        },
-                        unsecuredApis: {
-                            tokenUrl: '/uaa/oauth/token'
-                        }
+                        version: '<%= pkg.version %>'
                     }
                 }
             },
@@ -555,18 +533,7 @@ module.exports = function (grunt) {
                 },
                 constants: {
                     envService: {
-                        name: 'docker',
-                        version: '<%= pkg.version %>',
-                        securedApis: {
-                            registrationApiBaseUrl: '/patientRegistration',
-                            phrApiBaseUrl: '/phr',
-                            userInfo: '/uaa/userinfo',
-                            patientUserApiBaseUrl: '/patientUser',
-                            pepApiBaseUrl: '/pep'
-                        },
-                        unsecuredApis: {
-                            tokenUrl: '/uaa/oauth/token'
-                        }
+                        version: '<%= pkg.version %>'
                     }
                 }
             }
