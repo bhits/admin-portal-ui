@@ -9,6 +9,11 @@
     function configService(configConstants, notificationService) {
 
         var service = {};
+        service.getBrandName = getBrandName;
+        service.getBrandInitials = getBrandInitials;
+        service.getBrandSmallLogo = getBrandSmallLogo;
+        service.getBrandMediumLogo = getBrandMediumLogo;
+        service.getBrandLargeLogo = getBrandLargeLogo;
         service.getOauthBasicKey = getOauthBasicKey;
         service.getPhrApiBaseUrl = getPhrApiBaseUrl;
         service.getRegistrationApiBaseUrl = getRegistrationApiBaseUrl;
@@ -27,6 +32,26 @@
                     notificationService.error('Failed to get configuration for ' + errorMessage);
                 }
             }
+        }
+
+        function getBrandName() {
+            return getConfigByPropertyKey('branding.name', 'Brand Name');
+        }
+
+        function getBrandInitials() {
+            return getConfigByPropertyKey('branding.initials', 'Brand Initials');
+        }
+
+        function getBrandSmallLogo() {
+            return getConfigByPropertyKey('branding.smallLogo', 'Brand Small Logo');
+        }
+
+        function getBrandMediumLogo() {
+            return getConfigByPropertyKey('branding.mediumLogo', 'Brand Medium Logo');
+        }
+
+        function getBrandLargeLogo() {
+            return getConfigByPropertyKey('branding.largeLogo', 'Brand Large Logo');
         }
 
         function getOauthBasicKey() {
