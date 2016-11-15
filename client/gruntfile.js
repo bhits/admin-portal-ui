@@ -671,7 +671,8 @@ module.exports = function (grunt) {
 
         taskList = ['clean', 'bower:install'];
 
-        taskList.push('html2js',
+        taskList.push(
+            'html2js',
             'jshint-all',
             'recess:build',
             'ngconstant:app',
@@ -683,7 +684,8 @@ module.exports = function (grunt) {
             'copy:build_vendorjs',
             'index:build',
             'angularFileLoader',
-            'karmaconfig');
+            'karmaconfig'
+        );
 
         if (target === targetEnum.debug || target === targetEnum.dist) {
             taskList.push('karma:unit');
