@@ -3,7 +3,6 @@
 xdescribe('app.data:', function () {
     // Define global references for injections.
     var patientService;
-    var envService;
     var $httpBackend;
 
     beforeEach(module('app.config'));
@@ -13,7 +12,6 @@ xdescribe('app.data:', function () {
     beforeEach(inject(function ($injector) {
         $httpBackend = $injector.get('$httpBackend');
         patientService = $injector.get('patientService');
-        envService = $injector.get('envService');
     }));
 
     afterEach(function () {

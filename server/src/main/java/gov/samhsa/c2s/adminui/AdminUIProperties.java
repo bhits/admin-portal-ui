@@ -12,9 +12,19 @@ import java.nio.charset.StandardCharsets;
 @Data
 public class AdminUIProperties {
 
+    private Branding branding;
     private Oauth2 oauth2;
     private SecuredApis securedApis;
     private UnsecuredApis unsecuredApis;
+
+    @Data
+    public static class Branding {
+        private String name;
+        private String initials;
+        private String smallLogo;
+        private String mediumLogo;
+        private String largeLogo;
+    }
 
     @Data
     public static class Oauth2 {

@@ -9,7 +9,6 @@
         .module('app.error',
             [
                 'app.config',
-                'app.core',
-                'app.brand'
+                'app.core'
             ]);
 })();

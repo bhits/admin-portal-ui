@@ -7,19 +7,18 @@
         .factory('patientService', patientService);
 
     /* @ngInject */
-    function patientService($resource, envService) {
-        var registrationResource = $resource(envService.securedApis.registrationApiBaseUrl + "/patients");
-        var basePhrURL = envService.securedApis.phrApiBaseUrl;
+    function patientService($resource, configService) {
+        var registrationResource = $resource(configService.getRegistrationApiBaseUrl() + "/patients");
+        var basePhrURL = configService.getPhrApiBaseUrl();
+        var basePatientUserURL = configService.getPatientUserApiBaseUrl();
         var basePhrPatientURL = basePhrURL + "/patients";
         var stateResource = $resource(basePhrURL + "/statecodes");
 
-        var basePatientUserURL = envService.securedApis.patientUserApiBaseUrl;
         var patientSearchResource = $resource(basePhrPatientURL + "/search/:token", {token: '@token'});
         var patientProfileResource = $resource(basePhrPatientURL + "/:patientId/profile", {patientId: '@patientId'});
         var patientIdentifierResource = $resource(basePhrPatientURL + "/:patientId/patientIdentifier", {patientId: '@patientId'});
         var patientProfileUpdateResource = $resource(basePhrPatientURL + "/:patientId", {patientId: '@patientId'}, {'update': {method: 'PUT'}});
         var patientUserResource = $resource(basePatientUserURL + "/creations");
-        var getUserCreationResource = $resource(patientUserResource + "?patientId=:patientId", {patientId: '@patientId'});
         var patientListResource = $resource(basePhrPatientURL + "/pageNumber",
             {pageNumber: '@pageNumber'},
             {
@@ -29,7 +28,6 @@
                 }
             }
         );
-
 
         var service = {};
 
