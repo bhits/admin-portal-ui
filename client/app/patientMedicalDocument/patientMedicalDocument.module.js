@@ -9,7 +9,6 @@
         .module('app.patientMedicalDocument',
             [
                 'app.config',
-                'app.core',
-                'app.brand'
+                'app.core'
             ]);
 })();

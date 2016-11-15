@@ -5,7 +5,6 @@
         .module('app.home',
             [
                 'app.core',
-                'app.data',
-                'app.brand'
+                'app.data'
             ]);
 })();

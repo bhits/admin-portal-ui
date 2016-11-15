@@ -15,7 +15,6 @@
             'app.layout',
             'app.patient',
             'app.account',
-            'app.brand',
             'app.patientMedicalDocument',
             'app.error'
         ]);
