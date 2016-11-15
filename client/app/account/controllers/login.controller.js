@@ -7,10 +7,10 @@
         .controller('LoginController', LoginController);
 
     /* @ngInject */
-    function LoginController(envService, brand) {
+    function LoginController(envService, configService) {
         var vm = this;
         vm.version = envService.version;
-        vm.brandName = brand.getBrandName();
-        vm.altLogoText = brand.getBrandInitials() + " Logo";
+        vm.brandName = configService.getBrandName();
+        vm.altLogoText = configService.getBrandInitials() + " Logo";
     }
 })();
