@@ -19,5 +19,4 @@ public class AdminUIApplication {
     public String redirect() {
         return "forward:/";
     }
-
 }
