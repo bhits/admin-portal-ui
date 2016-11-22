@@ -35,7 +35,7 @@ To build the project, navigate to the folder that contains `pom.xml` file using 
 
 Note: Frontend developers can build `client` and `server` modules separately and save build time by skipping the full Grunt build when not needed. This option requires [Grunt](http://gruntjs.com/) to be installed globally.
   
-1. Build the `client` module: *run `grunt build:dev` in the client folder*
+1. Build the `client` module: *run `grunt build:dist` in the client folder*
 2. Start Grunt watch task to monitor the changes in the `client` module: *run `grunt watch` in the client folder*
 3. Manually repackage the `jar` file from the `server` module when Grunt watch re-compiles a resource: *run `mvnw.cmd clean install -PskipGrunt` in the server folder*
 
@@ -48,17 +48,43 @@ This is a [Spring Boot](https://projects.spring.io/spring-boot/) project and ser
 + Run as a JAR file: `java -jar admin-portal-ui-x.x.x-SNAPSHOT.jar <additional program arguments>`
 + Run as a Docker Container: `docker run -d bhits/admin-portal-ui:latest <additional program arguments>`
 
-*NOTE: In order for this application to fully function as a microservice in C2S Application, it is also required to setup the dependency microservices and support level infrastructure. Please refer to the [C2S Deployment Guide](https://github.com/bhits/consent2share/releases/download/2.0.0/c2s-deployment-guide.pdf) for instructions to setup the C2S infrastructure.*
+*NOTE: In order for this application to fully function as a microservice in C2S application, it is also required to setup the dependency microservices and support level infrastructure. Please refer to the [Consent2Share Deployment Guide](https://github.com/bhits/consent2share/releases/download/2.0.0/c2s-deployment-guide.pdf) for instructions to setup the C2S infrastructure.*
 
 ## Configure
 
-### Server Configuration
+The `server` module runs with some default configuration that is primarily targeted for development environment. However, [Spring Boot](https://projects.spring.io/spring-boot/) supports several methods to override the default configuration to configure the API for a certain deployment environment.
 
-The `server` component is primarily responsible for serving the static `client` content. The configuration in `server` module is mostly for C2S infrastructure requirements.
+Please see the [default configuration](server/src/main/resources/application.yml) for this API as a guidance and override the specific configuration per environment as needed. Also, please refer to [Spring Boot Externalized Configuration](http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html) documentation to see how Spring Boot applies the order to load the properties and [Spring Boot Common Properties](http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html) documentation to see the common properties used by Spring Boot.
 
-*NOTE: The Admin Portal UI uses [HTML5 mode](https://docs.angularjs.org/guide/$location#html5-mode) for the URL format in the browser address bar and it also uses `/fe` as the base for all Angular routes. Therefore, the `server` component forwards all paths that starts with `/fe` to root.*
+### Examples for Overriding a Configuration in Spring Boot
 
+### Override a Configuration Using Program Arguments While Running as a JAR:
+
++ `java -jar admin-portal-ui-x.x.x-SNAPSHOT.jar --c2s.admin-ui.oauth2.client.secret=strongpassword`
+
+*NOTE: The `oauth2.client.client-id` and `oauth2.client.secret` value are used for [User Account and Authentication (UAA) Password Grant type](http://docs.cloudfoundry.org/api/uaa/#password-grant). The configuration uses the format `client_id:client_secret` to be Base 64 encoded. The `client_id` refers to the OAuth2 Client ID assigned to the Admin Portal UI by [UAA](https://docs.cloudfoundry.org/concepts/architecture/uaa.html). C2S uses `admin-portal-ui` as the default `client_id` for this application.*
+
+### Override a Configuration Using Program Arguments While Running as a Docker Container:
+
++ `docker run -d bhits/admin-portal-ui:latest --c2s.admin-ui.oauth2.client.secret=strongpassword`
+
++ In a `docker-compose.yml`, this can be provided as:
+```yml
+version: '2'
+services:
+...
+  admin-portal-ui.c2s.com:
+    image: "bhits/admin-portal-ui:latest"
+    command: ["--c2s.admin-ui.oauth2.client.secret=strongpassword"]
+...
+```
+
+*NOTE:*
+
++ Please note that these additional arguments will be appended to the default `ENTRYPOINT` specified in the `Dockerfile` unless the `ENTRYPOINT` is overridden.*
++ The Admin Portal UI uses [HTML5 mode](https://docs.angularjs.org/guide/$location#html5-mode) for the URL format in the browser address bar and it also uses `/fe` as the base for all Angular routes. Therefore, the `server` component forwards all paths that starts with `/fe` to root.*
 In the `AdminUIApplication.java`:
+
 ```java
 ...
   @RequestMapping(value = "/fe/**")
@@ -68,15 +94,15 @@ In the `AdminUIApplication.java`:
 ...
 ```
 
-#### Enable SSL
+### Enable SSL
 
 For simplicity in development and testing environments, SSL is **NOT** enabled by default configuration. SSL can easily be enabled following the examples below:
 
-##### Enable SSL While Running as a JAR
+#### Enable SSL While Running as a JAR
 
 + `java -jar admin-portal-ui-x.x.x-SNAPSHOT.jar --spring.profiles.active=ssl --server.ssl.key-store=/path/to/ssl_keystore.keystore --server.ssl.key-store-password=strongkeystorepassword`
 
-##### Enable SSL While Running as a Docker Container
+#### Enable SSL While Running as a Docker Container
 
 + `docker run -d -v "/path/on/dockerhost/ssl_keystore.keystore:/path/to/ssl_keystore.keystore" bhits/admin-portal-ui:latest --spring.profiles.active=ssl --server.ssl.key-store=/path/to/ssl_keystore.keystore --server.ssl.key-store-password=strongkeystorepassword`
 + In the `docker-compose.yml`, this can be provided as:
@@ -92,37 +118,11 @@ For simplicity in development and testing environments, SSL is **NOT** enabled b
 
 *NOTE: As seen in the examples above, `/path/to/ssl_keystore.keystore` is made available to the container via a volume mounted from the Docker host running this container.*
 
-#### Override Java CA Certificates Store In Docker Environment
+### Override Java CA Certificates Store In Docker Environment
 
 Java has a default CA Certificates Store that allows it to trust well-known certificate authorities. For development and testing purposes, one might want to trust additional self-signed certificates. In order to override the default Java CA Certificates Store in Docker container, one can mount a custom `cacerts` file over the default one in the Docker image as `docker run -d -v "/path/on/dockerhost/to/custom/cacerts:/etc/ssl/certs/java/cacerts" bhits/admin-portal-ui:latest`
 
 *NOTE: The `cacerts` references given in the both sides of volume mapping above are files, not directories.*
-
-### Client Configuration
-
-This project runs with some default configuration that is primarily targeted for development environment. You can change the default configuration in the [gruntfile](client/gruntfile.js), but you need to rebuild the project after any changes.
-
-Please see the [default configuration](client/gruntfile.js) as a guidance and adjust the environment specific configurations as needed.
-
-#### Examples for Changing Configuration in Grunt
-
-In the `gruntfile.js`, locate the `dev` environment configuration. After adjusting the configuration as needed, rebuild the project as defined in the [Build](#build) section.
-
-```js
-...
-  dev: {
-      options: {
-          dest: '<%= config_dir %>/config.js'
-      },
-      constants: {
-          envService: {
-              name: 'Development',
-              version:'<%= pkg.version %>',
-              base64BasicKey: 'newvalue',
-...
-```
-
-*NOTE: The `base64BasicKey` value is used for [User Account and Authentication (UAA) Password Grant type](http://docs.cloudfoundry.org/api/uaa/#password-grant). This configuration should be Base 64 encoded `client_id:client_secret` value. The `client_id` refers to the OAuth2 Client ID assigned to the Admin Portal UI by [UAA](https://docs.cloudfoundry.org/concepts/architecture/uaa.html). C2S uses `admin-portal-ui` as the default `client_id` for this application.*
 
 [//]: # (## API Documentation)
 
