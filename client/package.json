@@ -63,7 +63,6 @@
     "grunt-autoprefixer": "3.0.x",
     "grunt-contrib-htmlmin": "2.0.x",
     "grunt-contrib-imagemin": "1.0.x",
-    "grunt-bower-task": "0.4.x",
     "grunt-svgmin": "3.3.x",
     "grunt-usemin": "3.1.x",
     "jshint-stylish": "2.2.x",
@@ -75,8 +74,7 @@
     "grunt-war": "0.5.x",
     "grunt-cli": "1.2.x",
     "grunt-ng-annotate": "2.0.x",
-    "grunt-angular-file-loader": "1.2.x",
-    "bower": "~1.7.7"
+    "grunt-angular-file-loader": "1.2.x"
   },
   "engines": {
     "node": ">= 4.4.7"
