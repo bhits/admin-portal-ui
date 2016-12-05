@@ -22,8 +22,20 @@
     }
   ],
   "dependencies": {
+    "angular": "1.5.0",
+    "angular-resource": "1.5.0",
+    "angular-sanitize": "1.5.0",
+    "angular-aria": "1.5.0",
+    "angular-messages": "1.5.0",
+    "angular-loading-bar": "0.8.x",
+    "angular-ui-bootstrap": "1.2.x",
+    "angular-ui-router": "0.2.x",
+    "checklist-model": "0.9.x",
+    "ngstorage": "0.3.x",
+    "angular-jwt": "0.0.x"
   },
   "devDependencies": {
+    "angular-mocks": "1.5.0",
     "karma-chrome-launcher": "1.0.x",
     "karma-script-launcher": "1.0.x",
     "karma-firefox-launcher": "1.0.x",
