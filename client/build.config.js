@@ -31,7 +31,8 @@ module.exports = {
      *  - `debug_js` contains all the generated JS in the target\debug folder.
      */
     app_files: {
-        js: ['app/**/*.js', '!app/**/*.spec.js', '!app/**/*.e2e.js'],
+        js: ['app/**/*.js', 'app/**/*.js', '!app/**/*.spec.js', '!app/**/*.e2e.js'],
+        js_generated: ['app_ts/**/*.js'],
         jsunit: ['app/**/*.spec.js'],
         e2e: ['app/**/*.e2e.js'],
 
@@ -39,15 +40,21 @@ module.exports = {
 
         html: ['index.html'],
         less: 'less/main.less',
-        debug_js: ['target/debug/**/*.js', '!target/debug/**/karma.conf.js', '!target/debug/node_modules/**/*.js', '!target/debug/assets/**/*.js']
+        debug_js: ['target/debug/**/*.js', '!target/debug/bootstrap/**/*.js', '!target/debug/**/karma.conf.js', '!target/debug/node_modules/**/*.js', '!target/debug/assets/**/*.js']
     },
 
     /**
-     * This is a collection of file patterns that used for manually initialize Angular application
-     * The order of the files: These files will be put in the html files as the order in the array
+     * Manual bootstrap for Angular 1
      */
     bootstrap_files: {
         js: ['bootstrap/**/*.js']
+    },
+
+    /**
+     * Configuration for System.js
+     */
+    system_resources: {
+        js: ['resources/**/*.js']
     },
 
     /**
@@ -82,6 +89,10 @@ module.exports = {
      */
     vendor_files: {
         js: [
+            'node_modules/core-js/client/shim.js',
+            'node_modules/zone.js/dist/zone.js',
+            'node_modules/reflect-metadata/Reflect.js',
+            'node_modules/systemjs/dist/system.src.js',
             'node_modules/angular/angular.js',
             'node_modules/angular-resource/angular-resource.js',
             'node_modules/angular-sanitize/angular-sanitize.js',
@@ -97,6 +108,7 @@ module.exports = {
         css: [
             'node_modules/angular-loading-bar/build/loading-bar.css'
         ],
-        assets: []
+        assets: [],
+        angular2_lib:['node_modules/@angular/**/*.js','node_modules/rxjs/**/*.js' ]
     }
 };
