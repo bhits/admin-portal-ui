@@ -41,7 +41,7 @@
         <link rel="stylesheet" type="text/css" href="<%= file %>" />
         <% }); %>
     </head>
-    <body class="grey fixed-sidebar" ng-controller="AppController as AppVm">
+    <body class="grey fixed-sidebar" >
         <div ui-view ></div>
         <!-- INSPINIA RELATED JS  -->
 
@@ -80,5 +80,13 @@
         <!-- Compile application JS files will be injected between the angularand endangular comments below. -->
         <!-- angular -->
         <!-- endangular -->
+
+        
+        <!-- Configure System.js, our module loader -->
+        <script src="resources/systemjs.config.js"></script>
+        <script>
+            System.import('app_ts/app.js')
+                    .then(null, console.error.bind(console));
+        </script>
     </body>
 </html>
