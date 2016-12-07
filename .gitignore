@@ -130,8 +130,8 @@ typings
 
 # Typescript
 .tscache
-app_ts/**/**
-!app_ts/**/*.ts
+client/app_ts/**/*.js
+client/app_ts/**/*.js.map
 
 # SASS #
 ##################################
