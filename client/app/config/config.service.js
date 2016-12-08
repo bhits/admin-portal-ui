@@ -6,7 +6,7 @@
         .factory('configService', configService);
 
     /* @ngInject */
-    function configService(NG2ConfigService) {
+    function configService(ConfigService) {
         var configPropertyList = [
             'branding.name',
             'branding.initials',
@@ -38,7 +38,7 @@
         return service;
 
         function getConfigByPropertyKey(index) {
-            return accessPropertyByStringKey(NG2ConfigService.config, configPropertyList[index]);
+            return accessPropertyByStringKey(ConfigService.config, configPropertyList[index]);
         }
 
         function getBrandName() {

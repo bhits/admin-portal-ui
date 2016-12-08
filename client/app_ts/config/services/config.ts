@@ -8,7 +8,7 @@ export class NG2ConfigService {
     config: any;
 
     constructor(private http: Http) {
-        console.log('ctor for ConfigService called.')
+        console.log('constructor for ConfigService called.')
     }
 
     load() {
