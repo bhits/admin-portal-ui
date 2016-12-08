@@ -40,7 +40,15 @@ module.exports = {
 
         html: ['index.html'],
         less: 'less/main.less',
-        debug_js: ['target/debug/**/*.js', '!target/debug/bootstrap/**/*.js', '!target/debug/**/karma.conf.js', '!target/debug/node_modules/**/*.js', '!target/debug/assets/**/*.js']
+        debug_js: [
+            'target/debug/**/*.js',
+            '!target/debug/bootstrap/**/*.js',
+            '!target/debug/**/karma.conf.js',
+            '!target/debug/node_modules/**/*.js',
+            '!target/debug/assets/**/*.js',
+            '!target/debug/app_ts/**/*.js',
+            '!target/debug/resources/**/*.js'
+        ]
     },
 
     /**
