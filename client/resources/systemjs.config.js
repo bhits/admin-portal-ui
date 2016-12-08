@@ -4,8 +4,7 @@
   var map = {
     'app_ts':        'app_ts',
     'rxjs':       'node_modules/rxjs',
-    '@angular':   'node_modules/@angular',
-    'appModule':        'app/app.module.js'
+    '@angular':   'node_modules/@angular'
   };
 
   // packages tells the System loader how to load when no filename and/or no extension
@@ -39,11 +38,10 @@
     packages: packages
   }
 
-  console.log('config', config);
-
   // filterSystemConfig - index.html's chance to modify config before we register it.
-  if (global.filterSystemConfig) { global.filterSystemConfig(config); }
+  if (global.filterSystemConfig) {
+    global.filterSystemConfig(config);
+  }
 
   System.config(config);
-
 })(this);
