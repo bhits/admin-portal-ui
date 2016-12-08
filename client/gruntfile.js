@@ -585,7 +585,7 @@ module.exports = function (grunt) {
                 ],
                 dest:"app_ts/",
                 options: {
-                    module: 'system',
+                    module: 'commonjs',
                     moduleResolution: 'node',
                     target: 'ES5',
                     sourceMap: true,

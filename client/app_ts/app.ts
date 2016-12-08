@@ -12,7 +12,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { UpgradeAdapter } from '@angular/upgrade';
 import {HttpModule} from "@angular/http";
 
-import {NG2ConfigService} from "./config/services/config";
+import {NG2ConfigService} from "./config";
 
 /*
  * Create our upgradeAdapter
