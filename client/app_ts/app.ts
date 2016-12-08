@@ -14,8 +14,6 @@ import {HttpModule} from "@angular/http";
 
 import {NG2ConfigService} from "./config/services/config";
 
-// import 'appModule'; // "bare import" for side-effects
-
 /*
  * Create our upgradeAdapter
  */
