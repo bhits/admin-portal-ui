@@ -38,12 +38,7 @@
         return service;
 
         function getConfigByPropertyKey(index) {
-            if((ConfigService !== null) && angular.isDefined(ConfigService.getConfig())){
-                var config = ConfigService.getConfig();
-                return accessPropertyByStringKey(config, configPropertyList[index]);
-            }else{
-                return null;
-            }
+            return accessPropertyByStringKey(ConfigService.config, configPropertyList[index]);
         }
 
         function getBrandName() {
@@ -95,20 +90,14 @@
         }
 
         function accessPropertyByStringKey(obj, stringKey) {
-            if(obj !== null){
-                var parts = stringKey.split('.');
-                var newObj = obj[parts[0]];
-                if (parts[1]) {
-                    parts.splice(0, 1);
-                    var newString = parts.join('.');
-                    return accessPropertyByStringKey(newObj, newString);
-                }
-                return newObj;
-            }else{
-                return null;
-
+            var parts = stringKey.split('.');
+            var newObj = obj[parts[0]];
+            if (parts[1]) {
+                parts.splice(0, 1);
+                var newString = parts.join('.');
+                return accessPropertyByStringKey(newObj, newString);
             }
-
+            return newObj;
         }
     }
 })();

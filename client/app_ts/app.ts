@@ -12,7 +12,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { UpgradeAdapter } from '@angular/upgrade';
 import {HttpModule} from "@angular/http";
 
-// import {NG2ConfigService} from "./config";
+import {NG2ConfigService} from "./config";
 
 /*
  * Create our upgradeAdapter
@@ -24,10 +24,10 @@ const upgradeAdapter: UpgradeAdapter = new UpgradeAdapter(
  * Expose our ng2 content to ng1
  */
 declare var angular: any;
-//
-// angular.module('app')
-//   .factory('ConfigService',
-//         upgradeAdapter.downgradeNg2Provider(NG2ConfigService));
+
+angular.module('app')
+  .factory('ConfigService',
+        upgradeAdapter.downgradeNg2Provider(NG2ConfigService));
 
 @NgModule({
   declarations: [],
@@ -38,13 +38,13 @@ declare var angular: any;
     HttpModule
   ],
   providers: [
-    // NG2ConfigService,
-    // {
-    //   provide: APP_INITIALIZER,
-    //   useFactory: (config: NG2ConfigService) => () => config.load(),
-    //   deps: [NG2ConfigService],
-    //   multi: true
-    // }
+    NG2ConfigService,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: (config: NG2ConfigService) => () => config.load(),
+      deps: [NG2ConfigService],
+      multi: true
+    }
   ]
 })
 class AdminUIModule { }

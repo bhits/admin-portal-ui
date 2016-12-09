@@ -10,7 +10,7 @@
         .run(appRun);
 
     /* @ngInject */
-    function appRun($rootScope, $state, $anchorScroll, authorizationService, errorService, ConfigService) {
+    function appRun($rootScope, $state, $anchorScroll, authorizationService, errorService) {
         $rootScope.$state = $state;
         $anchorScroll.yOffset = 135;
 
@@ -23,7 +23,5 @@
                 }
             }
         });
-
-        ConfigService.loadConfig();
     }
 })();
