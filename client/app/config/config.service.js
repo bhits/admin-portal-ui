@@ -6,21 +6,8 @@
         .factory('configService', configService);
 
     /* @ngInject */
-    function configService(ConfigService) {
-        var configPropertyList = [
-            'branding.name',
-            'branding.initials',
-            'branding.smallLogo',
-            'branding.mediumLogo',
-            'branding.largeLogo',
-            'oauth2.client.base64BasicKey',
-            'securedApis.phrApiBaseUrl',
-            'securedApis.registrationApiBaseUrl',
-            'securedApis.userInfo',
-            'securedApis.patientUserApiBaseUrl',
-            'securedApis.pepApiBaseUrl',
-            'unsecuredApis.tokenUrl'
-        ];
+    function configService(configConstants, configPropertyList) {
+
         var service = {};
         service.getBrandName = getBrandName;
         service.getBrandInitials = getBrandInitials;
@@ -38,7 +25,7 @@
         return service;
 
         function getConfigByPropertyKey(index) {
-            return accessPropertyByStringKey(ConfigService.config, configPropertyList[index]);
+            return accessPropertyByStringKey(configConstants, configPropertyList[index]);
         }
 
         function getBrandName() {
