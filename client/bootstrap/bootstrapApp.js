@@ -39,12 +39,14 @@
         });
     }
 
-    getAppConfig().then(function () {
-        // manually initializing Angular
-        angular.element(document).ready(function () {
-            angular.bootstrap(document, ['bootstrapApp']);
+    // manually initializing Angular
+    angular.element(document).ready(function () {
+        getAppConfig().then(function () {
         });
+        // angular.bootstrap(document, ['bootstrapApp']);
     });
+
+
 
     function checkPropertyExistsInConfiguration(configObj) {
         for (var i = 0; i < configPropertyList.length; i++) {
