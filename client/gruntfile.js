@@ -721,7 +721,7 @@ module.exports = function (grunt) {
             'concat:build_css',
             'copy:build_app_assets',
             'copy:build_vendor_assets',
-            // 'copy:build_bootstrapjs',
+            'copy:build_bootstrapjs',
             'copy:build_appjs',
             'copy:build_appjs_generated',
             'copy:build_systemjs_resources',
