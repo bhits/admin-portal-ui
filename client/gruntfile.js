@@ -576,14 +576,14 @@ module.exports = function (grunt) {
             install: {}
         },
         ts: {
-            default : {
+            default: {
                 src: [
                     "app_ts/**/*.ts",
-                    "!node_modules/**", "!target/**", "!vendor/**", "!protractor/**","!resources/**",
+                    "!node_modules/**", "!target/**", "!vendor/**", "!protractor/**", "!resources/**",
                     "!node/**", "!less/**", "!karma/**", "!assets/**", "!app/**/*.js",
-                    "typings/globals/angular/*.d.ts","typings/globals/jquery/*.d.ts", "typings/globals/es6-shim/*.d.ts"
+                    "typings/globals/angular/*.d.ts", "typings/globals/jquery/*.d.ts", "typings/globals/es6-shim/*.d.ts"
                 ],
-                dest:"app_ts/",
+                dest: "app_ts/",
                 options: {
                     module: 'commonjs',
                     moduleResolution: 'node',
@@ -731,12 +731,12 @@ module.exports = function (grunt) {
             'angularFileLoader',
             'karmaconfig'
         );
-        // FIXME Temporary suspend running unit test
-        // if (target === targetEnum.debug || target === targetEnum.dist) {
-        //     taskList.push('karma:unit');
-        // } else if (target === targetEnum.ci) {
-        //     taskList.push('karma:ci');
-        // }
+
+        if (target === targetEnum.debug || target === targetEnum.dist) {
+            taskList.push('karma:unit');
+        } else if (target === targetEnum.ci) {
+            taskList.push('karma:ci');
+        }
 
         if (target === targetEnum.debug || target === targetEnum.dist || target === targetEnum.ci) {
             taskList = taskList.concat(['compile']);
