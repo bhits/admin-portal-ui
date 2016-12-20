@@ -34,7 +34,7 @@
 
         return _http.get('/admin-ui/config').then(function (response) {
             if (checkPropertyExistsInConfiguration(response.data)) {
-                configInitial.constant('configConstants', response.data);
+                configInitial.constant('configProvider', response.data);
                 configInitial.constant('configPropertyList', configPropertyList);
             } else {
                 _window.location.href = '/admin-ui/configError';
