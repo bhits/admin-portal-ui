@@ -3,7 +3,7 @@
  */
 (function () {
     'use strict';
-    var configInitial = angular.module('configInitial', ['app']);
+    var configInitialization = angular.module('configInitialization', ['app']);
 
     // Define all expected configuration object properties
     // Note: Below array must keep in the same order as configuration object
@@ -34,8 +34,8 @@
 
         return _http.get('/admin-ui/config').then(function (response) {
             if (checkPropertyExistsInConfiguration(response.data)) {
-                configInitial.constant('configProvider', response.data);
-                configInitial.constant('configPropertyList', configPropertyList);
+                configInitialization.constant('configProvider', response.data);
+                configInitialization.constant('configPropertyList', configPropertyList);
             } else {
                 _window.location.href = '/admin-ui/configError';
             }

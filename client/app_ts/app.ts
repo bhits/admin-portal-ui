@@ -33,4 +33,4 @@ class AdminUIModule {
 /*
  * Bootstrap the App
  */
-upgradeAdapter.bootstrap(document.body, ['configInitial']);
+upgradeAdapter.bootstrap(document.body, ['configInitialization']);
