@@ -24,23 +24,27 @@
 
     // Load the initial configuration
     angular.element(document).ready(function () {
-        getAppConfig();
+        getAppConfig().then(function () {
+            console.log('Initial configuration successfully!');
+        }, function () {
+            console.log('Failure to initial configuration!');
+        })
     });
 
     function getAppConfig() {
         var initInjector = angular.injector(['ng']);
-        var _http = initInjector.get('$http');
-        var _window = initInjector.get('$window');
+        var ngHttp = initInjector.get('$http');
+        var ngWindow = initInjector.get('$window');
 
-        return _http.get('/admin-ui/config').then(function (response) {
+        return ngHttp.get('/admin-ui/config').then(function (response) {
             if (checkPropertyExistsInConfiguration(response.data)) {
                 configInitialization.constant('configProvider', response.data);
                 configInitialization.constant('configPropertyList', configPropertyList);
             } else {
-                _window.location.href = '/admin-ui/configError';
+                ngWindow.location.href = '/admin-ui/configError';
             }
         }, function (errorResponse) {
-            _window.location.href = '/admin-ui/configError';
+            ngWindow.location.href = '/admin-ui/configError';
         });
     }
 
