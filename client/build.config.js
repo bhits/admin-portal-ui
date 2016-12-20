@@ -33,6 +33,7 @@ module.exports = {
     app_files: {
         js: ['app/**/*.js', '!app/**/*.spec.js', '!app/**/*.e2e.js'],
         js_generated: ['app_ts/**/*.js'],
+        jsmap_generated: ['app_ts/**/*'],
         jsunit: ['app/**/*.spec.js'],
         e2e: ['app/**/*.e2e.js'],
 
@@ -52,7 +53,7 @@ module.exports = {
     },
 
     /**
-     * This is a collection of file patterns that used for loading configuration for initialize Angular application
+     * This is a collection of file patterns that used for loading configuration for initializing Angular application
      * The order of the files: These files will be put in the html files as the order in the array
      */
     configInitial_files: {
