@@ -3,7 +3,7 @@
  */
 (function () {
     'use strict';
-    var bootstrapApp = angular.module('bootstrapApp', ['app']);
+    var configInitialization = angular.module('configInitialization', ['app']);
 
     // Define all expected configuration object properties
     // Note: Below array must keep in the same order as configuration object
@@ -22,28 +22,31 @@
         'unsecuredApis.tokenUrl'
     ];
 
-    function getAppConfig() {
-        var initInjector = angular.injector(['ng']);
-        var _http = initInjector.get('$http');
-        var _window = initInjector.get('$window');
-
-        return _http.get('/admin-ui/config').then(function (response) {
-            if (checkPropertyExistsInConfiguration(response.data)) {
-                bootstrapApp.constant('configConstants', response.data);
-                bootstrapApp.constant('configPropertyList', configPropertyList);
-            } else {
-                _window.location.href = '/admin-ui/configError';
-            }
-        }, function (errorResponse) {
-            _window.location.href = '/admin-ui/configError';
-        });
-    }
-
-    // Load configurations
+    // Load the initial configuration
     angular.element(document).ready(function () {
         getAppConfig().then(function () {
-        });
+            console.log('Initial configuration successful.');
+        }, function () {
+            console.log('Initial configuration failed.');
+        })
     });
+
+    function getAppConfig() {
+        var initInjector = angular.injector(['ng']);
+        var ngHttp = initInjector.get('$http');
+        var ngWindow = initInjector.get('$window');
+
+        return ngHttp.get('/admin-ui/config').then(function (response) {
+            if (checkPropertyExistsInConfiguration(response.data)) {
+                configInitialization.constant('configProvider', response.data);
+                configInitialization.constant('configPropertyList', configPropertyList);
+            } else {
+                ngWindow.location.href = '/admin-ui/configError';
+            }
+        }, function (errorResponse) {
+            ngWindow.location.href = '/admin-ui/configError';
+        });
+    }
 
     function checkPropertyExistsInConfiguration(configObj) {
         for (var i = 0; i < configPropertyList.length; i++) {

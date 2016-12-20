@@ -97,10 +97,10 @@ module.exports = function (grunt) {
                     }
                 ]
             },
-            build_bootstrapjs: {
+            build_configInitializationjs: {
                 files: [
                     {
-                        src: ['<%= bootstrap_files.js %>'],
+                        src: ['<%= configInitialization_files.js %>'],
                         dest: '<%= build_debug_dir %>/',
                         cwd: '.',
                         expand: true
@@ -121,6 +121,16 @@ module.exports = function (grunt) {
                 files: [
                     {
                         src: ['<%= app_files.js_generated %>'],
+                        dest: '<%= build_debug_dir %>/',
+                        cwd: '.',
+                        expand: true
+                    }
+                ]
+            },
+            build_appjsmap_generated: {
+                files: [
+                    {
+                        src: ['<%= app_files.jsmap_generated %>'],
                         dest: '<%= build_debug_dir %>/',
                         cwd: '.',
                         expand: true
@@ -721,9 +731,8 @@ module.exports = function (grunt) {
             'concat:build_css',
             'copy:build_app_assets',
             'copy:build_vendor_assets',
-            'copy:build_bootstrapjs',
+            'copy:build_configInitializationjs',
             'copy:build_appjs',
-            'copy:build_appjs_generated',
             'copy:build_systemjs_resources',
             'copy:build_vendorjs',
             'copy:angular2_lib',
@@ -731,6 +740,12 @@ module.exports = function (grunt) {
             'angularFileLoader',
             'karmaconfig'
         );
+
+        if (target === targetEnum.debug) {
+            taskList.push('copy:build_appjsmap_generated');
+        } else {
+            taskList.push('copy:build_appjs_generated');
+        }
 
         if (target === targetEnum.debug || target === targetEnum.dist) {
             taskList.push('karma:unit');

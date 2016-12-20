@@ -13,7 +13,7 @@ module.exports = {
     build_reports_dir: '<%=build_dir%>' + '.reports',
     build_war_dir: '<%=build_dir%>',
     config_dir: 'app/config',
-    bootstrap_dir: 'bootstrap',
+    configInitialization_dir: 'configInitialization',
 
     /**
      * The `karma_conf_file` file name is where karma testing configuration resides.
@@ -31,8 +31,9 @@ module.exports = {
      *  - `debug_js` contains all the generated JS in the target\debug folder.
      */
     app_files: {
-        js: ['app/**/*.js', 'app/**/*.js', '!app/**/*.spec.js', '!app/**/*.e2e.js'],
+        js: ['app/**/*.js', '!app/**/*.spec.js', '!app/**/*.e2e.js'],
         js_generated: ['app_ts/**/*.js'],
+        jsmap_generated: ['app_ts/**/*'],
         jsunit: ['app/**/*.spec.js'],
         e2e: ['app/**/*.e2e.js'],
 
@@ -42,7 +43,7 @@ module.exports = {
         less: 'less/main.less',
         debug_js: [
             'target/debug/**/*.js',
-            '!target/debug/bootstrap/**/*.js',
+            '!target/debug/configInitialization/**/*.js',
             '!target/debug/**/karma.conf.js',
             '!target/debug/node_modules/**/*.js',
             '!target/debug/assets/**/*.js',
@@ -52,10 +53,11 @@ module.exports = {
     },
 
     /**
-     * Manual bootstrap for Angular 1
+     * This is a collection of file patterns that used for loading configuration for initializing Angular application
+     * The order of the files: These files will be put in the html files as the order in the array
      */
-    bootstrap_files: {
-        js: ['bootstrap/**/*.js']
+    configInitialization_files: {
+        js: ['configInitialization/**/*.js']
     },
 
     /**
@@ -117,6 +119,6 @@ module.exports = {
             'node_modules/angular-loading-bar/build/loading-bar.css'
         ],
         assets: [],
-        angular2_lib:['node_modules/@angular/**/*.js','node_modules/rxjs/**/*.js' ]
+        angular2_lib: ['node_modules/@angular/**/*.js', 'node_modules/rxjs/**/*.js']
     }
 };

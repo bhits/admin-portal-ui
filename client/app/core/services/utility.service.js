@@ -6,7 +6,7 @@
         .factory('utilityService', utilityService);
 
     /* @ngInject */
-    function utilityService($location, $anchorScroll, $window, configConstants, constants) {
+    function utilityService($location, $anchorScroll, $window, configProvider, constants) {
         var showHealthInformationMenu = false;
         var service = {};
 
@@ -236,7 +236,7 @@
 
         function isSecuredApi(url) {
             var isSecured = false;
-            angular.forEach(configConstants.securedApis, function (value) {
+            angular.forEach(configProvider.securedApis, function (value) {
                 if (startsWith(url.toLowerCase(), value.toLowerCase())) {
                     isSecured = true;
                 }

@@ -6,7 +6,7 @@
         .factory('configService', configService);
 
     /* @ngInject */
-    function configService(configConstants, configPropertyList) {
+    function configService(configProvider, configPropertyList) {
 
         var service = {};
         service.getBrandName = getBrandName;
@@ -25,7 +25,7 @@
         return service;
 
         function getConfigByPropertyKey(index) {
-            return accessPropertyByStringKey(configConstants, configPropertyList[index]);
+            return accessPropertyByStringKey(configProvider, configPropertyList[index]);
         }
 
         function getBrandName() {
