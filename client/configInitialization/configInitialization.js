@@ -25,9 +25,9 @@
     // Load the initial configuration
     angular.element(document).ready(function () {
         getAppConfig().then(function () {
-            console.log('Initial configuration successfully!');
+            console.log('Initial configuration successful.');
         }, function () {
-            console.log('Failure to initial configuration!');
+            console.log('Initial configuration failed.');
         })
     });
 
