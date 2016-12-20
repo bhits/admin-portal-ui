@@ -3,7 +3,7 @@
  */
 (function () {
     'use strict';
-    var bootstrapApp = angular.module('bootstrapApp', ['app']);
+    var configInitial = angular.module('configInitial', ['app']);
 
     // Define all expected configuration object properties
     // Note: Below array must keep in the same order as configuration object
@@ -22,6 +22,11 @@
         'unsecuredApis.tokenUrl'
     ];
 
+    // Load the initial configuration
+    angular.element(document).ready(function () {
+        getAppConfig();
+    });
+
     function getAppConfig() {
         var initInjector = angular.injector(['ng']);
         var _http = initInjector.get('$http');
@@ -29,8 +34,8 @@
 
         return _http.get('/admin-ui/config').then(function (response) {
             if (checkPropertyExistsInConfiguration(response.data)) {
-                bootstrapApp.constant('configConstants', response.data);
-                bootstrapApp.constant('configPropertyList', configPropertyList);
+                configInitial.constant('configConstants', response.data);
+                configInitial.constant('configPropertyList', configPropertyList);
             } else {
                 _window.location.href = '/admin-ui/configError';
             }
@@ -38,12 +43,6 @@
             _window.location.href = '/admin-ui/configError';
         });
     }
-
-    // Load configurations
-    angular.element(document).ready(function () {
-        getAppConfig().then(function () {
-        });
-    });
 
     function checkPropertyExistsInConfiguration(configObj) {
         for (var i = 0; i < configPropertyList.length; i++) {
