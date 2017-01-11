@@ -38,11 +38,6 @@ server:
   ssl:
     key-store: /ssl_keystore.keystore
     key-store-password: changeit
-eureka:
-  instance:
-    secure-port: ${server.port}
-    secure-port-enabled: true
-    non-secure-port-enabled: false
 ---
 # enables ssl and adds /admin-ui context path when activated
 spring.profiles: standalone-ssl
