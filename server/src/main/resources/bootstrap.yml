@@ -2,7 +2,14 @@ spring:
   application:
     name: admin-ui
   profiles:
-    active: dev
+    active: enable-config-server,dev
+# Configure a symmetric key to use for Encryption and Decryption
+# Please change THE FOLLOWING DEFAULT KEY OUTSIDE OF DEVELOPMENT ENVIRONMENTS!
+encrypt:
+  key: changeit
+---
+spring.profiles: enable-config-server
+spring:
   cloud:
     config:
       discovery:
