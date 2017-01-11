@@ -4,17 +4,6 @@ logging:
   file: /java/C2S_LOGS/admin-ui/admin-ui.log
 info:
   component: Admin Portal UI
-eureka:
-  instance:
-    instance-id: ${spring.cloud.client.hostname}:${spring.application.name}:${spring.application.instance_id:${random.value}}
-    secure-port-enabled: false
-    non-secure-port-enabled: true
-  client:
-    healthcheck:
-      enabled: true
-    service-url:
-      # endpoint for discovery-server, pass '--eureka.client.protocol=https' if discovery-server is running on https
-      defaultZone: ${eureka.client.protocol:http}://localhost:8761/eureka/
 # the configuration used for UI
 c2s:
   admin-ui:
@@ -62,12 +51,3 @@ spring:
     include: ssl
 server:
   context-path: /admin-ui
----
-# updates configuration for docker environment
-spring.profiles: docker
-eureka:
-  client:
-    service-url:
-      defaultZone: ${eureka.client.protocol:http}://discovery-server.c2s.com:8761/eureka/
-  instance:
-    prefer-ip-address: true
