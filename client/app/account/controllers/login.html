@@ -8,6 +8,21 @@
                         <div class="m-t m-l-sm">
                             <img src="assets/img/consent2share_white.png" class="c2sLoginLogo"
                                  alt="loginVm.altLogoText">
+                            <span class="pull-right m-r-md m-t-xs">
+                                <!--Select language - add by Wentao-->
+                                <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span translate="SELECT_LANGUAGE"></span><span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a ng-click="changeLanguage('en-US')" translate="BUTTON_LANG_EN"></a>
+                                    </li>
+                                    <li>
+                                        <a ng-click="changeLanguage('zh-CN')" translate="BUTTON_LANG_ZH"></a>
+                                    </li>
+                                    <li>
+                                        <a ng-click="changeLanguage('es-AR')" translate="BUTTON_LANG_ES"></a>
+                                    </li>
+                                </ul>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -17,12 +32,12 @@
                     <div class="loginColumns animated fadeInDown custom-login-column modified">
                         <div class="row m-b-xl">
                             <div class="col-md-5 m-b-md">
-                                <h1 class="font-bold text-navbar-blue">Take control of your health and well-being with
+                                <h1 class="font-bold text-navbar-blue">{{"ADMIN_LOGIN.CONTENTS_1" | translate}}
                                     <span ng-bind="loginVm.brandName"></span>.</h1>
                                 <div class="m-t border-top-navbar-blue">
-                                    <h2 class="m-t-xs font-bold m-t text-dark-blue">Welcome to the <span
-                                            ng-bind="loginVm.brandName"></span> Administration Page</h2>
-                                    <p> Please Log in.</p>
+                                    <h2 class="m-t-xs font-bold m-t text-dark-blue">{{"ADMIN_LOGIN.CONTENTS_2" | translate}} <span
+                                            ng-bind="loginVm.brandName"></span> {{"ADMIN_LOGIN.CONTENTS_3" | translate}}</h2>
+                                    <p> {{"ADMIN_LOGIN.CONTENTS_4" | translate}}</p>
                                 </div>
                             </div>
                             <div class="col-md-7 skin-1">
@@ -32,9 +47,9 @@
                                     </div>
                                     <div class="text-center">
                                         <a href="#">
-                                            <small>Forgot Password?</small>
+                                            <small>{{"ADMIN_LOGIN.CONTENTS_5" | translate}}</small>
                                         </a>
-                                        <p> Version: {{::loginVm.version}} </p>
+                                        <p> {{"ADMIN_LOGIN.CONTENTS_6" | translate}} {{::loginVm.version}} </p>
                                     </div>
                                 </div>
                             </div>
@@ -47,21 +62,21 @@
             <div class="row " style="background-color: #fff">
                 <div class="col-md-8 col-md-offset-2 padding-bottom-15">
                     <div id="ppTop" class="text-left">
-                        <h3 class="text-navbar-blue"><i class="fa fa-legal fa-2x m-r-xs"></i> About Using the <span
-                                ng-bind="loginVm.brandName"></span> Administrator account.</h3>
+                        <h3 class="text-navbar-blue"><i class="fa fa-legal fa-2x m-r-xs"></i> {{"ADMIN_LOGIN.CONTENTS_7" | translate}} <span
+                                ng-bind="loginVm.brandName"></span> {{"ADMIN_LOGIN.CONTENTS_8" | translate}}</h3>
                     </div>
-                    <p>By entering this electronic system, you have acknowledged that you have read and understand the
-                        HIPPA and HITECH regulations and requirements relating to privacy, confidentiality, and security
-                        of PHI, please read the HIPAA information.</p>
+                    <p>{{"ADMIN_LOGIN.CONTENTS_9" | translate}}</p>
 
-                    <p><span ng-bind="loginVm.brandName"></span>, a Health Insurance Portability and Accountability Act
+                    <p><span ng-bind="loginVm.brandName"></span>{{"ADMIN_LOGIN.CONTENTS_10" | translate}} </p>
+
+                    <!--<p><span ng-bind="loginVm.brandName"></span>, a Health Insurance Portability and Accountability Act
                         (HIPAA) & Health Information Technology for Economic and Clinical Health (HITECH) Act compliant
                         electronic system housing protected health information (PHI).
                         The HIPAA and HITECH regulations apply to covered entities (Consent2Share) and also extend to
                         business associates (agencies and contracted vendors).
                         For more information, please visit our <a href="http://www.hhs.gov/hipaa"
                                                                   aria-label="Health Information Privacy Website"
-                                                                  target="_blank">HIPAA and HITECH</a> resource.</p>
+                                                                  target="_blank">HIPAA and HITECH</a> resource.</p>-->
                     </p>
                 </div>
             </div>

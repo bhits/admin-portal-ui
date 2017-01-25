@@ -28,7 +28,8 @@
                 url: '/Edit',
                 templateUrl: 'app/patient/controllers/patientCreateEdit.html',
                 data: {
-                    pageTitle: 'Edit Patient',
+                    //pageTitle: 'Edit Patient',
+                    pageTitle: 'EDIT_PATIENT',
                     roles: ['ADMIN']
                 },
                 controller: 'PatientEditController',

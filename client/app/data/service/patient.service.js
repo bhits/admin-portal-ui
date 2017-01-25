@@ -76,8 +76,8 @@
             return patientUserResource.get({patientId: patientId}, success, error);
         }
 
-        function sendVerificationEmail(patientId, success, error) {
-            var patient = {"patientId": patientId};
+        function sendVerificationEmail(patientId, language, success, error) {
+            var patient = {"patientId": patientId, "requestLanguage": language};
             patientUserResource.save(patient, success, error);
         }
 

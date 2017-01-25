@@ -112,6 +112,16 @@ module.exports = function (grunt) {
                     }
                 ]
             },
+            build_i18n_json: {
+                files: [
+                    {
+                        src: ['<%=app_files.i18nLib %>'],
+                        dest: '<%= build_debug_dir %>/',
+                        cwd: '.',
+                        expand: true
+                    }
+                ]
+            },
             build_appjs: {
                 files: [
                     {
@@ -750,6 +760,7 @@ module.exports = function (grunt) {
                       'copy:build_vendor_assets',
                       'copy:build_appjs',
                       'copy:build_vendorjs',
+                      'copy:build_i18n_json',
                       'index:build',
                       'angularFileLoader',
                       'karmaconfig');

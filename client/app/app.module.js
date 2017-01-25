@@ -17,6 +17,8 @@
             'app.account',
             'app.brand',
             'app.patientMedicalDocument',
-            'app.error'
+            'app.error',
+            'tmh.dynamicLocale',
+            'pascalprecht.translate'
         ]);
 })();

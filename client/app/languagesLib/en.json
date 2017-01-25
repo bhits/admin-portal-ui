@@ -1,0 +1,164 @@
+{
+  "SELECT_LANGUAGE": "Select Language",
+  "BUTTON_LANG_EN": "English",
+  "BUTTON_LANG_ZH": "Chinese",
+  "BUTTON_LANG_ES": "Spanish",
+
+  "ADMIN_LOGIN": {
+    "CONTENTS_1": "Take control of your health and well-being with ",
+    "CONTENTS_2": "Welcome to the ",
+    "CONTENTS_3": " Administration Page",
+    "CONTENTS_4": " Please Log in.",
+    "CONTENTS_5": "Forgot Password?",
+    "CONTENTS_6": " Version: ",
+    "CONTENTS_7": " About Using the ",
+    "CONTENTS_8": " Administrator account.",
+    "CONTENTS_9": "By entering this electronic system, you have acknowledged that you have read and understand the HIPAA and HITECH regulations and requirements relating to privacy, confidentiality, and security of PHI, please read the HIPAA information.",
+    "CONTENTS_10": ", a Health Insurance Portability and Accountability Act (HIPAA) & Health Information Technology for Economic and Clinical Health (HITECH) Act compliant electronic system housing protected health information (PHI). The HIPAA and HITECH regulations apply to covered entities (Consent2Share) and also extend to business associates (agencies and contracted vendors).For more information, please visit our <a href='http://www.hhs.gov/hipaa' aria-label='Health Information Privacy Website' target='_blank'>HIPAA and HITECH</a> resource.",
+    "CONTENTS_11": "HIPAA and HITECH",
+    "CONTENTS_12": " resource."
+  },
+  "ADMIN_OAUTH_LOGIN": {
+    "CONTENTS_1": "Log in with your ",
+    "CONTENTS_2": " Admin Credentials",
+    "CONTENTS_3": "Username:",
+    "CONTENTS_4": "A username is required to login, please try again.",
+    "CONTENTS_5": "Password:",
+    "CONTENTS_6": "A password is required to login, please try again.",
+    "CONTENTS_7": "Sorry, the user name and/or password entered does not match, please try again.",
+    "CONTENTS_8": "Your account has exceeded maximum failed authentication attempts. Please wait 10 minutes to retry.",
+    "CONTENTS_9": "Whoops! We can't seem to find your account.",
+    "CONTENTS_10": "Sorry, you do not have permission to access this site.",
+    "CONTENTS_11": "Login"
+  },
+  "ADMIN_OAUTH_LOGOUT": "Logout",
+  "ADMIN_DATE_PICKER": {
+    "START": "Consent Start",
+    "END": "Consent End",
+    "MONTH": "Month",
+    "DAY": "Day",
+    "YEAR": "Year"
+  },
+  "DATA_ACCESS": {
+    "FALIURE_CONTENTS_1": "You are not authorized to access this page.",
+    "FALIURE_CONTENTS_2": "Please check with your Administrator to confirm that you have the appropriate privileges to access this page.",
+    "FALIURE_CONTENTS_3": "Back to previous Page",
+    "EXCEPTION_CONTENTS_1": "Whoops!",
+    "EXCEPTION_CONTENTS_2": "Looks like something went wrong.",
+    "EXCEPTION_CONTENTS_3": "Please report this to the administrator if it happened constantly.",
+    "EXCEPTION_CONTENTS_4": "Back to previous Page"
+  },
+  "ADMIN_HOME": {
+    "TITLE": "Home",
+    "CONTENTS_1": "Welcome to ",
+    "CONTENTS_2": " admin! You are now ready to manage your users."
+  },
+  "PATIENT_LIST": {
+    "TITLE": "Patient List",
+    "NAME": "Name",
+    "DOB": "DOB",
+    "GENDER": "Gender"
+  },
+  "PATIENT_SEARCH": {
+    "TITLE": "Search",
+    "CONTENT": "Create Patient ",
+    "CONTENT_1": "Search Patients by first and last name"
+  },
+  "ADMIN_LAYOUT": {
+    "FOOTER_1": "Copyright",
+    "FOOTER_2": " FEI Systems "
+  },
+  "PATIENT_CREATE": {
+    "CONTENTS_1": "Please complete this required field.",
+    "CONTENTS_2": "The field should contain at least 2 characters, please try again.",
+    "CONTENTS_3": "The field cannot contain more than 30 characters, please try again.",
+    "CONTENTS_4": "Dates must be in the following format: mm/dd/yyyy",
+    "CONTENTS_5": "Date of birth cannot be today's date, or a future date.",
+    "CONTENTS_6": "The email address you have provided must be valid, please try again.",
+    "CONTENTS_7": "Please provide a valid social security number. For example 123456789 or 123-45-6789.",
+    "CONTENTS_8": "Please provide a valid telephone number containing a minimum of 10 digits.",
+    "CONTENTS_9": "Please provide a valid zip code containing a minimum of 5 digits.",
+    "CONTENTS_10": "Please provide a zip codes that is no greater than 10 characters.",
+    "CONTENTS_11": "Please provide a valid name without any numbers and special characters other than a hyphen.",
+    "CONTENTS_12": "Please Note. All fields with * are required to create a User Account. Additional Information may also be added as provided.",
+    "CONTENTS_13": "Required Information",
+    "CONTENTS_14": "First Name ",
+    "CONTENTS_15": "Last Name ",
+    "CONTENTS_16": "Email ",
+    "CONTENTS_17": "Gender ",
+    "CONTENTS_18": "Gender Selection",
+    "CONTENTS_19": "Male",
+    "CONTENTS_20": "Female",
+    "CONTENTS_21": "Date of Birth ",
+    "CONTENTS_22": "Additional Information",
+    "CONTENTS_23": "SSN",
+    "CONTENTS_24": "Telephone",
+    "CONTENTS_25": "Address",
+    "CONTENTS_26": "City",
+    "CONTENTS_27": "State",
+    "CONTENTS_28": "-- choose state --",
+    "CONTENTS_29": "Zipcode",
+    "CONTENTS_30": "Cancel",
+    "CONTENTS_31": "Create Patient",
+    "CONTENTS_32": "Update Patient",
+    "CONTENTS_33": "Social security number"
+  },
+  "PATIENT_IDENTIFIER": "Patient ID:",
+  "PATIENT_VERIFICATION": {
+    "CONTENTS_1": "Account Activation / Verification Code",
+    "CONTENTS_2": "Activate Account for:",
+    "CONTENTS_3": "Verification Code:",
+    "CONTENTS_4": "Please Send Email to generate the Verification Code.",
+    "CONTENTS_5": "Sending an account activation email to the address listed above will generate a unique Verification Code. That Verification Code will be displayed above.",
+    "CONTENTS_6": "Account Status:"
+
+  },
+  "PATIENT_MED_DOC_SEARCH": {
+    "CONTENTS_1": "Please enter the required information below to to retrieve that patient's medical document.",
+    "CONTENTS_2": "Please Select",
+    "CONTENTS_3": "Your search was successful!",
+    "CONTENTS_4": "MRN: ",
+    "CONTENTS_5": "Name: ",
+    "CONTENTS_6": "DOB: ",
+    "CONTENTS_7": "Email: ",
+    "CONTENTS_8": "Sorry, no patient has been found.",
+    "CONTENTS_9": " Purpose of Use",
+    "CONTENTS_10": "Cancel",
+    "CONTENTS_11": "Retrieve Document",
+    "CONTENTS_12": "Sorry, no document has been found.",
+    "CONTENTS_13": "Patient Document",
+    "CONTENTS_14": "Document Name",
+    "CONTENTS_15": "Action",
+    "CONTENTS_16": "View"
+  },
+  "WARNING_DIALOG": {
+    "CONTENTS_1": "You're Idle. Do Something!",
+    "CONTENTS_2": "You'll be logged out in ",
+    "CONTENTS_3": "second(s)."
+  },
+  "HOME": "Home",
+  "EDIT_PATIENT": "Edit Patient",
+  "CREATE_PATIENT": "Create Patient",
+  "SEARCH_PATIENT": "Search Patient",
+  "RETRIEVE_PATIENT_DOCUMENTS": "Retrieve Patient Documents",
+  "REVIEW_PATIENT_DOC": "Review Patient Documents",
+  "CLOSE": "Close",
+
+  "ACCOUNT_STATUS": {
+    "NOT_YET_ACTIVATED": "Account Not Yet Activated.",
+    "ACCOUNT_CREATED": "Account Created.",
+    "ACTIVATION_EMAIL_SENT": "Activation Email Sent."
+  },
+
+  "Send Email": "Send Email",
+  "Resend Email": "Resend Email",
+  "HEALTH_TREATMENT": "Healthcare Treatment",
+  "RESEARCH": "Research",
+  "PAYMENT": "Payment",
+
+  "ERROR_INFO": {
+    "CONTENTS_1": "Consent must start from today",
+    "CONTENTS_2": "The start date cannot occur after the end date"
+  }
+
+}

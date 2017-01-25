@@ -11,6 +11,6 @@
 
     function PatientMedicalDocumentController() {
         var vm = this;
-        vm.title = "Retrieve Patient Documents";
+        vm.title = "RETRIEVE_PATIENT_DOCUMENTS";
     }
 })();
