@@ -58,9 +58,9 @@ This environment variable is used to setup JVM argument, such as memory configur
 `docker run --name admin-portal-ui -e "JAVA_OPTS=-Xms512m -Xmx700m -Xss1m" -d bhits/admin-portal-ui:latest`
 
 ### DEFAULT_PROGRAM_ARGS 
-This environment variable is used to setup application argument. The default value of is "--spring.profiles.active=docker".
+This environment variable is used to setup an application argument. The default value is "--spring.profiles.active=application-default,docker".
 
-`docker run --name admin-portal-ui -e DEFAULT_PROGRAM_ARGS="--spring.profiles.active=ssl,docker" -d bhits/admin-portal-ui:latest`
+`docker run --name admin-portal-ui -e DEFAULT_PROGRAM_ARGS="--spring.profiles.active=application-default,ssl,docker" -d bhits/admin-portal-ui:latest`
 
 # Supported Docker versions
 This image is officially supported on Docker version 1.12.1.
