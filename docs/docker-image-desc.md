@@ -5,7 +5,7 @@ The Admin Portal UI is an administrative user interface used to create and manag
 
 # Supported Source Code Tags and Current `Dockerfile` Link
 
-[`0.18.0 (latest)`](https://github.com/bhits/admin-portal-ui/releases/tag/0.18.0), [`1.13.0`](https://github.com/bhits/admin-portal-ui/releases/tag/0.13.0)
+[`0.18.0 (latest)`](https://github.com/bhits/admin-portal-ui/releases/tag/0.18.0), [`0.13.0`](https://github.com/bhits/admin-portal-ui/releases/tag/0.13.0)
 
 [`Current Dockerfile`](https://github.com/bhits/admin-portal-ui/blob/master/server/src/main/docker/Dockerfile)
 
