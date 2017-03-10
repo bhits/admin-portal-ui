@@ -11,6 +11,6 @@
     function PatientCreateController() {
         var vm = this;
         vm.patientdata = {};
-        vm.title = "Create Patient";
+        vm.title = "CREATE_PATIENT";
     }
 })();

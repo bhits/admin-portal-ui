@@ -15,9 +15,11 @@
 
         function request(config) {
             var currentPath = $location.path();
+            var lang = window.localStorage.lang || 'en';
             config.headers = config.headers || {};
             config.headers['Cache-Control'] = 'no-cache';
             config.headers.Pragma = 'no-cache';
+            config.headers['Accept-Language'] = lang;
 
             var accessToken = oauthTokenService.getAccessToken();
 

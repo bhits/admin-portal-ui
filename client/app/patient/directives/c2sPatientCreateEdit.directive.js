@@ -38,7 +38,12 @@
                         vm.states = response;
                     },
                     function (error) {
-                        notificationService.error("Error in getting states.");
+                        if (isEnglish()) {
+                            notificationService.error("Error in getting states.");
+                        } else {
+                            notificationService.error("Se encontraron errores al obtener los estados.");
+                        }
+
                     }
                 );
             }
@@ -46,26 +51,61 @@
             function updatePatient() {
                 patientService.updatePatient(vm.patient,
                     function success() {
-                        notificationService.success('Success in updating patient.');
+                        if (isEnglish()) {
+                            notificationService.success('Success in updating patient.');
+                        } else {
+                            notificationService.success('El paciente ha sido modificado.');
+                        }
+
                         $state.go('fe.index.home');
                     }, function error() {
-                        notificationService.error('Error in updating patient.');
+                        if (isEnglish()) {
+                            notificationService.error('Error in updating patient.');
+                        } else {
+                            notificationService.error('El paciente no pudo ser modificado.');
+                        }
+
                     });
             }
 
             function createPatient() {
                 patientService.createPatient(vm.patient,
                     function success(response) {
-                        notificationService.success('Success in creating patient.');
+                        if (isEnglish()) {
+                            notificationService.success('Success in creating patient.');
+                        } else {
+                            notificationService.success('El paciente ha sido creado.');
+                        }
+
                         $state.go('fe.index.home');
                     }, function error(response) {
                         var emailExistsException = response.data.exception;
                         if (emailExistsException.indexOf('EmailExistsException') !== -1) {
-                            notificationService.error('Sorry, the email address provided is already in use.');
+                            if (isEnglish()) {
+                                notificationService.error('Sorry, the email address provided is already in use.');
+                            } else {
+                                notificationService.error('Lo sentimos, la dirección de correo electrónico dada esta en uso.');
+                            }
+
                         } else {
-                            notificationService.error('Error in creating patient.');
+                            if (isEnglish()) {
+                                notificationService.error('Error in creating patient.');
+                            } else {
+                                notificationService.error('El paciente no pudo ser creado.');
+                            }
+
                         }
                     });
+            }
+
+            // check the language of locale - Wentao
+            function isEnglish() {
+                var language = window.localStorage.lang || 'en';
+                if (language.substring(0,2) === 'en') {
+                    return true;
+                } else {
+                    return false;
+                }
             }
 
             function isEditMode() {

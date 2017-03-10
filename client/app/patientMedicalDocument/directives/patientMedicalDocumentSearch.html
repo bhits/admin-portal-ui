@@ -1,17 +1,16 @@
 <div>
     <script type="text/ng-template" id="search-patient-messages">
-        <div ng-message="required">Please complete this required fields.</div>
-        <div ng-message="minlength">The field should contain at least 2 characters, please try again.</div>
-        <div ng-message="maxlength">The field cannot contain more than 30 characters, please try again.</div>
-        <div ng-message="isValidDate">Dates must be in the following format: mm/dd/yyyy</div>
-        <div ng-message="isFutureDate">Date of birth cannot be today's date, or a future date.</div>
+        <div ng-message="required">{{"PATIENT_CREATE.CONTENTS_1" | translate}}</div>
+        <div ng-message="minlength">{{"PATIENT_CREATE.CONTENTS_2" | translate}}</div>
+        <div ng-message="maxlength">{{"PATIENT_CREATE.CONTENTS_3" | translate}}</div>
+        <div ng-message="isValidDate">{{"PATIENT_CREATE.CONTENTS_4" | translate}}</div>
+        <div ng-message="isFutureDate">{{"PATIENT_CREATE.CONTENTS_5" | translate}}</div>
     </script>
 
     <div class="row">
         <div class="col-sm-12">
             <div class="alert alert-info" role="alert">
-                <strong>Please enter the required information below to to retrieve that patient's medical
-                    document.</strong>
+                <strong>{{"PATIENT_MED_DOC_SEARCH.CONTENTS_1" | translate}}</strong>
             </div>
         </div>
     </div>
@@ -21,12 +20,12 @@
                 <fieldset ng-disabled="patientSearchVm.isPatientExist">
                     <div class="row">
                         <div class="form-group col-sm-4">
-                            <label for="firstName">First Name</label>
+                            <label for="firstName">{{"PATIENT_CREATE.CONTENTS_14" | translate}}</label>
                             <input id="firstName"
                                    name="firstName"
                                    type="text"
                                    class="form-control"
-                                   placeholder="First Name"
+                                   placeholder="{{'PATIENT_CREATE.CONTENTS_14' | translate}}"
                                    ng-model="patientSearchVm.patient.firstName"
                                    ng-minlength="2"
                                    ng-maxlength="30"
@@ -38,12 +37,12 @@
                             </div>
                         </div>
                         <div class="form-group col-sm-4">
-                            <label for="lastName">Last Name</label>
+                            <label for="lastName">{{"PATIENT_CREATE.CONTENTS_15" | translate}}</label>
                             <input id="lastName"
                                    name="lastName"
                                    type="text"
                                    class="form-control"
-                                   placeholder="Last Name"
+                                   placeholder="{{'PATIENT_CREATE.CONTENTS_15' | translate}}"
                                    ng-model="patientSearchVm.patient.lastName"
                                    ng-minlength="2"
                                    ng-maxlength="30"
@@ -57,14 +56,14 @@
                     </div>
                     <div class="row">
                         <div class="form-group col-sm-4">
-                            <label for="genderCode">Gender</label>
+                            <label for="genderCode">{{"PATIENT_CREATE.CONTENTS_17" | translate}}</label>
                             <select id="genderCode"
                                     name="genderCode"
                                     class="form-control"
                                     ng-model="patientSearchVm.patient.genderCode" required>
-                                <option value="" disabled>Please Select</option>
-                                <option value="M">Male</option>
-                                <option value="F">Female</option>
+                                <option value="" disabled>{{"PATIENT_MED_DOC_SEARCH.CONTENTS_2" | translate}}</option>
+                                <option value="M">{{"PATIENT_CREATE.CONTENTS_19" | translate}}</option>
+                                <option value="F">{{"PATIENT_CREATE.CONTENTS_20" | translate}}</option>
                             </select>
                             <div ng-messages="searchPatientForm.genderCode.$error"
                                  ng-if="searchPatientForm.genderCode.$dirty"
@@ -73,12 +72,12 @@
                             </div>
                         </div>
                         <div class="form-group col-sm-4">
-                            <label for="birthDate">Date of Birth</label>
+                            <label for="birthDate">{{"PATIENT_CREATE.CONTENTS_21" | translate}}</label>
                             <input type="text"
                                    name="birthDate"
                                    id="birthDate"
                                    class="form-control"
-                                   placeholder="Date of birth"
+                                   placeholder="{{'PATIENT_CREATE.CONTENTS_21' | translate}}"
                                    ng-model="patientSearchVm.patient.birthDate "
                                    required c2s-datepicker
                                    c2s-format-date c2s-validate-date>
@@ -94,7 +93,7 @@
                             <button class="btn btn-primary dark-green"
                                     type="button"
                                     ng-click="patientSearchVm.search()"
-                                    ng-disabled="!patientSearchVm.canSearch(searchPatientForm)">Search Patient
+                                    ng-disabled="!patientSearchVm.canSearch(searchPatientForm)">{{"SEARCH_PATIENT" | translate}}
                             </button>
                         </div>
                     </div>
@@ -105,29 +104,29 @@
     <div ng-if="patientSearchVm.showResult" class="row">
         <div class="col-sm-12 m-t" ng-show="patientSearchVm.isPatientExist">
             <div class="alert alert-success">
-                <div class="inline">Your search was successful!</div>
+                <div class="inline">{{"PATIENT_MED_DOC_SEARCH.CONTENTS_3" | translate}}</div>
             </div>
             <div class="panel panel-default"
                  ng-repeat="patient in patientSearchVm.patientList">
                 <div class="panel-heading">
                     <h3>
-                        <span>[MRN: <span ng-bind="patient.medicalRecordNumber"></span>]</span>
+                        <span>[{{"PATIENT_MED_DOC_SEARCH.CONTENTS_4" | translate}} <span ng-bind="patient.medicalRecordNumber"></span>]</span>
                     </h3>
                 </div>
                 <div class="panel-body">
-                    <p><b>Name: </b>
+                    <p><b>{{"PATIENT_MED_DOC_SEARCH.CONTENTS_5" | translate}} </b>
                         <span ng-bind="patient.firstName"></span>
                         <span ng-bind="patient.lastName"></span>
                     </p>
-                    <p><b>DOB: </b><span ng-bind="patient.birthDate"></span></p>
-                    <p><b>Email: </b><span ng-bind="patient.email"></span></p>
+                    <p><b>{{"PATIENT_MED_DOC_SEARCH.CONTENTS_6" | translate}} </b><span ng-bind="patient.birthDate"></span></p>
+                    <p><b>{{"PATIENT_MED_DOC_SEARCH.CONTENTS_7" | translate}} </b><span ng-bind="patient.email"></span></p>
                 </div>
             </div>
             <c2s-retrieve-document></c2s-retrieve-document>
         </div>
         <div class="col-sm-12 m-t" ng-show="!patientSearchVm.isPatientExist">
             <i class="fa fa-search"></i>
-            <span class="text-muted">Sorry, no patient has been found.</span>
+            <span class="text-muted">{{"PATIENT_MED_DOC_SEARCH.CONTENTS_8" | translate}}</span>
         </div>
     </div>
 </div>

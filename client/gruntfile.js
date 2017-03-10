@@ -106,7 +106,17 @@ module.exports = function (grunt) {
                         expand: true
                     }
                 ]
-            },
+            },						
+			build_i18n_json: {
+                files: [
+                    {
+                        src: ['<%=app_files.i18nLib %>'],
+                        dest: '<%= build_debug_dir %>/',
+                        cwd: '.',
+                        expand: true
+                    }
+                ]
+            },			
             build_appjs: {
                 files: [
                     {
@@ -741,7 +751,7 @@ module.exports = function (grunt) {
             'karmaconfig'
         );
 
-        if (target === targetEnum.debug) {
+		if (target === targetEnum.debug) {
             taskList.push('copy:build_appjsmap_generated');
         } else {
             taskList.push('copy:build_appjs_generated');

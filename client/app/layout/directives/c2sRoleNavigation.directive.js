@@ -24,6 +24,7 @@
             var vm = this;
             vm.isAdmin = oauthTokenService.hasScope(securityConstants.adminScope);
             vm.isProvider = oauthTokenService.hasScope(securityConstants.providerScope);
+            //vm.isProvider = true;
         }
     }
 })();

@@ -1,18 +1,17 @@
 <script type="text/ng-template" id="admin-messages">
-    <div ng-message="required">Please complete this required field.</div>
-    <div ng-message="minlength">The field should contain at least 2 characters, please try again.</div>
-    <div ng-message="maxlength">The field cannot contain more than 30 characters, please try again.</div>
-    <div ng-message="isValidDate">Dates must be in the following format: mm/dd/yyyy</div>
-    <div ng-message="isFutureDate">Date of birth cannot be today's date, or a future date.</div>
-    <div ng-message="email">The email address you have provided must be valid, please try again.</div>
-    <div ng-message="isValidSSN">Please provide a valid social security number. For example 123456789 or 123-45-6789.
+    <div ng-message="required">{{"PATIENT_CREATE.CONTENTS_1" | translate}}</div>
+    <div ng-message="minlength">{{"PATIENT_CREATE.CONTENTS_2" | translate}}</div>
+    <div ng-message="maxlength">{{"PATIENT_CREATE.CONTENTS_3" | translate}}</div>
+    <div ng-message="isValidDate">{{"PATIENT_CREATE.CONTENTS_4" | translate}}</div>
+    <div ng-message="isFutureDate">{{"PATIENT_CREATE.CONTENTS_5" | translate}}</div>
+    <div ng-message="email">{{"PATIENT_CREATE.CONTENTS_6" | translate}}</div>
+    <div ng-message="isValidSSN">{{"PATIENT_CREATE.CONTENTS_7" | translate}}
     </div>
-    <div ng-message="isValidPhoneNumber">Please provide a valid telephone number containing a minimum of 10 digits.
+    <div ng-message="isValidPhoneNumber">{{"PATIENT_CREATE.CONTENTS_8" | translate}}
     </div>
-    <div ng-message="isValidFiveDigitZipcode">Please provide a valid zip code containing a minimum of 5 digits.</div>
-    <div ng-message="isValidTenDigitZipcode">Please provide a zip codes that is no greater than 10 characters.</div>
-    <div ng-message="isValidName">Please provide a valid name without any numbers and special characters other than a
-        hyphen.
+    <div ng-message="isValidFiveDigitZipcode">{{"PATIENT_CREATE.CONTENTS_9" | translate}}</div>
+    <div ng-message="isValidTenDigitZipcode">{{"PATIENT_CREATE.CONTENTS_10" | translate}}</div>
+    <div ng-message="isValidName">{{"PATIENT_CREATE.CONTENTS_11" | translate}}
     </div>
 </script>
 
@@ -20,14 +19,13 @@
 <div class="row">
     <div class="col-sm-12">
         <div class="p-xs alert alert-warning" role="alert">
-            <strong>Please Note. All fields with * are required to create a User Account. Additional
-                Information may also be added as provided.</strong>
+            <strong>{{"PATIENT_CREATE.CONTENTS_12" | translate}}</strong>
         </div>
     </div>
 </div>
 <div class="row">
     <div class="text-navy-blue col-sm-offset-3 col-sm-7 col-md-offset-2 col-md-5 col-lg-4">
-        <div class="font-bold font-size16 m-t-xs m-b-sm">Required Information</div>
+        <div class="font-bold font-size16 m-t-xs m-b-sm">{{"PATIENT_CREATE.CONTENTS_13" | translate}}</div>
         <div class="row">
             <div class="col-sm-12">
                 <div class="m-b border-bottom side-padding15"></div>
@@ -37,14 +35,14 @@
 </div>
 <form class="form-horizontal" name="PatientForm" novalidate>
     <div class="form-group">
-        <label for="firstName" class="col-sm-3 col-md-2 control-label">First Name <span
+        <label for="firstName" class="col-sm-3 col-md-2 control-label">{{"PATIENT_CREATE.CONTENTS_14" | translate}} <span
                 class="text-alert">*</span></label>
         <div class="col-sm-7 col-md-5 col-lg-4">
             <input id="firstName"
                    name="firstName"
                    type="text"
                    class="form-control"
-                   placeholder="First name" c2s-validate-name
+                   placeholder= "{{'PATIENT_CREATE.CONTENTS_14' | translate}}" c2s-validate-name
                    ng-model="patientCreateEditVm.patient.firstName"
                    required
                    ng-minlength="2"
@@ -57,14 +55,14 @@
     </div>
 
     <div class="form-group">
-        <label for="lastName" class="col-sm-3 col-md-2 control-label">Last Name <span
+        <label for="lastName" class="col-sm-3 col-md-2 control-label">{{"PATIENT_CREATE.CONTENTS_15" | translate}} <span
                 class="text-alert">*</span></label>
         <div class="col-sm-7 col-md-5 col-lg-4">
             <input id="lastName"
                    name="lastName"
                    type="text"
                    class="form-control"
-                   placeholder="Last name"
+                   placeholder="{{'PATIENT_CREATE.CONTENTS_15' | translate}}"
                    ng-model="patientCreateEditVm.patient.lastName"
                    c2s-validate-name
                    required
@@ -78,13 +76,13 @@
     </div>
 
     <div class="form-group">
-        <label for="email" class="col-sm-3 col-md-2 control-label">Email <span class="text-alert">*</span></label>
+        <label for="email" class="col-sm-3 col-md-2 control-label">{{"PATIENT_CREATE.CONTENTS_16" | translate}} <span class="text-alert">*</span></label>
         <div class="col-sm-7 col-md-5 col-lg-4">
             <input id="email"
                    name="email"
                    type="email"
                    class="form-control"
-                   placeholder="Email"
+                   placeholder="{{'PATIENT_CREATE.CONTENTS_16' | translate}}"
                    c2s-validate-email
                    required
                    ng-model="patientCreateEditVm.patient.email">
@@ -95,9 +93,9 @@
     </div>
 
     <div class="form-group">
-        <div class="col-sm-3 col-md-2 control-label bold">Gender <span class="text-alert">*</span></div>
+        <div class="col-sm-3 col-md-2 control-label bold">{{"PATIENT_CREATE.CONTENTS_17" | translate}} <span class="text-alert">*</span></div>
         <fieldset class="col-sm-7 col-md-6">
-            <legend class="hidden">Gender Selection</legend>
+            <legend class="hidden">{{"PATIENT_CREATE.CONTENTS_18" | translate}}</legend>
             <div class="radio">
                 <label for="male" class="side-padding0">
                     <input id="male"
@@ -106,7 +104,7 @@
                            c2s-icheck
                            ng-model="patientCreateEditVm.patient.genderCode"
                            value="M"
-                           required/>&nbsp;&nbsp;Male
+                           required/>&nbsp;&nbsp;{{"PATIENT_CREATE.CONTENTS_19" | translate}}
                 </label>
             </div>
             <div class="radio">
@@ -117,20 +115,20 @@
                            c2s-icheck
                            ng-model="patientCreateEditVm.patient.genderCode"
                            value="F"
-                           required/>&nbsp;&nbsp;Female
+                           required/>&nbsp;&nbsp;{{"PATIENT_CREATE.CONTENTS_20" | translate}}
                 </label>
             </div>
         </fieldset>
     </div>
     <div class="form-group">
-        <label for="dateOfBirth" class="col-xs-12 col-sm-3 col-md-2 control-label">Date of Birth <span
+        <label for="dateOfBirth" class="col-xs-12 col-sm-3 col-md-2 control-label">{{"PATIENT_CREATE.CONTENTS_21" | translate}} <span
                 class="text-alert">*</span></label>
         <div class="col-xs-5 col-sm-4 col-md-3 col-lg-2">
             <input id="dateOfBirth"
                    name="dateOfBirth"
                    type="text"
                    class="form-control"
-                   placeholder="Date of birth"
+                   placeholder="{{'PATIENT_CREATE.CONTENTS_21' | translate}}"
                    required
                    ng-model="patientCreateEditVm.patient.birthDate "
                    c2s-validate-date
@@ -145,7 +143,7 @@
 
     <div class="row">
         <div class="text-navy-blue col-sm-offset-3 col-sm-7 col-md-offset-2 col-md-5 col-lg-4">
-            <div class="font-bold font-size16 m-t-xs m-b-sm">Additional Information</div>
+            <div class="font-bold font-size16 m-t-xs m-b-sm">{{"PATIENT_CREATE.CONTENTS_22" | translate}}</div>
             <div class="row">
                 <div class="col-sm-12">
                     <div class="m-b border-bottom side-padding15"></div>
@@ -155,13 +153,13 @@
     </div>
 
     <div class="form-group">
-        <label for="socailSecurityNumber" class="col-xs-12 col-sm-3 col-md-2 control-label">SSN</label>
+        <label for="socailSecurityNumber" class="col-xs-12 col-sm-3 col-md-2 control-label">{{"PATIENT_CREATE.CONTENTS_23" | translate}}</label>
         <div class="col-xs-5 col-sm-4 col-md-3">
             <input id="socailSecurityNumber"
                    name="socialSecurityNumber"
                    type="text"
                    class="form-control"
-                   placeholder="Social security number"
+                   placeholder="{{'PATIENT_CREATE.CONTENTS_33' | translate}}"
                    c2s-validate-ssn
                    ng-model="patientCreateEditVm.patient.socialSecurityNumber">
             <div ng-messages="PatientForm.socialSecurityNumber.$error" ng-if="PatientForm.socialSecurityNumber.$dirty"
@@ -172,13 +170,13 @@
     </div>
 
     <div class="form-group">
-        <label for="telephoneNumber" class="col-xs-12 col-sm-3 col-md-2 control-label">Telephone</label>
+        <label for="telephoneNumber" class="col-xs-12 col-sm-3 col-md-2 control-label">{{"PATIENT_CREATE.CONTENTS_24" | translate}}</label>
         <div class="col-xs-5 col-sm-4 col-md-3">
             <input id="telephoneNumber"
                    name="telephone"
                    type="text"
                    class="form-control"
-                   placeholder="Telephone"
+                   placeholder="{{'PATIENT_CREATE.CONTENTS_24' | translate}}"
                    c2s-validate-phone-number
                    ng-model="patientCreateEditVm.patient.telephone">
             <div ng-messages="PatientForm.telephone.$error" ng-if="PatientForm.telephone.$dirty"
@@ -189,37 +187,37 @@
     </div>
 
     <div class="form-group">
-        <label for="address" class="col-sm-3 col-md-2 control-label">Address</label>
+        <label for="address" class="col-sm-3 col-md-2 control-label">{{"PATIENT_CREATE.CONTENTS_25" | translate}}</label>
         <div class="col-sm-7 col-md-5 col-lg-4">
             <input id="address"
                    name="address"
                    type="text"
                    class="form-control"
-                   placeholder="Address"
+                   placeholder="{{'PATIENT_CREATE.CONTENTS_25' | translate}}"
                    ng-model="patientCreateEditVm.patient.address">
         </div>
     </div>
 
     <div class="form-group">
-        <label for="city" class="col-sm-3 col-md-2 control-label">City</label>
+        <label for="city" class="col-sm-3 col-md-2 control-label">{{"PATIENT_CREATE.CONTENTS_26" | translate}}</label>
         <div class="col-sm-7 col-md-5 col-lg-4">
             <input id="city"
                    name="city"
                    type="text"
                    class="form-control"
-                   placeholder="City"
+                   placeholder="{{'PATIENT_CREATE.CONTENTS_26' | translate}}"
                    ng-model="patientCreateEditVm.patient.city">
         </div>
     </div>
 
     <div class="form-group">
-        <label for="state" class="col-sm-3 col-md-2 control-label">State</label>
+        <label for="state" class="col-sm-3 col-md-2 control-label">{{"PATIENT_CREATE.CONTENTS_27" | translate}}</label>
         <div class="col-sm-7 col-md-5 col-lg-4">
             <select id="state"
                     name="state"
                     class="form-control"
                     ng-model="patientCreateEditVm.patient.stateCode">
-                <option value="">-- choose state --</option>
+                <option value="">{{"PATIENT_CREATE.CONTENTS_28" | translate}}</option>
                 <option ng-repeat="s in patientCreateEditVm.states" value="{{s.code}}"
                         ng-selected="s.code == patientCreateEditVm.patient.stateCode">{{s.displayName}}
                 </option>
@@ -228,15 +226,15 @@
     </div>
 
     <div class="form-group">
-        <label for="zipcode" class="col-xs-12 col-sm-3 col-md-2 control-label">Zipcode</label>
+        <label for="zipcode" class="col-xs-12 col-sm-3 col-md-2 control-label">{{"PATIENT_CREATE.CONTENTS_29" | translate}}</label>
         <div class="col-xs-5 col-sm-4 col-md-3 col-lg-2">
             <input id="zipcode"
                    name="zipcode"
                    type="text"
                    class="form-control"
-                   placeholder="Zip Code"
+                   placeholder="{{'PATIENT_CREATE.CONTENTS_29' | translate}}"
                    c2s-validate-zipcode
-                   placeholder="Zip Code"
+                   placeholder="{{'PATIENT_CREATE.CONTENTS_29' | translate}}"
                    ng-model="patientCreateEditVm.patient.zip">
             <div ng-messages="PatientForm.zipcode.$error" ng-if="PatientForm.zipcode.$dirty"
                  class="text-alert">
@@ -246,20 +244,20 @@
     </div>
     <div class="form-group">
         <div class="col-sm-7 col-sm-offset-3 col-md-offset-2">
-            <button class="btn btn-white m-r" type="button" ng-click="patientCreateEditVm.cancel()">Cancel</button>
+            <button class="btn btn-white m-r" type="button" ng-click="patientCreateEditVm.cancel()">{{"PATIENT_CREATE.CONTENTS_30" | translate}}</button>
             <button class="btn btn-primary dark-green"
                     type="submit"
                     ng-click="patientCreateEditVm.createPatient()"
                     ng-disabled="!patientCreateEditVm.canCreate(PatientForm)"
                     ng-if="!patientCreateEditVm.isEditMode()">
-                Create Patient
+                {{"PATIENT_CREATE.CONTENTS_31" | translate}}
             </button>
             <button class="btn btn-primary dark-green"
                     type="submit"
                     ng-click="patientCreateEditVm.updatePatient()"
                     ng-disabled="!patientCreateEditVm.canCreate(PatientForm)"
                     ng-if="patientCreateEditVm.isEditMode()">
-                Update Patient
+                {{"PATIENT_CREATE.CONTENTS_32" | translate}}
             </button>
         </div>
     </div>

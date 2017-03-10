@@ -1,0 +1,162 @@
+{
+  "SELECT_LANGUAGE": "Seleccione idioma",
+  "BUTTON_LANG_EN": "Inglés",
+  "BUTTON_LANG_ZH": "Chino",
+  "BUTTON_LANG_ES": "Español",
+  "ADMIN_LOGIN": {
+    "CONTENTS_1": "Tome control de su salud y bienestar con ",
+    "CONTENTS_2": "Bienvenido a la Página de Administración ",
+    "CONTENTS_3": "",
+    "CONTENTS_4": " Por favor Inicie Sesión.",
+    "CONTENTS_5": "¿Se olvidó la Contraseña?",
+    "CONTENTS_6": " Versión: ",
+    "CONTENTS_7": " Sobre Usar la Cuenta del Administrador ",
+    "CONTENTS_8": "",
+    "CONTENTS_9": "Al entrar en este sistema electrónico, reconoce que ha leído y comprendido las regulaciones de HIPAA, HITECH y los requisitos relacionados a privacidad, confidencialidad y seguridad de su PHI. Por favor lea la información sobre HIPAA.",
+    "CONTENTS_10": ", el Health Insurance Portability and Accountability Act (HIPAA) y el Health Information Technology for Economic and Clinical Health (HITECH) Act son compatibles con este sistema electrónico que guarda información médica protegida (PHI). Las regulaciones HIPAA y HITECH se aplican a entidades cubiertas (Consent2Share) y se extienden a negocios asociados (agencias y proveedores contratados). Para más información, por favor visite nuestro. ",
+    "CONTENTS_11": "recurso sobre ",
+    "CONTENTS_12": " HIPAA y HITECH."
+  },
+  "ADMIN_OAUTH_LOGIN": {
+    "CONTENTS_1": "Iniciar sesión con Credenciales de Administrador ",
+    "CONTENTS_2": "",
+    "CONTENTS_3": "Nombre de usuario:",
+    "CONTENTS_4": "Un nombre de usuario es requerido para iniciar la sesión, por favor inténtelo de nuevo.",
+    "CONTENTS_5": "Contraseña:",
+    "CONTENTS_6": "Una contraseña es necesaria para iniciar la sesión, por favor inténtelo de nuevo. ",
+    "CONTENTS_7": "Perdón, el nombre de usuario y/o contraseña ingresado no coinciden, por favor inténtelo de nuevo.",
+    "CONTENTS_8": "Su cuenta ha superado el máximo de intentos fallidos de autenticación. Por favor espere 10 minutos antes de reintentar.",
+    "CONTENTS_9": "¡Whoops! No hemos podido encontrar su cuenta.",
+    "CONTENTS_10": "Lo sentimos, no tiene autorización para acceder este sitio.",
+    "CONTENTS_11": "Iniciar sesión"
+  },
+  "ADMIN_OAUTH_LOGOUT": "Cerrar sesión",
+  "ADMIN_DATE_PICKER": {
+    "START": "Comienzo del Consentimiento ",
+    "END": "Fin del Consentimiento",
+    "MONTH": "Mes",
+    "DAY": "Día",
+    "YEAR": "Año"
+  },
+  "DATA_ACCESS": {
+    "FALIURE_CONTENTS_1": "No tiene autorización para acceder esta página.",
+    "FALIURE_CONTENTS_2": "Por favor comuníquese con el Administrador para confirmar que tiene los privilegios necesarios para acceder a esta página.",
+    "FALIURE_CONTENTS_3": " Volver a la Página anterior ",
+    "EXCEPTION_CONTENTS_1": "¡Whoops!",
+    "EXCEPTION_CONTENTS_2": "Parce que algo salió mal.",
+    "EXCEPTION_CONTENTS_3": "Por favor reporte este problema al administrador si vuelve a suceder.",
+    "EXCEPTION_CONTENTS_4": "Volver a la Página anterior "
+  },
+  "ADMIN_HOME": {
+    "TITLE": "Inicio",
+    "CONTENTS_1": "¡Bienvenido ",
+    "CONTENTS_2": " Administrador! Puede empezar a gestionar sus usuarios."
+  },
+  "PATIENT_LIST": {
+    "TITLE": "Lista de Pacientes",
+    "NAME": "Nombre",
+    "DOB": "Fecha de nacimiento",
+    "GENDER": "Sexo"
+  },
+  "PATIENT_SEARCH": {
+    "TITLE": "Buscar",
+    "CONTENT": "Crear Paciente ",
+    "CONTENT_1": "Buscar Pacientes usando nombre y apellido "
+  },
+  "ADMIN_LAYOUT": {
+    "FOOTER_1": "Derechos de autor",
+    "FOOTER_2": " FEI Systems "
+  },
+  "PATIENT_CREATE": {
+    "CONTENTS_1": "Por favor complete la información requerida.",
+    "CONTENTS_2": "Debe contener al menos dos caracteres, por favor inténtelo de nuevo.",
+    "CONTENTS_3": "No puede contener más de 30 caracteres, por favor inténtelo de nuevo.",
+    "CONTENTS_4": "Las fechas deben ingresarse en el siguiente formato: mm/dd/aaaa",
+    "CONTENTS_5": "El día de su nacimiento no puede ser el día de hoy, o un día futuro.",
+    "CONTENTS_6": "La dirección de correo que ha ingresado debe ser válida, por favor inténtelo de nuevo.",
+    "CONTENTS_7": "Por favor, provea un número válido de seguridad social. Por ejemplo 123456789 o 123-45-6789.",
+    "CONTENTS_8": "Por favor, provee un número de teléfono válido que contenga un mínimo de 10 dígitos.",
+    "CONTENTS_9": "Por favor, provea un código postal válido que contenga un mínimo de 5 dígitos.",
+    "CONTENTS_10": "Por favor, provea un código postal que no contenga más de 10 caracteres.",
+    "CONTENTS_11": "Por favor, provea un nombre válido que no contenga números u otros caracteres especiales, aparte de guión.",
+    "CONTENTS_12": "Por favor note que toda la información con * es requerida para crear su Cuenta de Usuario. Información adicional puede ser ingresada también.",
+    "CONTENTS_13": "Información Requerida",
+    "CONTENTS_14": "Nombre",
+    "CONTENTS_15": "Apellido ",
+    "CONTENTS_16": "Correo Electrónico",
+    "CONTENTS_17": "Sexo ",
+    "CONTENTS_18": "Selección de Sexo",
+    "CONTENTS_19": "Masculino",
+    "CONTENTS_20": "Femenino",
+    "CONTENTS_21": "Fecha de Nacimiento",
+    "CONTENTS_22": "Información Adicional ",
+    "CONTENTS_23": "Numero de Seguridad Social",
+    "CONTENTS_24": "Teléfono",
+    "CONTENTS_25": "Dirección",
+    "CONTENTS_26": "Ciudad",
+    "CONTENTS_27": "Estado",
+    "CONTENTS_28": "—elija estado--",
+    "CONTENTS_29": "Código Postal",
+    "CONTENTS_30": "Cancelar",
+    "CONTENTS_31": "Crear Paciente",
+    "CONTENTS_32": "Modificar Paciente",
+    "CONTENTS_33": "Número de Seguridad Social "
+  },
+  "PATIENT_IDENTIFIER": "Identificador del Paciente:",
+  "PATIENT_VERIFICATION": {
+    "CONTENTS_1": "Activación de Cuenta / Código de Verificación",
+    "CONTENTS_2": "Activar Cuenta para:",
+    "CONTENTS_3": "Código de Verificación:",
+    "CONTENTS_4": "Por favor Enviar Correo Electrónico para generar el Código de Verificación.",
+    "CONTENTS_5": "El envío de un correo electrónico para pedir la activación de una cuenta a la dirección listada abajo generara un Código único de Verificación. El Código de Verificación será mostrado abajo.",
+    "CONTENTS_6": "Estado de la Cuenta:"
+
+  },
+  "PATIENT_MED_DOC_SEARCH": {
+    "CONTENTS_1": "Por favor ingrese la información requerida debajo para recuperar el documento médico del paciente.",
+    "CONTENTS_2": "Por favor Seleccione",
+    "CONTENTS_3": "¡Su búsqueda fue exitosa!",
+    "CONTENTS_4": "Número de Registro Médico: ",
+    "CONTENTS_5": "Nombre: ",
+    "CONTENTS_6": "Fecha de nacimiento: ",
+    "CONTENTS_7": "Correo electrónico: ",
+    "CONTENTS_8": "Lo siento, ningún paciente ha sido encontrado.",
+    "CONTENTS_9": " Fines de Uso",
+    "CONTENTS_10": "Cancelar",
+    "CONTENTS_11": "Recuperar Documento",
+    "CONTENTS_12": "Lo siento, ningún documento ha sido encontrado.",
+    "CONTENTS_13": "Documento del Paciente",
+    "CONTENTS_14": "Nombre del Documento ",
+    "CONTENTS_15": "Acción",
+    "CONTENTS_16": "Ver"
+  },
+  "WARNING_DIALOG": {
+    "CONTENTS_1": "Está inactivo. ¡Haga algo!",
+    "CONTENTS_2": "Sera desconectado en ",
+    "CONTENTS_3": " segundo (s)."
+  },
+  "HOME": "Inicio",
+  "EDIT_PATIENT": "Editar Paciente",
+  "CREATE_PATIENT": "Crear Paciente",
+  "SEARCH_PATIENT": "Buscar Paciente",
+  "RETRIEVE_PATIENT_DOCUMENTS": "Recuperar Documentos del Paciente ",
+  "REVIEW_PATIENT_DOC": "Revisar Documentos del Paciente ",
+  "CLOSE": "Cerrar",
+
+  "ACCOUNT_STATUS": {
+    "NOT_YET_ACTIVATED": "La Cuenta no ha sido Activada.",
+    "ACCOUNT_CREATED": "La Cuenta fue Creada.",
+    "ACTIVATION_EMAIL_SENT": "Se ha enviado el Email de Activación."
+  },
+  "Send Email": "Enviar Email",
+  "Resend Email": "Re-enviar Email",
+  "HEALTH_TREATMENT": "Tratamiento Médico ",
+  "RESEARCH": "Investigación",
+  "PAYMENT": "Pago",
+
+  "ERROR_INFO": {
+    "CONTENTS_1": "El consentimiento es válido desde hoy ",
+    "CONTENTS_2": "La fecha de inicio no puede ser posterior a la fecha de fin"
+  }
+
+}

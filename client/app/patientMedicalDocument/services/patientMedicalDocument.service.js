@@ -79,23 +79,46 @@
 
         //TODO: Need getting data from API
         function getPurposeOfUse() {
-            var purposeOfUseResource = [
-                {
-                    "code": "HEALTHCARE_TREATMENT",
-                    "displayName": "Healthcare Treatment",
-                    "description": "To perform one or more operations on information for the provision of health care."
-                },
-                {
-                    "code": "PAYMENT",
-                    "displayName": "Payment",
-                    "description": "To perform one or more operations on information for conducting financial or contractual activities related to payment for the provision of health care."
-                },
-                {
-                    "code": "RESEARCH",
-                    "displayName": "Research",
-                    "description": "To perform one or more operations on information for conducting scientific investigations to obtain health care knowledge."
-                }
-            ];
+            var language = window.localStorage.lang || 'en';
+            var purposeOfUseResource;
+            if (language.substring(0,2) === 'en') {
+                purposeOfUseResource = [
+                    {
+                        "code": "HEALTHCARE_TREATMENT",
+                        "displayName": "Healthcare Treatment",
+                        "description": "To perform one or more operations on information for the provision of health care."
+                    },
+                    {
+                        "code": "PAYMENT",
+                        "displayName": "Payment",
+                        "description": "To perform one or more operations on information for conducting financial or contractual activities related to payment for the provision of health care."
+                    },
+                    {
+                        "code": "RESEARCH",
+                        "displayName": "Research",
+                        "description": "To perform one or more operations on information for conducting scientific investigations to obtain health care knowledge."
+                    }
+                ];
+            } else if (language.substring(0,2) === 'es') {
+                purposeOfUseResource = [
+                    {
+                        "code": "HEALTHCARE_TREATMENT",
+                        "displayName": "Tratamiento Médico",
+                        "description": "To perform one or more operations on information for the provision of health care."
+                    },
+                    {
+                        "code": "PAYMENT",
+                        "displayName": "Pago",
+                        "description": "To perform one or more operations on information for conducting financial or contractual activities related to payment for the provision of health care."
+                    },
+                    {
+                        "code": "RESEARCH",
+                        "displayName": "Investigación",
+                        "description": "To perform one or more operations on information for conducting scientific investigations to obtain health care knowledge."
+                    }
+                ];
+            }
+
             return purposeOfUseResource;
         }
 
