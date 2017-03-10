@@ -115,12 +115,12 @@ module.exports = {
             'node_modules/ngstorage/ngStorage.js',
             'node_modules/checklist-model/checklist-model.js',
             'node_modules/angular-jwt/dist/angular-jwt.js',
-			'vendor/angular-translate/angular-translate.js',
-            'vendor/angular-translate-loader-static-files/angular-translate-loader-static-files.js',
-            'vendor/angular-i18n/angular-locale_en.js',
-            'vendor/angular-i18n/angular-locale_es.js',
-            'vendor/angular-i18n/angular-locale_zh.js',
-            'vendor/angular-dynamic-locale/tmhDynamicLocale.min.js'
+			'node_modules/angular-translate/angular-translate.js',
+            'node_modules/angular-translate-loader-static-files/angular-translate-loader-static-files.js',
+            'node_modules/angular-i18n/angular-locale_en.js',
+            'node_modules/angular-i18n/angular-locale_es.js',
+            'node_modules/angular-i18n/angular-locale_zh.js',
+            'node_modules/angular-dynamic-locale/tmhDynamicLocale.min.js'
         ],
         css: [
             'node_modules/angular-loading-bar/build/loading-bar.css'
