@@ -48,7 +48,12 @@
     "reflect-metadata": "0.1.x",
     "rxjs": "5.0.0-beta.12",
     "systemjs": "0.19.x",
-    "zone.js": "0.6.x"
+    "zone.js": "0.6.x",
+    "x2js":"3.1.0",
+    "angular-translate": "2.10.0",
+    "angular-translate-loader-static-files": "2.10.0",
+    "angular-i18n": "1.4.0",
+    "angular-dynamic-locale": ""
   },
   "devDependencies": {
     "angular-mocks": "1.5.0",

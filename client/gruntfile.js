@@ -745,6 +745,7 @@ module.exports = function (grunt) {
             'copy:build_appjs',
             'copy:build_systemjs_resources',
             'copy:build_vendorjs',
+            'copy:build_i18n_json',
             'copy:angular2_lib',
             'index:build',
             'angularFileLoader',
