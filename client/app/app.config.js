@@ -29,7 +29,7 @@
         //get dynamic local value
         var language = window.localStorage.lang || 'en';
         $translateProvider.preferredLanguage(language);
-        $translateProvider.useSanitizeValueStrategy('sanitize');
+        $translateProvider.useSanitizeValueStrategy('escape');
         tmhDynamicLocaleProvider.localeLocationPattern('node_modules/angular-i18n/angular-locale_{{locale}}.js');
 
         $translateProvider.registerAvailableLanguageKeys(['en', 'zh', 'es'], {
