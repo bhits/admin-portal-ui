@@ -1,7 +1,4 @@
 'use strict';
-/**
- * Created by tomson.ngassa on 7/20/2015.
- */
 
 xdescribe('app.servicesModule  ', function () {
     var module;

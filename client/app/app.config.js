@@ -1,6 +1,3 @@
-/**
- * Created by tomson.ngassa on 3/8/2016.
- */
 (function () {
     'use strict';
 
@@ -25,7 +22,6 @@
         IdleProvider.timeout(idleConfigParams.timeout); // in seconds
         KeepaliveProvider.interval(idleConfigParams.keepalive); // in seconds
 
-        // realize i18n for Admin Portal-UI : ADD BY Wentao
         //get dynamic local value
         var language = window.localStorage.lang || 'en';
         $translateProvider.preferredLanguage(language);

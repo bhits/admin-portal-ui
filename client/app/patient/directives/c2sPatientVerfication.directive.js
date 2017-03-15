@@ -1,7 +1,3 @@
-/**
- * Created by Feruz.Abdella on 3/23/2016.
- */
-
 (function () {
     'use strict';
 
@@ -101,7 +97,7 @@
                 return status;
             }
 
-            // check whether the current locale is en - Wentao
+            // check whether the current locale is en
             function isEnglish() {
                 var language = window.localStorage.lang || 'en';
                 if (language.substring(0,2) === 'en') {

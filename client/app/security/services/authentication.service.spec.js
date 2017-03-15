@@ -1,7 +1,3 @@
-/**
- * Created by tomson.ngassa on 7/20/2015.
- */
-
 'use strict';
 
 xdescribe('app.security ', function () {

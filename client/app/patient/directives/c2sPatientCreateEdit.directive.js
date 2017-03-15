@@ -98,7 +98,6 @@
                     });
             }
 
-            // check the language of locale - Wentao
             function isEnglish() {
                 var language = window.localStorage.lang || 'en';
                 if (language.substring(0,2) === 'en') {

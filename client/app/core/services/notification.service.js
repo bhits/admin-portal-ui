@@ -1,7 +1,3 @@
-/**
- * Created by tomson.ngassa on 10/8/2015.
- */
-
 (function () {
     'use strict';
 
