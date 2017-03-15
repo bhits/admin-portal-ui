@@ -9,7 +9,6 @@
     function c2sDatepickerRange(utilityService) {
         var directive = {
             restrict: 'A',
-            //language: 'zh-CN',
             link: linkFunc
         };
         return directive;

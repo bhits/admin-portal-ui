@@ -145,7 +145,7 @@
             appVm.togglebar = !appVm.togglebar;
         }
 
-        // change language dynamically- add by Wentao
+        // Change language dynamically
         var lang = window.localStorage.lang || 'en';
         setDynamicLanguage(lang);
         $scope.changeLanguage = function (language) {
@@ -166,18 +166,12 @@
 
         //translate the text of pagination of bootstrap
         function setTextofPagination(language) {
-            if (language === "zh") {
-                paginationConfig.firstText = "第一页";
-                paginationConfig.previousText = "上一页";
-                paginationConfig.lastText = "最后一页";
-                paginationConfig.nextText = "下一页";
-            } else if (language === "es"){
+            if (language === "es"){
                 paginationConfig.firstText = "Inicio";
                 paginationConfig.previousText = "Anterior";
                 paginationConfig.lastText = "Fin";
                 paginationConfig.nextText = "Próximo";
             } else if (language === "en"){
-                // note the different effects between REFRESH and choosing LANGUAGE
                 paginationConfig.firstText = "First";
                 paginationConfig.previousText = "Previous";
                 paginationConfig.lastText = "Last";

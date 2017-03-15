@@ -32,9 +32,8 @@
         $translateProvider.useSanitizeValueStrategy('escape');
         tmhDynamicLocaleProvider.localeLocationPattern('node_modules/angular-i18n/angular-locale_{{locale}}.js');
 
-        $translateProvider.registerAvailableLanguageKeys(['en', 'zh', 'es'], {
+        $translateProvider.registerAvailableLanguageKeys(['en', 'es'], {
             'en-*': 'en',
-            'zh-*': 'zh',
             'es-*': 'es'
         });
 
