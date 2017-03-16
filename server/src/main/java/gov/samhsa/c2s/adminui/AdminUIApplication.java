@@ -14,11 +14,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class AdminUIApplication {
 
     public static void main(String[] args) {
+
         SpringApplication.run(AdminUIApplication.class, args);
     }
 
     @RequestMapping(value = "/fe/**")
     public String redirect() {
+
         return "forward:/";
     }
 }

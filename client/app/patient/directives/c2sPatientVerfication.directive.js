@@ -1,13 +1,15 @@
-/**
- * Created by Feruz.Abdella on 3/23/2016.
- */
-
 (function () {
     'use strict';
 
     angular
         .module('app.patient')
-        .directive('c2sPatientVerification', c2sPatientVerification);
+        .directive('c2sPatientVerification', c2sPatientVerification)
+        .directive('chooseEmailLanguage', function () {
+            var directive = {
+
+            };
+            return directive;
+        });
 
     function c2sPatientVerification() {
         var directive = {
@@ -17,14 +19,16 @@
             controllerAs: 'patientVerificationVm',
             bindToController: {
                 verificationinfo: '=',
-                patientdata: '='
+                patientdata: '=',
+                lang: '='
             },
             controller: PatientVerificationController
+            //controller: 'app/patient/controllers/patientVerification.controller.js'
         };
         return directive;
 
         /* @ngInject */
-        function PatientVerificationController(notificationService, patientService) {
+        function PatientVerificationController(notificationService, patientService, $modal) {
             var vm = this;
             vm.patient = vm.patientdata;
             vm.verificationEmail = setEmail();
@@ -54,13 +58,21 @@
                 }
             }
 
-            function sendEmail() {
-                patientService.sendVerificationEmail(vm.patient.id,
+            function sendEmail(language) {
+                patientService.sendVerificationEmail(vm.patient.id, language,
                     function success() {
-                        notificationService.success('email sent successfully');
+                        if (isEnglish()) {
+                            notificationService.success('email sent successfully');
+                        } else {
+                            notificationService.success('el correo electrónico ha sido enviado');
+                        }
                         verifyPatient();
                     }, function error() {
-                        notificationService.error('Failed to send email, please try again later...');
+                        if (isEnglish()) {
+                            notificationService.error('Failed to send email, please try again later...');
+                        } else {
+                            notificationService.error('El correo electrónico no pudo ser enviado, por favor inténtelo de nuevo...');
+                        }
                     });
             }
 
@@ -72,17 +84,26 @@
             }
 
             function getStatus() {
-                var status = 'Account Not Yet Activated.';
+                var status = 'ACCOUNT_STATUS.NOT_YET_ACTIVATED';
                 if (angular.isDefined(vm.verification)) {
                     var verificationCodeSent = angular.isDefined(vm.verification.verificationCode);
                     if (isAccountVerified()) {
-                        status = 'Account Created.';
+                        status = 'ACCOUNT_STATUS.ACCOUNT_CREATED';
                     }
                     else if (verificationCodeSent) {
-                        status = 'Activation Email Sent.';
+                        status = 'ACCOUNT_STATUS.ACTIVATION_EMAIL_SENT';
                     }
                 }
                 return status;
+            }
+
+            // check whether the current locale is en
+            function isEnglish() {
+                var language = window.localStorage.lang || 'en';
+                if (language.substring(0,2) === 'en') {
+                    return true;
+                }
+                return false;
             }
 
             function isAccountVerified() {

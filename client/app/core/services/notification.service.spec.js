@@ -1,7 +1,3 @@
-/**
- * Created by tomson.ngassa on 10/14/2015.
- */
-
 'use strict';
 
 xdescribe('app.notificationModule  ', function () {

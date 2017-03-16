@@ -1,6 +1,3 @@
-/**
- * Created by Jiahao.Li on 11/12/2016.
- */
 (function () {
     'use strict';
     var configInitialization = angular.module('configInitialization', ['app']);

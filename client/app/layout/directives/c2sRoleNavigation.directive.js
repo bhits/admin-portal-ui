@@ -1,6 +1,3 @@
-/**
- * Created by jiahao.li on 7/14/2016.
- */
 (function () {
     'use strict';
 
@@ -24,6 +21,7 @@
             var vm = this;
             vm.isAdmin = oauthTokenService.hasScope(securityConstants.adminScope);
             vm.isProvider = oauthTokenService.hasScope(securityConstants.providerScope);
+            //vm.isProvider = true;
         }
     }
 })();

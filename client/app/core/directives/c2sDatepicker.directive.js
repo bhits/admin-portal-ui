@@ -15,7 +15,14 @@
 
         /* @ngInject */
         function linkFunc(scope, element, attr, ngModel) {
-            element.datepicker({todayBtn: "linked", autoclose: true});
+            var language = window.localStorage.lang || 'en';
+            element.datepicker({
+                todayBtn: "linked",
+                autoclose: true,
+                todayHighlight: true,
+                format: 'mm/dd/yyyy',
+                language: language
+            });
         }
     }
 })();

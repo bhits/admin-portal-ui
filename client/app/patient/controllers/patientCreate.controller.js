@@ -1,6 +1,3 @@
-/**
- * Created by Feruz.Abdella on 3/21/2016.
- */
 (function () {
     'use strict';
 
@@ -11,6 +8,6 @@
     function PatientCreateController() {
         var vm = this;
         vm.patientdata = {};
-        vm.title = "Create Patient";
+        vm.title = "CREATE_PATIENT";
     }
 })();

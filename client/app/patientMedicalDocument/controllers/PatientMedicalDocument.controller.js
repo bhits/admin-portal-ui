@@ -1,7 +1,3 @@
-/**
- * Created by jiahao.li on 6/29/2016.
- */
-
 (function () {
     'use strict';
 
@@ -11,6 +7,6 @@
 
     function PatientMedicalDocumentController() {
         var vm = this;
-        vm.title = "Retrieve Patient Documents";
+        vm.title = "RETRIEVE_PATIENT_DOCUMENTS";
     }
 })();

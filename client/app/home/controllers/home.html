@@ -1,6 +1,6 @@
 ﻿<div class="row wrapper border-bottom white-bg page-heading">
     <div class="col-sm-10">
-        <h1>Home</h1>
+        <h1>{{"ADMIN_HOME.TITLE" | translate}}</h1>
     </div>
     <div class="col-sm-2">
     </div>
@@ -14,8 +14,7 @@
                         data-dismiss="alert"
                         aria-label="Close"><span
                         aria-hidden="true">&times;</span></button>
-                <strong>Welcome to <span ng-bind="homeVm.brandName"></span> admin! You are now ready to manage your
-                    users.</strong>
+                <strong>{{"ADMIN_HOME.CONTENTS_1" | translate}} <span ng-bind="homeVm.brandName"></span> {{"ADMIN_HOME.CONTENTS_2" | translate}}</strong>
             </div>
         </div>
     </div>

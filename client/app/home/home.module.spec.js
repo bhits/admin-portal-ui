@@ -1,7 +1,3 @@
-/**
- * Created by tomson.ngassa on 12/7/2015.
- */
-
 'use strict';
 describe('app.home ', function () {
     var module;

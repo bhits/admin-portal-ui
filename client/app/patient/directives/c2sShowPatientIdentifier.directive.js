@@ -1,7 +1,3 @@
-/**
- * Created by jiahao.li on 7/20/2016.
- */
-
 (function () {
     'use strict';
 

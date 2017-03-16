@@ -38,6 +38,7 @@ module.exports = {
         e2e: ['app/**/*.e2e.js'],
 
         atpl: ['app/**/*.html'],
+        i18nLib: ['app/languagesLib/*.json'],
 
         html: ['index.html'],
         less: 'less/main.less',
@@ -113,7 +114,13 @@ module.exports = {
             'node_modules/angular-ui-router/release/angular-ui-router.js',
             'node_modules/ngstorage/ngStorage.js',
             'node_modules/checklist-model/checklist-model.js',
-            'node_modules/angular-jwt/dist/angular-jwt.js'
+            'node_modules/angular-jwt/dist/angular-jwt.js',
+			'node_modules/angular-translate/dist/angular-translate.js',
+            'node_modules/angular-translate-loader-static-files/angular-translate-loader-static-files.js',
+            'node_modules/angular-i18n/angular-locale_en.js',
+            'node_modules/angular-i18n/angular-locale_es.js',
+            'node_modules/angular-i18n/angular-locale_zh.js',
+            'node_modules/angular-dynamic-locale/dist/tmhDynamicLocale.min.js'
         ],
         css: [
             'node_modules/angular-loading-bar/build/loading-bar.css'
