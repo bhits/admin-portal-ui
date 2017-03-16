@@ -13,8 +13,8 @@
     "CONTENTS_7": " About Using the ",
     "CONTENTS_8": " Administrator account.",
     "CONTENTS_9": "By entering this electronic system, you have acknowledged that you have read and understand the HIPAA and HITECH regulations and requirements relating to privacy, confidentiality, and security of PHI, please read the HIPAA information.",
-    "CONTENTS_10": ", a Health Insurance Portability and Accountability Act (HIPAA) & Health Information Technology for Economic and Clinical Health (HITECH) Act compliant electronic system housing protected health information (PHI). The HIPAA and HITECH regulations apply to covered entities (Consent2Share) and also extend to business associates (agencies and contracted vendors).For more information, please visit our <a href='http://www.hhs.gov/hipaa' aria-label='Health Information Privacy Website' target='_blank'>HIPAA and HITECH</a> resource.",
-    "CONTENTS_11": "HIPAA and HITECH",
+    "CONTENTS_10": ", a Health Insurance Portability and Accountability Act (HIPAA) and Health Information Technology for Economic and Clinical Health (HITECH) Act compliant electronic system housing protected health information (PHI). The HIPAA and HITECH regulations apply to covered entities (Consent2Share) and also extend to business associates (agencies and contracted vendors). For more information, please visit our",
+    "CONTENTS_11": " HIPAA and HITECH",
     "CONTENTS_12": " resource."
   },
   "ADMIN_OAUTH_LOGIN": {
