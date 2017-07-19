@@ -1,6 +1,6 @@
 {
   "name": "admin-ui",
-  "version": "0.20.0",
+  "version": "0.20.1",
   "description": "",
   "title": "Admin Portal",
   "private": true,
@@ -105,7 +105,7 @@
     "jasmine-core": "2.5.2"
   },
   "engines": {
-    "node": ">= 4.4.7"
+    "node": ">= 6.11.1"
   }
 }
 
